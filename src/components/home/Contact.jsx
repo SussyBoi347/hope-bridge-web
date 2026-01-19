@@ -36,7 +36,7 @@ export default function Contact() {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-24 lg:py-32 bg-gradient-to-b from-sky-50 to-blue-50">
+      <section id="contact" className="py-24 lg:py-32 bg-gradient-to-br from-blue-800 via-slate-900 to-blue-900 text-white">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -64,7 +64,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-gradient-to-b from-sky-50 to-blue-50">
+    <section id="contact" className="py-24 lg:py-32 bg-gradient-to-br from-blue-800 via-slate-900 to-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
@@ -73,38 +73,38 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
+            <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
               Contact Us
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-white leading-tight">
               Let's start a conversation
             </h2>
             
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-6 text-lg text-blue-100 leading-relaxed">
               Whether you're a teen seeking support, a parent looking for resources, 
               a school interested in partnership, or someone who wants to contribute—we'd love to hear from you.
             </p>
 
             <div className="mt-10 space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-cyan-300" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Email</h4>
-                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-slate-600 hover:text-blue-600 transition-colors">
+                  <h4 className="font-semibold text-white">Email</h4>
+                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-200 hover:text-cyan-300 transition-colors">
                     hopebridgecommunityservices@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-cyan-300" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Location</h4>
-                  <p className="text-slate-600">
+                  <h4 className="font-semibold text-white">Location</h4>
+                  <p className="text-blue-200">
                     Sammamish, Washington<br />
                     Serving communities nationwide
                   </p>
@@ -112,8 +112,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-10 pt-8 border-t border-slate-100">
-              <h4 className="font-semibold text-slate-900 mb-4">Follow Our Journey</h4>
+            <div className="mt-10 pt-8 border-t border-white/20">
+              <h4 className="font-semibold text-white mb-4">Follow Our Journey</h4>
               <div className="flex gap-4">
                 <a 
                   href="#" 
@@ -152,7 +152,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 lg:p-10 border border-blue-100/40 shadow-lg shadow-blue-100/30">
+            <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/30 shadow-xl shadow-black/30">
               <div className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">

@@ -18,7 +18,7 @@ export default function Partnerships() {
   };
 
   return (
-    <section id="partnerships" className="py-24 lg:py-32 bg-gradient-to-b from-cyan-50 via-blue-50 to-sky-50">
+    <section id="partnerships" className="py-24 lg:py-32 bg-gradient-to-br from-blue-900 via-slate-800 to-cyan-900 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
@@ -27,20 +27,20 @@ export default function Partnerships() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
+            <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
               For Schools
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-white leading-tight">
               Partner with Hope Bridge
             </h2>
             
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-6 text-lg text-blue-100 leading-relaxed">
               Schools play a critical role in supporting student mental health. 
               Hope Bridge works alongside educators to create environments where 
               every student—especially those facing cultural pressures around success—feels supported.
             </p>
 
-            <p className="mt-4 text-slate-600 leading-relaxed">
+            <p className="mt-4 text-blue-100 leading-relaxed">
               Our programs are designed to complement existing school counseling services, 
               not replace them. We bring specialized understanding of Asian American teen 
               experiences that can enhance your school's support ecosystem.
@@ -63,7 +63,7 @@ export default function Partnerships() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl shadow-blue-200/40 border border-blue-100/30">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-xl shadow-black/20 border border-white/30">
               <h3 className="text-xl font-semibold text-slate-900 mb-6">
                 What we offer schools
               </h3>

@@ -4,7 +4,7 @@ import { Lightbulb, Target, Compass } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-sky-100/40">
+    <section id="about" className="py-24 lg:py-32 bg-gradient-to-b from-teal-50 via-cyan-100 to-blue-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div

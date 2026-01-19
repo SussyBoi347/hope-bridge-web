@@ -23,7 +23,7 @@ const goals = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="py-24 lg:py-32 bg-gradient-to-b from-blue-50 via-sky-50 to-blue-100/30">
+    <section id="impact" className="py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,13 +32,13 @@ export default function Impact() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
+          <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
             Our Impact
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
             Real stories, real change
           </h2>
-          <p className="mt-6 text-lg text-slate-600">
+          <p className="mt-6 text-lg text-blue-100">
             We measure our success not in numbers alone, but in the moments when 
             a teen feels understood for the first time.
           </p>
@@ -55,7 +55,7 @@ export default function Impact() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
             >
-              <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-blue-100/40 border border-blue-100/30">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/20 border border-white/30">
                 <Quote className="w-10 h-10 text-blue-500/30 mb-6" />
                 <blockquote className="text-xl text-slate-700 leading-relaxed mb-6">
                   "{testimonial.quote}"

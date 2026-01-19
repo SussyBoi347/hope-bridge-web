@@ -9,7 +9,7 @@ const statistics = [
 
 export default function Problem() {
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-sky-50 to-cyan-50">
+    <section className="py-24 lg:py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
@@ -18,10 +18,10 @@ export default function Problem() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
+            <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
               The Challenge
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-white leading-tight">
               A silent struggle many teens face alone
             </h2>
             
@@ -53,10 +53,10 @@ export default function Problem() {
             className="relative"
           >
             {/* Abstract visual element */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-sky-200/5 to-cyan-300/10 rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-blue-300/5 to-sky-300/10 rounded-3xl" />
             
-            <div className="relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl shadow-blue-100/40 border border-blue-100/30">
-              <h3 className="text-xl font-semibold text-slate-900 mb-8">
+            <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl shadow-black/20 border border-white/40">
+              <h3 className="text-xl font-semibold text-blue-900 mb-8">
                 The reality we're addressing
               </h3>
               
