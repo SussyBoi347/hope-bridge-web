@@ -88,7 +88,7 @@ export default function GetSupport() {
                 {
                   icon: Shield,
                   title: 'Resource Navigation',
-                  desc: 'Not sure where to turn? We help you find the right support—whether that's counseling, crisis resources, or just someone to talk to.'
+                  desc: "Not sure where to turn? We help you find the right support—whether that's counseling, crisis resources, or just someone to talk to."
                 }
               ].map((item, idx) => (
                 <motion.div

@@ -73,7 +73,7 @@ export default function About() {
               {
                 icon: Users,
                 title: 'Culturally Grounded',
-                desc: 'We don't just acknowledge cultural context—we center it. Our programs are designed with Asian American family dynamics, identity struggles, and community pressures in mind.'
+                desc: "We don't just acknowledge cultural context—we center it. Our programs are designed with Asian American family dynamics, identity struggles, and community pressures in mind."
               },
               {
                 icon: Target,

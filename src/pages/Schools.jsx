@@ -117,7 +117,7 @@ export default function Schools() {
                 {
                   icon: MessageCircle,
                   title: 'Ongoing Consultation',
-                  desc: 'We don't just visit once. Our team provides continued partnership, resources, and guidance as your program grows.'
+                  desc: "We don't just visit once. Our team provides continued partnership, resources, and guidance as your program grows."
                 }
               ].map((item, idx) => (
                 <motion.div
