@@ -189,63 +189,14 @@ export default function Mission() {
                 <p className="text-slate-600 leading-relaxed mb-4">
                   {goal.description}
                 </p>
-                <ul className="space-y-3">
-                  {goal.details.map((detail, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-slate-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How We Work */}
-      <section className="py-16 px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4">
-              How We Make It Happen
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Our approach combines community, culture, and compassion
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {howWeWork.map((approach, index) => (
-              <motion.div
-                key={approach.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-50 flex items-center justify-center mb-4">
-                  <approach.icon className="w-7 h-7 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  {approach.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  {approach.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why This Matters */}
+{/* Why This Matters */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-slate-800 to-cyan-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -256,38 +207,7 @@ export default function Mission() {
             <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
               Why This Work Matters
             </h2>
-            
-            {/* Key Stats */}
-            <div className="grid grid-cols-3 gap-6 mb-10">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-bold text-cyan-300">2.5x</div>
-                <div className="text-sm text-blue-200 mt-1">Higher depression rates</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-bold text-cyan-300">30%</div>
-                <div className="text-sm text-blue-200 mt-1">Considered suicide</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-bold text-cyan-300">8%</div>
-                <div className="text-sm text-blue-200 mt-1">Seek professional help</div>
-              </div>
-            </div>
-            <div className="space-y-6 text-lg text-blue-100 leading-relaxed">
-              <p>
-                Asian American teens are experiencing a mental health crisis, yet they're the least likely 
-                demographic to seek help. Cultural stigma, language barriers, and a lack of culturally-informed 
-                resources create impossible barriers.
-              </p>
-              <p>
-                Hope Bridge exists because we believe no teen should suffer in silence. We're not just providing 
-                services—we're changing the narrative around mental health in Asian communities, one conversation, 
-                one peer group, one family at a time.
-              </p>
-              <p className="font-medium text-white text-xl">
-                Together, we're building a future where asking for help is seen as strength, 
-                where cultural identity is celebrated, and where every teen knows they deserve support.
-              </p>
-            </div>
+
           </motion.div>
         </div>
       </section>
