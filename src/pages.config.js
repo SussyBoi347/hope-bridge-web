@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Mission from './pages/Mission';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
+import StoryProject from './pages/StoryProject';
+import StorySharing from './pages/StorySharing';
 import __Layout from './Layout.jsx';
 
 
@@ -20,6 +22,8 @@ export const PAGES = {
     "Mission": Mission,
     "Programs": Programs,
     "Schools": Schools,
+    "StoryProject": StoryProject,
+    "StorySharing": StorySharing,
 }
 
 export const pagesConfig = {

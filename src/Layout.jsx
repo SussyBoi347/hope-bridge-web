@@ -29,7 +29,7 @@ export default function Layout({ children, currentPageName }) {
     { label: 'Home', page: 'Home' },
     { label: 'Mission', page: 'Mission' },
     { label: 'Get Support', page: 'GetSupport' },
-    { label: 'Programs', page: 'Programs' },
+    { label: 'Story Project', page: 'StoryProject' },
     { label: 'Schools', page: 'Schools' },
     { label: 'Get Involved', page: 'GetInvolved' },
     { label: 'About', page: 'About' },
