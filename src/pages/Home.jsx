@@ -47,7 +47,6 @@ export default function Home() {
       </section>
       <Partnerships />
       <Contact />
-      <Footer />
     </div>
   );
 }
