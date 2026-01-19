@@ -6,7 +6,6 @@ import Programs from '@/components/home/Programs';
 import Impact from '@/components/home/Impact';
 import GetInvolved from '@/components/home/GetInvolved';
 import Partnerships from '@/components/home/Partnerships';
-import Donate from '@/components/home/Donate';
 import About from '@/components/home/About';
 import Contact from '@/components/home/Contact';
 import Footer from '@/components/home/Footer';
