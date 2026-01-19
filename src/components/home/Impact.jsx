@@ -23,7 +23,7 @@ const goals = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="py-24 lg:py-32 bg-gradient-to-b from-white to-blue-50/20">
+    <section id="impact" className="py-24 lg:py-32 bg-[#F7F5F0]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

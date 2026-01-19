@@ -16,7 +16,7 @@ const pathways = [
     title: "Parents & Families",
     description: "Access resources designed to help you understand and support your teen's mental health journey.",
     cta: "Learn More",
-    color: "bg-gradient-to-br from-indigo-500 to-blue-500"
+    color: "bg-gradient-to-br from-sky-600 to-blue-500"
   },
   {
     icon: Building2,
@@ -40,7 +40,7 @@ export default function GetInvolved() {
   };
 
   return (
-    <section id="get-involved" className="py-24 lg:py-32 bg-gradient-to-b from-indigo-50/20 via-blue-50/30 to-white">
+    <section id="get-involved" className="py-24 lg:py-32 bg-[#F7F5F0]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
