@@ -9,9 +9,8 @@ import Mission from '@/components/home/Mission';
 import Problem from '@/components/home/Problem';
 import CommunitySurvey from '@/components/home/CommunitySurvey';
 import Impact from '@/components/home/Impact';
-import Partnerships from '@/components/home/Partnerships';
-import About from '@/components/home/About';
 import Contact from '@/components/home/Contact';
+import StorySection from '@/components/home/StorySection';
 
 export default function Home() {
   return (
