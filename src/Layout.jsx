@@ -91,8 +91,8 @@ export default function Layout({ children, currentPageName }) {
                   to={createPageUrl(link.page)}
                   className={`px-4 py-2 text-sm rounded-full transition-all ${
                     currentPageName === link.page
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
+                      ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
+                      : 'bg-gradient-to-r from-blue-100 to-cyan-100 text-slate-700 hover:from-blue-200 hover:to-cyan-200'
                   }`}
                 >
                   {link.label}
