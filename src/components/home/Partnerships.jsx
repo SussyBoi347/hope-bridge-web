@@ -4,13 +4,13 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 const benefits = [
-  "Culturally responsive mental health workshops for students",
-  "Professional development for counselors and staff",
-  "Student-led peer support program implementation",
-  "Parent education sessions on teen mental health",
-  "Crisis response planning and support",
-  "Ongoing consultation and resources"
-];
+"Culturally responsive mental health workshops for students",
+"Professional development for counselors and staff",
+"Student-led peer support program implementation",
+"Parent education sessions on teen mental health",
+"Crisis response planning and support",
+"Ongoing consultation and resources"];
+
 
 export default function Partnerships() {
   const scrollToContact = () => {
@@ -25,8 +25,8 @@ export default function Partnerships() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
+
             <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
               For Schools
             </span>
@@ -34,10 +34,10 @@ export default function Partnerships() {
               Partner with Hope Bridge
             </h2>
             
-            <p className="mt-6 text-lg text-blue-100 leading-relaxed">
-              Schools play a critical role in supporting student mental health. 
-              Hope Bridge works alongside educators to create environments where 
-              every student—especially those facing cultural pressures around success—feels supported.
+            <p className="mt-6 text-lg text-blue-100 leading-relaxed">Schools play a critical role in supporting student mental health. Hope Bridge aims to work alongside educators to create environments where every student especially those facing cultural pressures around success feels supported.
+
+
+
             </p>
 
             <p className="mt-4 text-blue-100 leading-relaxed">
@@ -47,10 +47,10 @@ export default function Partnerships() {
             </p>
 
             <div className="mt-8">
-              <Button 
+              <Button
                 onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-500/25"
-              >
+                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-500/25">
+
                 Discuss Partnership
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -61,27 +61,27 @@ export default function Partnerships() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+            transition={{ duration: 0.6, delay: 0.2 }}>
+
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-xl shadow-black/20 border border-white/30">
               <h3 className="text-xl font-semibold text-slate-900 mb-6">
                 What we offer schools
               </h3>
 
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                    className="flex items-start gap-3"
-                  >
+                {benefits.map((benefit, index) =>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
+                  className="flex items-start gap-3">
+
                     <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">{benefit}</span>
                   </motion.div>
-                ))}
+                )}
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-100">
@@ -94,6 +94,6 @@ export default function Partnerships() {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
