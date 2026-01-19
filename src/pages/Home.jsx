@@ -1,0 +1,30 @@
+import React from 'react';
+import Hero from '@/components/home/Hero';
+import Mission from '@/components/home/Mission';
+import Problem from '@/components/home/Problem';
+import Programs from '@/components/home/Programs';
+import Impact from '@/components/home/Impact';
+import GetInvolved from '@/components/home/GetInvolved';
+import Partnerships from '@/components/home/Partnerships';
+import Donate from '@/components/home/Donate';
+import About from '@/components/home/About';
+import Contact from '@/components/home/Contact';
+import Footer from '@/components/home/Footer';
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Hero />
+      <Mission />
+      <Problem />
+      <Programs />
+      <Impact />
+      <GetInvolved />
+      <Partnerships />
+      <Donate />
+      <About />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
