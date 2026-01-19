@@ -30,15 +30,18 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-4">
-              Ready to make a difference?
+            <span className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
+              Share Your Story
+            </span>
+            <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-slate-900 mb-4">
+              Your story matters
             </h2>
             <p className="text-lg text-slate-600 mb-8">
-              Whether you're a student seeking support, a parent wanting to learn more, or someone passionate about mental health, there are meaningful ways to get involved.
+              Through the Story Project, teens share their real experiences with cultural identity, academic pressures, and family dynamics. Read inspiring stories, find community, and connect with others who understand your journey.
             </p>
-            <Link to={createPageUrl('GetInvolved')}>
+            <Link to={createPageUrl('StoryProject')}>
               <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-6 text-base rounded-full shadow-lg shadow-blue-500/25">
-                Explore Ways to Get Involved
+                Explore Stories
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
