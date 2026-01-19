@@ -89,9 +89,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-8 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto"
           >
-            Hope Bridge creates safe spaces for Asian teens navigating academic pressure, 
-            cultural expectations, and identity. We're building a community where mental 
-            health conversations are welcomed, not silenced.
+            Hope Bridge creates <span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">safe spaces</span> for Asian teens navigating academic pressure, 
+            cultural expectations, and identity. We're building a community where <span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">mental health conversations</span> are welcomed, not silenced.
           </motion.p>
 
           <motion.div
