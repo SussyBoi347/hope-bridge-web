@@ -36,7 +36,7 @@ export default function About() {
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-10 shadow-sm border border-slate-100"
           >
-            <h2 className="text-3xl font-semibold text-slate-900 mb-6">Our Story</h2>
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6">Our Story</h2>
             <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
                 Hope Bridge was born from a simple observation: too many Asian American teens are 
@@ -72,7 +72,7 @@ export default function About() {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
                 <Target className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Our Mission</h3>
+              <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-3">Our Mission</h3>
               <p className="text-slate-600 leading-relaxed">
                 To provide culturally informed mental health support for Asian American teens, 
                 creating safe spaces where they can be heard, understood, and empowered.
@@ -89,7 +89,7 @@ export default function About() {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Our Vision</h3>
+              <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-3">Our Vision</h3>
               <p className="text-slate-600 leading-relaxed">
                 A community where Asian American teens thrive emotionally, where mental health 
                 conversations are normalized, and where cultural identity is celebrated, not silenced.
@@ -106,7 +106,7 @@ export default function About() {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
                 <Heart className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Our Values</h3>
+              <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-3">Our Values</h3>
               <p className="text-slate-600 leading-relaxed">
                 Cultural sensitivity, peer support, accessibility, breaking stigma, and empowering 
                 the next generation to prioritize their mental wellness.
@@ -125,7 +125,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <Users className="w-12 h-12 text-blue-600 mx-auto mb-6" />
-            <h2 className="text-3xl font-semibold text-slate-900 mb-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6">
               Our Team
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">

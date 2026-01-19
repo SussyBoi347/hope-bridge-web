@@ -39,7 +39,7 @@ export default function Mission() {
           <span className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
             Our Mission
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-tight">
             Mental health support that understands your experience
           </h2>
           <p className="mt-6 text-lg text-slate-600 leading-relaxed">

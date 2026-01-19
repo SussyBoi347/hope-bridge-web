@@ -78,7 +78,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 leading-[1.1] tracking-tight"
           >
-            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
               Every teen deserves to be heard.
             </span>
           </motion.h1>
