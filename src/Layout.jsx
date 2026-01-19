@@ -28,7 +28,7 @@ export default function Layout({ children, currentPageName }) {
   const navLinks = [
     { label: 'Home', page: 'Home' },
     { label: 'Mission', page: 'Mission' },
-    { label: 'Story Wall', page: 'StoryProject' },
+    { label: 'Story Project', page: 'StoryProject' },
     { label: 'Get Support', page: 'GetSupport' },
     { label: 'Schools', page: 'Schools' },
     { label: 'Get Involved', page: 'GetInvolved' },

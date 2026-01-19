@@ -74,19 +74,21 @@ export default function StoryProject() {
           </motion.div>
 
           {/* Brick Wall */}
-          <div className="bg-gradient-to-b from-blue-100 to-blue-50 rounded-2xl p-6 lg:p-8">
-            <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(60px, 1fr))' }}>
-              {[...Array(42)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.02 }}
-                  className={`aspect-square bg-gradient-to-br from-blue-600 to-blue-700 rounded-md shadow-md hover:shadow-lg hover:scale-110 transition-all cursor-pointer border border-blue-800/30 ${
-                    i % 2 === 0 ? 'translate-x-0' : 'translate-x-8'
-                  }`}
-                />
+          <div className="bg-gradient-to-b from-amber-900 to-amber-950 rounded-2xl p-6 lg:p-8 shadow-inner">
+            <div className="space-y-2">
+              {[...Array(8)].map((_, row) => (
+                <div key={row} className="flex gap-2" style={{ marginLeft: row % 2 === 1 ? '32px' : '0' }}>
+                  {[...Array(row % 2 === 1 ? 6 : 7)].map((_, col) => (
+                    <motion.div
+                      key={`${row}-${col}`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (row * 7 + col) * 0.03 }}
+                      className="flex-1 h-16 bg-gradient-to-br from-red-700 to-red-900 rounded shadow-md hover:shadow-lg hover:from-red-600 transition-all cursor-pointer border border-red-950/50"
+                    />
+                  ))}
+                </div>
               ))}
             </div>
           </div>
