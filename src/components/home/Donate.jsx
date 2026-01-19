@@ -37,7 +37,7 @@ export default function Donate() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-1"
           >
-            <div className="bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-white rounded-2xl p-8 lg:p-10 border border-blue-100/60">
+            <div className="bg-gradient-to-br from-blue-50/50 via-sky-50/30 to-cyan-50/40 rounded-2xl p-8 lg:p-10 border border-blue-100/40 shadow-lg shadow-blue-100/30">
               <h3 className="text-xl font-semibold text-slate-900 mb-8">
                 Your impact at every level
               </h3>
@@ -66,7 +66,7 @@ export default function Donate() {
               <div className="mt-8">
                 <Button 
                   onClick={scrollToContact}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 rounded-xl shadow-lg shadow-blue-500/30"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-6 rounded-xl shadow-lg shadow-blue-500/30"
                 >
                   <Heart className="w-5 h-5 mr-2" />
                   Make a Donation

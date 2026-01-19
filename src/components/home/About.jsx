@@ -4,7 +4,7 @@ import { Lightbulb, Target, Compass } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-gradient-to-b from-white via-slate-50/50 to-blue-50/40">
+    <section id="about" className="py-24 lg:py-32 bg-gradient-to-b from-white via-blue-50/20 to-sky-50/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
@@ -51,8 +51,8 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-100/50 shadow-lg shadow-blue-100/30">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-5 shadow-md">
+            <div className="bg-white rounded-2xl p-8 border border-blue-100/40 shadow-lg shadow-blue-100/40">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 flex items-center justify-center mb-5 shadow-md shadow-blue-300/40">
                 <Lightbulb className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Our Origin</h3>
@@ -62,8 +62,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-100/50 shadow-lg shadow-blue-100/30">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center mb-5 shadow-md">
+            <div className="bg-white rounded-2xl p-8 border border-blue-100/40 shadow-lg shadow-blue-100/40">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 via-blue-500 to-sky-500 flex items-center justify-center mb-5 shadow-md shadow-blue-300/40">
                 <Target className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Our Focus</h3>
@@ -73,8 +73,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-100/50 shadow-lg shadow-blue-100/30">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center mb-5 shadow-md">
+            <div className="bg-white rounded-2xl p-8 border border-blue-100/40 shadow-lg shadow-blue-100/40">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center mb-5 shadow-md shadow-blue-300/40">
                 <Compass className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Our Vision</h3>

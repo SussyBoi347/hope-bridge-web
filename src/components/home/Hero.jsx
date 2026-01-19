@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Abstract gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-white to-indigo-50/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-sky-50/40" />
       
       {/* Floating abstract shapes */}
       <div className="absolute inset-0 overflow-hidden">
@@ -19,19 +19,19 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
           transition={{ duration: 2 }}
-          className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 blur-3xl"
+          className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-blue-400/30 to-cyan-300/20 blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ duration: 2, delay: 0.3 }}
-          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-gradient-to-tr from-indigo-400/25 to-sky-400/20 blur-3xl"
+          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-gradient-to-tr from-indigo-400/25 to-sky-300/20 blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.3 }}
           transition={{ duration: 2, delay: 0.6 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-400/15 via-transparent to-violet-400/15 blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-300/15 via-sky-200/10 to-cyan-300/15 blur-3xl"
         />
       </div>
 
@@ -50,7 +50,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 text-sm font-medium mb-8 border border-blue-100/50">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100 text-blue-700 text-sm font-medium mb-8">
               <Heart className="w-4 h-4" />
               Supporting Asian Teen Mental Health
             </span>
@@ -63,7 +63,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 leading-[1.1] tracking-tight"
           >
             Every teen deserves
-            <span className="block mt-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
               space to be heard
             </span>
           </motion.h1>
@@ -87,7 +87,7 @@ export default function Hero() {
           >
             <Button 
               onClick={() => scrollToSection('get-involved')}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-base rounded-full shadow-lg shadow-blue-500/30 transition-all hover:shadow-xl hover:shadow-indigo-500/40"
+              className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 text-base rounded-full shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/35"
             >
               Get Support
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -95,7 +95,7 @@ export default function Hero() {
             <Button 
               variant="outline"
               onClick={() => scrollToSection('partnerships')}
-              className="border-2 border-blue-200 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-50/50 px-8 py-6 text-base rounded-full transition-all"
+              className="border-2 border-blue-200 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50/50 px-8 py-6 text-base rounded-full transition-all"
             >
               Partner With Us
             </Button>
@@ -109,10 +109,10 @@ export default function Hero() {
           >
             <p className="text-sm text-slate-500 mb-4">Trusted by communities across</p>
             <div className="flex flex-wrap gap-8 items-center text-slate-400">
-              <span className="text-sm font-medium tracking-wide">Sammamish Schools</span>
-              <span className="hidden sm:block w-px h-4 bg-blue-200" />
-              <span className="text-sm font-medium tracking-wide">Pacific Northwest Communities</span>
-              <span className="hidden sm:block w-px h-4 bg-blue-200" />
+              <span className="text-sm font-medium tracking-wide">Washington Schools</span>
+              <span className="hidden sm:block w-px h-4 bg-slate-200" />
+              <span className="text-sm font-medium tracking-wide">Community Centers</span>
+              <span className="hidden sm:block w-px h-4 bg-slate-200" />
               <span className="text-sm font-medium tracking-wide">Asian American Families</span>
             </div>
           </motion.div>

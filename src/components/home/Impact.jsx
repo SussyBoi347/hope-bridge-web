@@ -23,7 +23,7 @@ const goals = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="py-24 lg:py-32 bg-gradient-to-b from-white via-blue-50/20 to-indigo-50/30">
+    <section id="impact" className="py-24 lg:py-32 bg-gradient-to-b from-white to-blue-50/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function Impact() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-violet-600 font-medium text-sm tracking-wide uppercase">
+          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
             Our Impact
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
@@ -55,13 +55,13 @@ export default function Impact() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
             >
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-lg shadow-blue-100/30 border border-blue-100/50">
-                <Quote className="w-10 h-10 text-indigo-300/40 mb-6" />
+              <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-blue-100/40 border border-blue-100/30">
+                <Quote className="w-10 h-10 text-blue-500/30 mb-6" />
                 <blockquote className="text-xl text-slate-700 leading-relaxed mb-6">
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 shadow-md" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 shadow-md shadow-blue-300/50" />
                   <div>
                     <p className="font-medium text-slate-900">{testimonial.author}</p>
                     <p className="text-sm text-slate-500">{testimonial.location}</p>
@@ -80,7 +80,7 @@ export default function Impact() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 rounded-3xl p-10 lg:p-14 shadow-2xl shadow-blue-500/30">
+          <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-10 lg:p-14 shadow-2xl shadow-blue-300/30">
             <div className="text-center mb-10">
               <h3 className="text-2xl font-semibold text-white mb-2">
                 Where we're headed

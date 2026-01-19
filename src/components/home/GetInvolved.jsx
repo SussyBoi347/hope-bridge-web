@@ -9,28 +9,28 @@ const pathways = [
     title: "Students",
     description: "Join a peer support circle, attend a workshop, or simply reach out when you need someone who understands.",
     cta: "Find Support",
-    color: "bg-gradient-to-br from-blue-600 to-indigo-600"
+    color: "bg-gradient-to-br from-blue-600 to-blue-500"
   },
   {
     icon: Heart,
     title: "Parents & Families",
     description: "Access resources designed to help you understand and support your teen's mental health journey.",
     cta: "Learn More",
-    color: "bg-gradient-to-br from-cyan-500 to-blue-500"
+    color: "bg-gradient-to-br from-indigo-500 to-blue-500"
   },
   {
     icon: Building2,
     title: "Schools & Organizations",
     description: "Partner with us to bring mental health awareness and support programs to your students.",
     cta: "Partner With Us",
-    color: "bg-gradient-to-br from-indigo-600 to-violet-600"
+    color: "bg-gradient-to-br from-blue-700 to-blue-600"
   },
   {
     icon: HandHeart,
     title: "Supporters & Donors",
     description: "Your contribution helps us keep all programs free and accessible to every teen who needs them.",
     cta: "Support Our Work",
-    color: "bg-gradient-to-br from-sky-500 to-cyan-500"
+    color: "bg-gradient-to-br from-sky-500 to-cyan-400"
   }
 ];
 
@@ -71,7 +71,7 @@ export default function GetInvolved() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50/20 border border-blue-100/50 hover:border-blue-300/70 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300">
+              <div className="h-full flex flex-col p-6 rounded-2xl bg-white border border-blue-100/40 hover:border-blue-300/50 hover:shadow-xl hover:shadow-blue-200/40 transition-all duration-300">
                 <div className={`w-12 h-12 ${pathway.color} rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-blue-300/30`}>
                   <pathway.icon className="w-6 h-6 text-white" />
                 </div>

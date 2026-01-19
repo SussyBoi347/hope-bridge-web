@@ -56,7 +56,7 @@ export default function Footer() {
                 />
                 <Button 
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 flex-shrink-0"
+                  className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 flex-shrink-0"
                 >
                   Subscribe
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -73,7 +73,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-400/30">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold">Hope Bridge</span>
