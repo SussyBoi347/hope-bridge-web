@@ -89,13 +89,14 @@ export default function Layout({ children, currentPageName }) {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button
-                variant="ghost"
-                onClick={() => scrollToSection('donate')}
-                className="text-slate-600 hover:text-blue-600 hover:bg-blue-50"
-              >
-                Donate
-              </Button>
+              <Link to={createPageUrl('Donate')}>
+                <Button
+                  variant="ghost"
+                  className="text-slate-600 hover:text-blue-600 hover:bg-blue-50"
+                >
+                  Donate
+                </Button>
+              </Link>
               <Button
                 onClick={() => scrollToSection('get-involved')}
                 className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-6 shadow-lg shadow-blue-500/25"
@@ -135,13 +136,14 @@ export default function Layout({ children, currentPageName }) {
                   </button>
                 ))}
                 <div className="pt-4 flex flex-col gap-3">
-                  <Button
-                    variant="outline"
-                    onClick={() => scrollToSection('donate')}
-                    className="w-full border-slate-200 text-slate-700"
-                  >
-                    Donate
-                  </Button>
+                  <Link to={createPageUrl('Donate')} className="w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full border-slate-200 text-slate-700"
+                    >
+                      Donate
+                    </Button>
+                  </Link>
                   <Button
                     onClick={() => scrollToSection('get-involved')}
                     className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white"
