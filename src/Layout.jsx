@@ -38,11 +38,11 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen">
       <style>{`
         :root {
-          --color-primary: #5B4E77;
-          --color-primary-dark: #3F3351;
-          --color-accent: #7B9AB8;
+          --color-primary: #2563EB;
+          --color-primary-dark: #1E40AF;
+          --color-accent: #0EA5E9;
           --color-sand: #F7F5F0;
-          --color-warm-blue: #E8EEF3;
+          --color-warm-blue: #E0F2FE;
         }
 
         html {
@@ -54,7 +54,7 @@ export default function Layout({ children, currentPageName }) {
         }
 
         ::selection {
-          background-color: rgba(91, 78, 119, 0.2);
+          background-color: rgba(37, 99, 235, 0.2);
         }
       `}</style>
 
@@ -76,7 +76,7 @@ export default function Layout({ children, currentPageName }) {
               to={createPageUrl('Home')} 
               className="flex items-center gap-2.5"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5B4E77] to-[#7B9AB8] flex items-center justify-center shadow-md shadow-indigo-900/20">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-900/20">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
@@ -90,8 +90,8 @@ export default function Layout({ children, currentPageName }) {
                   to={createPageUrl(link.page)}
                   className={`px-4 py-2 text-sm rounded-full transition-all ${
                     currentPageName === link.page
-                      ? 'text-[#5B4E77] bg-[#E8EEF3]'
-                      : 'text-slate-600 hover:text-[#5B4E77] hover:bg-[#E8EEF3]/50'
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
                   }`}
                 >
                   {link.label}
@@ -103,7 +103,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-3">
               <Link to={createPageUrl('Donate')}>
                 <Button
-                  className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full px-6 shadow-md shadow-indigo-900/15"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full px-6 shadow-md shadow-blue-900/15"
                 >
                   Donate
                 </Button>
@@ -138,8 +138,8 @@ export default function Layout({ children, currentPageName }) {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block w-full text-left px-4 py-3 rounded-xl transition-all ${
                       currentPageName === link.page
-                        ? 'text-[#5B4E77] bg-[#E8EEF3]'
-                        : 'text-slate-600 hover:text-[#5B4E77] hover:bg-[#E8EEF3]/50'
+                        ? 'text-blue-600 bg-blue-50'
+                        : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
                     }`}
                   >
                     {link.label}
@@ -147,7 +147,7 @@ export default function Layout({ children, currentPageName }) {
                 ))}
                 <div className="pt-4">
                   <Link to={createPageUrl('Donate')} className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full">
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full">
                       Donate
                     </Button>
                   </Link>
