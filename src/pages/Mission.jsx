@@ -239,24 +239,6 @@ export default function Mission() {
                 <p className="text-slate-600 leading-relaxed mb-4">
                   {approach.description}
                 </p>
-                {index === 0 && (
-                  <div className="mt-4 pt-4 border-t border-blue-100">
-                    <div className="text-xl font-bold text-blue-600">40+ sessions</div>
-                    <div className="text-xs text-slate-500">hosted this year</div>
-                  </div>
-                )}
-                {index === 1 && (
-                  <div className="mt-4 pt-4 border-t border-blue-100">
-                    <div className="text-xl font-bold text-blue-600">150+ teens</div>
-                    <div className="text-xs text-slate-500">connected through peer groups</div>
-                  </div>
-                )}
-                {index === 2 && (
-                  <div className="mt-4 pt-4 border-t border-blue-100">
-                    <div className="text-xl font-bold text-blue-600">500+ people</div>
-                    <div className="text-xs text-slate-500">reached through education</div>
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
