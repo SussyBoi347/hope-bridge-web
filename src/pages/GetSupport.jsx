@@ -16,13 +16,13 @@ export default function GetSupport() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8EEF3] border border-[#7B9AB8]/20 text-[#5B4E77] text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium mb-6">
               <Heart className="w-4 h-4" />
               You're Not Alone
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               Get the support you{' '}
-              <span className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 deserve
               </span>
             </h1>
@@ -44,15 +44,15 @@ export default function GetSupport() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5B4E77]/10 to-[#7B9AB8]/10 flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-[#5B4E77]" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-2xl font-semibold text-slate-900 mb-3">For Teens</h3>
               <p className="text-slate-600 mb-6 leading-relaxed">
                 Join peer support groups, access mental health resources, and connect with others who understand what you're going through.
               </p>
               <Link to={createPageUrl('Contact')}>
-                <Button className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full">
+                <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full">
                   Join a Support Group
                 </Button>
               </Link>
@@ -65,15 +65,15 @@ export default function GetSupport() {
               transition={{ delay: 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5B4E77]/10 to-[#7B9AB8]/10 flex items-center justify-center mb-6">
-                <Heart className="w-6 h-6 text-[#5B4E77]" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
+                <Heart className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-2xl font-semibold text-slate-900 mb-3">For Parents</h3>
               <p className="text-slate-600 mb-6 leading-relaxed">
                 Learn how to support your teen, access family resources, and connect with other parents navigating similar challenges.
               </p>
               <Link to={createPageUrl('Contact')}>
-                <Button className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full">
+                <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full">
                   Get Parent Resources
                 </Button>
               </Link>
@@ -83,7 +83,7 @@ export default function GetSupport() {
       </section>
 
       {/* Crisis Resources */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white/50 to-[#E8EEF3]/30">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export default function GetSupport() {
                 <Phone className="w-5 h-5 text-[#5B4E77]" />
                 <div>
                   <div className="font-semibold text-slate-900">National Suicide Prevention Lifeline</div>
-                  <a href="tel:988" className="text-[#5B4E77] hover:underline">988</a>
+                  <a href="tel:988" className="text-blue-600 hover:underline">988</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function GetSupport() {
             Reach out to learn more about our programs and how we can support you.
           </p>
           <Link to={createPageUrl('Contact')}>
-            <Button className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full px-8">
+            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full px-8">
               <Mail className="w-4 h-4 mr-2" />
               Contact Us
             </Button>

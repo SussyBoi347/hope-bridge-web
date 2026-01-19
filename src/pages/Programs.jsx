@@ -10,25 +10,25 @@ const programs = [
     icon: Users,
     title: "Peer Support Circles",
     description: "Weekly facilitated groups where teens share experiences in a safe, judgment-free space. Led by trained peer mentors who understand the cultural context.",
-    gradient: "from-[#5B4E77] to-[#7B9AB8]"
+    gradient: "from-blue-600 to-cyan-500"
   },
   {
     icon: BookOpen,
     title: "Workshops & Discussions",
     description: "Interactive sessions on stress management, identity exploration, family communication, and building resilience—all through a culturally informed lens.",
-    gradient: "from-[#7B9AB8] to-[#5B4E77]"
+    gradient: "from-sky-600 to-blue-500"
   },
   {
     icon: MessageCircle,
     title: "Resource Hub",
     description: "Access culturally relevant mental health resources, self-care tools, and connections to professional support when needed.",
-    gradient: "from-[#5B4E77] to-[#7B9AB8]"
+    gradient: "from-blue-700 to-sky-600"
   },
   {
     icon: Sparkles,
     title: "Community Events",
     description: "Connect with other Asian teens through creative workshops, wellness activities, and community-building events throughout the year.",
-    gradient: "from-[#7B9AB8] to-[#5B4E77]"
+    gradient: "from-cyan-600 to-blue-500"
   }
 ];
 
@@ -45,7 +45,7 @@ export default function Programs() {
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               Programs designed with{' '}
-              <span className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 cultural understanding
               </span>
             </h1>
@@ -86,7 +86,7 @@ export default function Programs() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white/50 to-[#E8EEF3]/30">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export default function Programs() {
               Join one of our programs or reach out to learn more about how we can support you.
             </p>
             <Link to={createPageUrl('Contact')}>
-              <Button className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full px-8 py-6 text-lg shadow-md">
+              <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg shadow-md">
                 Get Started
               </Button>
             </Link>

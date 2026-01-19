@@ -25,13 +25,13 @@ export default function Schools() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8EEF3] border border-[#7B9AB8]/20 text-[#5B4E77] text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium mb-6">
               <GraduationCap className="w-4 h-4" />
               School Partnerships
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               Bring culturally informed mental health support to{' '}
-              <span className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 your school
               </span>
             </h1>
@@ -58,7 +58,7 @@ export default function Schools() {
               <div className="space-y-3">
                 {benefits.map((benefit) => (
                   <div key={benefit} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#5B4E77] mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                     <span className="text-slate-600">{benefit}</span>
                   </div>
                 ))}
@@ -94,7 +94,7 @@ export default function Schools() {
       </section>
 
       {/* Current Partners */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white/50 to-[#E8EEF3]/30">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
