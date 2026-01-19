@@ -42,9 +42,9 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-[#7C9A92]/5 rounded-3xl p-12 border border-[#7C9A92]/20"
+            className="bg-blue-50 rounded-3xl p-12 border border-blue-200"
           >
-            <div className="w-16 h-16 rounded-full bg-[#7C9A92] flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-2xl font-semibold text-slate-900 mb-4">
@@ -53,7 +53,7 @@ export default function Contact() {
             <p className="text-slate-600 leading-relaxed">
               We've received your message and will get back to you within 2-3 business days. 
               If this is urgent, please reach out directly at{' '}
-              <a href="mailto:hello@hopebridge.org" className="text-[#7C9A92] hover:underline">
+              <a href="mailto:hello@hopebridge.org" className="text-blue-600 hover:underline">
                 hello@hopebridge.org
               </a>
             </p>
@@ -73,7 +73,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#7C9A92] font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
               Contact Us
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
@@ -87,20 +87,20 @@ export default function Contact() {
 
             <div className="mt-10 space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#7C9A92]/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-[#7C9A92]" />
+                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900">Email</h4>
-                  <a href="mailto:hello@hopebridge.org" className="text-slate-600 hover:text-[#7C9A92] transition-colors">
+                  <a href="mailto:hello@hopebridge.org" className="text-slate-600 hover:text-blue-600 transition-colors">
                     hello@hopebridge.org
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#7C9A92]/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-[#7C9A92]" />
+                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900">Location</h4>
@@ -163,7 +163,7 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
                       required
-                      className="bg-white border-slate-200 focus:border-[#7C9A92] focus:ring-[#7C9A92]/20"
+                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20"
                     />
                   </div>
                   <div className="space-y-2">
@@ -175,7 +175,7 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@example.com"
                       required
-                      className="bg-white border-slate-200 focus:border-[#7C9A92] focus:ring-[#7C9A92]/20"
+                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20"
                     />
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function Contact() {
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                       placeholder="School or organization name"
-                      className="bg-white border-slate-200 focus:border-[#7C9A92] focus:ring-[#7C9A92]/20"
+                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20"
                     />
                   </div>
                 )}
@@ -221,14 +221,14 @@ export default function Contact() {
                     placeholder="How can we help?"
                     rows={5}
                     required
-                    className="bg-white border-slate-200 focus:border-[#7C9A92] focus:ring-[#7C9A92]/20 resize-none"
+                    className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#7C9A92] hover:bg-[#6A8880] text-white py-6 rounded-xl shadow-lg shadow-[#7C9A92]/20"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl shadow-lg shadow-blue-600/20"
                 >
                   {isSubmitting ? (
                     <>

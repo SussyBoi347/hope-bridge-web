@@ -40,7 +40,7 @@ export default function Footer() {
             </div>
 
             {isSubscribed ? (
-              <div className="flex items-center gap-3 text-[#7C9A92]">
+              <div className="flex items-center gap-3 text-blue-400">
                 <CheckCircle2 className="w-5 h-5" />
                 <span>You're subscribed!</span>
               </div>
@@ -56,7 +56,7 @@ export default function Footer() {
                 />
                 <Button 
                   type="submit"
-                  className="bg-[#7C9A92] hover:bg-[#6A8880] text-white px-6 flex-shrink-0"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 flex-shrink-0"
                 >
                   Subscribe
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -73,7 +73,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7C9A92] to-[#5A7A72] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold">Hope Bridge</span>
@@ -89,22 +89,22 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Programs</h4>
             <ul className="space-y-3 text-slate-400 text-sm">
               <li>
-                <button onClick={() => scrollToSection('programs')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
                   Peer Support Circles
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('programs')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
                   Workshops
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('partnerships')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('partnerships')} className="hover:text-blue-400 transition-colors">
                   School Partnerships
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('programs')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
                   Resource Hub
                 </button>
               </li>
@@ -116,22 +116,22 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Organization</h4>
             <ul className="space-y-3 text-slate-400 text-sm">
               <li>
-                <button onClick={() => scrollToSection('about')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('about')} className="hover:text-blue-400 transition-colors">
                   About Us
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('impact')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('impact')} className="hover:text-blue-400 transition-colors">
                   Our Impact
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('donate')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('donate')} className="hover:text-blue-400 transition-colors">
                   Support Us
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('contact')} className="hover:text-blue-400 transition-colors">
                   Contact
                 </button>
               </li>
@@ -143,22 +143,22 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Get Involved</h4>
             <ul className="space-y-3 text-slate-400 text-sm">
               <li>
-                <button onClick={() => scrollToSection('get-involved')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('get-involved')} className="hover:text-blue-400 transition-colors">
                   For Students
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('get-involved')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('get-involved')} className="hover:text-blue-400 transition-colors">
                   For Parents
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('partnerships')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('partnerships')} className="hover:text-blue-400 transition-colors">
                   For Schools
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('donate')} className="hover:text-[#7C9A92] transition-colors">
+                <button onClick={() => scrollToSection('donate')} className="hover:text-blue-400 transition-colors">
                   Donate
                 </button>
               </li>

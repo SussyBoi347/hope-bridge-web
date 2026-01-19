@@ -37,7 +37,7 @@ export default function Donate() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-1"
           >
-            <div className="bg-gradient-to-br from-slate-50 to-[#7C9A92]/5 rounded-2xl p-8 lg:p-10 border border-slate-100">
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 lg:p-10 border border-slate-100">
               <h3 className="text-xl font-semibold text-slate-900 mb-8">
                 Your impact at every level
               </h3>
@@ -52,11 +52,11 @@ export default function Donate() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="flex items-center gap-5 p-4 bg-white rounded-xl border border-slate-100"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[#7C9A92]/10 flex items-center justify-center flex-shrink-0">
-                      <impact.icon className="w-6 h-6 text-[#7C9A92]" />
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                      <impact.icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <span className="text-2xl font-bold text-[#7C9A92]">{impact.amount}</span>
+                      <span className="text-2xl font-bold text-blue-600">{impact.amount}</span>
                       <p className="text-slate-600 text-sm mt-1">{impact.description}</p>
                     </div>
                   </motion.div>
@@ -66,7 +66,7 @@ export default function Donate() {
               <div className="mt-8">
                 <Button 
                   onClick={scrollToContact}
-                  className="w-full bg-[#7C9A92] hover:bg-[#6A8880] text-white py-6 rounded-xl shadow-lg shadow-[#7C9A92]/20"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl shadow-lg shadow-blue-600/20"
                 >
                   <Heart className="w-5 h-5 mr-2" />
                   Make a Donation
@@ -85,7 +85,7 @@ export default function Donate() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 lg:order-2"
           >
-            <span className="text-[#E8A598] font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
               Support Our Mission
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
@@ -99,8 +99,8 @@ export default function Donate() {
 
             <div className="mt-8 space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#7C9A92]/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#7C9A92] font-semibold">1</span>
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <span className="text-blue-600 font-semibold">1</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900">100% Program-Focused</h4>
@@ -111,8 +111,8 @@ export default function Donate() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#7C9A92]/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#7C9A92] font-semibold">2</span>
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <span className="text-blue-600 font-semibold">2</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900">Full Transparency</h4>
@@ -123,8 +123,8 @@ export default function Donate() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#7C9A92]/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#7C9A92] font-semibold">3</span>
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <span className="text-blue-600 font-semibold">3</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900">Community Investment</h4>

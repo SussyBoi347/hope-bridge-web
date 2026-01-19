@@ -18,7 +18,7 @@ export default function Problem() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#E8A598] font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
               The Challenge
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
@@ -53,7 +53,7 @@ export default function Problem() {
             className="relative"
           >
             {/* Abstract visual element */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#7C9A92]/10 via-transparent to-[#E8A598]/10 rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-400/10 rounded-3xl" />
             
             <div className="relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl shadow-slate-200/50 border border-slate-100">
               <h3 className="text-xl font-semibold text-slate-900 mb-8">
@@ -71,7 +71,7 @@ export default function Problem() {
                     className="flex items-start gap-5"
                   >
                     <div className="flex-shrink-0 w-20">
-                      <span className="text-3xl font-bold bg-gradient-to-r from-[#7C9A92] to-[#5A7A72] bg-clip-text text-transparent">
+                      <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
                         {stat.number}
                       </span>
                     </div>

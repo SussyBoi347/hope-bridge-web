@@ -13,7 +13,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#7C9A92] font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
               About Hope Bridge
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
@@ -52,7 +52,7 @@ export default function About() {
             className="space-y-6"
           >
             <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-lg shadow-slate-100/50">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7C9A92] to-[#5A7A72] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center mb-5">
                 <Lightbulb className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Our Origin</h3>
@@ -63,7 +63,7 @@ export default function About() {
             </div>
 
             <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-lg shadow-slate-100/50">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E8A598] to-[#D4958A] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-400 flex items-center justify-center mb-5">
                 <Target className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Our Focus</h3>
@@ -74,7 +74,7 @@ export default function About() {
             </div>
 
             <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-lg shadow-slate-100/50">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B7AA8] to-[#6B5A88] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-700 to-blue-600 flex items-center justify-center mb-5">
                 <Compass className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Our Vision</h3>

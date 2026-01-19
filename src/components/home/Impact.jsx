@@ -32,7 +32,7 @@ export default function Impact() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-[#7C9A92] font-medium text-sm tracking-wide uppercase">
+          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
             Our Impact
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
@@ -56,12 +56,12 @@ export default function Impact() {
               className="relative"
             >
               <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-slate-100/50 border border-slate-100">
-                <Quote className="w-10 h-10 text-[#7C9A92]/20 mb-6" />
+                <Quote className="w-10 h-10 text-blue-600/20 mb-6" />
                 <blockquote className="text-xl text-slate-700 leading-relaxed mb-6">
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7C9A92] to-[#5A7A72]" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-500" />
                   <div>
                     <p className="font-medium text-slate-900">{testimonial.author}</p>
                     <p className="text-sm text-slate-500">{testimonial.location}</p>
@@ -80,7 +80,7 @@ export default function Impact() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="bg-gradient-to-br from-[#7C9A92] to-[#5A7A72] rounded-3xl p-10 lg:p-14">
+          <div className="bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl p-10 lg:p-14">
             <div className="text-center mb-10">
               <h3 className="text-2xl font-semibold text-white mb-2">
                 Where we're headed

@@ -36,9 +36,9 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen">
       <style>{`
         :root {
-          --color-primary: #7C9A92;
-          --color-primary-dark: #5A7A72;
-          --color-accent: #E8A598;
+          --color-primary: #2563EB;
+          --color-primary-dark: #1E40AF;
+          --color-accent: #60A5FA;
         }
         
         html {
@@ -46,7 +46,7 @@ export default function Layout({ children, currentPageName }) {
         }
         
         ::selection {
-          background-color: rgba(124, 154, 146, 0.2);
+          background-color: rgba(37, 99, 235, 0.2);
         }
       `}</style>
 
@@ -68,7 +68,7 @@ export default function Layout({ children, currentPageName }) {
               to={createPageUrl('Home')} 
               className="flex items-center gap-2.5"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7C9A92] to-[#5A7A72] flex items-center justify-center shadow-lg shadow-[#7C9A92]/20">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg shadow-blue-600/20">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
@@ -80,7 +80,7 @@ export default function Layout({ children, currentPageName }) {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="px-4 py-2 text-sm text-slate-600 hover:text-[#7C9A92] rounded-full hover:bg-[#7C9A92]/5 transition-all"
+                  className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 rounded-full hover:bg-blue-50 transition-all"
                 >
                   {link.label}
                 </button>
@@ -92,13 +92,13 @@ export default function Layout({ children, currentPageName }) {
               <Button
                 variant="ghost"
                 onClick={() => scrollToSection('donate')}
-                className="text-slate-600 hover:text-[#7C9A92] hover:bg-[#7C9A92]/5"
+                className="text-slate-600 hover:text-blue-600 hover:bg-blue-50"
               >
                 Donate
               </Button>
               <Button
                 onClick={() => scrollToSection('get-involved')}
-                className="bg-[#7C9A92] hover:bg-[#6A8880] text-white rounded-full px-6 shadow-lg shadow-[#7C9A92]/20"
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 shadow-lg shadow-blue-600/20"
               >
                 Get Support
               </Button>
@@ -129,7 +129,7 @@ export default function Layout({ children, currentPageName }) {
                   <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}
-                    className="block w-full text-left px-4 py-3 text-slate-600 hover:text-[#7C9A92] hover:bg-[#7C9A92]/5 rounded-xl transition-all"
+                    className="block w-full text-left px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
                   >
                     {link.label}
                   </button>
@@ -144,7 +144,7 @@ export default function Layout({ children, currentPageName }) {
                   </Button>
                   <Button
                     onClick={() => scrollToSection('get-involved')}
-                    className="w-full bg-[#7C9A92] hover:bg-[#6A8880] text-white"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                   >
                     Get Support
                   </Button>

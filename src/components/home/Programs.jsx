@@ -7,25 +7,25 @@ const programs = [
     icon: MessageCircle,
     title: "Peer Support Circles",
     description: "Small group sessions facilitated by trained peer mentors who understand the Asian American teen experience. A space to share, listen, and feel less alone.",
-    color: "from-[#7C9A92] to-[#5A7A72]"
+    color: "from-blue-600 to-blue-500"
   },
   {
     icon: Calendar,
     title: "Workshops & Discussions",
     description: "Interactive sessions on topics like managing academic stress, having difficult conversations with parents, and building emotional resilience.",
-    color: "from-[#E8A598] to-[#D4958A]"
+    color: "from-blue-500 to-blue-400"
   },
   {
     icon: Building,
     title: "School Partnerships",
     description: "We bring mental health awareness and support directly to schools through assemblies, counselor training, and student-led initiatives.",
-    color: "from-[#8B7AA8] to-[#6B5A88]"
+    color: "from-blue-700 to-blue-600"
   },
   {
     icon: BookMarked,
     title: "Resource Hub",
     description: "Curated resources for teens, parents, and educators—including guides on having mental health conversations across cultural contexts.",
-    color: "from-[#7AA8A8] to-[#5A8888]"
+    color: "from-blue-400 to-blue-300"
   }
 ];
 
@@ -40,7 +40,7 @@ export default function Programs() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <span className="text-[#7C9A92] font-medium text-sm tracking-wide uppercase">
+          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
             What We Do
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
@@ -70,7 +70,7 @@ export default function Programs() {
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${program.color} flex items-center justify-center shadow-lg`}>
                     <program.icon className="w-7 h-7 text-white" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-[#7C9A92] transition-colors" />
+                  <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition-colors" />
                 </div>
 
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">

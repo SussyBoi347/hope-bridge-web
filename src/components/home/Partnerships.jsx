@@ -27,7 +27,7 @@ export default function Partnerships() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#7C9A92] font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
               For Schools
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
@@ -49,7 +49,7 @@ export default function Partnerships() {
             <div className="mt-8">
               <Button 
                 onClick={scrollToContact}
-                className="bg-[#7C9A92] hover:bg-[#6A8880] text-white px-8 py-6 rounded-full shadow-lg shadow-[#7C9A92]/20"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-600/20"
               >
                 Discuss Partnership
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -78,7 +78,7 @@ export default function Partnerships() {
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-[#7C9A92] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">{benefit}</span>
                   </motion.div>
                 ))}

@@ -9,28 +9,28 @@ const pathways = [
     title: "Students",
     description: "Join a peer support circle, attend a workshop, or simply reach out when you need someone who understands.",
     cta: "Find Support",
-    color: "bg-[#7C9A92]"
+    color: "bg-blue-600"
   },
   {
     icon: Heart,
     title: "Parents & Families",
     description: "Access resources designed to help you understand and support your teen's mental health journey.",
     cta: "Learn More",
-    color: "bg-[#E8A598]"
+    color: "bg-blue-500"
   },
   {
     icon: Building2,
     title: "Schools & Organizations",
     description: "Partner with us to bring mental health awareness and support programs to your students.",
     cta: "Partner With Us",
-    color: "bg-[#8B7AA8]"
+    color: "bg-blue-700"
   },
   {
     icon: HandHeart,
     title: "Supporters & Donors",
     description: "Your contribution helps us keep all programs free and accessible to every teen who needs them.",
     cta: "Support Our Work",
-    color: "bg-[#7AA8A8]"
+    color: "bg-blue-400"
   }
 ];
 
@@ -49,7 +49,7 @@ export default function GetInvolved() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-[#7C9A92] font-medium text-sm tracking-wide uppercase">
+          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
             Get Involved
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
@@ -71,7 +71,7 @@ export default function GetInvolved() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-6 rounded-2xl bg-slate-50/50 border border-slate-100 hover:border-slate-200 hover:shadow-lg hover:shadow-slate-100/50 transition-all duration-300">
+              <div className="h-full flex flex-col p-6 rounded-2xl bg-slate-50/50 border border-slate-100 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300">
                 <div className={`w-12 h-12 ${pathway.color} rounded-xl flex items-center justify-center mb-5 shadow-lg`}>
                   <pathway.icon className="w-6 h-6 text-white" />
                 </div>
@@ -86,7 +86,7 @@ export default function GetInvolved() {
                 <Button
                   variant="ghost"
                   onClick={scrollToContact}
-                  className="w-full justify-between text-slate-700 hover:text-[#7C9A92] hover:bg-[#7C9A92]/5 group-hover:translate-x-1 transition-all"
+                  className="w-full justify-between text-slate-700 hover:text-blue-600 hover:bg-blue-50 group-hover:translate-x-1 transition-all"
                 >
                   {pathway.cta}
                   <ArrowRight className="w-4 h-4" />

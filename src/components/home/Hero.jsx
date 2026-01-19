@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Abstract gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
       
       {/* Floating abstract shapes */}
       <div className="absolute inset-0 overflow-hidden">
@@ -19,19 +19,19 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ duration: 2 }}
-          className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-[#7C9A92]/20 to-transparent blur-3xl"
+          className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/20 to-transparent blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.3 }}
           transition={{ duration: 2, delay: 0.3 }}
-          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-gradient-to-tr from-[#E8A598]/20 to-transparent blur-3xl"
+          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-400/20 to-transparent blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.2 }}
           transition={{ duration: 2, delay: 0.6 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-[#7C9A92]/10 via-transparent to-[#E8A598]/10 blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-500/10 via-transparent to-blue-400/10 blur-3xl"
         />
       </div>
 
@@ -50,7 +50,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7C9A92]/10 text-[#5A7A72] text-sm font-medium mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-8">
               <Heart className="w-4 h-4" />
               Supporting Asian Teen Mental Health
             </span>
@@ -63,7 +63,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 leading-[1.1] tracking-tight"
           >
             Every teen deserves
-            <span className="block mt-2 bg-gradient-to-r from-[#7C9A92] to-[#5A7A72] bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               space to be heard
             </span>
           </motion.h1>
@@ -87,7 +87,7 @@ export default function Hero() {
           >
             <Button 
               onClick={() => scrollToSection('get-involved')}
-              className="bg-[#7C9A92] hover:bg-[#6A8880] text-white px-8 py-6 text-base rounded-full shadow-lg shadow-[#7C9A92]/20 transition-all hover:shadow-xl hover:shadow-[#7C9A92]/30"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-base rounded-full shadow-lg shadow-blue-600/20 transition-all hover:shadow-xl hover:shadow-blue-600/30"
             >
               Get Support
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -95,7 +95,7 @@ export default function Hero() {
             <Button 
               variant="outline"
               onClick={() => scrollToSection('partnerships')}
-              className="border-2 border-slate-200 hover:border-[#7C9A92] hover:text-[#7C9A92] px-8 py-6 text-base rounded-full transition-all"
+              className="border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 px-8 py-6 text-base rounded-full transition-all"
             >
               Partner With Us
             </Button>
