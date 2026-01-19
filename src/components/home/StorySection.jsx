@@ -26,12 +26,12 @@ export default function StorySection() {
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <BookOpen className="w-6 h-6 mx-auto mb-2 text-cyan-200" />
-              <div className="text-2xl font-bold">50+</div>
+              <div className="text-2xl font-bold">25+</div>
               <div className="text-xs text-blue-100">Stories shared</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <Users className="w-6 h-6 mx-auto mb-2 text-cyan-200" />
-              <div className="text-2xl font-bold">200+</div>
+              <div className="text-2xl font-bold">50+</div>
               <div className="text-xs text-blue-100">Teens connected</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
