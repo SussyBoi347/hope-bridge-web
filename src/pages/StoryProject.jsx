@@ -85,7 +85,7 @@ export default function StoryProject() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: (row * 7 + col) * 0.03 }}
-                      className="flex-1 h-16 bg-gradient-to-br from-red-700 to-red-900 rounded shadow-md hover:shadow-lg hover:from-red-600 transition-all cursor-pointer border border-red-950/50"
+                      className="flex-1 h-16 bg-white rounded shadow-sm hover:shadow-md hover:bg-blue-50 transition-all cursor-pointer border-2 border-blue-400"
                     />
                   ))}
                 </div>
