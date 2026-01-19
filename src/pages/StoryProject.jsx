@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 
 export default function StoryProject() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-blue-50">
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-blue-50 via-cyan-50 to-sky-50">
+      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-cyan-50 via-blue-50 to-sky-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,23 +31,23 @@ export default function StoryProject() {
       </section>
 
       {/* Share Your Experience Section */}
-      <section className="py-24 px-6 lg:px-8">
+      <section className="py-24 px-6 lg:px-8 bg-white">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl border-2 border-blue-200 p-10 lg:p-14 text-center shadow-lg"
+            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl border-2 border-blue-200 p-10 lg:p-14 text-center shadow-lg hover:shadow-xl transition-shadow"
           >
-            <h1 className="text-3xl lg:text-4xl font-semibold text-blue-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-blue-900 mb-4">
               Share Your Experience
-            </h1>
+            </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-10">
               Your voice matters. Click below to share your story about cultural identity, family 
               disconnect, or academic pressures.
             </p>
             <Link to={createPageUrl('StorySharing')}>
-              <Button className="bg-blue-700 hover:bg-blue-800 text-white rounded-xl px-10 py-3 text-lg font-medium shadow-lg">
+              <Button className="bg-blue-700 hover:bg-blue-800 text-white rounded-xl px-10 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all">
                 ✏️ Share Your Story
               </Button>
             </Link>
@@ -56,8 +56,8 @@ export default function StoryProject() {
       </section>
 
       {/* Community Story Wall Section */}
-      <section className="py-24 px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-24 px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,28 +68,43 @@ export default function StoryProject() {
             <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4">
               Community Story Wall
             </h2>
-            <p className="text-lg text-slate-600 mb-2">
+            <p className="text-lg text-slate-600">
               Story Wall results will be posted here soon.
             </p>
           </motion.div>
 
-          {/* Brick Wall */}
-          <div className="bg-gradient-to-b from-blue-100 to-blue-50 rounded-2xl p-6 lg:p-8">
-            <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(60px, 1fr))' }}>
-              {[...Array(42)].map((_, i) => (
+          {/* Realistic Brick Wall */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-100 rounded-2xl p-8 shadow-xl"
+            style={{
+              backgroundImage: `
+                linear-gradient(90deg, transparent 0%, transparent calc(50% - 1px), rgba(255,255,255,0.3) calc(50% - 1px), rgba(255,255,255,0.3) calc(50% + 1px), transparent calc(50% + 1px)),
+                linear-gradient(0deg, transparent 0%, transparent calc(50% - 1px), rgba(255,255,255,0.3) calc(50% - 1px), rgba(255,255,255,0.3) calc(50% + 1px), transparent calc(50% + 1px))
+              `,
+              backgroundSize: '120px 90px',
+            }}
+          >
+            <div className="grid gap-[2px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))' }}>
+              {[...Array(48)].map((_, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.02 }}
-                  className={`aspect-square bg-gradient-to-br from-blue-600 to-blue-700 rounded-md shadow-md hover:shadow-lg hover:scale-110 transition-all cursor-pointer border border-blue-800/30 ${
-                    i % 2 === 0 ? 'translate-x-0' : 'translate-x-8'
-                  }`}
+                  transition={{ delay: i * 0.02, duration: 0.4 }}
+                  className="aspect-[2/1.5] bg-gradient-to-br from-cyan-300 via-blue-200 to-cyan-300 rounded-sm shadow-sm hover:shadow-md hover:scale-105 transition-all border border-cyan-400/50 cursor-pointer"
+                  style={{
+                    boxShadow: 'inset -1px -1px 2px rgba(0,0,0,0.1), inset 1px 1px 2px rgba(255,255,255,0.5)',
+                    transform: i % 2 === 0 ? 'translateX(0)' : 'translateX(calc(55px + 1px))',
+                  }}
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
