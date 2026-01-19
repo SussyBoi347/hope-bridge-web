@@ -18,7 +18,7 @@ export default function Partnerships() {
   };
 
   return (
-    <section id="partnerships" className="py-24 lg:py-32 bg-slate-50">
+    <section id="partnerships" className="py-24 lg:py-32 bg-gradient-to-b from-indigo-50/40 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
@@ -49,7 +49,7 @@ export default function Partnerships() {
             <div className="mt-8">
               <Button 
                 onClick={scrollToContact}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-600/20"
+                className="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white px-8 py-6 rounded-full shadow-lg shadow-indigo-500/30"
               >
                 Discuss Partnership
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -63,7 +63,7 @@ export default function Partnerships() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl shadow-slate-200/50 border border-slate-100">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-xl shadow-blue-200/30 border border-blue-100/50">
               <h3 className="text-xl font-semibold text-slate-900 mb-6">
                 What we offer schools
               </h3>

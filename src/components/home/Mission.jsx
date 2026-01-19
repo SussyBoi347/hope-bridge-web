@@ -36,7 +36,7 @@ export default function Mission() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
+          <span className="text-indigo-600 font-medium text-sm tracking-wide uppercase">
             Our Mission
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
@@ -59,9 +59,9 @@ export default function Mission() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="p-6 rounded-2xl bg-slate-50/50 border border-slate-100 hover:border-blue-600/30 hover:bg-blue-50/50 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-100 transition-colors">
-                  <pillar.icon className="w-6 h-6 text-blue-600" />
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50/30 border border-blue-100/50 hover:border-indigo-300/50 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center mb-5 group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors shadow-sm">
+                  <pillar.icon className="w-6 h-6 text-blue-700" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">
                   {pillar.title}

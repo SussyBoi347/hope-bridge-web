@@ -105,7 +105,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-slate-900">Location</h4>
                   <p className="text-slate-600">
-                    Bay Area, California<br />
+                    Sammamish, Washington<br />
                     Serving communities nationwide
                   </p>
                 </div>
@@ -152,7 +152,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-slate-50 rounded-2xl p-8 lg:p-10 border border-slate-100">
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-blue-50/40 to-white rounded-2xl p-8 lg:p-10 border border-blue-100/50 shadow-lg shadow-blue-100/20">
               <div className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -228,7 +228,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl shadow-lg shadow-blue-600/20"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 rounded-xl shadow-lg shadow-blue-500/30"
                 >
                   {isSubmitting ? (
                     <>

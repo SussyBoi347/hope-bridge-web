@@ -68,7 +68,7 @@ export default function Layout({ children, currentPageName }) {
               to={createPageUrl('Home')} 
               className="flex items-center gap-2.5"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg shadow-blue-600/20">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 flex items-center justify-center shadow-md shadow-blue-500/30">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
@@ -92,13 +92,13 @@ export default function Layout({ children, currentPageName }) {
               <Button
                 variant="ghost"
                 onClick={() => scrollToSection('donate')}
-                className="text-slate-600 hover:text-blue-600 hover:bg-blue-50"
+                className="text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
               >
                 Donate
               </Button>
               <Button
                 onClick={() => scrollToSection('get-involved')}
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 shadow-lg shadow-blue-600/20"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full px-6 shadow-lg shadow-blue-500/30"
               >
                 Get Support
               </Button>
@@ -138,13 +138,13 @@ export default function Layout({ children, currentPageName }) {
                   <Button
                     variant="outline"
                     onClick={() => scrollToSection('donate')}
-                    className="w-full border-slate-200 text-slate-700"
+                    className="w-full border-blue-200 text-slate-700 hover:border-indigo-300 hover:bg-blue-50"
                   >
                     Donate
                   </Button>
                   <Button
                     onClick={() => scrollToSection('get-involved')}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                   >
                     Get Support
                   </Button>
