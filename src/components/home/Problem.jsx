@@ -26,19 +26,19 @@ export default function Problem() {
             </h2>
             
             <div className="mt-8 space-y-6">
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-blue-100 leading-relaxed">
                 For many Asian teens, mental health struggles happen in silence. 
                 Cultural expectations around success, family honor, and emotional restraint 
                 create environments where asking for help feels impossible.
               </p>
               
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-blue-100 leading-relaxed">
                 The pressure to excel academically while navigating identity between two 
                 cultures—often without the language to express these feelings at home—leaves 
                 many teens isolated during their most formative years.
               </p>
 
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-blue-100 leading-relaxed">
                 This isn't about blame. It's about understanding that our communities need 
                 new pathways to support the next generation. Hope Bridge is building those pathways.
               </p>
