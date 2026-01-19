@@ -6,12 +6,12 @@ const testimonials = [
   {
     quote: "For the first time, I didn't have to explain why getting a B felt like the end of the world. Everyone just got it.",
     author: "High School Junior",
-    location: "San Jose, CA"
+    location: "Issaquah, WA"
   },
   {
     quote: "Hope Bridge helped me understand what my daughter was going through. Now we actually talk instead of argue.",
     author: "Parent",
-    location: "Fremont, CA"
+    location: "Bellevue, WA"
   }
 ];
 

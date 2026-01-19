@@ -64,7 +64,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-white">
+    <section id="contact" className="py-24 lg:py-32 bg-gradient-to-b from-blue-50/30 via-indigo-50/20 to-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
