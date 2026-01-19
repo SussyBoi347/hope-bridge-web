@@ -6,7 +6,7 @@ import Problem from '@/components/home/Problem';
 import CommunitySurvey from '@/components/home/CommunitySurvey';
 import Impact from '@/components/home/Impact';
 import Contact from '@/components/home/Contact';
-import StorySection from '@/components/home/StorySection';
+import StorySection from '@/components/home/StorySection.jsx';
 
 export default function Home() {
   return (
