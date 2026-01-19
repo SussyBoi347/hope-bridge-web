@@ -59,11 +59,12 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="max-w-4xl">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="flex justify-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100 text-blue-700 text-sm font-medium mb-8">
               <Heart className="w-4 h-4" />
@@ -86,7 +87,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-8 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl"
+            className="mt-8 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto"
           >
             Hope Bridge creates safe spaces for Asian teens navigating academic pressure, 
             cultural expectations, and identity. We're building a community where mental 
@@ -97,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4"
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button 
               onClick={() => scrollToSection('get-involved')}
@@ -115,21 +116,7 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="mt-16 pt-8 border-t border-slate-100"
-          >
-            <p className="text-sm text-slate-500 mb-4">Trusted by communities across</p>
-            <div className="flex flex-wrap gap-8 items-center text-slate-400">
-              <span className="text-sm font-medium tracking-wide">King County Schools</span>
-              <span className="hidden sm:block w-px h-4 bg-blue-200" />
-              <span className="text-sm font-medium tracking-wide">Sammamish & Eastside Communities</span>
-              <span className="hidden sm:block w-px h-4 bg-blue-200" />
-              <span className="text-sm font-medium tracking-wide">Asian American Families</span>
-            </div>
-          </motion.div>
+
         </div>
       </div>
     </section>
