@@ -19,7 +19,6 @@ export default function Home() {
       <Hero />
       <Mission />
       <Problem />
-      <Programs />
       <CommunitySurvey />
       <Impact />
       <section className="py-20 lg:py-28 bg-gradient-to-br from-blue-50 to-cyan-50">
