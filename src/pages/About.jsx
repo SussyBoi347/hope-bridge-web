@@ -20,7 +20,7 @@ export default function About() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              We're building the mental health support system we wish existed—one that truly 
+              We're building the <span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">mental health support system</span> we wish existed—one that truly 
               understands the Asian American teen experience.
             </p>
           </motion.div>

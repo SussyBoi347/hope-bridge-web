@@ -44,7 +44,7 @@ export default function Programs() {
             What We Do
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-            Programs designed with understanding
+            Programs designed with <span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">understanding</span>
           </h2>
           <p className="mt-6 text-lg text-slate-600">
             Every initiative is built with cultural context in mind—because support 

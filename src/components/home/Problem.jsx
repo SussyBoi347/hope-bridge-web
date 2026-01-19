@@ -22,14 +22,14 @@ export default function Problem() {
               The Challenge
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-white leading-tight">
-              A silent struggle many teens face alone
+              A <span className="font-bold bg-gradient-to-r from-cyan-300 to-cyan-200 bg-clip-text text-transparent">silent struggle</span> many teens face alone
             </h2>
             
             <div className="mt-8 space-y-6">
               <p className="text-blue-100 leading-relaxed">
-                For many Asian teens, mental health struggles happen in silence. 
+                For many Asian teens, <span className="font-bold text-cyan-300">mental health struggles</span> happen in silence. 
                 Cultural expectations around success, family honor, and emotional restraint 
-                create environments where asking for help feels impossible.
+                create environments where <span className="font-bold text-cyan-300">asking for help</span> feels impossible.
               </p>
               
               <p className="text-blue-100 leading-relaxed">

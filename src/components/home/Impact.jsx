@@ -36,7 +36,7 @@ export default function Impact() {
             Our Impact
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
-            Real stories, real change
+           <span className="font-bold bg-gradient-to-r from-cyan-300 to-cyan-200 bg-clip-text text-transparent">Real stories</span>, real change
           </h2>
           <p className="mt-6 text-lg text-blue-100">
             We measure our success not in numbers alone, but in the moments when 
