@@ -77,10 +77,10 @@ export default function Layout({ children, currentPageName }) {
             <Link 
               to={createPageUrl('Home')} 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-1"
+              className="flex items-center gap-0.5"
             >
-              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="w-48 h-48 object-contain" />
-              <span className="text-2xl font-semibold text-slate-900">Hope Bridge</span>
+              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="w-10 h-10 object-contain" />
+              <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
             </Link>
 
             {/* Desktop Navigation */}
