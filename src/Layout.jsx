@@ -29,8 +29,6 @@ export default function Layout({ children, currentPageName }) {
     { label: 'Home', page: 'Home' },
     { label: 'Mission', page: 'Mission' },
     { label: 'Story Project', page: 'StoryProject' },
-    { label: 'Get Support', page: 'GetSupport' },
-    { label: 'Schools', page: 'Schools' },
     { label: 'Get Involved', page: 'GetInvolved' },
     { label: 'About', page: 'About' },
     { label: 'Contact', page: 'Contact' }
