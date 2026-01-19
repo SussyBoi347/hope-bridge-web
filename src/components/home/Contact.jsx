@@ -100,14 +100,23 @@ export default function Contact() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-cyan-300" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Phone</h4>
+                  <a href="tel:425-610-7760" className="text-blue-200 hover:text-cyan-300 transition-colors">
+                    425-610-7760
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-cyan-300" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Location</h4>
-                  <p className="text-blue-200">Sammamish, Washington
-
-
-                  </p>
+                  <p className="text-blue-200">Sammamish, Washington</p>
                 </div>
               </div>
             </div>
