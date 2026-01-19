@@ -53,7 +53,7 @@ export default function Schools() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-semibold text-slate-900 mb-6">
-                What We Offer Schools
+                What Students Access
               </h2>
               <div className="space-y-3">
                 {benefits.map((benefit) => (
@@ -72,19 +72,19 @@ export default function Schools() {
               className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
             >
               <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-                Why Partner With Us?
+                How It Works
               </h3>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  We understand that school counselors are stretched thin. Hope Bridge complements 
-                  your existing services by providing specialized support for Asian American students.
+                  Hope Bridge brings culturally informed mental health programming directly to schools, 
+                  making support accessible to Asian American students where they spend their days.
                 </p>
                 <p>
                   Our programs address the unique cultural pressures these students face—from academic 
                   expectations to identity struggles—in ways that traditional counseling may not.
                 </p>
                 <p>
-                  All programs are free for schools and students, removing financial barriers to mental 
+                  All programs are completely free for students, removing financial barriers to mental 
                   health support.
                 </p>
               </div>
