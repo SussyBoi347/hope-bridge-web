@@ -25,28 +25,36 @@ export default function Layout({ children, currentPageName }) {
   };
 
   const navLinks = [
-    { label: 'Mission', id: 'mission' },
-    { label: 'Programs', id: 'programs' },
-    { label: 'Impact', id: 'impact' },
-    { label: 'About', id: 'about' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'Home', page: 'Home' },
+    { label: 'Get Support', page: 'GetSupport' },
+    { label: 'Programs', page: 'Programs' },
+    { label: 'Schools', page: 'Schools' },
+    { label: 'Get Involved', page: 'GetInvolved' },
+    { label: 'About', page: 'About' },
+    { label: 'Contact', page: 'Contact' }
   ];
 
   return (
     <div className="min-h-screen">
       <style>{`
         :root {
-          --color-primary: #2563EB;
-          --color-primary-dark: #1E40AF;
-          --color-accent: #60A5FA;
+          --color-primary: #5B4E77;
+          --color-primary-dark: #3F3351;
+          --color-accent: #7B9AB8;
+          --color-sand: #F7F5F0;
+          --color-warm-blue: #E8EEF3;
         }
-        
+
         html {
           scroll-behavior: smooth;
         }
-        
+
+        body {
+          background-color: var(--color-sand);
+        }
+
         ::selection {
-          background-color: rgba(37, 99, 235, 0.2);
+          background-color: rgba(91, 78, 119, 0.2);
         }
       `}</style>
 
@@ -68,7 +76,7 @@ export default function Layout({ children, currentPageName }) {
               to={createPageUrl('Home')} 
               className="flex items-center gap-2.5"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-400/30">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5B4E77] to-[#7B9AB8] flex items-center justify-center shadow-md shadow-indigo-900/20">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
@@ -77,13 +85,17 @@ export default function Layout({ children, currentPageName }) {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 rounded-full hover:bg-blue-50 transition-all"
+                <Link
+                  key={link.page}
+                  to={createPageUrl(link.page)}
+                  className={`px-4 py-2 text-sm rounded-full transition-all ${
+                    currentPageName === link.page
+                      ? 'text-[#5B4E77] bg-[#E8EEF3]'
+                      : 'text-slate-600 hover:text-[#5B4E77] hover:bg-[#E8EEF3]/50'
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </nav>
 
@@ -91,18 +103,11 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-3">
               <Link to={createPageUrl('Donate')}>
                 <Button
-                  variant="ghost"
-                  className="text-slate-600 hover:text-blue-600 hover:bg-blue-50"
+                  className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full px-6 shadow-md shadow-indigo-900/15"
                 >
                   Donate
                 </Button>
               </Link>
-              <Button
-                onClick={() => scrollToSection('get-involved')}
-                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-6 shadow-lg shadow-blue-500/25"
-              >
-                Get Support
-              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -127,29 +132,25 @@ export default function Layout({ children, currentPageName }) {
             >
               <div className="max-w-7xl mx-auto px-6 py-6 space-y-1">
                 {navLinks.map((link) => (
-                  <button
-                    key={link.id}
-                    onClick={() => scrollToSection(link.id)}
-                    className="block w-full text-left px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                  <Link
+                    key={link.page}
+                    to={createPageUrl(link.page)}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block w-full text-left px-4 py-3 rounded-xl transition-all ${
+                      currentPageName === link.page
+                        ? 'text-[#5B4E77] bg-[#E8EEF3]'
+                        : 'text-slate-600 hover:text-[#5B4E77] hover:bg-[#E8EEF3]/50'
+                    }`}
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 ))}
-                <div className="pt-4 flex flex-col gap-3">
-                  <Link to={createPageUrl('Donate')} className="w-full">
-                    <Button
-                      variant="outline"
-                      className="w-full border-slate-200 text-slate-700"
-                    >
+                <div className="pt-4">
+                  <Link to={createPageUrl('Donate')} className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button className="w-full bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full">
                       Donate
                     </Button>
                   </Link>
-                  <Button
-                    onClick={() => scrollToSection('get-involved')}
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white"
-                  >
-                    Get Support
-                  </Button>
                 </div>
               </div>
             </motion.div>
