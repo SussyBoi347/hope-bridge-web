@@ -195,7 +195,7 @@ export default function Contact() {
       {/* Contact Info */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white/50 to-[#E8EEF3]/30">
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 text-center md:text-left">
+          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
               <Mail className="w-8 h-8 text-[#5B4E77] mx-auto md:mx-0 mb-4" />
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Email Us</h3>
@@ -204,6 +204,16 @@ export default function Contact() {
                 className="text-[#5B4E77] hover:underline"
               >
                 hopebridgecommunityservices@gmail.com
+              </a>
+            </div>
+            <div>
+              <Phone className="w-8 h-8 text-[#5B4E77] mx-auto md:mx-0 mb-4" />
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Call Us</h3>
+              <a
+                href="tel:425-610-7760"
+                className="text-[#5B4E77] hover:underline"
+              >
+                425-610-7760
               </a>
             </div>
             <div>
