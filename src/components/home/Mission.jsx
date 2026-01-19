@@ -4,24 +4,24 @@ import { BookOpen, Users, Shield, Sparkles, Heart } from 'lucide-react';
 
 const pillars = [
   {
-    icon: Sparkles,
-    title: "Safe Spaces",
-    description: "Building peer communities where teens feel understood, not judged."
+    icon: Users,
+    title: "Embracing Cultural Identity",
+    description: "Helping Asian teens navigate the beautiful complexity of their bicultural identity and celebrate both cultures."
+  },
+  {
+    icon: BookOpen,
+    title: "Navigating Academic Pressures",
+    description: "Supporting teens facing intense academic expectations while maintaining mental wellness and redefining success."
+  },
+  {
+    icon: Heart,
+    title: "Healing Family Disconnect",
+    description: "Building bridges between generations to foster understanding and open communication at home."
   },
   {
     icon: Shield,
     title: "Breaking Stigma",
     description: "Normalizing mental health conversations in communities where they've been silenced."
-  },
-  {
-    icon: Users,
-    title: "Peer Support",
-    description: "Connecting teens with others who understand their unique cultural and generational challenges."
-  },
-  {
-    icon: BookOpen,
-    title: "Healing Family Disconnect",
-    description: "Building bridges between generations to foster understanding and open communication at home."
   }
 ];
 
