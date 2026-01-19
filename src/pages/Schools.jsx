@@ -119,7 +119,7 @@ export default function Schools() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#5B4E77] to-[#7B9AB8] rounded-2xl p-12 text-center shadow-lg"
+            className="bg-gradient-to-br from-blue-700 to-blue-600 rounded-2xl p-12 text-center shadow-lg"
           >
             <Heart className="w-14 h-14 text-white/90 mx-auto mb-6" />
             <h2 className="text-3xl font-semibold text-white mb-4">
@@ -129,7 +129,7 @@ export default function Schools() {
               Let's discuss how Hope Bridge can support the mental wellness of your students.
             </p>
             <Link to={createPageUrl('Contact')}>
-              <Button className="bg-white text-[#5B4E77] hover:bg-[#F7F5F0] px-8 py-6 text-lg rounded-full shadow-lg">
+              <Button className="bg-white text-blue-700 hover:bg-[#F7F5F0] px-8 py-6 text-lg rounded-full shadow-lg">
                 Contact Us
               </Button>
             </Link>
