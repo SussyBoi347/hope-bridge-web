@@ -10,36 +10,51 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Abstract gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-sky-50/40" />
+      {/* Vibrant gradient mesh background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-sky-50/40 to-indigo-100/50" />
       
-      {/* Floating abstract shapes */}
+      {/* Animated mesh gradient overlays */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ duration: 2 }}
-          className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-blue-400/30 to-cyan-300/20 blur-3xl"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 0.6, scale: 1 }}
+          transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute -top-20 -right-20 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-cyan-300/40 via-blue-400/30 to-indigo-400/20 blur-3xl"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.5, scale: 1.1 }}
+          transition={{ duration: 4, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-sky-300/35 via-blue-300/25 to-violet-300/20 blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
-          transition={{ duration: 2, delay: 0.3 }}
-          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-gradient-to-tr from-indigo-400/25 to-sky-300/20 blur-3xl"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
-          transition={{ duration: 2, delay: 0.6 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-300/15 via-sky-200/10 to-cyan-300/15 blur-3xl"
+          transition={{ duration: 5, delay: 1, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute top-1/3 left-1/3 w-[700px] h-[700px] rounded-full bg-gradient-to-r from-indigo-200/25 via-blue-200/20 to-cyan-200/25 blur-3xl"
         />
       </div>
 
-      {/* Grid pattern overlay */}
+      {/* Flowing wave pattern */}
+      <div className="absolute inset-0">
+        <svg className="absolute bottom-0 w-full h-64 opacity-10" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path fill="url(#wave-gradient)" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          <defs>
+            <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#3B82F6" />
+              <stop offset="50%" stopColor="#0EA5E9" />
+              <stop offset="100%" stopColor="#6366F1" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Subtle dot pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.015]"
+        className="absolute inset-0 opacity-[0.035]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          backgroundImage: `radial-gradient(circle, #3B82F6 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
         }}
       />
 
@@ -64,7 +79,7 @@ export default function Hero() {
           >
             Every teen deserves
             <span className="block mt-2 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-              space to be heard
+              a space to be heard
             </span>
           </motion.h1>
 
@@ -109,10 +124,10 @@ export default function Hero() {
           >
             <p className="text-sm text-slate-500 mb-4">Trusted by communities across</p>
             <div className="flex flex-wrap gap-8 items-center text-slate-400">
-              <span className="text-sm font-medium tracking-wide">Washington Schools</span>
-              <span className="hidden sm:block w-px h-4 bg-slate-200" />
-              <span className="text-sm font-medium tracking-wide">Community Centers</span>
-              <span className="hidden sm:block w-px h-4 bg-slate-200" />
+              <span className="text-sm font-medium tracking-wide">King County Schools</span>
+              <span className="hidden sm:block w-px h-4 bg-blue-200" />
+              <span className="text-sm font-medium tracking-wide">Sammamish & Eastside Communities</span>
+              <span className="hidden sm:block w-px h-4 bg-blue-200" />
               <span className="text-sm font-medium tracking-wide">Asian American Families</span>
             </div>
           </motion.div>
