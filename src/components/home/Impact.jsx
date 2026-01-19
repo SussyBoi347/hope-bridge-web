@@ -1,19 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
-
-const testimonials = [
-  {
-    quote: "For the first time, I didn't have to explain why getting a B felt like the end of the world. Everyone just got it.",
-    author: "High School Junior",
-    location: "Issaquah, WA"
-  },
-  {
-    quote: "Hope Bridge helped me understand what my daughter was going through. Now we actually talk instead of argue.",
-    author: "Parent",
-    location: "Bellevue, WA"
-  }
-];
 
 const goals = [
   { target: "500+", label: "Teens supported by 2025" },
