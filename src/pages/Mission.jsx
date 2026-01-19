@@ -89,12 +89,10 @@ export default function Mission() {
 
         {/* Stats bar */}
         <div className="relative z-10 max-w-5xl mx-auto mt-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
             {[
               { number: "1 in 3", label: "Asian teens struggle with mental health" },
-              { number: "50%", label: "Less likely to seek help than peers" },
-              { number: "100+", label: "Teens supported annually" },
-              { number: "10+", label: "Schools partnered" }
+              { number: "50%", label: "Less likely to seek help than peers" }
             ].map((stat, i) => (
               <motion.div
                 key={i}
