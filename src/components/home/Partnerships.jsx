@@ -18,7 +18,7 @@ export default function Partnerships() {
   };
 
   return (
-    <section id="partnerships" className="py-24 lg:py-32 bg-[#F7F5F0]">
+    <section id="partnerships" className="py-24 lg:py-32 bg-gradient-to-b from-cyan-50 via-blue-50 to-sky-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div

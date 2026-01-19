@@ -40,7 +40,7 @@ export default function GetInvolved() {
   };
 
   return (
-    <section id="get-involved" className="py-24 lg:py-32 bg-[#F7F5F0]">
+    <section id="get-involved" className="py-24 lg:py-32 bg-gradient-to-b from-sky-50 to-cyan-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -33,7 +33,7 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50/30 via-white to-indigo-50/20">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-sky-50 to-cyan-50">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -106,7 +106,7 @@ export default function DonatePage() {
       </section>
 
       {/* Why Donate Section */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50/20 to-sky-50/30">
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-sky-50 via-blue-50 to-cyan-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -252,7 +252,7 @@ export default function DonatePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 lg:px-8 bg-gradient-to-b from-sky-50/30 to-white">
+      <section id="contact" className="py-16 px-6 lg:px-8 bg-gradient-to-b from-blue-100/30 to-sky-50">
         <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-2xl font-semibold text-slate-900 mb-4">
             Questions About Donating?

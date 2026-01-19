@@ -65,7 +65,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F5F0]">
+    <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-sky-50 to-blue-50">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">

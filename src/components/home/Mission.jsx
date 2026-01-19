@@ -27,7 +27,7 @@ const pillars = [
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 lg:py-32 bg-[#F7F5F0]">
+    <section id="mission" className="py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-sky-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
