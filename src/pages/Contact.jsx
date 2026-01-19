@@ -24,15 +24,23 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await base44.entities.ContactSubmission.create(formData);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', type: '', organization: '', message: '' });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Something went wrong. Please try emailing us directly.');
-    } finally {
-      setIsSubmitting(false);
-    }
+          await base44.entities.ContactSubmission.create(formData);
+
+          // Send email notification
+          await base44.integrations.Core.SendEmail({
+            to: 'hopebridgecommunityservices@gmail.com',
+            subject: `New Contact Form Submission from ${formData.name}`,
+            body: `New contact form submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nType: ${formData.type}\n${formData.organization ? `Organization: ${formData.organization}\n` : ''}Message:\n${formData.message}`
+          });
+
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', type: '', organization: '', message: '' });
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          alert('Something went wrong. Please try emailing us directly.');
+        } finally {
+          setIsSubmitting(false);
+        }
   };
 
   if (isSuccess) {
