@@ -41,9 +41,9 @@ export default function Partnerships() {
             </p>
 
             <p className="mt-4 text-blue-100 leading-relaxed">
-              Our programs are designed to complement existing school counseling services, 
-              not replace them. We bring specialized understanding of Asian American teen 
-              experiences that can enhance your school's support ecosystem.
+
+
+
             </p>
 
             <div className="mt-8">
