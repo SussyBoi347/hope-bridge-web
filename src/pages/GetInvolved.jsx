@@ -11,7 +11,7 @@ const ways = [
     title: "Volunteer",
     description: "Become a peer mentor, workshop facilitator, or help with community events. Your time and passion can make a real difference.",
     cta: "Learn More",
-    gradient: "from-[#5B4E77] to-[#7B9AB8]"
+    gradient: "from-blue-600 to-cyan-500"
   },
   {
     icon: DollarSign,
@@ -19,21 +19,21 @@ const ways = [
     description: "Your financial support keeps all our programs free and accessible for teens who need them most.",
     cta: "Make a Donation",
     link: "Donate",
-    gradient: "from-[#7B9AB8] to-[#5B4E77]"
+    gradient: "from-sky-600 to-blue-500"
   },
   {
     icon: Megaphone,
     title: "Spread the Word",
     description: "Share our mission with families, schools, and communities who could benefit from our services.",
     cta: "Share Our Mission",
-    gradient: "from-[#5B4E77] to-[#7B9AB8]"
+    gradient: "from-blue-700 to-sky-600"
   },
   {
     icon: Users,
     title: "Partner With Us",
     description: "Schools, organizations, and mental health professionals—let's collaborate to expand our reach and impact.",
     cta: "Explore Partnerships",
-    gradient: "from-[#7B9AB8] to-[#5B4E77]"
+    gradient: "from-cyan-600 to-blue-500"
   }
 ];
 
@@ -50,7 +50,7 @@ export default function GetInvolved() {
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               Join us in creating{' '}
-              <span className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 lasting change
               </span>
             </h1>
@@ -87,7 +87,7 @@ export default function GetInvolved() {
                 <Link to={createPageUrl(way.link || 'Contact')}>
                   <Button 
                     variant="outline" 
-                    className="border-[#5B4E77]/20 text-[#5B4E77] hover:bg-[#E8EEF3]/50 rounded-full"
+                    className="border-blue-600/20 text-blue-600 hover:bg-blue-50 rounded-full"
                   >
                     {way.cta}
                   </Button>
@@ -99,7 +99,7 @@ export default function GetInvolved() {
       </section>
 
       {/* Impact Statement */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white/50 to-[#E8EEF3]/30">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ export default function GetInvolved() {
               mental health conversations are welcomed, not feared.
             </p>
             <Link to={createPageUrl('Contact')}>
-              <Button className="bg-gradient-to-r from-[#5B4E77] to-[#7B9AB8] hover:from-[#3F3351] hover:to-[#5B4E77] text-white rounded-full px-8 py-6 text-lg shadow-md">
+              <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg shadow-md">
                 Get in Touch
               </Button>
             </Link>
