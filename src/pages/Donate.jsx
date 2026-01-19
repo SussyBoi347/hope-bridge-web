@@ -105,57 +105,111 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* Why Support Section */}
+      {/* Why Donate Section */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50/20 to-sky-50/30">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <h2 className="text-3xl font-semibold text-slate-900 mb-8">
-              Why Your Support Matters
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-sm">
-                  1
+            <div>
+              <h2 className="text-3xl font-semibold text-slate-900 mb-6">
+                Why Donate to Hope Bridge?
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-sm">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 mb-2">Free & Accessible Programs</h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      All our services are completely free for teens and families. Your donation ensures 
+                      that cost is never a barrier to getting help.
+                    </p>
+                  </div>
                 </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-sm">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 mb-2">Culturally Informed Care</h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      We train peer mentors and facilitators who understand the unique pressures 
+                      Asian American teens face. This specialized support makes all the difference.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-sm">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 mb-2">Growing Our Reach</h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Funds help us expand to more schools across King County and serve more teens 
+                      who need support navigating mental health challenges.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
+              <h3 className="text-2xl font-semibold text-slate-900 mb-6">
+                Where Your Money Goes
+              </h3>
+              <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">Free & Accessible Programs</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    All our services are completely free for teens and families. Your donation ensures 
-                    that cost is never a barrier to getting help.
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-medium text-slate-900">Direct Programs & Services</span>
+                    <span className="font-bold text-blue-600">65%</span>
+                  </div>
+                  <div className="w-full bg-blue-50 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-blue-600 to-blue-500 h-3 rounded-full" style={{ width: '65%' }} />
+                  </div>
+                  <p className="text-sm text-slate-600 mt-1">
+                    Peer support groups, workshops, and mental health resources
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-medium text-slate-900">School Partnerships</span>
+                    <span className="font-bold text-blue-600">20%</span>
+                  </div>
+                  <div className="w-full bg-blue-50 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 h-3 rounded-full" style={{ width: '20%' }} />
+                  </div>
+                  <p className="text-sm text-slate-600 mt-1">
+                    Training educators and bringing programs to schools
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-medium text-slate-900">Operations & Growth</span>
+                    <span className="font-bold text-blue-600">15%</span>
+                  </div>
+                  <div className="w-full bg-blue-50 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-violet-600 to-violet-500 h-3 rounded-full" style={{ width: '15%' }} />
+                  </div>
+                  <p className="text-sm text-slate-600 mt-1">
+                    Administrative costs and expanding our reach
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-sm">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">Culturally Informed Care</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    We train peer mentors and facilitators who understand the unique pressures 
-                    Asian American teens face. This specialized support makes all the difference.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-sm">
-                  3
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">Growing Our Reach</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Funds help us expand to more schools across King County and serve more teens 
-                    who need support navigating mental health challenges.
-                  </p>
-                </div>
+              <div className="mt-6 pt-6 border-t border-slate-200">
+                <p className="text-sm text-slate-600 text-center">
+                  <span className="font-semibold text-slate-900">100% transparent.</span> Every dollar is accounted for and goes directly toward supporting teens.
+                </p>
               </div>
             </div>
           </motion.div>
