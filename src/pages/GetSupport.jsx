@@ -125,8 +125,8 @@ export default function GetSupport() {
             <h2 className="text-3xl font-semibold text-[#2D3748] mb-12">What to Expect</h2>
             <div className="space-y-6">
               {[
-                { title: 'Confidentiality', desc: 'What you share stays private. We follow strict confidentiality guidelines and only involve others if there's a safety concern.' },
-                { title: 'No Pressure', desc: 'You decide what to share, when to share it, and how involved you want to be. There's no "right way" to use our support.' },
+                { title: 'Confidentiality', desc: "What you share stays private. We follow strict confidentiality guidelines and only involve others if there's a safety concern." },
+                { title: 'No Pressure', desc: "You decide what to share, when to share it, and how involved you want to be. There's no 'right way' to use our support." },
                 { title: 'Cultural Awareness', desc: 'Our peer mentors are trained to understand family dynamics, cultural expectations, and the specific pressures Asian teens face.' },
                 { title: 'Free & Accessible', desc: 'All our services are completely free. No barriers, no paperwork, no complicated intake process.' }
               ].map((item, idx) => (
