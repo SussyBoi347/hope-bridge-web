@@ -60,35 +60,49 @@ export default function Mission() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-sky-50 to-blue-100">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-blue-600 via-sky-600 to-cyan-500">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/30 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-sky-300/20 rounded-full blur-2xl" />
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100 text-blue-700 text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-sm font-medium mb-6">
               <Target className="w-4 h-4" />
               Our Mission
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight mb-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-8">
               Supporting Asian teen{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="text-cyan-100">
                 mental health
               </span>
             </h1>
           </motion.div>
         </div>
+
+        {/* Wave separator */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-12 sm:h-16" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,64 C320,100 640,20 960,64 C1280,100 1440,40 1440,40 L1440,120 L0,120 Z" fill="white" />
+          </svg>
+        </div>
       </section>
 
       {/* Mission Statement */}
-      <section className="py-16 px-6 lg:px-8">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-blue-100"
+            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 lg:p-12 shadow-xl border border-blue-200"
           >
             <h2 className="text-3xl font-semibold text-slate-900 mb-6 text-center">
               Our Mission Statement
