@@ -28,8 +28,8 @@ export default function Layout({ children, currentPageName }) {
   const navLinks = [
     { label: 'Home', page: 'Home' },
     { label: 'Mission', page: 'Mission' },
+    { label: 'Story Wall', page: 'StoryProject' },
     { label: 'Get Support', page: 'GetSupport' },
-    { label: 'Story Project', page: 'StoryProject' },
     { label: 'Schools', page: 'Schools' },
     { label: 'Get Involved', page: 'GetInvolved' },
     { label: 'About', page: 'About' },
