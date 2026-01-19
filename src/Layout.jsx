@@ -17,18 +17,39 @@ export default function Layout({ children, currentPageName }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (id) => {
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   const navLinks = [
-    { label: 'Home', page: 'Home' },
-    { label: 'Get Support', page: 'GetSupport' },
-    { label: 'Programs', page: 'Programs' },
-    { label: 'Schools', page: 'Schools' },
-    { label: 'Get Involved', page: 'GetInvolved' },
-    { label: 'About', page: 'About' },
-    { label: 'Contact', page: 'Contact' }
+    { label: 'Mission', id: 'mission' },
+    { label: 'Programs', id: 'programs' },
+    { label: 'Impact', id: 'impact' },
+    { label: 'About', id: 'about' },
+    { label: 'Contact', id: 'contact' }
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5]">
+    <div className="min-h-screen">
+      <style>{`
+        :root {
+          --color-primary: #2563EB;
+          --color-primary-dark: #1E40AF;
+          --color-accent: #60A5FA;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        ::selection {
+          background-color: rgba(37, 99, 235, 0.2);
+        }
+      `}</style>
+
       {/* Navigation */}
       <motion.header
         initial={{ y: -100 }}
@@ -36,7 +57,7 @@ export default function Layout({ children, currentPageName }) {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#C4BFB8]/30' 
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100' 
             : 'bg-transparent'
         }`}
       >
@@ -47,26 +68,22 @@ export default function Layout({ children, currentPageName }) {
               to={createPageUrl('Home')} 
               className="flex items-center gap-2.5"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#4A5568] flex items-center justify-center">
-                <Heart className="w-5 h-5 text-[#FAF8F5]" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-400/30">
+                <Heart className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-semibold text-[#2D3748]">Hope Bridge</span>
+              <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.page}
-                  to={createPageUrl(link.page)}
-                  className={`px-4 py-2 text-sm rounded-full transition-all ${
-                    currentPageName === link.page
-                      ? 'text-[#4A5568] bg-[#F5F2ED]'
-                      : 'text-[#8B8680] hover:text-[#4A5568] hover:bg-[#F5F2ED]'
-                  }`}
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 rounded-full hover:bg-blue-50 transition-all"
                 >
                   {link.label}
-                </Link>
+                </button>
               ))}
             </nav>
 
@@ -74,17 +91,24 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-3">
               <Link to={createPageUrl('Donate')}>
                 <Button
-                  className="bg-[#4A5568] hover:bg-[#2D3748] text-[#FAF8F5] rounded-full px-6"
+                  variant="ghost"
+                  className="text-slate-600 hover:text-blue-600 hover:bg-blue-50"
                 >
                   Donate
                 </Button>
               </Link>
+              <Button
+                onClick={() => scrollToSection('get-involved')}
+                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-6 shadow-lg shadow-blue-500/25"
+              >
+                Get Support
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-[#8B8680] hover:text-[#4A5568]"
+              className="lg:hidden p-2 text-slate-600 hover:text-slate-900"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -99,25 +123,33 @@ export default function Layout({ children, currentPageName }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden bg-[#FAF8F5] border-t border-[#C4BFB8]/30 overflow-hidden"
+              className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
             >
               <div className="max-w-7xl mx-auto px-6 py-6 space-y-1">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.page}
-                    to={createPageUrl(link.page)}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full text-left px-4 py-3 text-[#8B8680] hover:text-[#4A5568] hover:bg-[#F5F2ED] rounded-xl transition-all"
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="block w-full text-left px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 ))}
-                <div className="pt-4">
-                  <Link to={createPageUrl('Donate')} className="w-full block" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-[#4A5568] hover:bg-[#2D3748] text-[#FAF8F5]">
+                <div className="pt-4 flex flex-col gap-3">
+                  <Link to={createPageUrl('Donate')} className="w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full border-slate-200 text-slate-700"
+                    >
                       Donate
                     </Button>
                   </Link>
+                  <Button
+                    onClick={() => scrollToSection('get-involved')}
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white"
+                  >
+                    Get Support
+                  </Button>
                 </div>
               </div>
             </motion.div>
@@ -129,49 +161,6 @@ export default function Layout({ children, currentPageName }) {
       <main>
         {children}
       </main>
-
-      {/* Footer */}
-      <footer className="bg-[#2D3748] text-[#FAF8F5] py-16 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#8FA58C] flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-[#FAF8F5]" />
-                </div>
-                <span className="text-xl font-semibold">Hope Bridge</span>
-              </div>
-              <p className="text-[#C4BFB8] leading-relaxed max-w-md">
-                Creating safe, culturally aware mental health support for Asian teens navigating school, family expectations, and identity.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                {navLinks.map((link) => (
-                  <li key={link.page}>
-                    <Link to={createPageUrl(link.page)} className="text-[#C4BFB8] hover:text-[#8FA58C] transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-[#C4BFB8] text-sm leading-relaxed">
-                Sammamish, WA<br />
-                <a href="mailto:hopebridgecommunityservices@gmail.com" className="hover:text-[#8FA58C] transition-colors">
-                  hopebridgecommunityservices@gmail.com
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-[#4A5568] pt-8 text-center text-[#C4BFB8] text-sm">
-            © {new Date().getFullYear()} Hope Bridge. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
