@@ -74,7 +74,7 @@ export default function StoryProject() {
           </motion.div>
 
           {/* Brick Wall */}
-          <div className="bg-gradient-to-b from-amber-900 to-amber-950 rounded-2xl p-6 lg:p-8 shadow-inner">
+          <div className="rounded-2xl p-6 lg:p-8">
             <div className="space-y-2">
               {[...Array(8)].map((_, row) => (
                 <div key={row} className="flex gap-2" style={{ marginLeft: row % 2 === 1 ? '32px' : '0' }}>
