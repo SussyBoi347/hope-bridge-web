@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const statistics = [
-  { number: "1 in 5", label: "Asian American teens report symptoms of depression" },
-  { number: "50%", label: "less likely to seek mental health support than peers" },
-  { number: "71%", label: "feel pressure to succeed academically from family" }
-];
+{ number: "1 in 5", label: "Asian American teens report symptoms of depression" },
+{ number: "50%", label: "less likely to seek mental health support than peers" },
+{ number: "71%", label: "feel pressure to succeed academically from family" }];
+
 
 export default function Problem() {
   return (
@@ -16,26 +16,26 @@ export default function Problem() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
+
             <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
               The Challenge
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-white leading-tight">
-              A <span className="font-bold bg-gradient-to-r from-cyan-300 to-cyan-200 bg-clip-text text-transparent">silent struggle</span> many teens face alone
+              A silent struggle many teens face alone
             </h2>
             
             <div className="mt-8 space-y-6">
               <p className="text-blue-100 leading-relaxed">
-                For many Asian teens, <span className="font-bold text-cyan-300">mental health struggles</span> happen in silence. 
+                For many Asian teens, mental health struggles happen in silence. 
                 Cultural expectations around success, family honor, and emotional restraint 
-                create environments where <span className="font-bold text-cyan-300">asking for help</span> feels impossible.
+                create environments where asking for help feels impossible.
               </p>
               
-              <p className="text-blue-100 leading-relaxed">
-                The pressure to excel academically while navigating identity between two 
-                cultures—often without the language to express these feelings at home—leaves 
-                many teens isolated during their most formative years.
+              <p className="text-blue-100 leading-relaxed">The pressure to excel academically while navigating identity between two cultures often without the language to express these feelings at home leaves many teens isolated during their most formative years.
+
+
+
               </p>
 
               <p className="text-blue-100 leading-relaxed">
@@ -50,8 +50,8 @@ export default function Problem() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
+            className="relative">
+
             {/* Abstract visual element */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-blue-300/5 to-sky-300/10 rounded-3xl" />
             
@@ -61,15 +61,15 @@ export default function Problem() {
               </h3>
               
               <div className="space-y-8">
-                {statistics.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-5"
-                  >
+                {statistics.map((stat, index) =>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  className="flex items-start gap-5">
+
                     <div className="flex-shrink-0 w-20">
                       <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
                         {stat.number}
@@ -81,7 +81,7 @@ export default function Problem() {
                       </p>
                     </div>
                   </motion.div>
-                ))}
+                )}
               </div>
 
               <div className="mt-10 pt-8 border-t border-slate-100">
@@ -93,6 +93,6 @@ export default function Problem() {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
