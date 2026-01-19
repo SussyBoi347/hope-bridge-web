@@ -3,6 +3,7 @@ import Hero from '@/components/home/Hero';
 import Mission from '@/components/home/Mission';
 import Problem from '@/components/home/Problem';
 import Programs from '@/components/home/Programs';
+import CommunitySurvey from '@/components/home/CommunitySurvey';
 import Impact from '@/components/home/Impact';
 import GetInvolved from '@/components/home/GetInvolved';
 import Partnerships from '@/components/home/Partnerships';
@@ -17,6 +18,7 @@ export default function Home() {
       <Mission />
       <Problem />
       <Programs />
+      <CommunitySurvey />
       <Impact />
       <GetInvolved />
       <Partnerships />
