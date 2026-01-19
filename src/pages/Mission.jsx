@@ -87,6 +87,29 @@ export default function Mission() {
           </motion.div>
         </div>
 
+        {/* Stats bar */}
+        <div className="relative z-10 max-w-5xl mx-auto mt-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { number: "1 in 3", label: "Asian teens struggle with mental health" },
+              { number: "50%", label: "Less likely to seek help than peers" },
+              { number: "100+", label: "Teens supported annually" },
+              { number: "10+", label: "Schools partnered" }
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
+                className="bg-white/95 backdrop-blur-md rounded-2xl p-4 text-center border border-white/40 shadow-lg"
+              >
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">{stat.number}</div>
+                <div className="text-xs sm:text-sm text-slate-600 mt-1">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* Wave separator */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg className="w-full h-12 sm:h-16" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -165,9 +188,27 @@ export default function Mission() {
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">
                   {goal.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-slate-600 leading-relaxed mb-4">
                   {goal.description}
                 </p>
+                {index === 0 && (
+                  <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                    <div className="text-2xl font-bold text-blue-600">85%</div>
+                    <div className="text-xs text-slate-600">of participants report stronger cultural identity</div>
+                  </div>
+                )}
+                {index === 1 && (
+                  <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                    <div className="text-2xl font-bold text-blue-600">70%</div>
+                    <div className="text-xs text-slate-600">feel less pressure after joining our programs</div>
+                  </div>
+                )}
+                {index === 2 && (
+                  <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                    <div className="text-2xl font-bold text-blue-600">60+</div>
+                    <div className="text-xs text-slate-600">families engaged in healing conversations</div>
+                  </div>
+                )}
                 <ul className="space-y-3">
                   {goal.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-slate-600">
@@ -215,9 +256,27 @@ export default function Mission() {
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
                   {approach.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed mb-4">
                   {approach.description}
                 </p>
+                {index === 0 && (
+                  <div className="mt-4 pt-4 border-t border-blue-100">
+                    <div className="text-xl font-bold text-blue-600">40+ sessions</div>
+                    <div className="text-xs text-slate-500">hosted this year</div>
+                  </div>
+                )}
+                {index === 1 && (
+                  <div className="mt-4 pt-4 border-t border-blue-100">
+                    <div className="text-xl font-bold text-blue-600">150+ teens</div>
+                    <div className="text-xs text-slate-500">connected through peer groups</div>
+                  </div>
+                )}
+                {index === 2 && (
+                  <div className="mt-4 pt-4 border-t border-blue-100">
+                    <div className="text-xl font-bold text-blue-600">500+ people</div>
+                    <div className="text-xs text-slate-500">reached through education</div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -235,6 +294,22 @@ export default function Mission() {
             <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
               Why This Work Matters
             </h2>
+            
+            {/* Key Stats */}
+            <div className="grid grid-cols-3 gap-6 mb-10">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-bold text-cyan-300">2.5x</div>
+                <div className="text-sm text-blue-200 mt-1">Higher depression rates</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-bold text-cyan-300">30%</div>
+                <div className="text-sm text-blue-200 mt-1">Considered suicide</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-bold text-cyan-300">8%</div>
+                <div className="text-sm text-blue-200 mt-1">Seek professional help</div>
+              </div>
+            </div>
             <div className="space-y-6 text-lg text-blue-100 leading-relaxed">
               <p>
                 Asian American teens are experiencing a mental health crisis, yet they're the least likely 
