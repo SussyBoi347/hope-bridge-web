@@ -139,8 +139,8 @@ export default function Layout({ children, currentPageName }) {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block w-full text-left px-4 py-3 rounded-xl transition-all ${
                       currentPageName === link.page
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
+                        ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
+                        : 'bg-gradient-to-r from-blue-100 to-cyan-100 text-slate-700 hover:from-blue-200 hover:to-cyan-200'
                     }`}
                   >
                     {link.label}
