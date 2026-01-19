@@ -4,6 +4,7 @@ import { createPageUrl } from './utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Heart, Menu, X } from 'lucide-react';
+import HopeBridgeChatWidget from '@/components/HopeBridgeChatWidget';
 
 export default function Layout({ children, currentPageName }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -163,6 +164,9 @@ export default function Layout({ children, currentPageName }) {
       <main>
         {children}
       </main>
-    </div>
-  );
-}
+
+      {/* Chat Widget */}
+      <HopeBridgeChatWidget />
+      </div>
+      );
+      }

@@ -4,9 +4,9 @@ import Donate from './pages/Donate';
 import GetInvolved from './pages/GetInvolved';
 import GetSupport from './pages/GetSupport';
 import Home from './pages/Home';
+import Mission from './pages/Mission';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
-import Mission from './pages/Mission';
 import __Layout from './Layout.jsx';
 
 
@@ -17,9 +17,9 @@ export const PAGES = {
     "GetInvolved": GetInvolved,
     "GetSupport": GetSupport,
     "Home": Home,
+    "Mission": Mission,
     "Programs": Programs,
     "Schools": Schools,
-    "Mission": Mission,
 }
 
 export const pagesConfig = {
