@@ -207,6 +207,22 @@ export default function Mission() {
             <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
               Why This Work Matters
             </h2>
+            
+            {/* Key Stats */}
+            <div className="grid grid-cols-3 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-bold text-cyan-300">2.5x</div>
+                <div className="text-sm text-blue-200 mt-1">Higher depression rates</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-bold text-cyan-300">30%</div>
+                <div className="text-sm text-blue-200 mt-1">Considered suicide</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-bold text-cyan-300">8%</div>
+                <div className="text-sm text-blue-200 mt-1">Seek professional help</div>
+              </div>
+            </div>
 
           </motion.div>
         </div>
