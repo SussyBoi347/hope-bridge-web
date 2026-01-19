@@ -128,7 +128,7 @@ export default function Contact() {
               <h4 className="font-semibold text-white mb-4">Follow Our Journey</h4>
               <div className="flex gap-4">
                 <a 
-                   href="https://www.instagram.com/hopebridgementalsupport" 
+                   href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.instagram.com%2Fhopebridgecommunityservices%2F&data=05%7C02%7C1058455%40lwsd.org%7C6864645ea2874d53e03008de5789dd69%7C1fd4673fdf9646218638a1d88c4c85d7%7C0%7C0%7C639044446783079469%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=WMGtdY%2FhoIAIOBITOMvP3AUuBQe3QLbZIC5QcPnBAEA%3D&reserved=0" 
                    target="_blank"
                    rel="noopener noreferrer"
                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
@@ -139,7 +139,7 @@ export default function Contact() {
                   </svg>
                 </a>
                 <a 
-                   href="https://www.tiktok.com/@hopebridgementalsupport" 
+                   href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.tiktok.com%2F%40hopebridgecommunity&data=05%7C02%7C1058455%40lwsd.org%7Cf56122f61221458a900108de5789d9d1%7C1fd4673fdf9646218638a1d88c4c85d7%7C0%7C0%7C639044446722965066%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8FB4LFKs4GQ1vTY9JTFwIfrnGSg9Avkeaa3ihAXbQE0%3D&reserved=0" 
                    target="_blank"
                    rel="noopener noreferrer"
                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
