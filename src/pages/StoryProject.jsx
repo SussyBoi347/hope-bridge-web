@@ -161,6 +161,26 @@ export default function StoryProject() {
               </div>
             )}
           </div>
+
+          {/* Brick Wall */}
+          <div className="mt-24 rounded-2xl p-6 lg:p-8">
+            <div className="space-y-2">
+              {[...Array(8)].map((_, row) => (
+                <div key={row} className="flex gap-2" style={{ marginLeft: row % 2 === 1 ? '32px' : '0' }}>
+                  {[...Array(row % 2 === 1 ? 6 : 7)].map((_, col) => (
+                    <motion.div
+                      key={`${row}-${col}`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (row * 7 + col) * 0.03 }}
+                      className="flex-1 h-16 bg-white rounded shadow-sm hover:shadow-md hover:bg-blue-50 transition-all cursor-pointer border-2 border-blue-400"
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>
