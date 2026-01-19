@@ -117,7 +117,7 @@ export default function Contact() {
               <div className="flex gap-4">
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-[#7C9A92]/10 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-50 flex items-center justify-center transition-colors"
                   aria-label="Instagram"
                 >
                   <svg className="w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
@@ -126,7 +126,7 @@ export default function Contact() {
                 </a>
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-[#7C9A92]/10 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-50 flex items-center justify-center transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
@@ -135,7 +135,7 @@ export default function Contact() {
                 </a>
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-[#7C9A92]/10 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-50 flex items-center justify-center transition-colors"
                   aria-label="Twitter"
                 >
                   <svg className="w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
