@@ -80,9 +80,9 @@ export default function Contact() {
               Let's start a conversation
             </h2>
             
-            <p className="mt-6 text-lg text-blue-100 leading-relaxed">
-              Whether you're a teen seeking support, a parent looking for resources, 
-              a school interested in partnership, or someone who wants to contribute—we'd love to hear from you.
+            <p className="mt-6 text-lg text-blue-100 leading-relaxed">Whether you're a teen seeking support, a parent looking for resources, a school interested in partnership, or someone who wants to contribute we'd love to hear from you.
+
+
             </p>
 
             <div className="mt-10 space-y-6">
