@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Heart, DollarSign, Users, Sparkles, GraduationCap, MessageCircle, Building, ArrowRight } from 'lucide-react';
+import StripePaymentForm from '@/components/donate/StripePaymentForm';
 
 const impacts = [
   {
@@ -161,32 +162,38 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Donation Form Section */}
       <section className="py-20 px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 rounded-3xl p-12 shadow-2xl shadow-blue-500/20"
+            className="text-center mb-12"
           >
-            <Heart className="w-16 h-16 text-white/90 mx-auto mb-6" />
-            <h2 className="text-3xl font-semibold text-white mb-4">
-              Ready to Make a Difference?
+            <Heart className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h2 className="text-3xl font-semibold text-slate-900 mb-4">
+              Make Your Donation
             </h2>
-            <p className="text-blue-50 text-lg mb-8 max-w-2xl mx-auto">
-              Get in touch with us to discuss how your donation can create lasting impact 
-              for Asian teens in our community.
+            <p className="text-slate-600 text-lg">
+              Choose an amount and complete your secure donation in just a few clicks
             </p>
-            <Button
-              onClick={scrollToContact}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all"
-            >
-              Contact Us to Donate
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200"
+          >
+            <StripePaymentForm />
+          </motion.div>
+
+          <p className="text-center text-sm text-slate-500 mt-8">
+            Hope Bridge is a 501(c)(3) nonprofit organization. All donations are tax-deductible.
+          </p>
         </div>
       </section>
 
