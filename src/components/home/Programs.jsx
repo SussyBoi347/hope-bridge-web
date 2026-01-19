@@ -13,7 +13,7 @@ const programs = [
     icon: Calendar,
     title: "Workshops & Discussions",
     description: "Interactive sessions on topics like managing academic stress, having difficult conversations with parents, and building emotional resilience.",
-    color: "from-indigo-500 via-blue-500 to-sky-500"
+    color: "from-sky-600 via-blue-500 to-cyan-500"
   },
   {
     icon: Building,
@@ -31,7 +31,7 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-24 lg:py-32 bg-gradient-to-b from-sky-50/30 via-white to-indigo-50/20">
+    <section id="programs" className="py-24 lg:py-32 bg-[#F7F5F0]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

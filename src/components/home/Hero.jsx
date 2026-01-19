@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Vibrant gradient mesh background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-sky-50/40 to-indigo-100/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-sky-50/40 to-blue-50/50" />
       
       {/* Animated mesh gradient overlays */}
       <div className="absolute inset-0 overflow-hidden">
@@ -19,19 +19,19 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.6, scale: 1 }}
           transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute -top-20 -right-20 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-cyan-300/40 via-blue-400/30 to-indigo-400/20 blur-3xl"
+          className="absolute -top-20 -right-20 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-cyan-300/40 via-blue-400/30 to-sky-400/20 blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 0.5, scale: 1.1 }}
           transition={{ duration: 4, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-sky-300/35 via-blue-300/25 to-violet-300/20 blur-3xl"
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-sky-300/35 via-blue-300/25 to-blue-200/20 blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ duration: 5, delay: 1, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute top-1/3 left-1/3 w-[700px] h-[700px] rounded-full bg-gradient-to-r from-indigo-200/25 via-blue-200/20 to-cyan-200/25 blur-3xl"
+          className="absolute top-1/3 left-1/3 w-[700px] h-[700px] rounded-full bg-gradient-to-r from-blue-300/25 via-sky-200/20 to-cyan-200/25 blur-3xl"
         />
       </div>
 
@@ -43,7 +43,7 @@ export default function Hero() {
             <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#3B82F6" />
               <stop offset="50%" stopColor="#0EA5E9" />
-              <stop offset="100%" stopColor="#6366F1" />
+              <stop offset="100%" stopColor="#0284C7" />
             </linearGradient>
           </defs>
         </svg>
@@ -77,9 +77,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 leading-[1.1] tracking-tight"
           >
-            Every teen deserves
-            <span className="block mt-2 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-              a space to be heard
+            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+              Every teen deserves to be heard
             </span>
           </motion.h1>
 
