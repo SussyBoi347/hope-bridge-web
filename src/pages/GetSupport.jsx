@@ -40,11 +40,11 @@ export default function GetSupport() {
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 'You feel pressure to be perfect at school',
-                'You're navigating expectations from family and yourself',
-                'You're exploring who you are beyond what others expect',
+                "You're navigating expectations from family and yourself",
+                "You're exploring who you are beyond what others expect",
                 'You feel caught between different cultural worlds',
-                'You want to talk but don't know where to start',
-                'You're dealing with stress, anxiety, or just feeling overwhelmed'
+                "You want to talk but don't know where to start",
+                "You're dealing with stress, anxiety, or just feeling overwhelmed"
               ].map((item, idx) => (
                 <motion.div
                   key={idx}

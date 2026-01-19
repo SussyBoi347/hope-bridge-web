@@ -123,7 +123,7 @@ export default function GetInvolved() {
             {[
               {
                 title: 'You Have Lived Experience',
-                desc: 'If you've navigated similar struggles, your perspective is invaluable to other teens.'
+                desc: "If you've navigated similar struggles, your perspective is invaluable to other teens."
               },
               {
                 title: 'You Expand Our Reach',
@@ -131,7 +131,7 @@ export default function GetInvolved() {
               },
               {
                 title: 'You Build Community',
-                desc: 'This work is about connection. You're not just volunteering—you're creating spaces of belonging.'
+                desc: "This work is about connection. You're not just volunteering—you're creating spaces of belonging."
               }
             ].map((item, idx) => (
               <motion.div
