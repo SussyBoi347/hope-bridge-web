@@ -34,6 +34,12 @@ export default function Impact() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative"
+        >
           <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-10 lg:p-14 shadow-2xl shadow-blue-300/30">
             <div className="text-center mb-10">
               <h3 className="text-2xl font-semibold text-white mb-2">
