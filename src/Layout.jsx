@@ -76,6 +76,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Logo */}
             <Link 
               to={createPageUrl('Home')} 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-2.5"
             >
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-900/20">
