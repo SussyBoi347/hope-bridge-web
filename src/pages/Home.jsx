@@ -19,7 +19,6 @@ export default function Home() {
       <Programs />
       <CommunitySurvey />
       <Impact />
-      <GetInvolved />
       <Partnerships />
       <Contact />
       <Footer />
