@@ -7,8 +7,31 @@ import { Button } from '@/components/ui/button';
 export default function StoryProject() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-blue-50 via-cyan-50 to-sky-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+              The Digital{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Story Wall
+              </span>
+            </h1>
+            <p className="mt-8 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              An online space where teens can reflect on their experiences with cultural identity, 
+              academic stress, and family pressures. Share your story, explore others' perspectives, 
+              and be part of a growing community that reminds us all—no one's navigating this alone.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Share Your Experience Section */}
-      <section className="pt-32 pb-24 px-6 lg:px-8">
+      <section className="py-24 px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
