@@ -24,39 +24,7 @@ export default function Impact() {
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
             Real stories, real change
           </h2>
-          <p className="mt-6 text-lg text-blue-100">
-            We measure our success not in numbers alone, but in the moments when 
-            a teen feels understood for the first time.
-          </p>
         </motion.div>
-
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative"
-            >
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/20 border border-white/30">
-                <Quote className="w-10 h-10 text-blue-500/30 mb-6" />
-                <blockquote className="text-xl text-slate-700 leading-relaxed mb-6">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 shadow-md shadow-blue-300/50" />
-                  <div>
-                    <p className="font-medium text-slate-900">{testimonial.author}</p>
-                    <p className="text-sm text-slate-500">{testimonial.location}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Goals */}
         <motion.div
