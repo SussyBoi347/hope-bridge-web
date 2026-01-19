@@ -53,8 +53,8 @@ export default function Contact() {
             <p className="text-slate-600 leading-relaxed">
               We've received your message and will get back to you within 2-3 business days. 
               If this is urgent, please reach out directly at{' '}
-              <a href="mailto:hello@hopebridge.org" className="text-blue-600 hover:underline">
-                hello@hopebridge.org
+              <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-600 hover:underline">
+                hopebridgecommunityservices@gmail.com
               </a>
             </p>
           </motion.div>
@@ -92,8 +92,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900">Email</h4>
-                  <a href="mailto:hello@hopebridge.org" className="text-slate-600 hover:text-blue-600 transition-colors">
-                    hello@hopebridge.org
+                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-slate-600 hover:text-blue-600 transition-colors">
+                    hopebridgecommunityservices@gmail.com
                   </a>
                 </div>
               </div>
