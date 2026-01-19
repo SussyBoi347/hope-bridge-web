@@ -73,35 +73,31 @@ export default function StoryProject() {
             </p>
           </motion.div>
 
-          {/* Realistic Brick Wall */}
+          {/* Realistic Interconnected Brick Wall */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-100 rounded-2xl p-8 shadow-xl"
-            style={{
-              backgroundImage: `
-                linear-gradient(90deg, transparent 0%, transparent calc(50% - 1px), rgba(255,255,255,0.3) calc(50% - 1px), rgba(255,255,255,0.3) calc(50% + 1px), transparent calc(50% + 1px)),
-                linear-gradient(0deg, transparent 0%, transparent calc(50% - 1px), rgba(255,255,255,0.3) calc(50% - 1px), rgba(255,255,255,0.3) calc(50% + 1px), transparent calc(50% + 1px))
-              `,
-              backgroundSize: '120px 90px',
-            }}
+            className="bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-100 rounded-2xl p-6 shadow-xl"
           >
-            <div className="grid gap-[2px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))' }}>
-              {[...Array(48)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.02, duration: 0.4 }}
-                  className="aspect-[2/1.5] bg-gradient-to-br from-cyan-300 via-blue-200 to-cyan-300 rounded-sm shadow-sm hover:shadow-md hover:scale-105 transition-all border border-cyan-400/50 cursor-pointer"
-                  style={{
-                    boxShadow: 'inset -1px -1px 2px rgba(0,0,0,0.1), inset 1px 1px 2px rgba(255,255,255,0.5)',
-                    transform: i % 2 === 0 ? 'translateX(0)' : 'translateX(calc(55px + 1px))',
-                  }}
-                />
+            <div className="space-y-1">
+              {[...Array(6)].map((_, row) => (
+                <div key={row} className="flex gap-1" style={{ marginLeft: row % 2 === 1 ? '50%' : '0' }}>
+                  {[...Array(row % 2 === 1 ? 4 : 8)].map((_, col) => (
+                    <motion.div
+                      key={`${row}-${col}`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (row * 4 + col) * 0.03, duration: 0.4 }}
+                      className="flex-1 h-16 bg-gradient-to-br from-cyan-300 via-blue-200 to-cyan-300 rounded-sm shadow-sm hover:shadow-md hover:scale-105 transition-all border border-cyan-400/50 cursor-pointer"
+                      style={{
+                        boxShadow: 'inset -2px -2px 3px rgba(0,0,0,0.15), inset 2px 2px 3px rgba(255,255,255,0.6), -1px 2px 4px rgba(0,0,0,0.1)',
+                      }}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
           </motion.div>
