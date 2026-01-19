@@ -189,24 +189,6 @@ export default function Mission() {
                 <p className="text-slate-600 leading-relaxed mb-4">
                   {goal.description}
                 </p>
-                {index === 0 && (
-                  <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                    <div className="text-2xl font-bold text-blue-600">85%</div>
-                    <div className="text-xs text-slate-600">of participants report stronger cultural identity</div>
-                  </div>
-                )}
-                {index === 1 && (
-                  <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                    <div className="text-2xl font-bold text-blue-600">70%</div>
-                    <div className="text-xs text-slate-600">feel less pressure after joining our programs</div>
-                  </div>
-                )}
-                {index === 2 && (
-                  <div className="mb-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                    <div className="text-2xl font-bold text-blue-600">60+</div>
-                    <div className="text-xs text-slate-600">families engaged in healing conversations</div>
-                  </div>
-                )}
                 <ul className="space-y-3">
                   {goal.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-slate-600">
