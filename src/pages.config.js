@@ -6,6 +6,7 @@ import GetSupport from './pages/GetSupport';
 import Home from './pages/Home';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
+import Mission from './pages/Mission';
 import __Layout from './Layout.jsx';
 
 
@@ -18,6 +19,7 @@ export const PAGES = {
     "Home": Home,
     "Programs": Programs,
     "Schools": Schools,
+    "Mission": Mission,
 }
 
 export const pagesConfig = {
