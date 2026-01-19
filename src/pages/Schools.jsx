@@ -157,7 +157,7 @@ export default function Schools() {
             <div className="space-y-6">
               {[
                 { step: '1', title: 'Initial Conversation', desc: 'We learn about your school community, specific needs, and existing resources.' },
-                { step: '2', title: 'Customized Plan', desc: 'Together, we design a partnership that fits your school—whether that's workshops, ongoing programs, or staff training.' },
+                { step: '2', title: 'Customized Plan', desc: "Together, we design a partnership that fits your school—whether that's workshops, ongoing programs, or staff training." },
                 { step: '3', title: 'Implementation', desc: 'Our team works alongside your staff to launch programs, train peer mentors, and provide resources.' },
                 { step: '4', title: 'Ongoing Support', desc: 'We check in regularly, adjust as needed, and continue supporting your community long-term.' }
               ].map((item, idx) => (
