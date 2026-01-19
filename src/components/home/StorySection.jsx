@@ -37,7 +37,7 @@ export default function StorySection() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <Lightbulb className="w-6 h-6 mx-auto mb-2 text-cyan-200" />
               <div className="text-2xl font-bold">100%</div>
-              <div className="text-xs text-blue-100">Anonymous & safe</div>
+              <div className="text-xs text-blue-100">Safe & secure</div>
             </div>
           </div>
 
