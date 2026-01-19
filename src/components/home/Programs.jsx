@@ -4,12 +4,6 @@ import { MessageCircle, Calendar, Building, BookMarked, ArrowUpRight } from 'luc
 
 const programs = [
   {
-    icon: MessageCircle,
-    title: "Peer Support Circles",
-    description: "Small group sessions facilitated by trained peer mentors who understand the Asian American teen experience. A space to share, listen, and feel less alone.",
-    color: "from-blue-600 via-blue-500 to-cyan-500"
-  },
-  {
     icon: Calendar,
     title: "Workshops & Discussions",
     description: "Interactive sessions on topics like managing academic stress, having difficult conversations with parents, and building emotional resilience.",
