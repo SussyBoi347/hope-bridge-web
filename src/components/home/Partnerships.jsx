@@ -57,41 +57,7 @@ export default function Partnerships() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}>
 
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-xl shadow-black/20 border border-white/30">
-              <h3 className="text-xl font-semibold text-slate-900 mb-6">
-                What we offer schools
-              </h3>
-
-              <div className="space-y-4">
-                {benefits.map((benefit, index) =>
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                  className="flex items-start gap-3">
-
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">{benefit}</span>
-                  </motion.div>
-                )}
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <p className="text-sm text-slate-500">
-                  All school partnerships are customized based on your community's 
-                  specific needs and existing resources.
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>);
