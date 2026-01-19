@@ -1,17 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Shield, Sparkles } from 'lucide-react';
+import { BookOpen, Users, Shield, Sparkles, Heart } from 'lucide-react';
 
 const pillars = [
   {
-    icon: BookOpen,
-    title: "Academic Pressure",
-    description: "Helping teens develop healthy relationships with achievement and self-worth beyond grades."
-  },
-  {
-    icon: Users,
-    title: "Cultural Identity",
-    description: "Creating space to explore the complexities of navigating multiple cultural identities."
+    icon: Sparkles,
+    title: "Safe Spaces",
+    description: "Building peer communities where teens feel understood, not judged."
   },
   {
     icon: Shield,
@@ -19,9 +14,14 @@ const pillars = [
     description: "Normalizing mental health conversations in communities where they've been silenced."
   },
   {
-    icon: Sparkles,
-    title: "Safe Spaces",
-    description: "Building peer communities where teens feel understood, not judged."
+    icon: Users,
+    title: "Peer Support",
+    description: "Connecting teens with others who understand their unique cultural and generational challenges."
+  },
+  {
+    icon: BookOpen,
+    title: "Healing Family Disconnect",
+    description: "Building bridges between generations to foster understanding and open communication at home."
   }
 ];
 
@@ -49,7 +49,7 @@ export default function Mission() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
@@ -59,14 +59,14 @@ export default function Mission() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="p-6 rounded-2xl bg-white border border-blue-100/50 hover:border-blue-300/50 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300">
+              <div className="p-6 rounded-2xl bg-white border border-blue-100/50 hover:border-blue-300/50 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 h-full flex flex-col">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50 border border-blue-100/50 flex items-center justify-center mb-5 group-hover:from-blue-100 group-hover:to-sky-100 transition-all">
                   <pillar.icon className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2 min-h-[3rem] flex items-center">
                   {pillar.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed flex-grow">
                   {pillar.description}
                 </p>
               </div>
