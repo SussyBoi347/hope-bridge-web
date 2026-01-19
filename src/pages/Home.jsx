@@ -22,8 +22,6 @@ export default function Home() {
       <Impact />
       <GetInvolved />
       <Partnerships />
-
-      <About />
       <Contact />
       <Footer />
     </div>
