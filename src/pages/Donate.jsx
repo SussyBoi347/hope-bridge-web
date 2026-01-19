@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Heart, DollarSign, Users, Sparkles, GraduationCap, MessageCircle, Building, ArrowRight } from 'lucide-react';
+import { Heart, Users, GraduationCap, Building, ArrowRight } from 'lucide-react';
 import StripePaymentForm from '@/components/donate/StripePaymentForm';
 
 const impacts = [
@@ -48,7 +48,7 @@ export default function DonatePage() {
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               Support the next generation's{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent">
                 mental wellness
               </span>
             </h1>
@@ -92,7 +92,7 @@ export default function DonatePage() {
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50 border border-blue-100/50 flex items-center justify-center mb-4 group-hover:from-blue-100 group-hover:to-sky-100 transition-all">
                     <impact.icon className="w-6 h-6 text-blue-600" />
                   </div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent mb-3">
                     {impact.amount}
                   </div>
                   <p className="text-slate-600 text-sm leading-relaxed">
@@ -185,7 +185,7 @@ export default function DonatePage() {
                     <span className="font-bold text-blue-600">20%</span>
                   </div>
                   <div className="w-full bg-blue-50 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 h-3 rounded-full" style={{ width: '20%' }} />
+                    <div className="bg-gradient-to-r from-sky-600 to-blue-500 h-3 rounded-full" style={{ width: '20%' }} />
                   </div>
                   <p className="text-sm text-slate-600 mt-1">
                     Training educators and bringing programs to schools
@@ -198,7 +198,7 @@ export default function DonatePage() {
                     <span className="font-bold text-blue-600">15%</span>
                   </div>
                   <div className="w-full bg-blue-50 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-violet-600 to-violet-500 h-3 rounded-full" style={{ width: '15%' }} />
+                    <div className="bg-gradient-to-r from-cyan-600 to-sky-500 h-3 rounded-full" style={{ width: '15%' }} />
                   </div>
                   <p className="text-sm text-slate-600 mt-1">
                     Administrative costs and expanding our reach
