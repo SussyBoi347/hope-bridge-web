@@ -11,8 +11,8 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               About{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
@@ -34,8 +34,8 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-10 shadow-sm border border-slate-100"
-          >
+            className="bg-white rounded-2xl p-10 shadow-sm border border-slate-100">
+
             <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6">Our Story</h2>
             <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
@@ -49,10 +49,10 @@ export default function About() {
                 stigmatized. We recognized that existing support systems, while well-meaning, often 
                 miss the cultural nuances that make all the difference.
               </p>
-              <p>
-                So we created Hope Bridge—a space where Asian American teens can find support that 
-                actually gets it. Where they can talk about the pressure to be perfect, the struggle 
-                of navigating two cultures, and the loneliness of feeling like no one understands.
+              <p className="">So we created Hope Bridge a space where Asian American teens can find support that actually gets it. Where they can talk about the pressure to be perfect, the struggle of navigating two cultures, and the loneliness of feeling like no one understands.
+
+
+
               </p>
             </div>
           </motion.div>
@@ -67,8 +67,8 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
-            >
+              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
                 <Target className="w-6 h-6 text-blue-600" />
               </div>
@@ -84,8 +84,8 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
-            >
+              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-blue-600" />
               </div>
@@ -101,8 +101,8 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
-            >
+              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-500/10 flex items-center justify-center mb-6">
                 <Heart className="w-6 h-6 text-blue-600" />
               </div>
@@ -122,21 +122,21 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+            viewport={{ once: true }}>
+
             <Users className="w-12 h-12 text-blue-600 mx-auto mb-6" />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6">
               Our Team
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              Hope Bridge is led by a diverse team of mental health professionals, educators, and 
-              community advocates—many of whom are Asian American themselves and understand these 
-              challenges firsthand. We're supported by trained peer mentors, dedicated volunteers, 
-              and partner organizations across King County.
+            <p className="text-slate-700 text-lg leading-relaxed">Hope Bridge is an up-and-coming organization founded by six Asian teens, Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav. We aim to address the common struggles many Asian teens face in embracing cultural identity, navigating academics pressures, and healing family disconnect.
+
+
+
+
             </p>
           </motion.div>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 }
