@@ -38,21 +38,21 @@ export default function StoryProject() {
     }
 
     if (likedStories.includes(storyId)) {
-      setLikedStories(prev => prev.filter(id => id !== storyId));
-      await base44.entities.Story.update(storyId, { likes: Math.max(0, stories.find(s => s.id === storyId).likes - 1) });
+      setLikedStories((prev) => prev.filter((id) => id !== storyId));
+      await base44.entities.Story.update(storyId, { likes: Math.max(0, stories.find((s) => s.id === storyId).likes - 1) });
     } else {
-      setLikedStories(prev => [...prev, storyId]);
-      const story = stories.find(s => s.id === storyId);
+      setLikedStories((prev) => [...prev, storyId]);
+      const story = stories.find((s) => s.id === storyId);
       await base44.entities.Story.update(storyId, { likes: story.likes + 1 });
     }
   }, [likedStories, stories]);
 
-  const filteredStories = selectedTopic
-    ? stories.filter(s => s.topic === selectedTopic)
-    : stories;
+  const filteredStories = selectedTopic ?
+  stories.filter((s) => s.topic === selectedTopic) :
+  stories;
 
-  const featuredStories = stories.filter(s => s.featured).slice(0, 2);
-  const allOtherStories = filteredStories.filter(s => !s.featured);
+  const featuredStories = stories.filter((s) => s.featured).slice(0, 2);
+  const allOtherStories = filteredStories.filter((s) => !s.featured);
 
   const stats = {
     total: stories.length,
@@ -60,12 +60,12 @@ export default function StoryProject() {
       acc[s.topic] = (acc[s.topic] || 0) + 1;
       return acc;
     }, {}) | Object.entries({ ...Object.entries(stories.reduce((acc, s) => {
+        acc[s.topic] = (acc[s.topic] || 0) + 1;
+        return acc;
+      }, {})).sort(([, a], [, b]) => b - a) }).length > 0 ? Object.entries(stories.reduce((acc, s) => {
       acc[s.topic] = (acc[s.topic] || 0) + 1;
       return acc;
-    }, {})).sort(([,a], [,b]) => b - a) }).length > 0 ? Object.entries(stories.reduce((acc, s) => {
-      acc[s.topic] = (acc[s.topic] || 0) + 1;
-      return acc;
-    }, {})).sort(([,a], [,b]) => b - a)[0][0] : 'N/A',
+    }, {})).sort(([, a], [, b]) => b - a)[0][0] : 'N/A',
     totalLikes: stories.reduce((sum, s) => sum + s.likes, 0),
     totalComments: stories.reduce((sum, s) => sum + s.comments_count, 0)
   };
@@ -78,18 +78,18 @@ export default function StoryProject() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               The Digital{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Story Wall
               </span>
             </h1>
-            <p className="mt-8 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              An online space where teens can reflect on their experiences with cultural identity, 
-              academic stress, and family pressures. Share your story, explore others' perspectives, 
-              and be part of a growing community that reminds us all—no one's navigating this alone.
+            <p className="mt-8 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">An online space where teens can reflect on their experiences with cultural identity, academic stress, and family pressures. Share your story, explore others' perspectives, and be part of a growing community that reminds us all no one's navigating this alone.
+
+
+
             </p>
           </motion.div>
         </div>
@@ -102,8 +102,8 @@ export default function StoryProject() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl border-2 border-blue-200 p-10 lg:p-14 text-center shadow-lg"
-          >
+            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl border-2 border-blue-200 p-10 lg:p-14 text-center shadow-lg">
+
             <h1 className="text-3xl lg:text-4xl font-semibold text-blue-900 mb-4">
               Share Your Experience
             </h1>
@@ -127,44 +127,44 @@ export default function StoryProject() {
           <StoryInsights stats={stats} />
 
           {/* Featured Stories */}
-          {featuredStories.length > 0 && (
-            <FeaturedStories
-              stories={featuredStories}
-              onLike={handleLike}
-              likedStories={likedStories}
-            />
-          )}
+          {featuredStories.length > 0 &&
+          <FeaturedStories
+            stories={featuredStories}
+            onLike={handleLike}
+            likedStories={likedStories} />
+
+          }
 
           {/* Filters and All Stories */}
           <div>
             <h2 className="text-3xl font-semibold text-slate-900 mb-8">All Stories</h2>
             <StoryFilters selectedTopic={selectedTopic} onTopicChange={setSelectedTopic} />
 
-            {isLoading ? (
-              <div className="text-center py-12">
+            {isLoading ?
+            <div className="text-center py-12">
                 <p className="text-slate-600">Loading stories...</p>
-              </div>
-            ) : allOtherStories.length > 0 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {allOtherStories.map((story) => (
-                  <StoryCard
-                    key={story.id}
-                    story={story}
-                    onLike={handleLike}
-                    isLiked={likedStories.includes(story.id)}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
+              </div> :
+            allOtherStories.length > 0 ?
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {allOtherStories.map((story) =>
+              <StoryCard
+                key={story.id}
+                story={story}
+                onLike={handleLike}
+                isLiked={likedStories.includes(story.id)} />
+
+              )}
+              </div> :
+
+            <div className="text-center py-12">
                 <p className="text-slate-600">No stories yet for this topic. Be the first to share!</p>
               </div>
-            )}
+            }
           </div>
 
           
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 }
