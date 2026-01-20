@@ -246,7 +246,7 @@ export default function DonatePage() {
           </motion.div>
 
           <p className="text-center text-sm text-slate-500 mt-8">
-            Hope Bridge is a 501(c)(3) nonprofit organization. All donations are tax-deductible.
+            Hope Bridge is not 501(c)(3) nonprofit organization. All donations are tax-deductible.
           </p>
         </div>
       </section>
