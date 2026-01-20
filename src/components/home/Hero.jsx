@@ -105,7 +105,6 @@ export default function Hero() {
               className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 text-base rounded-full shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/35"
             >
               Get Support
-              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               variant="outline"
