@@ -157,7 +157,7 @@ export default function StoryProject() {
               </div> :
 
             <div className="text-center py-12">
-                <p className="text-slate-600">No stories yet for this topic. Be the first to share!</p>
+                <p className="text-slate-600">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
               </div>
             }
           </div>
