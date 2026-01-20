@@ -49,7 +49,7 @@ export default function Home() {
               </div>
               <div className="grid sm:grid-cols-3 gap-8">
                 {[
-                  { target: "500+", label: "Teens supported by 2025" },
+                  { target: "500+", label: "Teens supported by 2026" },
                   { target: "25", label: "School partnerships" },
                   { target: "100%", label: "Free programs" }
                 ].map((goal, index) => (
