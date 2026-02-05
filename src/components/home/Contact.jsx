@@ -236,7 +236,7 @@ export default function Contact() {
                     placeholder="How can we help?"
                     rows={5}
                     required
-                    className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 resize-none" />
+                    className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 resize-none text-black" />
 
                 </div>
 
