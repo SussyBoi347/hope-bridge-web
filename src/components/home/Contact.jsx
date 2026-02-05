@@ -201,7 +201,7 @@ export default function Contact() {
                     value={formData.type}
                     onValueChange={(value) => setFormData({ ...formData, type: value })}>
 
-                    <SelectTrigger className="bg-white border-slate-200">
+                    <SelectTrigger className="bg-white border-slate-200 text-slate-900">
                       <SelectValue placeholder="Select your role" />
                     </SelectTrigger>
                     <SelectContent>
