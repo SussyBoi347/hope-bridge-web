@@ -178,7 +178,7 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
                       required
-                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20" />
+                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 text-slate-900" />
 
                   </div>
                   <div className="space-y-2">
@@ -190,7 +190,7 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@example.com"
                       required
-                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20" />
+                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 text-slate-900" />
 
                   </div>
                 </div>
