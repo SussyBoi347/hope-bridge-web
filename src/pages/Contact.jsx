@@ -45,7 +45,7 @@ export default function Contact() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-[#F7F5F0] flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -54,10 +54,10 @@ export default function Contact() {
           <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-3xl font-semibold text-slate-900 mb-4">
+          <h2 className="text-3xl font-semibold text-white mb-4">
             Thank you for reaching out!
           </h2>
-          <p className="text-slate-600 mb-8">
+          <p className="text-gray-300 mb-8">
             We'll get back to you within 24-48 hours.
           </p>
           <Button
@@ -73,7 +73,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-sky-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -82,13 +82,13 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
               Let's{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 connect
               </span>
             </h1>
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Whether you're seeking support, want to partner with us, or have questions about 
               our programs, we'd love to hear from you.
             </p>
@@ -193,7 +193,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-white/50 to-[#E8EEF3]/30">
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
@@ -217,10 +217,10 @@ export default function Contact() {
               </a>
             </div>
             <div>
-              <MapPin className="w-8 h-8 text-[#5B4E77] mx-auto md:mx-0 mb-4" />
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Location</h3>
-              <p className="text-slate-600">Sammamish, WA</p>
-              <p className="text-slate-600">Serving King County</p>
+              <MapPin className="w-8 h-8 text-cyan-400 mx-auto md:mx-0 mb-4" />
+              <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
+              <p className="text-gray-300">Sammamish, WA</p>
+              <p className="text-gray-300">Serving King County</p>
             </div>
           </div>
         </div>

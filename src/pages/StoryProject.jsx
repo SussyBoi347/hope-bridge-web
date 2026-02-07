@@ -71,22 +71,22 @@ export default function StoryProject() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black">
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-blue-50 via-cyan-50 to-sky-50">
+      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-slate-950 to-black">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
               The Digital{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 Story Wall
               </span>
             </h1>
-            <p className="mt-8 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">An online space where teens can reflect on their experiences with cultural identity, academic stress, and family pressures. Share your story, explore others' perspectives, and be part of a growing community that reminds us all no one's navigating this alone.
+            <p className="mt-8 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">An online space where teens can reflect on their experiences with cultural identity, academic stress, and family pressures. Share your story, explore others' perspectives, and be part of a growing community that reminds us all no one's navigating this alone.
 
 
 
@@ -102,17 +102,17 @@ export default function StoryProject() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl border-2 border-blue-200 p-10 lg:p-14 text-center shadow-lg">
+            className="bg-slate-900/50 backdrop-blur-sm rounded-3xl border-2 border-cyan-500/30 p-10 lg:p-14 text-center shadow-lg">
 
-            <h1 className="text-3xl lg:text-4xl font-semibold text-blue-900 mb-4">
+            <h1 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
               Share Your Experience
             </h1>
-            <p className="text-lg text-slate-700 leading-relaxed mb-10">
+            <p className="text-lg text-gray-300 leading-relaxed mb-10">
               Your voice matters. Click below to share your story about cultural identity, family 
               disconnect, or academic pressures.
             </p>
             <Link to={createPageUrl('StorySharing')}>
-              <Button className="bg-blue-700 hover:bg-blue-800 text-white rounded-xl px-10 py-3 text-lg font-medium shadow-lg">
+              <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-xl px-10 py-3 text-lg shadow-lg">
                 ✏️ Share Your Story
               </Button>
             </Link>
@@ -121,7 +121,7 @@ export default function StoryProject() {
       </section>
 
       {/* Community Story Wall Section */}
-      <section className="py-24 px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-24 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
         <div className="max-w-5xl mx-auto">
           {/* Insights */}
           <StoryInsights stats={stats} />
@@ -137,12 +137,12 @@ export default function StoryProject() {
 
           {/* Filters and All Stories */}
           <div>
-            <h2 className="text-3xl font-semibold text-slate-900 mb-8">All Stories</h2>
+            <h2 className="text-3xl font-semibold text-white mb-8">All Stories</h2>
             <StoryFilters selectedTopic={selectedTopic} onTopicChange={setSelectedTopic} />
 
             {isLoading ?
             <div className="text-center py-12">
-                <p className="text-slate-600">Loading stories...</p>
+                <p className="text-gray-300">Loading stories...</p>
               </div> :
             allOtherStories.length > 0 ?
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -157,7 +157,7 @@ export default function StoryProject() {
               </div> :
 
             <div className="text-center py-12">
-                <p className="text-slate-600">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
+                <p className="text-gray-300">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
               </div>
             }
           </div>

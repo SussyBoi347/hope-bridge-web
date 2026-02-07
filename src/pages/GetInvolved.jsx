@@ -39,7 +39,7 @@ const ways = [
 
 export default function GetInvolved() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-sky-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -48,13 +48,13 @@ export default function GetInvolved() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
               Join us in creating{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 lasting change
               </span>
             </h1>
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Whether you have time, resources, or a platform to share, there are many ways 
               to support Asian teen mental health in our community.
             </p>
@@ -99,23 +99,23 @@ export default function GetInvolved() {
       </section>
 
       {/* Impact Statement */}
-      <section className="py-16 px-6 lg:px-8 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-black">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-semibold text-slate-900 mb-6">
+            <h2 className="text-3xl font-semibold text-white mb-6">
               Your Support Creates Real Change
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
               Every volunteer hour, every dollar donated, and every story shared helps us reach 
               more teens who are struggling in silence. Together, we're building a community where 
               mental health conversations are welcomed, not feared.
             </p>
             <Link to={createPageUrl('Contact')}>
-              <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg shadow-md">
+              <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-full px-8 py-6 text-lg shadow-md">
                 Get in Touch
               </Button>
             </Link>
