@@ -4,11 +4,12 @@ import { motion } from 'framer-motion';
 export default function BridgeHero() {
   return (
     <div className="relative w-full h-96 bg-transparent overflow-hidden flex items-center justify-center" style={{ perspective: '1000px' }}>
-      {/* SVG Bridge - Top Down View */}
+      {/* SVG Bridge - Aerial Top Down View */}
       <svg
-        viewBox="0 0 1200 400"
-        className="w-full h-full"
-        preserveAspectRatio="xMidYMid slice"
+        viewBox="0 0 1200 500"
+        className="w-5/6 h-full"
+        preserveAspectRatio="xMidYMid meet"
+        style={{ filter: 'drop-shadow(0 0 40px rgba(0, 217, 255, 0.3))' }}
       >
         {/* Background gradient */}
         <defs>
