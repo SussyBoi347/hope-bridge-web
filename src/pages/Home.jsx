@@ -12,7 +12,9 @@ import StorySection from '@/components/home/StorySection.jsx';
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
-      <BridgeHero />
+      <div className="h-40 flex items-center justify-center">
+        <BridgeHero />
+      </div>
       <Hero />
       <Mission />
       <Problem />
