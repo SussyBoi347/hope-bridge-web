@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Camera, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Camera, Loader2, CheckCircle2, AlertCircle, Sparkles, Heart, Users, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { base44 } from '@/api/base44Client';
 
@@ -78,23 +78,115 @@ export default function PhysicalStory() {
     );
   }
 
+  const stats = [
+    { icon: Users, label: 'Stories Shared', value: '2.3K+', color: 'from-blue-500 to-cyan-400' },
+    { icon: Heart, label: 'Community Likes', value: '12.5K+', color: 'from-pink-500 to-blue-400' },
+    { icon: Sparkles, label: 'Voices Heard', value: '891', color: 'from-purple-500 to-blue-400' },
+  ];
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-black">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative pt-20 pb-20 px-6 lg:px-8 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="absolute top-10 right-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 5, repeat: Infinity }}
+            className="absolute bottom-10 left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+          />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto text-center z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="text-6xl">📸</span>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 tracking-tight mt-4">
-              Share Your{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Physical Story
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="text-7xl mb-6 inline-block">
+              📸
+            </motion.div>
+            <h1 className="text-6xl sm:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
+              Turn Your{' '}
+              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
+                Story Into Reality
               </span>
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-              Take a photo of your handwritten or printed story and our AI will add it to the community wall automatically.
+            <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
+              Capture your handwritten or printed story in a photo. Our AI instantly reads it and shares it with thousands of voices in our community.
             </p>
+            
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-4 mt-10 max-w-2xl mx-auto">
+              {stats.map((stat, idx) => {
+                const Icon = stat.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className={`bg-gradient-to-br ${stat.color} p-0.5 rounded-lg`}>
+                    <div className="bg-black/80 rounded-md p-4">
+                      <Icon className="w-6 h-6 mx-auto mb-2 text-blue-300" />
+                      <p className="text-2xl font-bold text-white">{stat.value}</p>
+                      <p className="text-xs text-gray-400 mt-1">{stat.label}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="relative py-20 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center text-white mb-16">
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              How It Works
+            </span>
+          </motion.h2>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              { num: '1', title: 'Write Your Story', desc: 'Pen down your thoughts on paper', icon: '✍️' },
+              { num: '2', title: 'Take a Photo', desc: 'Capture it with your camera', icon: '📷' },
+              { num: '3', title: 'AI Reads It', desc: 'We extract the text instantly', icon: '🤖' },
+              { num: '4', title: 'Share to World', desc: 'Join thousands in our community', icon: '🌍' },
+            ].map((step, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="relative">
+                <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 rounded-xl p-6 h-full backdrop-blur-sm hover:border-blue-400/60 transition">
+                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg">
+                    {step.num}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                  <p className="text-gray-300 text-sm">{step.desc}</p>
+                </div>
+                {idx < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                    <div className="text-2xl text-blue-500">→</div>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -168,27 +260,75 @@ export default function PhysicalStory() {
       </section>
 
       {/* Info Section */}
-      <section className="relative py-20 px-6 lg:px-8 bg-gradient-to-b from-transparent to-black/50">
-        <div className="max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">Tips for Best Results</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/10 rounded-lg p-6 border border-white/20">
-              <h4 className="text-white font-semibold mb-2">📝 Clear Text</h4>
-              <p className="text-gray-300 text-sm">Make sure the text is clearly visible and readable in the photo.</p>
-            </div>
-            <div className="bg-white/10 rounded-lg p-6 border border-white/20">
-              <h4 className="text-white font-semibold mb-2">💡 Good Lighting</h4>
-              <p className="text-gray-300 text-sm">Take the photo in good lighting to ensure text clarity.</p>
-            </div>
-            <div className="bg-white/10 rounded-lg p-6 border border-white/20">
-              <h4 className="text-white font-semibold mb-2">📐 Straight Angle</h4>
-              <p className="text-gray-300 text-sm">Position the story straight for better text recognition.</p>
-            </div>
-            <div className="bg-white/10 rounded-lg p-6 border border-white/20">
-              <h4 className="text-white font-semibold mb-2">📄 Full Story</h4>
-              <p className="text-gray-300 text-sm">Include the entire story in one photo if possible.</p>
-            </div>
+      <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-blue-950/30 to-black via-slate-950">
+        <div className="max-w-5xl mx-auto">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-white mb-4 text-center">
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Pro Tips for Perfect Captures
+            </span>
+          </motion.h3>
+          <p className="text-center text-gray-400 mb-12 text-lg">Maximize AI accuracy with these simple guidelines</p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-8 border border-blue-500/30 hover:border-blue-400/60 transition">
+              <div className="text-5xl mb-4">📝</div>
+              <h4 className="text-white font-bold text-xl mb-3">Clear, Legible Text</h4>
+              <p className="text-gray-300">Use dark ink on light paper. Avoid cursive if possible. Make sure handwriting is clear and spaced out for perfect recognition.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-8 border border-blue-500/30 hover:border-blue-400/60 transition">
+              <div className="text-5xl mb-4">💡</div>
+              <h4 className="text-white font-bold text-xl mb-3">Excellent Lighting</h4>
+              <p className="text-gray-300">Natural daylight is best. Avoid shadows and glare. Use a bright room or well-lit outdoor area for optimal photo quality.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-8 border border-blue-500/30 hover:border-blue-400/60 transition">
+              <div className="text-5xl mb-4">📐</div>
+              <h4 className="text-white font-bold text-xl mb-3">Straight Alignment</h4>
+              <p className="text-gray-300">Hold the camera perpendicular to the paper. Avoid tilted or angled shots. Keep the entire page in frame and centered.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-8 border border-blue-500/30 hover:border-blue-400/60 transition">
+              <div className="text-5xl mb-4">📄</div>
+              <h4 className="text-white font-bold text-xl mb-3">Complete Story</h4>
+              <p className="text-gray-300">Capture the full narrative in one or multiple clear photos. Include all pages if multi-page. Check before uploading.</p>
+            </motion.div>
           </div>
+
+          {/* Why Physical Stories Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-12 text-center">
+            <Zap className="w-12 h-12 text-white mx-auto mb-4" />
+            <h3 className="text-3xl font-bold text-white mb-4">Why Share Your Physical Story?</h3>
+            <p className="text-white text-lg leading-relaxed">
+              Physical stories carry authenticity. When you write by hand, your voice becomes real. Our community values the genuine human connection in your words—the crossed-out passages, the emotional underlines, the real ink on real paper. By sharing your physical story, you're not just adding text to a wall; you're creating a bridge between hearts.
+            </p>
+          </motion.div>
         </div>
       </section>
     </div>
