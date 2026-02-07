@@ -107,7 +107,7 @@ export default function Layout({ children, currentPageName }) {
                   className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
                     currentPageName === link.page
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black shadow-[0_0_20px_rgba(0,217,255,0.6)]'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-cyan-500/30'
+                      : 'text-white hover:text-white hover:bg-white/10 border border-white/30 hover:border-white/60'
                   }`}
                 >
                   {link.label}
