@@ -110,9 +110,9 @@ export default function StripePaymentForm() {
         </div>
         
         <div>
-          <Label htmlFor="custom-amount" className="text-sm text-slate-600 mb-2 block">
-            Or enter custom amount
-          </Label>
+           <Label htmlFor="custom-amount" className="text-sm text-black mb-2 block">
+             Or enter custom amount
+           </Label>
           <div className="relative">
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">$</span>
             <Input
