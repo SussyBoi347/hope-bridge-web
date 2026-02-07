@@ -194,8 +194,8 @@ export default function Contact() {
 
       {/* Contact Info */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12 text-center">
             <div className="text-center">
               <Mail className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
