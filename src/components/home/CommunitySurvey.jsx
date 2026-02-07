@@ -46,7 +46,7 @@ export default function CommunitySurvey() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 duration-300"
           >
-            Take the Community Survey
+            Take our Community Survey
           </a>
         </motion.div>
       </div>
