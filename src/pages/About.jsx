@@ -29,12 +29,13 @@ export default function About() {
 
       {/* Our Story */}
       <section className="py-16 px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-900/70 backdrop-blur-sm rounded-2xl p-10 shadow-lg border border-cyan-400/40 shadow-[0_0_40px_rgba(0,217,255,0.15)]">
+            className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="bg-slate-900/70 backdrop-blur-sm rounded-2xl p-10 shadow-lg border border-cyan-400/40 shadow-[0_0_40px_rgba(0,217,255,0.15)]">
 
             <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Story</h2>
             <div className="space-y-4 text-white leading-relaxed">
