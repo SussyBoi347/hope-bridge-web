@@ -26,7 +26,7 @@ export default function BridgeHero() {
         </defs>
 
         {/* Bridge deck background */}
-        <rect width="1200" height="400" fill="url(#bridgeGradient)" />
+        <rect width="1200" height="500" fill="url(#bridgeGradient)" />
 
         {/* Main bridge structure */}
         <motion.g
