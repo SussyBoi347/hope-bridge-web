@@ -125,7 +125,7 @@ export default function Contact() {
               <h4 className="font-semibold text-white mb-4">Follow Our Journey</h4>
               <div className="flex gap-4">
                 <a
-                  href="https://www.instagram.com/hopebridgementalsupport"
+                  href="https://www.instagram.com/hopebridgecommunityservices/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
