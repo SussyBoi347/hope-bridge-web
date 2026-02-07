@@ -5,8 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Mail, MapPin, Phone, Loader2, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+
+const MAX_MESSAGE_LENGTH = 1000;
+const MAX_NAME_LENGTH = 100;
+const MAX_ORG_LENGTH = 150;
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,8 +20,11 @@ export default function Contact() {
     organization: '',
     message: ''
   });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
