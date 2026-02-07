@@ -55,10 +55,22 @@ export default function About() {
 
 
               </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+              </div>
+              </div>
+              <motion.div
+               initial={{ opacity: 0, scale: 0.9 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.2 }}>
+               <img 
+                 src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=600&fit=crop" 
+                 alt="Hope Bridge Community"
+                 className="rounded-2xl shadow-xl border border-cyan-400/40"
+               />
+              </motion.div>
+              </motion.div>
+              </div>
+              </section>
 
       {/* Mission, Vision, Values */}
       <section className="py-16 px-6 lg:px-8 bg-black">
