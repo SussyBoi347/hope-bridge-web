@@ -55,10 +55,10 @@ export default function StoryInsights({ stats }) {
               
               <div className="relative">
                 <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}>
-                  <Icon className={`w-12 h-12 mb-4 ${insight.iconColor} drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]`} />
-                </motion.div>
+                   whileHover={{ y: -8 }}
+                   transition={{ type: "spring", stiffness: 300, damping: 20 }}>
+                   <Icon className={`w-12 h-12 mb-4 ${insight.iconColor} drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]`} />
+                 </motion.div>
                 <p className="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">{insight.label}</p>
                 <motion.p
                   initial={{ scale: 0.8 }}
