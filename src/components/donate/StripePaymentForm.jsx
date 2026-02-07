@@ -1,87 +1,25 @@
-import React, { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Heart, CheckCircle2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_placeholder');
-
-function CheckoutForm({ amount, onSuccess }) {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!stripe || !elements) {
-      return;
-    }
-
-    setIsProcessing(true);
-    setError(null);
-
-    const { error: submitError } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `${window.location.origin}/donate?success=true`,
-      },
-    });
-
-    if (submitError) {
-      setError(submitError.message);
-      setIsProcessing(false);
-    } else {
-      onSuccess();
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-4 rounded-lg bg-blue-50 border border-blue-100">
-        <div className="text-sm text-slate-600 mb-1">Your donation</div>
-        <div className="text-3xl font-bold text-blue-600">${amount}</div>
-      </div>
-
-      <PaymentElement />
-
-      {error && (
-        <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
-          {error}
-        </div>
-      )}
-
-      <Button
-        type="submit"
-        disabled={!stripe || isProcessing}
-        className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 text-lg rounded-xl shadow-lg"
-      >
-        {isProcessing ? (
-          <>
-            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-            Processing...
-          </>
-        ) : (
-          <>
-            <Heart className="w-5 h-5 mr-2" />
-            Donate ${amount}
-          </>
-        )}
-      </Button>
-    </form>
-  );
-}
-
 export default function StripePaymentForm() {
   const [selectedAmount, setSelectedAmount] = useState(100);
   const [customAmount, setCustomAmount] = useState('');
-  const [clientSecret, setClientSecret] = useState(null);
   const [isCreatingIntent, setIsCreatingIntent] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+
+  // Check for success in URL on mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      setPaymentSuccess(true);
+      // Clean up URL
+      window.history.replaceState({}, '', '/donate');
+    }
+  }, []);
 
   const presetAmounts = [25, 50, 100, 250, 500];
 
@@ -101,19 +39,23 @@ export default function StripePaymentForm() {
   };
 
   const createPaymentIntent = async () => {
+    // Check if running in iframe
+    if (window.self !== window.top) {
+      alert('Checkout is only available from the published app. Please open the app in a new tab.');
+      return;
+    }
+
     setIsCreatingIntent(true);
     try {
-      // Call your backend function to create a Stripe Payment Intent
-      const response = await base44.integrations.Stripe.CreatePaymentIntent({
-        amount: selectedAmount * 100, // Stripe uses cents
-        currency: 'usd',
-        description: 'Hope Bridge Donation'
+      const { data } = await base44.functions.invoke('createCheckout', {
+        amount: selectedAmount
       });
       
-      setClientSecret(response.client_secret);
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
     } catch (error) {
-      console.error('Error creating payment intent:', error);
-      alert('Unable to initialize payment. Please contact us directly.');
+      console.error('Error creating checkout:', error);
+      alert('Unable to initialize payment. Please try again or contact us directly.');
     } finally {
       setIsCreatingIntent(false);
     }
@@ -134,7 +76,6 @@ export default function StripePaymentForm() {
         <Button
           onClick={() => {
             setPaymentSuccess(false);
-            setClientSecret(null);
             setSelectedAmount(100);
           }}
           variant="outline"
@@ -145,89 +86,69 @@ export default function StripePaymentForm() {
     );
   }
 
-  if (!clientSecret) {
-    return (
-      <div className="space-y-6">
+  return (
+    <div className="space-y-6">
+      <div>
+        <Label className="text-base font-semibold text-slate-900 mb-4 block">
+          Select Donation Amount
+        </Label>
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
+          {presetAmounts.map((amount) => (
+            <button
+              key={amount}
+              type="button"
+              onClick={() => handleAmountSelect(amount)}
+              className={`p-4 rounded-xl border-2 transition-all ${
+                selectedAmount === amount && !customAmount
+                  ? 'border-blue-600 bg-blue-50 text-blue-600'
+                  : 'border-slate-200 hover:border-blue-300'
+              }`}
+            >
+              <div className="font-bold">${amount}</div>
+            </button>
+          ))}
+        </div>
+        
         <div>
-          <Label className="text-base font-semibold text-slate-900 mb-4 block">
-            Select Donation Amount
+          <Label htmlFor="custom-amount" className="text-sm text-slate-600 mb-2 block">
+            Or enter custom amount
           </Label>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
-            {presetAmounts.map((amount) => (
-              <button
-                key={amount}
-                type="button"
-                onClick={() => handleAmountSelect(amount)}
-                className={`p-4 rounded-xl border-2 transition-all ${
-                  selectedAmount === amount && !customAmount
-                    ? 'border-blue-600 bg-blue-50 text-blue-600'
-                    : 'border-slate-200 hover:border-blue-300'
-                }`}
-              >
-                <div className="font-bold">${amount}</div>
-              </button>
-            ))}
-          </div>
-          
-          <div>
-            <Label htmlFor="custom-amount" className="text-sm text-slate-600 mb-2 block">
-              Or enter custom amount
-            </Label>
-            <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">$</span>
-              <Input
-                id="custom-amount"
-                type="number"
-                min="1"
-                placeholder="Enter amount"
-                value={customAmount}
-                onChange={(e) => handleCustomAmount(e.target.value)}
-                className="pl-8 py-6 text-lg"
-              />
-            </div>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">$</span>
+            <Input
+              id="custom-amount"
+              type="number"
+              min="1"
+              placeholder="Enter amount"
+              value={customAmount}
+              onChange={(e) => handleCustomAmount(e.target.value)}
+              className="pl-8 py-6 text-lg"
+            />
           </div>
         </div>
-
-        <Button
-          onClick={createPaymentIntent}
-          disabled={!selectedAmount || selectedAmount < 1 || isCreatingIntent}
-          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 text-lg rounded-xl shadow-lg"
-        >
-          {isCreatingIntent ? (
-            <>
-              <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-              Loading...
-            </>
-          ) : (
-            <>
-              Continue to Payment
-              <span className="ml-2 font-bold">${selectedAmount}</span>
-            </>
-          )}
-        </Button>
-
-        <p className="text-xs text-center text-slate-500">
-          Secure payment powered by Stripe • Tax-deductible donation
-        </p>
       </div>
-    );
-  }
 
-  return (
-    <Elements
-      stripe={stripePromise}
-      options={{
-        clientSecret,
-        appearance: {
-          theme: 'stripe',
-          variables: {
-            colorPrimary: '#2563eb',
-            borderRadius: '12px',
-          },
-        },
-      }}
-    >
-      <CheckoutForm amount={selectedAmount} onSuccess={() => setPaymentSuccess(true)} />
-    </Elements>
+      <Button
+        onClick={createPaymentIntent}
+        disabled={!selectedAmount || selectedAmount < 1 || isCreatingIntent}
+        className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 text-lg rounded-xl shadow-lg"
+      >
+        {isCreatingIntent ? (
+          <>
+            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+            Loading...
+          </>
+        ) : (
+          <>
+            Continue to Payment
+            <span className="ml-2 font-bold">${selectedAmount}</span>
+          </>
+        )}
+      </Button>
+
+      <p className="text-xs text-center text-slate-500">
+        Secure payment powered by Stripe • Tax-deductible donation
+      </p>
+    </div>
   );
 }
