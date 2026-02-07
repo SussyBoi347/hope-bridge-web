@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Glowing lines */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent"></div>
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+        <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
       </div>
 
       {/* Hero content */}
