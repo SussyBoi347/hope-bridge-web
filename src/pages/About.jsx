@@ -36,41 +36,36 @@ export default function About() {
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="bg-slate-900/70 backdrop-blur-sm rounded-2xl p-10 shadow-lg border border-cyan-400/40 shadow-[0_0_40px_rgba(0,217,255,0.15)]">
-
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Story</h2>
-            <div className="space-y-4 text-white leading-relaxed">
-              <p>
-                Hope Bridge was born from a simple observation: too many Asian American teens are 
-                suffering in silence, caught between cultural expectations and personal struggles 
-                with no one to turn to.
-              </p>
-              <p>
-                We saw young people excelling academically while quietly drowning emotionally. We 
-                watched families struggle to talk about mental health in communities where it's still 
-                stigmatized. We recognized that existing support systems, while well-meaning, often 
-                miss the cultural nuances that make all the difference.
-              </p>
-              <p className="">So we created Hope Bridge a space where Asian American teens can find support that actually gets it. Where they can talk about the pressure to be perfect, the struggle of navigating two cultures, and the loneliness of feeling like no one understands.
-
-
-
-              </p>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Story</h2>
+              <div className="space-y-4 text-white leading-relaxed">
+                <p>
+                  Hope Bridge was born from a simple observation: too many Asian American teens are 
+                  suffering in silence, caught between cultural expectations and personal struggles 
+                  with no one to turn to.
+                </p>
+                <p>
+                  We saw young people excelling academically while quietly drowning emotionally. We 
+                  watched families struggle to talk about mental health in communities where it's still 
+                  stigmatized. We recognized that existing support systems, while well-meaning, often 
+                  miss the cultural nuances that make all the difference.
+                </p>
+                <p>So we created Hope Bridge a space where Asian American teens can find support that actually gets it. Where they can talk about the pressure to be perfect, the struggle of navigating two cultures, and the loneliness of feeling like no one understands.</p>
               </div>
-              </div>
-              <motion.div
-               initial={{ opacity: 0, scale: 0.9 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.2 }}>
-               <img 
-                 src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=600&fit=crop" 
-                 alt="Hope Bridge Community"
-                 className="rounded-2xl shadow-xl border border-cyan-400/40"
-               />
-              </motion.div>
-              </motion.div>
-              </div>
-              </section>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}>
+              <img 
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=600&fit=crop" 
+                alt="Hope Bridge Community"
+                className="rounded-2xl shadow-xl border border-cyan-400/40"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Mission, Vision, Values */}
       <section className="py-16 px-6 lg:px-8 bg-black">
