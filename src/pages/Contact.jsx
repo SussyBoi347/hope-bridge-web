@@ -200,7 +200,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     onBlur={() => handleBlur('name')}
-                    className={`mt-2 rounded-xl transition-colors ${
+                    className={`mt-2 rounded-xl transition-colors text-black ${
                       errors.name && touched.name 
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-200'
@@ -222,7 +222,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     onBlur={() => handleBlur('email')}
-                    className={`mt-2 rounded-xl transition-colors ${
+                    className={`mt-2 rounded-xl transition-colors text-black ${
                       errors.email && touched.email 
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-200'
@@ -279,7 +279,7 @@ export default function Contact() {
                     maxLength={MAX_ORG_LENGTH}
                     value={formData.organization}
                     onChange={(e) => handleInputChange('organization', e.target.value)}
-                    className="mt-2 rounded-xl border-gray-200"
+                    className="mt-2 rounded-xl border-gray-200 text-black"
                     placeholder="e.g., Lincoln High School"
                   />
                 </div>
@@ -305,7 +305,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
                   onBlur={() => handleBlur('message')}
-                  className={`mt-2 rounded-xl transition-colors resize-none ${
+                  className={`mt-2 rounded-xl transition-colors resize-none text-black ${
                     errors.message && touched.message 
                       ? 'border-red-500 focus:ring-red-500' 
                       : 'border-gray-200'
