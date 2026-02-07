@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function BridgeHero() {
   return (
-    <div className="relative w-full h-72 bg-gradient-to-b from-slate-950 via-blue-950 to-transparent overflow-hidden">
+    <div className="relative w-full h-96 bg-transparent overflow-hidden flex items-center justify-center" style={{ perspective: '1000px' }}>
       {/* SVG Bridge - Top Down View */}
       <svg
         viewBox="0 0 1200 400"
