@@ -31,7 +31,6 @@ export default function Hero() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-8">
             <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/30 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.2)]">
-              <Sparkles className="w-4 h-4" />
               Supporting Asian Teen Mental Health
             </span>
           </motion.div>
