@@ -174,28 +174,67 @@ export default function Contact() {
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
           >
+            {submitError && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-xl"
+              >
+                <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                <p className="text-red-700 text-sm">{submitError}</p>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="name">Name *</Label>
+                  <div className="flex justify-between items-baseline mb-2">
+                    <Label htmlFor="name">Name *</Label>
+                    <span className={`text-xs ${formData.name.length > 0 ? 'text-gray-500' : 'text-gray-400'}`}>
+                      {formData.name.length}/{MAX_NAME_LENGTH}
+                    </span>
+                  </div>
                   <Input
                     id="name"
-                    required
+                    maxLength={MAX_NAME_LENGTH}
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="mt-2 rounded-xl"
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    onBlur={() => handleBlur('name')}
+                    className={`mt-2 rounded-xl transition-colors ${
+                      errors.name && touched.name 
+                        ? 'border-red-500 focus:ring-red-500' 
+                        : 'border-gray-200'
+                    }`}
+                    placeholder="Your full name"
                   />
+                  {errors.name && touched.name && (
+                    <motion.p className="text-red-600 text-xs mt-2 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      {errors.name}
+                    </motion.p>
+                  )}
                 </div>
                 <div>
                   <Label htmlFor="email">Email *</Label>
                   <Input
                     id="email"
                     type="email"
-                    required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="mt-2 rounded-xl"
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    onBlur={() => handleBlur('email')}
+                    className={`mt-2 rounded-xl transition-colors ${
+                      errors.email && touched.email 
+                        ? 'border-red-500 focus:ring-red-500' 
+                        : 'border-gray-200'
+                    }`}
+                    placeholder="your@email.com"
                   />
+                  {errors.email && touched.email && (
+                    <motion.p className="text-red-600 text-xs mt-2 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      {errors.email}
+                    </motion.p>
+                  )}
                 </div>
               </div>
 
@@ -204,9 +243,13 @@ export default function Contact() {
                   <Label htmlFor="type">I am a... *</Label>
                   <Select
                     value={formData.type}
-                    onValueChange={(value) => setFormData({ ...formData, type: value })}
+                    onValueChange={(value) => handleInputChange('type', value)}
                   >
-                    <SelectTrigger className="mt-2 rounded-xl">
+                    <SelectTrigger className={`mt-2 rounded-xl transition-colors ${
+                      errors.type && touched.type 
+                        ? 'border-red-500' 
+                        : 'border-gray-200'
+                    }`}>
                       <SelectValue placeholder="Select one" />
                     </SelectTrigger>
                     <SelectContent>
@@ -217,35 +260,70 @@ export default function Contact() {
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
+                  {errors.type && touched.type && (
+                    <motion.p className="text-red-600 text-xs mt-2 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      {errors.type}
+                    </motion.p>
+                  )}
                 </div>
                 <div>
-                  <Label htmlFor="organization">School/Organization (optional)</Label>
+                  <div className="flex justify-between items-baseline mb-2">
+                    <Label htmlFor="organization">School/Organization (optional)</Label>
+                    <span className={`text-xs ${formData.organization.length > 0 ? 'text-gray-500' : 'text-gray-400'}`}>
+                      {formData.organization.length}/{MAX_ORG_LENGTH}
+                    </span>
+                  </div>
                   <Input
                     id="organization"
+                    maxLength={MAX_ORG_LENGTH}
                     value={formData.organization}
-                    onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                    className="mt-2 rounded-xl"
+                    onChange={(e) => handleInputChange('organization', e.target.value)}
+                    className="mt-2 rounded-xl border-gray-200"
+                    placeholder="e.g., Lincoln High School"
                   />
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="message">Message *</Label>
+                <div className="flex justify-between items-baseline mb-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <span className={`text-xs ${
+                    formData.message.length > MAX_MESSAGE_LENGTH * 0.9
+                      ? 'text-orange-600'
+                      : formData.message.length > 0
+                      ? 'text-gray-500'
+                      : 'text-gray-400'
+                  }`}>
+                    {formData.message.length}/{MAX_MESSAGE_LENGTH}
+                  </span>
+                </div>
                 <Textarea
                   id="message"
-                  required
+                  maxLength={MAX_MESSAGE_LENGTH}
                   rows={6}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="mt-2 rounded-xl"
-                  placeholder="Tell us how we can help..."
+                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  onBlur={() => handleBlur('message')}
+                  className={`mt-2 rounded-xl transition-colors resize-none ${
+                    errors.message && touched.message 
+                      ? 'border-red-500 focus:ring-red-500' 
+                      : 'border-gray-200'
+                  }`}
+                  placeholder="Tell us how we can help... (minimum 10 characters)"
                 />
+                {errors.message && touched.message && (
+                  <motion.p className="text-red-600 text-xs mt-2 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" />
+                    {errors.message}
+                  </motion.p>
+                )}
               </div>
 
               <Button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-xl py-6 text-lg shadow-md"
+                disabled={isSubmitting || Object.keys(errors).length > 0}
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl py-6 text-lg shadow-md transition-all"
               >
                 {isSubmitting ? (
                   <>
