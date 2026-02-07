@@ -105,6 +105,7 @@ export default function Hero() {
             Scroll
           </motion.div>
         </motion.div>
+      </div>
 
       </section>
   );
