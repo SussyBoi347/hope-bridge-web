@@ -136,7 +136,7 @@ export default function Contact() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.tiktok.com/@hopebridgementalsupport"
+                  href="https://www.tiktok.com/@hopebridgecommunity"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
