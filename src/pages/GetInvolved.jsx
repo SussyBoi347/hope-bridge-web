@@ -105,8 +105,11 @@ export default function GetInvolved() {
       </section>
 
       {/* Impact Statement */}
-      <section className="py-16 px-6 lg:px-8 bg-black">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16 px-6 lg:px-8 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
