@@ -33,7 +33,7 @@ export default function StoryFilters({ selectedTopic, onTopicChange }) {
             ? 'bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/30'
             : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20'
         }`}>
-        ✨ All Stories
+         All Stories
       </motion.button>
 
       {topics.map((topic) => {
