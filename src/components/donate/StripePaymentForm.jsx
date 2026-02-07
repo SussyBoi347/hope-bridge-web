@@ -98,11 +98,11 @@ export default function StripePaymentForm() {
               key={amount}
               type="button"
               onClick={() => handleAmountSelect(amount)}
-              className={`p-4 rounded-xl border-2 transition-all ${
-                selectedAmount === amount && !customAmount
-                  ? 'border-blue-600 bg-blue-50 text-blue-600'
-                  : 'border-slate-200 hover:border-blue-300'
-              }`}
+              className={`p-4 rounded-xl border-2 transition-all text-black ${
+                 selectedAmount === amount && !customAmount
+                   ? 'border-blue-600 bg-blue-50 text-blue-600'
+                   : 'border-slate-200 hover:border-blue-300'
+               }`}
             >
               <div className="font-bold">${amount}</div>
             </button>
