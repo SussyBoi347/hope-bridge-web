@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import BridgeHero from '@/components/home/BridgeHero';
 import Hero from '@/components/home/Hero';
 import Mission from '@/components/home/Mission';
 import Problem from '@/components/home/Problem';
@@ -12,9 +11,6 @@ import StorySection from '@/components/home/StorySection.jsx';
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
-      <div className="h-40 flex items-center justify-center">
-        <BridgeHero />
-      </div>
       <Hero />
       <Mission />
       <Problem />
