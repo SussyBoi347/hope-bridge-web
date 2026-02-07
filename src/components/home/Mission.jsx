@@ -48,7 +48,7 @@ export default function Mission() {
               understands your experience
             </span>
           </h2>
-          <p className="mt-6 text-lg text-gray-300 leading-relaxed">Hope Bridge exists because too many Asian teens face pressure alone. We're building the support system we wish existed — one that gets the unique challenges of balancing family expectations, cultural identity, and personal wellbeing.
+          <p className="mt-6 text-lg text-gray-300 leading-relaxed">Hope Bridge exists because too many Asian teens face pressure alone. We're building the support system we wish existed one that gets the unique challenges of balancing family expectations,cultural identity, and personal wellbeing.
           </p>
         </motion.div>
 

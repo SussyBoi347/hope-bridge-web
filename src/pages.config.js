@@ -47,32 +47,32 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import About from './pages/About';
 import Contact from './pages/Contact';
-import Donate from './pages/Donate';
-import GetInvolved from './pages/GetInvolved';
 import GetSupport from './pages/GetSupport';
-import Home from './pages/Home';
 import Mission from './pages/Mission';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
 import StoryProject from './pages/StoryProject';
 import StorySharing from './pages/StorySharing';
+import About from './pages/About';
+import Donate from './pages/Donate';
+import GetInvolved from './pages/GetInvolved';
+import Home from './pages/Home';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "About": About,
     "Contact": Contact,
-    "Donate": Donate,
-    "GetInvolved": GetInvolved,
     "GetSupport": GetSupport,
-    "Home": Home,
     "Mission": Mission,
     "Programs": Programs,
     "Schools": Schools,
     "StoryProject": StoryProject,
     "StorySharing": StorySharing,
+    "About": About,
+    "Donate": Donate,
+    "GetInvolved": GetInvolved,
+    "Home": Home,
 }
 
 export const pagesConfig = {
