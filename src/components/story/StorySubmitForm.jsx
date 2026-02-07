@@ -234,7 +234,7 @@ export default function StorySubmitForm() {
                   </Button>
                   <Button
                     type="submit"
-                    disabled={isSubmitting || formData.content.length < 50}
+                    disabled={isSubmitting || !formData.title.trim() || !formData.author_name.trim() || !formData.content.trim()}
                     className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50 text-white rounded-full flex-1"
                   >
                     {isSubmitting ? (
