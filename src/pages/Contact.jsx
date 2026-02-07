@@ -57,7 +57,7 @@ export default function Contact() {
           <h2 className="text-3xl font-semibold text-white mb-4">
             Thank you for reaching out!
           </h2>
-          <p className="text-gray-300 mb-8">
+          <p className="text-white mb-8">
             We'll get back to you within 24-48 hours.
           </p>
           <Button
