@@ -147,7 +147,7 @@ export default function Contact() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.facebook.com/hopebridgeorg"
+                  href="https://www.facebook.com/share/175JyM5Wym/?mibextid=wwXIfr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
