@@ -7,7 +7,6 @@ import CommunitySurvey from '@/components/home/CommunitySurvey';
 import Impact from '@/components/home/Impact';
 import Contact from '@/components/home/Contact';
 import StorySection from '@/components/home/StorySection.jsx';
-import BridgeVisualization from '@/components/home/BridgeVisualization';
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <Mission />
       <Problem />
-      <BridgeVisualization />
       <StorySection />
       <section id="vision" className="py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
