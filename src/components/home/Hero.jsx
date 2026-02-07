@@ -36,9 +36,7 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
-            Your story
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">matters</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">HopeBridge</span>
             <br />
             <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
           </h1>
