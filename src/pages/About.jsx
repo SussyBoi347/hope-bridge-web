@@ -129,6 +129,9 @@ export default function About() {
         <div className="absolute inset-0 opacity-15">
           <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
         </div>
+        <div className="absolute inset-0 opacity-15">
+          <img src="https://images.unsplash.com/photo-1552635592-83ad039cb311?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
+        </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -146,7 +146,7 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1528761312568-033e18a60d19?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
