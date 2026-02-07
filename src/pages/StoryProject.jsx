@@ -250,9 +250,62 @@ export default function StoryProject() {
             }
           </div>
 
-          
-        </div>
-      </section>
-    </div>);
 
-}
+          </div>
+          </section>
+
+          {/* Digital Brick Wall */}
+          <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-black to-slate-900">
+          <div className="max-w-6xl mx-auto">
+          <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="text-center mb-16">
+           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+             Your Story Builds Our Wall
+           </h2>
+           <p className="text-white/80 text-lg max-w-2xl mx-auto">
+             Every story shared is a brick in our community wall of resilience
+           </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 lg:gap-4">
+           {[...Array(32)].map((_, i) => (
+             <motion.div
+               key={i}
+               initial={{ opacity: 0, scale: 0.8, rotateZ: (Math.random() - 0.5) * 10 }}
+               whileInView={{ opacity: 1, scale: 1, rotateZ: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.4, delay: i * 0.03 }}
+               whileHover={{ scale: 1.05, rotateZ: (Math.random() - 0.5) * 5 }}
+               className={`aspect-square rounded-lg border-2 shadow-lg cursor-pointer transition-all ${
+                 [
+                   'bg-gradient-to-br from-cyan-600 to-cyan-700 border-cyan-400',
+                   'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400',
+                   'bg-gradient-to-br from-slate-700 to-slate-800 border-slate-500',
+                   'bg-gradient-to-br from-indigo-600 to-indigo-700 border-indigo-400'
+                 ][i % 4]
+               }`}>
+               <div className="w-full h-full flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
+                 <span className="text-2xl">
+                   {['❤️', '💭', '✨', '🎯'][i % 4]}
+                 </span>
+               </div>
+             </motion.div>
+           ))}
+          </div>
+
+          <motion.p
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.5 }}
+           className="text-center text-white/60 text-sm mt-12">
+           Each brick represents the courage it takes to share your story. Together, we're building a wall of hope.
+          </motion.p>
+          </div>
+          </section>
+          </div>);
+
+          }
