@@ -8,9 +8,11 @@ import StoryFilters from '@/components/story/StoryFilters';
 import StoryCard from '@/components/story/StoryCard';
 import FeaturedStories from '@/components/story/FeaturedStories';
 import StoryInsights from '@/components/story/StoryInsights';
+import StorySearchFilters from '@/components/story/StorySearchFilters';
 
 export default function StoryProject() {
   const [stories, setStories] = useState([]);
+  const [filteredStories, setFilteredStories] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [likedStories, setLikedStories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +23,7 @@ export default function StoryProject() {
       try {
         const allStories = await base44.entities.Story.filter({ status: 'approved' }, '-created_date');
         setStories(allStories);
+        setFilteredStories(allStories);
       } catch (error) {
         console.error('Failed to load stories:', error);
       } finally {
@@ -47,12 +50,12 @@ export default function StoryProject() {
     }
   }, [likedStories, stories]);
 
-  const filteredStories = selectedTopic ?
-  stories.filter((s) => s.topic === selectedTopic) :
-  stories;
+  const topicFilteredStories = selectedTopic ?
+  filteredStories.filter((s) => s.topic === selectedTopic) :
+  filteredStories;
 
   const featuredStories = stories.filter((s) => s.featured).slice(0, 2);
-  const allOtherStories = filteredStories.filter((s) => !s.featured);
+  const allOtherStories = topicFilteredStories.filter((s) => !s.featured);
 
   const stats = {
     total: stories.length,
@@ -226,6 +229,8 @@ export default function StoryProject() {
               className="text-4xl font-bold text-white mb-10">
               Explore Stories
             </motion.h2>
+            
+            <StorySearchFilters stories={stories} onFiltersChange={setFilteredStories} />
             <StoryFilters selectedTopic={selectedTopic} onTopicChange={setSelectedTopic} />
 
             {isLoading ?
