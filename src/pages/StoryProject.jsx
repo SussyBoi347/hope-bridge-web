@@ -94,7 +94,7 @@ export default function StoryProject() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6">
               <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-cyan-400/30 text-cyan-200 text-sm font-medium shadow-[0_0_30px_rgba(0,217,255,0.3)]">
-                ✨ Community Story Wall
+                Community Story Wall
               </span>
             </motion.div>
 
