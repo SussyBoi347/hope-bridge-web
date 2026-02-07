@@ -21,15 +21,15 @@ export default function StoryCard({ story, onLike, isLiked }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const topicGradients = {
-    cultural_identity: 'from-purple-500 to-pink-500',
+    cultural_identity: 'from-cyan-500 to-blue-600',
     academic_stress: 'from-blue-500 to-cyan-500',
-    family_pressures: 'from-pink-500 to-rose-500'
+    family_pressures: 'from-blue-600 to-cyan-600'
   };
 
   const topicBg = {
-    cultural_identity: 'bg-gradient-to-br from-purple-900/40 to-pink-900/40',
+    cultural_identity: 'bg-gradient-to-br from-cyan-900/40 to-blue-900/40',
     academic_stress: 'bg-gradient-to-br from-blue-900/40 to-cyan-900/40',
-    family_pressures: 'bg-gradient-to-br from-pink-900/40 to-rose-900/40'
+    family_pressures: 'bg-gradient-to-br from-blue-900/40 to-cyan-900/40'
   };
 
   return (
@@ -41,7 +41,7 @@ export default function StoryCard({ story, onLike, isLiked }) {
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className={`relative overflow-hidden rounded-2xl backdrop-blur-md border transition-all ${topicBg[story.topic]} ${isHovered ? 'border-white/30 shadow-2xl shadow-purple-500/20' : 'border-white/10'}`}>
+      className={`relative overflow-hidden rounded-2xl backdrop-blur-md border transition-all ${topicBg[story.topic]} ${isHovered ? 'border-white/30 shadow-2xl shadow-cyan-500/20' : 'border-white/10'}`}>
       
       {/* Gradient overlay on hover */}
       <motion.div
@@ -55,7 +55,7 @@ export default function StoryCard({ story, onLike, isLiked }) {
           <div className="flex-1">
             <h3 className="text-xl font-bold text-white mb-2 leading-tight">{story.title}</h3>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-cyan-400 flex items-center justify-center text-white font-bold text-sm">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-400 flex items-center justify-center text-white font-bold text-sm">
                 {story.author_name.charAt(0).toUpperCase()}
               </div>
               <p className="text-sm text-gray-300">{story.author_name}</p>

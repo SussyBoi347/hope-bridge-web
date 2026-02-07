@@ -8,8 +8,8 @@ export default function StoryInsights({ stats }) {
       icon: UsersIcon,
       label: 'Total Stories Shared',
       value: stats.total,
-      gradient: 'from-purple-500 to-pink-500',
-      iconColor: 'text-purple-300'
+      gradient: 'from-cyan-500 to-blue-600',
+      iconColor: 'text-cyan-300'
     },
     {
       icon: TrendingUp,
@@ -22,8 +22,8 @@ export default function StoryInsights({ stats }) {
       icon: BarChart3,
       label: 'Community Engagement',
       value: stats.totalLikes + stats.totalComments,
-      gradient: 'from-pink-500 to-rose-500',
-      iconColor: 'text-pink-300'
+      gradient: 'from-blue-600 to-cyan-600',
+      iconColor: 'text-blue-300'
     }
   ];
 

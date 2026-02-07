@@ -11,9 +11,9 @@ const topics = [
 
 export default function StoryFilters({ selectedTopic, onTopicChange }) {
   const topicGradients = {
-    cultural_identity: 'from-purple-500 to-pink-500',
+    cultural_identity: 'from-cyan-500 to-blue-600',
     academic_stress: 'from-blue-500 to-cyan-500',
-    family_pressures: 'from-pink-500 to-rose-500'
+    family_pressures: 'from-blue-600 to-cyan-600'
   };
 
   return (
@@ -30,7 +30,7 @@ export default function StoryFilters({ selectedTopic, onTopicChange }) {
         onClick={() => onTopicChange(null)}
         className={`px-6 py-3 rounded-xl font-bold transition-all ${
           selectedTopic === null
-            ? 'bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 text-white shadow-xl shadow-purple-500/30'
+            ? 'bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/30'
             : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20'
         }`}>
         ✨ All Stories

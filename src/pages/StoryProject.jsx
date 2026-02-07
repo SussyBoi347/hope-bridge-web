@@ -74,10 +74,10 @@ export default function StoryProject() {
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-30">
-        <div className="absolute top-20 left-[10%] w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" />
-        <div className="absolute top-40 right-[15%] w-80 h-80 bg-pink-500 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-32 left-[30%] w-72 h-72 bg-cyan-500 rounded-full mix-blend-screen filter blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-20 right-[25%] w-64 h-64 bg-blue-500 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-20 left-[10%] w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" />
+        <div className="absolute top-40 right-[15%] w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-32 left-[30%] w-72 h-72 bg-blue-400 rounded-full mix-blend-screen filter blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-20 right-[25%] w-64 h-64 bg-cyan-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '0.5s' }} />
       </div>
 
       {/* Hero Section */}
@@ -93,7 +93,7 @@ export default function StoryProject() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6">
-              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20 backdrop-blur-md border border-purple-400/30 text-purple-200 text-sm font-medium shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-cyan-400/30 text-cyan-200 text-sm font-medium shadow-[0_0_30px_rgba(0,217,255,0.3)]">
                 ✨ Community Story Wall
               </span>
             </motion.div>
@@ -104,7 +104,7 @@ export default function StoryProject() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
               Your Voice,{' '}
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent animate-pulse">
                 Your Story
               </span>
             </motion.h1>
@@ -132,8 +132,8 @@ export default function StoryProject() {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                  className="px-6 py-4 rounded-2xl bg-gradient-to-br from-purple-900/40 via-pink-900/40 to-cyan-900/40 backdrop-blur-md border border-purple-500/30">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">{stat.num}</div>
+                  className="px-6 py-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 via-blue-900/40 to-cyan-900/40 backdrop-blur-md border border-cyan-500/30">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">{stat.num}</div>
                   <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
                 </motion.div>
               ))}
@@ -153,7 +153,7 @@ export default function StoryProject() {
             className="relative overflow-hidden rounded-3xl">
             
             {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 opacity-90" />
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 opacity-90" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
             
             {/* Content */}
@@ -193,7 +193,7 @@ export default function StoryProject() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
                 <Link to={createPageUrl('StorySharing')}>
-                  <Button className="bg-white text-purple-600 hover:bg-gray-100 font-bold rounded-full px-12 py-6 text-lg shadow-2xl shadow-black/40 hover:shadow-white/20 transition-all">
+                  <Button className="bg-white text-blue-600 hover:bg-gray-100 font-bold rounded-full px-12 py-6 text-lg shadow-2xl shadow-black/40 hover:shadow-white/20 transition-all">
                     ✨ Share Your Story Now
                   </Button>
                 </Link>
