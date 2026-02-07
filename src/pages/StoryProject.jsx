@@ -230,7 +230,7 @@ export default function StoryProject() {
 
             {isLoading ?
             <div className="text-center py-12">
-                <p className="text-gray-300">Loading stories...</p>
+                <p className="text-white">Loading stories...</p>
               </div> :
             allOtherStories.length > 0 ?
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
