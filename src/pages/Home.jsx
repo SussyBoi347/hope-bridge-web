@@ -10,7 +10,7 @@ import StorySection from '@/components/home/StorySection.jsx';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       <Hero />
       <Mission />
       <Problem />

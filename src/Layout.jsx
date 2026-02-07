@@ -38,11 +38,11 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen">
       <style>{`
         :root {
-          --color-primary: #2563EB;
-          --color-primary-dark: #1E40AF;
-          --color-accent: #0EA5E9;
-          --color-sand: #F7F5F0;
-          --color-warm-blue: #E0F2FE;
+          --color-primary: #00D9FF;
+          --color-primary-dark: #0088CC;
+          --color-accent: #00FFF0;
+          --color-dark: #0A0A0F;
+          --color-darker: #050508;
         }
 
         html {
@@ -50,11 +50,28 @@ export default function Layout({ children, currentPageName }) {
         }
 
         body {
-          background-color: var(--color-sand);
+          background-color: var(--color-dark);
+          color: #ffffff;
         }
 
         ::selection {
-          background-color: rgba(37, 99, 235, 0.2);
+          background-color: rgba(0, 217, 255, 0.3);
+          color: #ffffff;
+        }
+
+        @keyframes gradient-shift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+
+        @keyframes glow {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
         }
       `}</style>
 
@@ -63,9 +80,9 @@ export default function Layout({ children, currentPageName }) {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100' 
+            ? 'bg-black/80 backdrop-blur-xl border-b border-cyan-500/20' 
             : 'bg-transparent'
         }`}
       >
@@ -75,22 +92,22 @@ export default function Layout({ children, currentPageName }) {
             <Link 
               to={createPageUrl('Home')} 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-0.5"
+              className="flex items-center gap-2 group"
             >
-              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="w-16 h-16 object-contain" />
-              <span className="text-xl font-semibold text-slate-900">Hope Bridge</span>
+              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(0,217,255,0.5)]" />
+              <span className="text-xl font-bold text-white tracking-tight">Hope Bridge</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.page}
                   to={createPageUrl(link.page)}
-                  className={`px-4 py-2 text-sm rounded-full transition-all ${
+                  className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
                     currentPageName === link.page
-                      ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                      : 'bg-gradient-to-r from-blue-100 to-cyan-100 text-slate-700 hover:from-blue-200 hover:to-cyan-200'
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black shadow-[0_0_20px_rgba(0,217,255,0.6)]'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-cyan-500/30'
                   }`}
                 >
                   {link.label}
@@ -102,7 +119,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-3">
               <Link to={createPageUrl('Donate')}>
                 <Button
-                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full px-6 shadow-md shadow-blue-900/15"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-full px-8 shadow-[0_0_30px_rgba(0,217,255,0.5)] hover:shadow-[0_0_40px_rgba(0,217,255,0.8)] transition-all duration-300 border border-cyan-400/50"
                 >
                   Donate
                 </Button>
@@ -112,7 +129,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 hover:text-slate-900"
+              className="lg:hidden p-2 text-gray-300 hover:text-cyan-400 transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -126,19 +143,19 @@ export default function Layout({ children, currentPageName }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
+              transition={{ duration: 0.3 }}
+              className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-cyan-500/20 overflow-hidden"
             >
-              <div className="max-w-7xl mx-auto px-6 py-6 space-y-1">
+              <div className="max-w-7xl mx-auto px-6 py-6 space-y-2">
                 {navLinks.map((link) => (
                   <Link
                     key={link.page}
                     to={createPageUrl(link.page)}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block w-full text-left px-4 py-3 rounded-xl transition-all ${
+                    className={`block w-full text-left px-5 py-3 rounded-xl transition-all duration-300 ${
                       currentPageName === link.page
-                        ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                        : 'bg-gradient-to-r from-blue-100 to-cyan-100 text-slate-700 hover:from-blue-200 hover:to-cyan-200'
+                        ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-medium shadow-[0_0_20px_rgba(0,217,255,0.5)]'
+                        : 'text-gray-300 hover:text-white hover:bg-white/5 border border-cyan-500/20'
                     }`}
                   >
                     {link.label}
@@ -146,7 +163,7 @@ export default function Layout({ children, currentPageName }) {
                 ))}
                 <div className="pt-4">
                   <Link to={createPageUrl('Donate')} className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full">
+                    <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-full shadow-[0_0_30px_rgba(0,217,255,0.5)]">
                       Donate
                     </Button>
                   </Link>
