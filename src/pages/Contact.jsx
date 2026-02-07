@@ -245,14 +245,14 @@ export default function Contact() {
                     value={formData.type}
                     onValueChange={(value) => handleInputChange('type', value)}
                   >
-                    <SelectTrigger className={`mt-2 rounded-xl transition-colors ${
+                    <SelectTrigger className={`mt-2 rounded-xl transition-colors text-black ${
                       errors.type && touched.type 
                         ? 'border-red-500' 
                         : 'border-gray-200'
                     }`}>
                       <SelectValue placeholder="Select one" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white text-black">
                       <SelectItem value="student">Student</SelectItem>
                       <SelectItem value="parent">Parent</SelectItem>
                       <SelectItem value="school">School Representative</SelectItem>
