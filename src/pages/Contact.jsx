@@ -26,24 +26,90 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
+  const validateField = (name, value) => {
+    const newErrors = { ...errors };
+    
+    switch (name) {
+      case 'name':
+        if (!value.trim()) {
+          newErrors.name = 'Name is required';
+        } else if (value.length < 2) {
+          newErrors.name = 'Name must be at least 2 characters';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value.trim()) {
+          newErrors.email = 'Email is required';
+        } else if (!emailRegex.test(value)) {
+          newErrors.email = 'Please enter a valid email address';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      case 'type':
+        if (!value) {
+          newErrors.type = 'Please select a category';
+        } else {
+          delete newErrors.type;
+        }
+        break;
+      case 'message':
+        if (!value.trim()) {
+          newErrors.message = 'Message is required';
+        } else if (value.length < 10) {
+          newErrors.message = 'Message must be at least 10 characters';
+        } else {
+          delete newErrors.message;
+        }
+        break;
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData({ ...formData, [field]: value });
+    if (touched[field]) {
+      validateField(field, value);
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched({ ...touched, [field]: true });
+    validateField(field, formData[field]);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError('');
+    
+    const isNameValid = validateField('name', formData.name);
+    const isEmailValid = validateField('email', formData.email);
+    const isTypeValid = validateField('type', formData.type);
+    const isMessageValid = validateField('message', formData.message);
+    
+    if (!isNameValid || !isEmailValid || !isTypeValid || !isMessageValid) {
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-          await base44.entities.ContactSubmission.create(formData);
-
-          // Send email notification via backend function
-          await base44.functions.invoke('sendContactEmail', formData);
-
-          setIsSuccess(true);
-          setFormData({ name: '', email: '', type: '', organization: '', message: '' });
-        } catch (error) {
-          console.error('Error submitting form:', error);
-          alert('Something went wrong. Please try emailing us directly.');
-        } finally {
-          setIsSubmitting(false);
-        }
+      await base44.entities.ContactSubmission.create(formData);
+      await base44.functions.invoke('sendContactEmail', formData);
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', type: '', organization: '', message: '' });
+      setTouched({});
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Failed to send message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSuccess) {
