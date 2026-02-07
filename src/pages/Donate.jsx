@@ -264,8 +264,11 @@ export default function DonatePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
-        <div className="max-w-2xl mx-auto text-center">
+      <section id="contact" className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-2xl mx-auto text-center relative z-10">
           <h3 className="text-2xl font-semibold text-white mb-4">
             Questions About Donating?
           </h3>
