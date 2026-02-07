@@ -89,7 +89,7 @@ export default function StripePaymentForm() {
   return (
     <div className="space-y-6">
       <div>
-        <Label className="text-base font-semibold text-slate-900 mb-4 block">
+        <Label className="text-base font-semibold text-black mb-4 block">
           Select Donation Amount
         </Label>
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
