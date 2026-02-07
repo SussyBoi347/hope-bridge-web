@@ -113,7 +113,7 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-6 text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              className="mt-6 text-xl text-white leading-relaxed max-w-3xl mx-auto">
               A vibrant space where Asian teens share authentic experiences with cultural identity, academic pressures, and family dynamics. Every story matters. Every voice counts.
             </motion.p>
 
