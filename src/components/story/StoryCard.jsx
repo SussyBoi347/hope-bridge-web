@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Heart, MessageCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
+import CommentsSection from './CommentsSection';
 
 const topicColors = {
   cultural_identity: 'bg-purple-100 text-purple-800',
@@ -105,13 +106,7 @@ export default function StoryCard({ story, onLike, isLiked }) {
 
       {/* Comments Section */}
       {showComments && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="px-6 py-4 bg-black/30 border-t border-white/10">
-          <p className="text-sm text-gray-400">💬 Comments feature coming soon</p>
-        </motion.div>
+        <CommentsSection storyId={story.id} commentsCount={story.comments_count} />
       )}
     </motion.div>
   );
