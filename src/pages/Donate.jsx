@@ -64,11 +64,8 @@ export default function DonatePage() {
       </section>
 
       {/* Impact Levels */}
-      <section className="py-16 px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,11 +109,8 @@ export default function DonatePage() {
       </section>
 
       {/* Why Donate Section */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7fe863d187?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-6xl mx-auto relative z-10">
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -226,11 +220,8 @@ export default function DonatePage() {
       </section>
 
       {/* Donation Form Section */}
-      <section className="py-20 px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-2xl mx-auto relative z-10">
+      <section className="py-20 px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -264,11 +255,8 @@ export default function DonatePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-2xl mx-auto text-center relative z-10">
+      <section id="contact" className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
+        <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-2xl font-semibold text-white mb-4">
             Questions About Donating?
           </h3>
