@@ -97,7 +97,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 px-6 lg:px-8">
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
