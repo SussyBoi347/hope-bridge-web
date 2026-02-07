@@ -4,6 +4,7 @@ import { Heart, MessageCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
 import CommentsSection from './CommentsSection';
+import StoryMediaViewer from './StoryMediaViewer';
 
 const topicColors = {
   cultural_identity: 'bg-purple-100 text-purple-800',
@@ -78,6 +79,13 @@ export default function StoryCard({ story, onLike, isLiked }) {
       <div className="relative px-6 py-5">
         <p className="text-gray-200 leading-relaxed line-clamp-4">{story.content}</p>
       </div>
+
+      {/* Media */}
+      {(story.media_urls?.length > 0 || story.audio_url) && (
+        <div className="relative px-6 py-4 border-t border-white/10">
+          <StoryMediaViewer media_urls={story.media_urls} audio_url={story.audio_url} />
+        </div>
+      )}
 
       {/* Actions */}
       <div className="relative px-6 py-4 border-t border-white/10 flex items-center gap-4">

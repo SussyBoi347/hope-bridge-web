@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Lightbulb, Heart, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { BookOpen, FileText, Lightbulb, Heart, Loader2, CheckCircle2, AlertCircle, Image, Volume2, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -36,6 +36,8 @@ export default function StorySubmitForm() {
     content: '',
     topic: ''
   });
+  const [mediaFiles, setMediaFiles] = useState([]);
+  const [audioFile, setAudioFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -43,6 +45,22 @@ export default function StorySubmitForm() {
   const handleTopicSelect = (topic) => {
     setSelectedTopic(topic);
     setFormData({ ...formData, topic: topic.value });
+  };
+
+  const handleMediaSelect = (e) => {
+    const files = Array.from(e.target.files || []);
+    setMediaFiles(prev => [...prev, ...files]);
+  };
+
+  const handleAudioSelect = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setAudioFile(file);
+    }
+  };
+
+  const removeMedia = (index) => {
+    setMediaFiles(prev => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async (e) => {
@@ -61,12 +79,21 @@ export default function StorySubmitForm() {
 
     setIsSubmitting(true);
     try {
-      const response = await base44.functions.invoke('submitStory', {
-        title: formData.title,
-        author_name: formData.author_name,
-        content: formData.content,
-        topic: formData.topic
+      const formDataToSend = new FormData();
+      formDataToSend.append('title', formData.title);
+      formDataToSend.append('author_name', formData.author_name);
+      formDataToSend.append('content', formData.content);
+      formDataToSend.append('topic', formData.topic);
+
+      mediaFiles.forEach(file => {
+        formDataToSend.append('media', file);
       });
+
+      if (audioFile) {
+        formDataToSend.append('audio', audioFile);
+      }
+
+      const response = await base44.functions.invoke('submitStoryWithMedia', formDataToSend);
       setIsSuccess(true);
     } catch (err) {
       setError('Failed to submit story. Please try again.');
@@ -223,7 +250,73 @@ export default function StorySubmitForm() {
                   <p className="text-xs text-gray-500 mt-2">{formData.content.length} characters</p>
                 </div>
 
-                <div className="flex gap-3">
+                {/* Media Uploads */}
+                <div className="space-y-4 border-t pt-6">
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-3">Add Images (Optional)</label>
+                    <label className="block">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={handleMediaSelect}
+                        className="hidden"
+                      />
+                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition">
+                        <Image className="w-6 h-6 text-gray-400 mx-auto mb-2" />
+                        <p className="text-sm text-gray-600">Click to add images</p>
+                      </div>
+                    </label>
+                    {mediaFiles.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {mediaFiles.map((file, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            className="relative bg-gray-100 rounded px-3 py-1 text-xs text-gray-600 flex items-center gap-2">
+                            {file.name}
+                            <button
+                              type="button"
+                              onClick={() => removeMedia(idx)}
+                              className="text-gray-400 hover:text-red-500">
+                              <X className="w-3 h-3" />
+                            </button>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-3">Add Audio (Optional)</label>
+                    <label className="block">
+                      <input
+                        type="file"
+                        accept="audio/*"
+                        onChange={handleAudioSelect}
+                        className="hidden"
+                      />
+                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition">
+                        <Volume2 className="w-6 h-6 text-gray-400 mx-auto mb-2" />
+                        <p className="text-sm text-gray-600">Click to add audio</p>
+                      </div>
+                    </label>
+                    {audioFile && (
+                      <div className="bg-gray-100 rounded px-3 py-2 text-sm text-gray-600 mt-2 flex items-center justify-between">
+                        {audioFile.name}
+                        <button
+                          type="button"
+                          onClick={() => setAudioFile(null)}
+                          className="text-gray-400 hover:text-red-500">
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex gap-3 border-t pt-6">
                   <Button
                     type="button"
                     variant="outline"

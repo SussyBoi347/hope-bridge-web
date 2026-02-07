@@ -25,6 +25,8 @@ Deno.serve(async (req) => {
 2. Author Name (if visible, otherwise write "Anonymous")
 3. Story Content (the main text)
 4. Topic (categorize as one of: cultural_identity, academic_stress, family_pressures)
+5. QR Code Detected (true if there's a QR code visible, false otherwise)
+6. QR Code URL (if QR code is detected, try to read what URL it might link to)
 
 If the image doesn't contain readable story content, return an error.
 
@@ -37,6 +39,8 @@ Return the data as JSON.`,
           author_name: { type: 'string' },
           content: { type: 'string' },
           topic: { type: 'string', enum: ['cultural_identity', 'academic_stress', 'family_pressures'] },
+          qr_code_detected: { type: 'boolean' },
+          qr_code_url: { type: 'string' },
           success: { type: 'boolean' }
         }
       }
@@ -48,19 +52,24 @@ Return the data as JSON.`,
       }, { status: 400 });
     }
 
-    // Create story with approved status
-    const story = await base44.asServiceRole.entities.Story.create({
+    // Create story with approved status and attached image
+    const storyData = {
       title: aiResponse.title,
       author_name: aiResponse.author_name || 'Anonymous',
       content: aiResponse.content,
       topic: aiResponse.topic,
-      status: 'approved'
-    });
+      status: 'approved',
+      media_urls: [imageUrl]
+    };
+
+    const story = await base44.asServiceRole.entities.Story.create(storyData);
 
     return Response.json({ 
       success: true, 
       message: 'Physical story added successfully!',
-      story: story
+      story: story,
+      qr_detected: aiResponse.qr_code_detected,
+      qr_url: aiResponse.qr_code_url
     });
   } catch (error) {
     console.error('Error analyzing physical story:', error);
