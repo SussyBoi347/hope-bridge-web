@@ -139,8 +139,8 @@ export default function BridgeHero() {
         </motion.text>
       </svg>
 
-      {/* Glow effect at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-black" />
+      {/* Glow effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 pointer-events-none" />
     </div>
   );
 }
