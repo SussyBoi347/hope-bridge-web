@@ -33,26 +33,27 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-sky-50 to-cyan-50">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100 text-blue-700 text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-400 text-sm font-medium mb-6">
               <Heart className="w-4 h-4" />
               Make a Difference
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Support the next generation's{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 mental wellness
               </span>
             </h1>
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Your donation helps us create safe spaces where Asian teens can be heard, 
               understood, and supported. Every contribution directly impacts a young person's journey.
             </p>
