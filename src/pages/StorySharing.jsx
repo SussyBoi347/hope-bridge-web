@@ -118,7 +118,7 @@ export default function StorySharing() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}>
           <p className="text-2xl text-white font-semibold mb-2">
-            Your story matters ✨
+            Your story matters 
           </p>
           <p className="text-gray-400 text-lg">
             Thank you for contributing to our community
