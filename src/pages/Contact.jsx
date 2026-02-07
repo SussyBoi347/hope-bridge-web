@@ -197,21 +197,21 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
-              <Mail className="w-8 h-8 text-[#5B4E77] mx-auto md:mx-0 mb-4" />
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Email Us</h3>
+              <Mail className="w-8 h-8 text-cyan-400 mx-auto md:mx-0 mb-4" />
+              <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
               <a
                 href="mailto:hopebridgecommunityservices@gmail.com"
-                className="text-[#5B4E77] hover:underline"
+                className="text-white hover:text-cyan-400 underline transition-colors"
               >
                 hopebridgecommunityservices@gmail.com
               </a>
             </div>
             <div>
-              <Phone className="w-8 h-8 text-[#5B4E77] mx-auto md:mx-0 mb-4" />
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Call Us</h3>
+              <Phone className="w-8 h-8 text-cyan-400 mx-auto md:mx-0 mb-4" />
+              <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
               <a
                 href="tel:425-610-7760"
-                className="text-[#5B4E77] hover:underline"
+                className="text-white hover:text-cyan-400 underline transition-colors"
               >
                 425-610-7760
               </a>
@@ -219,8 +219,8 @@ export default function Contact() {
             <div>
               <MapPin className="w-8 h-8 text-cyan-400 mx-auto md:mx-0 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
-              <p className="text-gray-300">Sammamish, WA</p>
-              <p className="text-gray-300">Serving King County</p>
+              <p className="text-white">Sammamish, WA</p>
+              <p className="text-white">Serving King County</p>
             </div>
           </div>
         </div>
