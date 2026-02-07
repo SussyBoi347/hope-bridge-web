@@ -38,7 +38,7 @@ export default function Hero() {
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">HopeBridge</span>
             <br />
-            <span className="text-gray-400 text-2xl sm:text-3xl lg:text-4xl">building bridges to brighter futures</span>
+            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">Building Bridges to Brighter Futures.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
