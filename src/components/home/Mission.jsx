@@ -27,29 +27,32 @@ const pillars = [
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 lg:py-32 bg-gradient-to-b from-white via-blue-50 to-sky-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="mission" className="py-24 lg:py-32 bg-gradient-to-b from-black via-slate-950 to-black relative overflow-hidden">
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl">
+          className="max-w-3xl mb-20">
 
-          <span className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
+          <span className="text-cyan-400 font-medium text-sm tracking-widest uppercase">
             Our Mission
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-tight">
-            Mental health support that understands your experience
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Mental health support that{' '}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
+              understands your experience
+            </span>
           </h2>
-          <p className="mt-6 text-lg text-slate-600 leading-relaxed">Hope Bridge exists because too many Asian teens face pressure alone. We're building the support system we wish existed one that gets the unique challenges of balancing family expectations, cultural identity, and personal wellbeing.
-
-
-
+          <p className="mt-6 text-lg text-gray-300 leading-relaxed">Hope Bridge exists because too many Asian teens face pressure alone. We're building the support system we wish existed — one that gets the unique challenges of balancing family expectations, cultural identity, and personal wellbeing.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, index) =>
           <motion.div
             key={pillar.title}
@@ -59,14 +62,14 @@ export default function Mission() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group">
 
-              <div className="p-6 rounded-2xl bg-white border border-blue-100/50 hover:border-blue-300/50 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 h-full flex flex-col">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50 border border-blue-100/50 flex items-center justify-center mb-5 group-hover:from-blue-100 group-hover:to-sky-100 transition-all">
-                  <pillar.icon className="w-6 h-6 text-blue-600" />
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-cyan-500/20 hover:border-cyan-400/50 hover:shadow-[0_0_40px_rgba(0,217,255,0.2)] transition-all duration-300 h-full flex flex-col backdrop-blur-sm hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,217,255,0.6)] transition-all duration-300">
+                  <pillar.icon className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2 min-h-[3rem] flex items-center">
+                <h3 className="text-lg font-bold text-white mb-2 min-h-[3rem] flex items-center">
                   {pillar.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                <p className="text-gray-300 text-sm leading-relaxed flex-grow">
                   {pillar.description}
                 </p>
               </div>
