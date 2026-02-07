@@ -58,6 +58,7 @@ import Schools from './pages/Schools';
 import StoryProject from './pages/StoryProject';
 import StorySharing from './pages/StorySharing';
 import Home from './pages/Home';
+import PhysicalStory from './pages/PhysicalStory';
 import __Layout from './Layout.jsx';
 
 
@@ -73,6 +74,7 @@ export const PAGES = {
     "StoryProject": StoryProject,
     "StorySharing": StorySharing,
     "Home": Home,
+    "PhysicalStory": PhysicalStory,
 }
 
 export const pagesConfig = {
