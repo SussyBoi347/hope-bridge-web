@@ -86,7 +86,7 @@ export default function StoryProject() {
                 Story Wall
               </span>
             </h1>
-            <p className="mt-8 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">An online space where teens can reflect on their experiences with cultural identity, academic stress, and family pressures. Share your story, explore others' perspectives, and be part of a growing community that reminds us all no one's navigating this alone.
+            <p className="mt-8 text-lg text-white leading-relaxed max-w-2xl mx-auto">An online space where teens can reflect on their experiences with cultural identity, academic stress, and family pressures. Share your story, explore others' perspectives, and be part of a growing community that reminds us all no one's navigating this alone.
 
 
 
@@ -102,12 +102,12 @@ export default function StoryProject() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-slate-900/50 backdrop-blur-sm rounded-3xl border-2 border-cyan-500/30 p-10 lg:p-14 text-center shadow-lg">
+            className="bg-slate-900/70 backdrop-blur-sm rounded-3xl border-2 border-cyan-400/50 p-10 lg:p-14 text-center shadow-[0_0_50px_rgba(0,217,255,0.2)]">
 
             <h1 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
               Share Your Experience
             </h1>
-            <p className="text-lg text-gray-300 leading-relaxed mb-10">
+            <p className="text-lg text-white leading-relaxed mb-10">
               Your voice matters. Click below to share your story about cultural identity, family 
               disconnect, or academic pressures.
             </p>

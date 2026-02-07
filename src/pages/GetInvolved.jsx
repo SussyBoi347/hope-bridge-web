@@ -54,7 +54,7 @@ export default function GetInvolved() {
                 lasting change
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-white leading-relaxed max-w-2xl mx-auto">
               Whether you have time, resources, or a platform to share, there are many ways 
               to support Asian teen mental health in our community.
             </p>
@@ -109,7 +109,7 @@ export default function GetInvolved() {
             <h2 className="text-3xl font-semibold text-white mb-6">
               Your Support Creates Real Change
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+            <p className="text-white text-lg leading-relaxed mb-8">
               Every volunteer hour, every dollar donated, and every story shared helps us reach 
               more teens who are struggling in silence. Together, we're building a community where 
               mental health conversations are welcomed, not feared.

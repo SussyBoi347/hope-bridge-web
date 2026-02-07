@@ -62,10 +62,10 @@ export default function Mission() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-black">
         {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-40">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/40 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/40 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-600/30 rounded-full blur-2xl" />
+        <div className="absolute inset-0 overflow-hidden opacity-60">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/60 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/50 rounded-full blur-2xl" />
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -74,7 +74,7 @@ export default function Mission() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}>
 
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 backdrop-blur-md border border-cyan-500/30 text-cyan-400 text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 backdrop-blur-md border border-cyan-400/50 text-cyan-300 text-sm font-medium mb-6 shadow-[0_0_20px_rgba(0,217,255,0.3)]">
               <Target className="w-4 h-4" />
               Our Mission
             </span>
@@ -99,10 +99,10 @@ export default function Mission() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
-              className="bg-slate-900/80 backdrop-blur-md rounded-2xl p-4 text-center border border-cyan-500/30 shadow-lg">
+              className="bg-slate-900/80 backdrop-blur-md rounded-2xl p-4 text-center border border-cyan-400/50 shadow-[0_0_30px_rgba(0,217,255,0.2)]">
 
-                <div className="text-2xl sm:text-3xl font-bold text-cyan-400">{stat.number}</div>
-                <div className="text-xs sm:text-sm text-gray-300 mt-1">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(0,217,255,0.8)]">{stat.number}</div>
+                <div className="text-xs sm:text-sm text-white mt-1">{stat.label}</div>
               </motion.div>
             )}
           </div>
@@ -123,16 +123,16 @@ export default function Mission() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-cyan-500/20">
+            className="bg-slate-900/70 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-cyan-400/40 shadow-[0_0_40px_rgba(0,217,255,0.15)]">
 
             <h2 className="text-3xl font-semibold text-white mb-6 text-center">
               Our Mission Statement
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed text-center mb-8">
+            <p className="text-lg text-white leading-relaxed text-center mb-8">
               Hope Bridge exists to create a world where every Asian American teen feels empowered to 
               prioritize their mental health without shame, stigma, or silence.
             </p>
-            <div className="space-y-4 text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-white leading-relaxed">
               <p>
                 We recognize that Asian American teens face unique challenges at the intersection of cultural 
                 expectations, academic pressures, and identity formation. Too often, these struggles are faced 
@@ -165,7 +165,7 @@ export default function Mission() {
             <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-4">
               Three Interconnected Goals
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Our work focuses on these essential pillars of Asian teen mental wellness
             </p>
           </motion.div>
@@ -178,15 +178,15 @@ export default function Mission() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-cyan-500/20 hover:shadow-xl transition-all">
+              className="bg-slate-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-cyan-400/40 hover:shadow-[0_0_40px_rgba(0,217,255,0.3)] hover:border-cyan-400/60 transition-all">
 
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center mb-6">
-                  <goal.icon className="w-7 h-7 text-cyan-400" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/30 border border-cyan-400/50 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(0,217,255,0.2)]">
+                  <goal.icon className="w-7 h-7 text-cyan-300 drop-shadow-[0_0_6px_rgba(0,217,255,0.8)]" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-4">
                   {goal.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-4">
+                <p className="text-white leading-relaxed mb-4">
                   {goal.description}
                 </p>
 
@@ -210,17 +210,17 @@ export default function Mission() {
             
             {/* Key Stats */}
             <div className="grid grid-cols-3 gap-6">
-              <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 border border-cyan-500/30">
-                <div className="text-3xl font-bold text-cyan-400">2.5x</div>
-                <div className="text-sm text-gray-300 mt-1">Higher depression rates</div>
+              <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-cyan-400/50 shadow-[0_0_30px_rgba(0,217,255,0.2)]">
+                <div className="text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(0,217,255,0.8)]">2.5x</div>
+                <div className="text-sm text-white mt-1">Higher depression rates</div>
               </div>
-              <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 border border-cyan-500/30">
-                <div className="text-3xl font-bold text-cyan-400">30%</div>
-                <div className="text-sm text-gray-300 mt-1">Considered suicide</div>
+              <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-cyan-400/50 shadow-[0_0_30px_rgba(0,217,255,0.2)]">
+                <div className="text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(0,217,255,0.8)]">30%</div>
+                <div className="text-sm text-white mt-1">Considered suicide</div>
               </div>
-              <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 border border-cyan-500/30">
-                <div className="text-3xl font-bold text-cyan-400">8%</div>
-                <div className="text-sm text-gray-300 mt-1">Seek professional help</div>
+              <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-cyan-400/50 shadow-[0_0_30px_rgba(0,217,255,0.2)]">
+                <div className="text-3xl font-bold text-cyan-300 drop-shadow-[0_0_8px_rgba(0,217,255,0.8)]">8%</div>
+                <div className="text-sm text-white mt-1">Seek professional help</div>
               </div>
             </div>
 

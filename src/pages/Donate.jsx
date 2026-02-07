@@ -52,7 +52,7 @@ export default function DonatePage() {
                 mental wellness
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-white leading-relaxed max-w-2xl mx-auto">
               Your donation helps us create safe spaces where Asian teens can be heard, 
               understood, and supported. Every contribution directly impacts a young person's journey.
             </p>
@@ -73,7 +73,7 @@ export default function DonatePage() {
             <h2 className="text-3xl font-semibold text-white mb-4">
               Your Impact
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <p className="text-white max-w-2xl mx-auto">
               Every gift, no matter the size, creates real change in a teen's life
             </p>
           </motion.div>
@@ -88,14 +88,14 @@ export default function DonatePage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="h-full p-6 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center mb-4 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all">
-                    <impact.icon className="w-6 h-6 text-cyan-400" />
+                <div className="h-full p-6 rounded-2xl bg-slate-900/70 backdrop-blur-sm border border-cyan-400/40 hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(0,217,255,0.3)] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/30 border border-cyan-400/50 flex items-center justify-center mb-4 group-hover:from-cyan-500/40 group-hover:to-blue-500/40 transition-all shadow-[0_0_20px_rgba(0,217,255,0.2)]">
+                    <impact.icon className="w-6 h-6 text-cyan-300 drop-shadow-[0_0_6px_rgba(0,217,255,0.8)]" />
                   </div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-3">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-3 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">
                     {impact.amount}
                   </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-white text-sm leading-relaxed">
                     {impact.description}
                   </p>
                 </div>
@@ -126,7 +126,7 @@ export default function DonatePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white mb-2">Free & Accessible Programs</h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-white leading-relaxed">
                       All our services are completely free for teens and families. Your donation ensures 
                       that cost is never a barrier to getting help.
                     </p>
@@ -139,7 +139,7 @@ export default function DonatePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white mb-2">Culturally Informed Care</h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-white leading-relaxed">
                       We train peer mentors and facilitators who understand the unique pressures 
                       Asian American teens face. This specialized support makes all the difference.
                     </p>
@@ -152,7 +152,7 @@ export default function DonatePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white mb-2">Growing Our Reach</h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-white leading-relaxed">
                       Funds help us expand to more schools across King County and serve more teens 
                       who need support navigating mental health challenges.
                     </p>
@@ -161,7 +161,7 @@ export default function DonatePage() {
               </div>
             </div>
 
-            <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-cyan-500/20">
+            <div className="bg-slate-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-cyan-400/40 shadow-[0_0_40px_rgba(0,217,255,0.15)]">
               <h3 className="text-2xl font-semibold text-white mb-6">
                 Where Your Money Goes
               </h3>
@@ -206,8 +206,8 @@ export default function DonatePage() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-cyan-500/20">
-                <p className="text-sm text-gray-300 text-center">
+              <div className="mt-6 pt-6 border-t border-cyan-400/30">
+                <p className="text-sm text-white text-center">
                   <span className="font-semibold text-white">100% transparent.</span> Every dollar is accounted for and goes directly toward supporting teens.
                 </p>
               </div>
@@ -230,7 +230,7 @@ export default function DonatePage() {
             <h2 className="text-3xl font-semibold text-white mb-4">
               Make Your Donation
             </h2>
-            <p className="text-gray-300 text-lg">
+            <p className="text-white text-lg">
               Choose an amount and complete your secure donation in just a few clicks
             </p>
           </motion.div>
@@ -257,7 +257,7 @@ export default function DonatePage() {
           <h3 className="text-2xl font-semibold text-white mb-4">
             Questions About Donating?
           </h3>
-          <p className="text-gray-300 mb-6">
+          <p className="text-white mb-6">
             We're here to help. Reach out to learn more about how your contribution 
             will be used or to discuss partnership opportunities.
           </p>
