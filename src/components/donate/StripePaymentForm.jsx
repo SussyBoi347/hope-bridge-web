@@ -116,14 +116,14 @@ export default function StripePaymentForm() {
           <div className="relative">
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">$</span>
             <Input
-              id="custom-amount"
-              type="number"
-              min="1"
-              placeholder="Enter amount"
-              value={customAmount}
-              onChange={(e) => handleCustomAmount(e.target.value)}
-              className="pl-8 py-6 text-lg"
-            />
+               id="custom-amount"
+               type="number"
+               min="1"
+               placeholder="Enter amount"
+               value={customAmount}
+               onChange={(e) => handleCustomAmount(e.target.value)}
+               className="pl-8 py-6 text-lg text-black"
+             />
           </div>
         </div>
       </div>
