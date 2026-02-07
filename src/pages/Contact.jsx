@@ -216,8 +216,8 @@ export default function Contact() {
                 425-610-7760
               </a>
             </div>
-            <div>
-              <MapPin className="w-8 h-8 text-cyan-400 mx-auto md:mx-0 mb-4" />
+            <div className="text-center px-4">
+              <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
               <p className="text-white">Sammamish, WA</p>
               <p className="text-white">Serving King County</p>
