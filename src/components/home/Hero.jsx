@@ -96,7 +96,7 @@ export default function Hero() {
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
             className="text-gray-400 text-sm font-medium"
           >
             <div className="w-6 h-10 rounded-full border-2 border-cyan-500/30 flex items-start justify-center p-2 mx-auto mb-2">
