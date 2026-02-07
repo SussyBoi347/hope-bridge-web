@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Users, BookOpen, Sparkles, Target, Compass, Home as HomeIcon } from 'lucide-react';
+import MentalHealthChart from '@/components/mission/MentalHealthChart';
 
 export default function Mission() {
   const coreGoals = [
