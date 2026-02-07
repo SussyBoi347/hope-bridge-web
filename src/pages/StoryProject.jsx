@@ -131,7 +131,7 @@ export default function StoryProject() {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                  className="px-6 py-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 via-blue-900/40 to-cyan-900/40 backdrop-blur-md border border-cyan-500/30">
+                  className="px-6 py-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 via-blue-900/40 to-cyan-900/40 backdrop-blur-md border border-white/30">
                   <div className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">{stat.num}</div>
                   <div className="text-sm text-white mt-1">{stat.label}</div>
                 </motion.div>
