@@ -71,58 +71,141 @@ export default function StoryProject() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black">
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 opacity-30">
+        <div className="absolute top-20 left-[10%] w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" />
+        <div className="absolute top-40 right-[15%] w-80 h-80 bg-pink-500 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-32 left-[30%] w-72 h-72 bg-cyan-500 rounded-full mix-blend-screen filter blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-20 right-[25%] w-64 h-64 bg-blue-500 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '0.5s' }} />
+      </div>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-slate-950 to-black">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative pt-32 pb-24 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}>
+            transition={{ duration: 0.8, ease: "easeOut" }}>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
-              The Digital{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Story Wall
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-6">
+              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20 backdrop-blur-md border border-purple-400/30 text-purple-200 text-sm font-medium shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                ✨ Community Story Wall
               </span>
-            </h1>
-            <p className="mt-8 text-lg text-white leading-relaxed max-w-2xl mx-auto">An online space where teens can reflect on their experiences with cultural identity, academic stress, and family pressures. Share your story, explore others' perspectives, and be part of a growing community that reminds us all no one's navigating this alone.
+            </motion.div>
 
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+              Your Voice,{' '}
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
+                Your Story
+              </span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-6 text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              A vibrant space where Asian teens share authentic experiences with cultural identity, academic pressures, and family dynamics. Every story matters. Every voice counts.
+            </motion.p>
 
-
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10 flex flex-wrap gap-8 justify-center text-center">
+              {[
+                { num: stories.length, label: 'Stories Shared' },
+                { num: stories.reduce((sum, s) => sum + s.likes, 0), label: 'Hearts Given' },
+                { num: '100%', label: 'Anonymous & Safe' }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                  className="px-6 py-4 rounded-2xl bg-gradient-to-br from-purple-900/40 via-pink-900/40 to-cyan-900/40 backdrop-blur-md border border-purple-500/30">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">{stat.num}</div>
+                  <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Share Your Experience Section */}
-      <section className="py-24 px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800">
-        <div className="max-w-2xl mx-auto">
+      <section className="relative py-24 px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-slate-900/70 backdrop-blur-sm rounded-3xl border-2 border-cyan-400/50 p-10 lg:p-14 text-center shadow-[0_0_50px_rgba(0,217,255,0.2)]">
-
-            <h1 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
-              Share Your Experience
-            </h1>
-            <p className="text-lg text-white leading-relaxed mb-10">
-              Your voice matters. Click below to share your story about cultural identity, family 
-              disconnect, or academic pressures.
-            </p>
-            <Link to={createPageUrl('StorySharing')}>
-              <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-xl px-10 py-3 text-lg shadow-lg">
-                ✏️ Share Your Story
-              </Button>
-            </Link>
+            className="relative overflow-hidden rounded-3xl">
+            
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 opacity-90" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+            
+            {/* Content */}
+            <div className="relative z-10 p-10 lg:p-16 text-center">
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="mb-6">
+                <span className="text-6xl">✍️</span>
+              </motion.div>
+              
+              <motion.h2
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                Your Story Matters
+              </motion.h2>
+              
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto">
+                Be heard. Be seen. Be part of something bigger. Share your experience and help others feel less alone.
+              </motion.p>
+              
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                <Link to={createPageUrl('StorySharing')}>
+                  <Button className="bg-white text-purple-600 hover:bg-gray-100 font-bold rounded-full px-12 py-6 text-lg shadow-2xl shadow-black/40 hover:shadow-white/20 transition-all">
+                    ✨ Share Your Story Now
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Community Story Wall Section */}
-      <section className="py-24 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative py-24 px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           {/* Insights */}
           <StoryInsights stats={stats} />
 
@@ -137,7 +220,13 @@ export default function StoryProject() {
 
           {/* Filters and All Stories */}
           <div>
-            <h2 className="text-3xl font-semibold text-white mb-8">All Stories</h2>
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-white mb-10">
+              Explore Stories
+            </motion.h2>
             <StoryFilters selectedTopic={selectedTopic} onTopicChange={setSelectedTopic} />
 
             {isLoading ?

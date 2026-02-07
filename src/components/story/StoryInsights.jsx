@@ -8,31 +8,34 @@ export default function StoryInsights({ stats }) {
       icon: UsersIcon,
       label: 'Total Stories Shared',
       value: stats.total,
-      color: 'bg-blue-100 text-blue-600'
+      gradient: 'from-purple-500 to-pink-500',
+      iconColor: 'text-purple-300'
     },
     {
       icon: TrendingUp,
       label: 'Most Popular Topic',
       value: stats.topTopic,
-      color: 'bg-purple-100 text-purple-600'
+      gradient: 'from-blue-500 to-cyan-500',
+      iconColor: 'text-cyan-300'
     },
     {
       icon: BarChart3,
       label: 'Community Engagement',
       value: stats.totalLikes + stats.totalComments,
-      color: 'bg-pink-100 text-pink-600'
+      gradient: 'from-pink-500 to-rose-500',
+      iconColor: 'text-pink-300'
     }
   ];
 
   return (
-    <div className="mb-16">
+    <div className="mb-20">
       <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl font-semibold text-slate-900 mb-8"
-      >
-        Community Insights
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl font-bold text-white mb-10">
+        📊 Community Insights
       </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {insights.map((insight, idx) => {
@@ -40,15 +43,32 @@ export default function StoryInsights({ stats }) {
           return (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className={`${insight.color} rounded-lg p-6`}
-            >
-              <Icon className="w-8 h-8 mb-3" />
-              <p className="text-sm font-medium opacity-75">{insight.label}</p>
-              <p className="text-3xl font-bold mt-2">{insight.value}</p>
+              transition={{ delay: idx * 0.15, type: "spring" }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="relative overflow-hidden rounded-2xl p-8 backdrop-blur-md bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:border-white/40 transition-all shadow-xl">
+              
+              {/* Gradient overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${insight.gradient} opacity-10`} />
+              
+              <div className="relative">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}>
+                  <Icon className={`w-12 h-12 mb-4 ${insight.iconColor} drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]`} />
+                </motion.div>
+                <p className="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">{insight.label}</p>
+                <motion.p
+                  initial={{ scale: 0.8 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15 + 0.3, type: "spring" }}
+                  className={`text-5xl font-bold bg-gradient-to-r ${insight.gradient} bg-clip-text text-transparent`}>
+                  {insight.value}
+                </motion.p>
+              </div>
             </motion.div>
           );
         })}
