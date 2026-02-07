@@ -245,7 +245,7 @@ export default function StoryProject() {
               </div> :
 
             <div className="text-center py-12">
-                <p className="text-gray-300">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
+                <p className="text-white">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
               </div>
             }
           </div>
