@@ -35,26 +35,26 @@ export default function BridgeHero() {
           transition={{ duration: 1 }}
         >
           {/* Left tower */}
-          <line x1="250" y1="80" x2="250" y2="320" stroke="#00D9FF" strokeWidth="12" opacity="0.8" />
-          <circle cx="250" cy="80" r="20" fill="#00D9FF" opacity="0.6" />
+          <line x1="200" y1="80" x2="200" y2="420" stroke="#00D9FF" strokeWidth="18" opacity="0.8" />
+          <circle cx="200" cy="80" r="25" fill="#00D9FF" opacity="0.7" />
 
           {/* Right tower */}
-          <line x1="950" y1="80" x2="950" y2="320" stroke="#00D9FF" strokeWidth="12" opacity="0.8" />
-          <circle cx="950" cy="80" r="20" fill="#00D9FF" opacity="0.6" />
+          <line x1="1000" y1="80" x2="1000" y2="420" stroke="#00D9FF" strokeWidth="18" opacity="0.8" />
+          <circle cx="1000" cy="80" r="25" fill="#00D9FF" opacity="0.7" />
 
-          {/* Main bridge span */}
-          <line x1="0" y1="200" x2="1200" y2="200" stroke="#0088CC" strokeWidth="80" opacity="0.3" />
-          <line x1="0" y1="200" x2="1200" y2="200" stroke="url(#cableGradient)" strokeWidth="60" opacity="0.6" />
-          <line x1="0" y1="200" x2="1200" y2="200" stroke="#00FFF0" strokeWidth="20" opacity="0.8" />
+          {/* Main bridge deck */}
+          <rect x="0" y="210" width="1200" height="80" fill="#0088CC" opacity="0.2" />
+          <line x1="0" y1="250" x2="1200" y2="250" stroke="url(#cableGradient)" strokeWidth="70" opacity="0.7" />
+          <line x1="0" y1="250" x2="1200" y2="250" stroke="#00FFF0" strokeWidth="25" opacity="0.9" />
 
           {/* Top lane (HopeBridge) */}
-          <line x1="0" y1="170" x2="1200" y2="170" stroke="#00D9FF" strokeWidth="3" opacity="0.5" strokeDasharray="10,10" />
+          <line x1="0" y1="225" x2="1200" y2="225" stroke="#00D9FF" strokeWidth="4" opacity="0.6" strokeDasharray="15,10" />
           
           {/* Bottom lane (Building Bridges) */}
-          <line x1="0" y1="230" x2="1200" y2="230" stroke="#00D9FF" strokeWidth="3" opacity="0.5" strokeDasharray="10,10" />
+          <line x1="0" y1="275" x2="1200" y2="275" stroke="#00D9FF" strokeWidth="4" opacity="0.6" strokeDasharray="15,10" />
 
-          {/* Lane dividers */}
-          <line x1="0" y1="200" x2="1200" y2="200" stroke="#00FFF0" strokeWidth="2" opacity="0.4" />
+          {/* Center lane divider */}
+          <line x1="0" y1="250" x2="1200" y2="250" stroke="#00FFF0" strokeWidth="3" opacity="0.5" />
 
           {/* Cable suspensions - Left side */}
           {[0, 100, 200, 250].map((x, i) => (
