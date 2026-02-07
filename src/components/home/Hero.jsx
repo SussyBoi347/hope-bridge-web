@@ -36,11 +36,9 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
-            Your story
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">HopeBridge</span>
             <br />
-            <span className="text-gray-400 text-2xl sm:text-3xl lg:text-4xl">Building Bridges to Brighter Futures</span>
-            <br />
-            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
+            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">building bridges to brighter futures</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
@@ -67,8 +65,8 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50">
-
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50"
+      >
         <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} className="text-gray-400 text-sm font-medium">
           <div className="w-6 h-10 rounded-full border-2 border-cyan-500/30 flex items-start justify-center p-2 mx-auto mb-2">
             <div className="w-1.5 h-2 bg-cyan-400 rounded-full shadow-[0_0_10px_rgba(0,217,400,0.8)]"></div>
@@ -76,6 +74,6 @@ export default function Hero() {
           Scroll
         </motion.div>
       </motion.div>
-    </section>);
-
+    </section>
+  );
 }
