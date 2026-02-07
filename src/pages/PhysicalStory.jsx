@@ -79,9 +79,9 @@ export default function PhysicalStory() {
   }
 
   const stats = [
-    { icon: Users, label: 'Stories Shared', value: '2.3K+', color: 'from-blue-500 to-cyan-400' },
-    { icon: Heart, label: 'Community Likes', value: '12.5K+', color: 'from-pink-500 to-blue-400' },
-    { icon: Sparkles, label: 'Voices Heard', value: '891', color: 'from-purple-500 to-blue-400' },
+    { icon: Users, label: 'Stories Shared', value: '200+', color: 'from-blue-500 to-cyan-400' },
+    { icon: Heart, label: 'Community Likes', value: '1000+', color: 'from-pink-500 to-blue-400' },
+    { icon: Sparkles, label: 'Voices Heard', value: '500', color: 'from-purple-500 to-blue-400' },
   ];
 
   return (
