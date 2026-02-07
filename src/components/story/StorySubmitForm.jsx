@@ -54,14 +54,18 @@ export default function StorySubmitForm() {
       return;
     }
 
+    if (formData.content.length < 50) {
+      setError('Story must be at least 50 characters');
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      await base44.entities.Story.create({
+      const response = await base44.functions.invoke('submitStory', {
         title: formData.title,
         author_name: formData.author_name,
         content: formData.content,
-        topic: formData.topic,
-        status: 'pending'
+        topic: formData.topic
       });
       setIsSuccess(true);
     } catch (err) {
