@@ -154,6 +154,13 @@ export default function Mission() {
         </div>
       </section>
 
+      {/* Mental Health Chart */}
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-black to-slate-950">
+        <div className="max-w-5xl mx-auto">
+          <MentalHealthChart />
+        </div>
+      </section>
+
       {/* Three Core Goals */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
         <div className="max-w-7xl mx-auto">
