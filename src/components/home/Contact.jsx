@@ -29,6 +29,22 @@ export default function Contact() {
       status: 'new'
     });
 
+    await base44.integrations.Core.SendEmail({
+      to: 'hopebridgecommunityservices@gmail.com',
+      subject: `New Contact Form Submission from ${formData.name}`,
+      body: `
+New contact form submission:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Type: ${formData.type || 'Not specified'}
+Organization: ${formData.organization || 'Not specified'}
+
+Message:
+${formData.message}
+      `
+    });
+
     setIsSubmitting(false);
     setIsSubmitted(true);
     toast.success('Message sent successfully!');
