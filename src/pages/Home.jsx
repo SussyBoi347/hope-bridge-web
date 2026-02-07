@@ -15,9 +15,8 @@ export default function Home() {
       <Mission />
       <Problem />
       <StorySection />
-      <section id="vision" className="py-24 lg:py-32 bg-gradient-to-br from-black via-slate-950 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <section id="vision" className="py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,12 +38,12 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-10 lg:p-14 shadow-[0_0_60px_rgba(0,217,255,0.3)] border border-cyan-500/30">
+            <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-10 lg:p-14 shadow-2xl shadow-blue-300/30">
               <div className="text-center mb-10">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-2">
+                <h3 className="text-2xl font-semibold text-white mb-2">
                   Where we're headed
                 </h3>
-                <p className="text-gray-300">
+                <p className="text-white/80">
                   Our commitment to the community
                 </p>
               </div>
@@ -62,10 +61,10 @@ export default function Home() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
+                    <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
                       {goal.target}
                     </div>
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-white/80 text-sm">
                       {goal.label}
                     </p>
                   </motion.div>

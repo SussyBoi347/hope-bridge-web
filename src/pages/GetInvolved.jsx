@@ -39,23 +39,22 @@ const ways = [
 
 export default function GetInvolved() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-sky-50 to-cyan-50">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+      <section className="pt-32 pb-16 px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
               Join us in creating{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 lasting change
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Whether you have time, resources, or a platform to share, there are many ways 
               to support Asian teen mental health in our community.
             </p>
