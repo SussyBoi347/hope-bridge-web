@@ -40,7 +40,7 @@ export default function Hero() {
             className="mb-8"
           >
             <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/30 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.2)]">
-
+              <Sparkles className="w-4 h-4" />
               Supporting Asian Teen Mental Health
             </span>
           </motion.div>
@@ -100,7 +100,7 @@ export default function Hero() {
             className="text-gray-400 text-sm font-medium"
           >
             <div className="w-6 h-10 rounded-full border-2 border-cyan-500/30 flex items-start justify-center p-2 mx-auto mb-2">
-              <div className="w-1.5 h-2 bg-cyan-400 rounded-full shadow-[0_0_10px_rgba(0,217,255,0.8)]"></div>
+              <div className="w-1.5 h-2 bg-cyan-400 rounded-full shadow-[0_0_10px_rgba(0,217,400,0.8)]"></div>
             </div>
             Scroll
           </motion.div>
