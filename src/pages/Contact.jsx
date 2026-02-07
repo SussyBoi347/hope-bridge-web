@@ -206,8 +206,8 @@ export default function Contact() {
                 hopebridgecommunityservices@gmail.com
               </a>
             </div>
-            <div>
-              <Phone className="w-8 h-8 text-cyan-400 mx-auto md:mx-0 mb-4" />
+            <div className="text-center px-4">
+              <Phone className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
               <a
                 href="tel:425-610-7760"
