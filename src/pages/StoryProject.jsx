@@ -123,8 +123,7 @@ export default function StoryProject() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mt-10 flex flex-wrap gap-8 justify-center text-center">
               {[
-                { num: stories.length, label: 'Stories Shared' },
-                { num: stories.reduce((sum, s) => sum + s.likes, 0), label: 'Hearts Given' },
+                { num: '200+', label: 'Stories Shared' },
                 { num: '100%', label: 'Anonymous & Safe' }
               ].map((stat, i) => (
                 <motion.div
