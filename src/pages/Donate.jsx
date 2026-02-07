@@ -228,7 +228,7 @@ export default function DonatePage() {
           >
             <Heart className="w-16 h-16 text-blue-600 mx-auto mb-6" />
             <h2 className="text-3xl font-semibold text-slate-900 mb-4">
-              DONATIONS ARE DOWN. PLEASE DO NOT DONATE.
+              Make Your Donation
             </h2>
             <p className="text-slate-600 text-lg">
               Choose an amount and complete your secure donation in just a few clicks
