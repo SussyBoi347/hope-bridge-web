@@ -174,7 +174,7 @@ export default function DonatePage() {
                   <div className="w-full bg-slate-800 rounded-full h-3">
                     <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full" style={{ width: '65%' }} />
                   </div>
-                  <p className="text-sm text-gray-300 mt-1">
+                  <p className="text-sm text-white mt-1">
                     Peer support groups, workshops, and mental health resources
                   </p>
                 </div>
@@ -187,7 +187,7 @@ export default function DonatePage() {
                   <div className="w-full bg-slate-800 rounded-full h-3">
                     <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full" style={{ width: '20%' }} />
                   </div>
-                  <p className="text-sm text-gray-300 mt-1">
+                  <p className="text-sm text-white mt-1">
                     Training educators and bringing programs to schools
                   </p>
                 </div>
@@ -200,7 +200,7 @@ export default function DonatePage() {
                   <div className="w-full bg-slate-800 rounded-full h-3">
                     <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full" style={{ width: '15%' }} />
                   </div>
-                  <p className="text-sm text-gray-300 mt-1">
+                  <p className="text-sm text-white mt-1">
                     Administrative costs and expanding our reach
                   </p>
                 </div>
