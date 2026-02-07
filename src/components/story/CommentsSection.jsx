@@ -36,8 +36,11 @@ export default function CommentsSection({ storyId, commentsCount }) {
         content: newComment,
         status: 'pending'
       });
+      await base44.functions.invoke('updateCommentCount', {
+        storyId,
+        increment: 1
+      });
       setNewComment('');
-      // Comment added to pending
     } catch (error) {
       console.error('Error submitting comment:', error);
     } finally {
