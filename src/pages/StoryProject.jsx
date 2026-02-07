@@ -123,7 +123,8 @@ export default function StoryProject() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mt-10 flex flex-wrap gap-8 justify-center text-center">
               {[
-                { num: '200+', label: 'Stories Shared' },
+                { num: stories.length, label: 'Stories Shared' },
+                { num: stories.reduce((sum, s) => sum + s.likes, 0), label: 'Hearts Given' },
                 { num: '100%', label: 'Anonymous & Safe' }
               ].map((stat, i) => (
                 <motion.div
@@ -193,7 +194,7 @@ export default function StoryProject() {
                 whileTap={{ scale: 0.95 }}>
                 <Link to={createPageUrl('StorySharing')}>
                   <Button className="bg-white text-blue-600 hover:bg-gray-100 font-bold rounded-full px-12 py-6 text-lg shadow-2xl shadow-black/40 hover:shadow-white/20 transition-all">
-                    ✨ Share Your Story Now
+                     Share Your Story Now
                   </Button>
                 </Link>
               </motion.div>
