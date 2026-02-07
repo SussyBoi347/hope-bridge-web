@@ -106,15 +106,15 @@ export default function BridgeHero() {
         {/* Text - Top lane (HopeBridge) */}
         <motion.text
           x="600"
-          y="165"
+          y="225"
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="28"
+          fontSize="32"
           fontWeight="700"
           fill="#00FFF0"
-          opacity="0.9"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 0.9, x: 0 }}
+          opacity="0.95"
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 0.95, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="font-bold"
         >
@@ -124,15 +124,15 @@ export default function BridgeHero() {
         {/* Text - Bottom lane (Building Bridges) */}
         <motion.text
           x="600"
-          y="240"
+          y="280"
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="24"
+          fontSize="26"
           fontWeight="600"
           fill="#00D9FF"
-          opacity="0.8"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 0.8, x: 0 }}
+          opacity="0.85"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 0.85, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           Building Bridges to Brighter Futures
