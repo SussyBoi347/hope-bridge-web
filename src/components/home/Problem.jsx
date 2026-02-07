@@ -9,8 +9,9 @@ const statistics = [
 
 export default function Problem() {
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-slate-800 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-24 lg:py-32 bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -55,8 +56,8 @@ export default function Problem() {
             {/* Abstract visual element */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-blue-300/5 to-sky-300/10 rounded-3xl" />
             
-            <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl shadow-black/20 border border-white/40">
-              <h3 className="text-xl font-semibold text-blue-900 mb-8">
+            <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-[0_0_60px_rgba(0,217,255,0.2)] border border-cyan-500/30">
+              <h3 className="text-xl font-semibold text-cyan-400 mb-8">
                 The reality we're addressing
               </h3>
               
@@ -71,12 +72,12 @@ export default function Problem() {
                   className="flex items-start gap-5">
 
                     <div className="flex-shrink-0 w-20">
-                      <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                      <span className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                         {stat.number}
                       </span>
                     </div>
                     <div className="pt-1">
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-gray-300 leading-relaxed">
                         {stat.label}
                       </p>
                     </div>
@@ -84,8 +85,8 @@ export default function Problem() {
                 )}
               </div>
 
-              <div className="mt-10 pt-8 border-t border-slate-100">
-                <p className="text-sm text-slate-500 italic">
+              <div className="mt-10 pt-8 border-t border-cyan-500/20">
+                <p className="text-sm text-gray-400 italic">
                   Sources: SAMHSA National Survey, AAPI Data, Mental Health America
                 </p>
               </div>

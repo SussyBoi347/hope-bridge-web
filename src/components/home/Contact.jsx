@@ -65,7 +65,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 lg:py-32 bg-gradient-to-br from-blue-800 via-slate-900 to-blue-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -88,11 +88,11 @@ export default function Contact() {
             <div className="mt-10 space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-cyan-300" />
+                  <Mail className="w-6 h-6 text-cyan-400" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Email</h4>
-                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-200 hover:text-cyan-300 transition-colors">
+                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-gray-300 hover:text-cyan-400 transition-colors">
                     hopebridgecommunityservices@gmail.com
                   </a>
                 </div>
@@ -100,11 +100,11 @@ export default function Contact() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-cyan-300" />
+                  <Phone className="w-6 h-6 text-cyan-400" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Phone</h4>
-                  <a href="tel:425-610-7760" className="text-blue-200 hover:text-cyan-300 transition-colors">
+                  <a href="tel:425-610-7760" className="text-gray-300 hover:text-cyan-400 transition-colors">
                     425-610-7760
                   </a>
                 </div>
@@ -112,26 +112,26 @@ export default function Contact() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-cyan-300" />
+                  <MapPin className="w-6 h-6 text-cyan-400" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Location</h4>
-                  <p className="text-blue-200">Sammamish, Washington</p>
+                  <p className="text-gray-300">Sammamish, Washington</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 pt-8 border-t border-white/20">
+            <div className="mt-10 pt-8 border-t border-cyan-500/20">
               <h4 className="font-semibold text-white mb-4">Follow Our Journey</h4>
               <div className="flex gap-4">
                 <a
                   href="https://www.instagram.com/hopebridgementalsupport"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 hover:border-cyan-400/50 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]"
                   aria-label="Instagram">
 
-                  <svg className="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </a>
@@ -142,7 +142,7 @@ export default function Contact() {
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
                   aria-label="TikTok">
 
-                  <svg className="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                   </svg>
                 </a>
@@ -153,7 +153,7 @@ export default function Contact() {
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors"
                   aria-label="Twitter">
 
-                  <svg className="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
@@ -167,22 +167,22 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}>
 
-            <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/30 shadow-xl shadow-black/30">
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-slate-900 to-slate-950 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-cyan-500/30 shadow-[0_0_60px_rgba(0,217,255,0.2)]">
               <div className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-slate-700">Name</Label>
+                    <Label htmlFor="name" className="text-gray-200">Name</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
                       required
-                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 text-black" />
+                      className="bg-slate-950 border-cyan-500/30 focus:border-cyan-400 focus:ring-cyan-500/20 text-white placeholder:text-gray-500" />
 
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-slate-700">Email</Label>
+                    <Label htmlFor="email" className="text-gray-200">Email</Label>
                     <Input
                       id="email"
                       type="email"
@@ -190,18 +190,18 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@example.com"
                       required
-                      className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 text-black" />
+                      className="bg-slate-950 border-cyan-500/30 focus:border-cyan-400 focus:ring-cyan-500/20 text-white placeholder:text-gray-500" />
 
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-slate-700">I am a...</Label>
+                  <Label className="text-gray-200">I am a...</Label>
                   <Select
                     value={formData.type}
                     onValueChange={(value) => setFormData({ ...formData, type: value })}>
 
-                    <SelectTrigger className="bg-white border-slate-200 text-black">
+                    <SelectTrigger className="bg-slate-950 border-cyan-500/30 text-white focus:border-cyan-400 focus:ring-cyan-500/20">
                       <SelectValue placeholder="Select your role" />
                     </SelectTrigger>
                     <SelectContent>
@@ -216,19 +216,19 @@ export default function Contact() {
 
                 {(formData.type === 'school' || formData.type === 'donor') &&
                 <div className="space-y-2">
-                    <Label htmlFor="organization" className="text-slate-700">Organization (optional)</Label>
+                    <Label htmlFor="organization" className="text-gray-200">Organization (optional)</Label>
                     <Input
                     id="organization"
                     value={formData.organization}
                     onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                     placeholder="School or organization name"
-                    className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20" />
+                    className="bg-slate-950 border-cyan-500/30 focus:border-cyan-400 focus:ring-cyan-500/20 text-white placeholder:text-gray-500" />
 
                   </div>
                 }
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-slate-700">Message</Label>
+                  <Label htmlFor="message" className="text-gray-200">Message</Label>
                   <Textarea
                     id="message"
                     value={formData.message}
@@ -236,14 +236,14 @@ export default function Contact() {
                     placeholder="How can we help?"
                     rows={5}
                     required
-                    className="bg-white border-slate-200 focus:border-blue-600 focus:ring-blue-600/20 resize-none text-black" />
+                    className="bg-slate-950 border-cyan-500/30 focus:border-cyan-400 focus:ring-cyan-500/20 resize-none text-white placeholder:text-gray-500" />
 
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-6 rounded-xl shadow-lg shadow-blue-500/30">
+                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold py-6 rounded-xl shadow-[0_0_30px_rgba(0,217,255,0.5)] hover:shadow-[0_0_50px_rgba(0,217,255,0.8)] transition-all duration-300 border border-cyan-400/50">
 
                   {isSubmitting ?
                   <>
