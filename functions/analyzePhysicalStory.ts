@@ -4,28 +4,16 @@ Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
     
-    // Parse FormData
-    let formData;
-    try {
-      formData = await req.formData();
-    } catch (e) {
-      console.error('FormData parsing error:', e);
-      return Response.json({ error: 'Invalid form data' }, { status: 400 });
-    }
-    
-    const imageFile = formData.get('image');
+    // Parse JSON payload
+    const payload = await req.json();
+    const imageUrl = payload.image_url;
 
-    if (!imageFile) {
+    if (!imageUrl) {
+      console.error('No image URL provided');
       return Response.json({ error: 'No image provided' }, { status: 400 });
     }
 
-    // Upload image to get URL
-    const buffer = await imageFile.arrayBuffer();
-    const uploadResponse = await base44.integrations.Core.UploadFile({
-      file: new File([buffer], imageFile.name, { type: imageFile.type })
-    });
-
-    const imageUrl = uploadResponse.file_url;
+    console.log('Processing image:', imageUrl);
 
     // Use AI to analyze the image
     const aiResponse = await base44.integrations.Core.InvokeLLM({

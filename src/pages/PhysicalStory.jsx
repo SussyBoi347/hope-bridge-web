@@ -33,10 +33,18 @@ export default function PhysicalStory() {
     setIsAnalyzing(true);
     setError('');
     try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
+      // First upload the file to get a URL
+      const uploadFormData = new FormData();
+      uploadFormData.append('file', selectedFile);
+      
+      const uploadResponse = await base44.integrations.Core.UploadFile({
+        file: selectedFile
+      });
 
-      const response = await base44.functions.invoke('analyzePhysicalStory', formData);
+      // Then analyze it
+      const response = await base44.functions.invoke('analyzePhysicalStory', {
+        image_url: uploadResponse.file_url
+      });
 
       if (response.data.success) {
         setIsSuccess(true);
