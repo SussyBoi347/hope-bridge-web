@@ -31,6 +31,7 @@ export default function PhysicalStory() {
     }
 
     setIsAnalyzing(true);
+    setError('');
     try {
       const formData = new FormData();
       formData.append('image', selectedFile);
