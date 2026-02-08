@@ -35,12 +35,12 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.1] mb-8 tracking-tight">
+          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-bold leading-[1.05] mb-8 tracking-tight">
             <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
               HopeBridge
             </span>
             <br />
-            <span className="text-gray-400 text-2xl sm:text-3xl lg:text-4xl">Building Bridges to Brighter Futures.</span>
+            <span className="text-gray-400 text-3xl sm:text-4xl lg:text-5xl">Building Bridges to Brighter Futures.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
@@ -61,6 +61,3 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-}
