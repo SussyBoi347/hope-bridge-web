@@ -3,7 +3,16 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const formData = await req.formData();
+    
+    // Parse FormData
+    let formData;
+    try {
+      formData = await req.formData();
+    } catch (e) {
+      console.error('FormData parsing error:', e);
+      return Response.json({ error: 'Invalid form data' }, { status: 400 });
+    }
+    
     const imageFile = formData.get('image');
 
     if (!imageFile) {
