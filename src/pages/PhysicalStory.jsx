@@ -58,11 +58,11 @@ export default function PhysicalStory() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center max-w-md">
-          <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-10 h-10 text-green-600" />
+          <div className="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center mx-auto mb-6 border-2 border-cyan-500/50">
+            <CheckCircle2 className="w-10 h-10 text-cyan-400" />
           </div>
           <h2 className="text-3xl font-semibold text-white mb-4">Story Added!</h2>
-          <p className="text-white mb-8">
+          <p className="text-gray-300 mb-8">
             Your physical story has been captured and added to our community wall.
           </p>
           <Button
@@ -71,13 +71,13 @@ export default function PhysicalStory() {
               setSelectedFile(null);
               setPreview(null);
             }}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black rounded-full">
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-full shadow-[0_0_30px_rgba(0,217,255,0.5)]">
             Upload Another Story
           </Button>
         </motion.div>
       </div>
     );
-  }
+    }
 
   const stats = [
     { icon: Users, label: 'Stories Shared', value: '200+', color: 'from-blue-500 to-cyan-400' },
@@ -86,38 +86,33 @@ export default function PhysicalStory() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-black">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-20 px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
         {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute top-10 right-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 5, repeat: Infinity }}
-            className="absolute bottom-10 left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
-          />
+        <div className="absolute inset-0 overflow-hidden opacity-40">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
+
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
 
         <div className="relative max-w-4xl mx-auto text-center z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
+              animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="text-7xl mb-6 inline-block">
+              className="text-6xl mb-6 inline-block">
               📸
             </motion.div>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight px-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight px-4">
               Turn Your{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
                 Story Into Reality
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8 px-4">
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8 px-4 font-light">
               Capture your handwritten or printed story in a photo. Our AI instantly reads it and shares it with thousands of voices in our community.
             </p>
             
@@ -197,19 +192,19 @@ export default function PhysicalStory() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="bg-white rounded-2xl p-8 shadow-lg">
+          className="bg-gradient-to-br from-slate-900/50 to-blue-900/30 backdrop-blur-xl rounded-2xl p-8 border border-cyan-500/20 shadow-[0_0_50px_rgba(0,217,255,0.1)]">
 
           {error && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-xl mb-6">
-              <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
-              <p className="text-red-700 text-sm">{error}</p>
+              className="flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-xl mb-6 backdrop-blur-sm">
+              <AlertCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+              <p className="text-red-300 text-sm">{error}</p>
             </motion.div>
           )}
 
-          <h2 className="text-2xl font-bold text-black mb-6">Upload Story Photo</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Upload Story Photo</h2>
 
           {/* Image Preview */}
           {preview && (
@@ -217,7 +212,7 @@ export default function PhysicalStory() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="mb-6">
-              <img src={preview} alt="Preview" className="w-full rounded-lg max-h-64 object-cover" />
+              <img src={preview} alt="Preview" className="w-full rounded-lg max-h-64 object-cover border border-cyan-500/30" />
             </motion.div>
           )}
 
@@ -230,12 +225,12 @@ export default function PhysicalStory() {
               className="hidden"
               disabled={isAnalyzing}
             />
-            <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all active:scale-95">
-              <Camera className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-              <p className="text-black font-medium">
+            <div className="border-2 border-dashed border-cyan-500/30 rounded-xl p-8 text-center cursor-pointer hover:border-cyan-400/60 hover:bg-cyan-500/5 transition-all active:scale-95 backdrop-blur-sm">
+              <Camera className="w-12 h-12 text-cyan-400 mx-auto mb-3" />
+              <p className="text-white font-medium">
                 {selectedFile ? selectedFile.name : 'Take a photo or upload'}
               </p>
-              <p className="text-sm text-gray-500 mt-1">Tap to capture or choose from gallery</p>
+              <p className="text-sm text-gray-400 mt-1">Tap to capture or choose from gallery</p>
             </div>
           </label>
 
@@ -243,7 +238,7 @@ export default function PhysicalStory() {
           <Button
             onClick={handleSubmit}
             disabled={!selectedFile || isAnalyzing}
-            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50 text-white rounded-full py-3 font-semibold">
+            className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 text-black rounded-full py-3 font-semibold shadow-[0_0_30px_rgba(0,217,255,0.5)] hover:shadow-[0_0_40px_rgba(0,217,255,0.8)] transition-all">
             {isAnalyzing ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -254,14 +249,14 @@ export default function PhysicalStory() {
             )}
           </Button>
 
-          <p className="text-xs text-gray-500 mt-4 text-center">
+          <p className="text-xs text-gray-400 mt-4 text-center">
             The AI will automatically extract the story text from your photo and add it to our community wall.
           </p>
         </motion.div>
       </section>
 
       {/* Info Section */}
-      <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-blue-950/30 to-black via-slate-950">
+      <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
         <div className="max-w-5xl mx-auto">
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
@@ -323,11 +318,11 @@ export default function PhysicalStory() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 sm:p-12 text-center">
-            <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-white mx-auto mb-4" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Why Share Your Physical Story?</h3>
-            <p className="text-white text-base sm:text-lg leading-relaxed">
-              Physical stories carry authenticity. When you write by hand, your voice becomes real. Our community values the genuine human connection in your words the crossed-out passages, the emotional underlines, the real ink on real paper. By sharing your physical story, you're not just adding text to a wall; you're creating a bridge between hearts.
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl p-6 sm:p-12 text-center shadow-[0_0_50px_rgba(0,217,255,0.3)]">
+            <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-black mx-auto mb-4" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">Why Share Your Physical Story?</h3>
+            <p className="text-black/90 text-base sm:text-lg leading-relaxed font-medium">
+              Physical stories carry authenticity. When you write by hand, your voice becomes real. Our community values the genuine human connection in your words — the crossed-out passages, the emotional underlines, the real ink on real paper. By sharing your physical story, you're not just adding text to a wall; you're creating a bridge between hearts.
             </p>
           </motion.div>
         </div>
