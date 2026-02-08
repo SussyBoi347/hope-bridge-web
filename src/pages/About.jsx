@@ -20,7 +20,7 @@ export default function About() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-white leading-relaxed max-w-2xl mx-auto">
-              We're building the <span className="font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">mental health support system</span> we wish existed—one that truly 
+              We're building the <span className="font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">mental health support system</span> we wish existed, one that truly 
               understands the Asian American teen experience.
             </p>
           </motion.div>
