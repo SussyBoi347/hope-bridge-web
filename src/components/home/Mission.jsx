@@ -5,23 +5,23 @@ import { BookOpen, Users, Shield, Sparkles, Heart } from 'lucide-react';
 const pillars = [
 {
   icon: Users,
-  title: "Embracing Cultural Identity",
-  description: "Helping Asian teens navigate the beautiful complexity of their bicultural identity and celebrate both cultures."
+  title: "Cultural Identity",
+  description: "Navigate bicultural identity with confidence."
 },
 {
   icon: BookOpen,
-  title: "Navigating Academic Pressures",
-  description: "Supporting teens facing intense academic expectations while maintaining mental wellness and redefining success."
+  title: "Academic Pressures",
+  description: "Balance expectations with mental wellness."
 },
 {
   icon: Heart,
-  title: "Healing Family Disconnect",
-  description: "Building bridges between generations to foster understanding and open communication at home."
+  title: "Family Connection",
+  description: "Build bridges between generations."
 },
 {
   icon: Shield,
   title: "Breaking Stigma",
-  description: "Normalizing mental health conversations in communities where they've been silenced."
+  description: "Normalize mental health conversations."
 }];
 
 
@@ -48,7 +48,8 @@ export default function Mission() {
               understands your experience
             </span>
           </h2>
-          <p className="mt-6 text-lg text-gray-300 leading-relaxed">Hope Bridge exists because too many Asian teens face pressure alone. We're building the support system we wish existed one that gets the unique challenges of balancing family expectations,cultural identity, and personal wellbeing.
+          <p className="mt-6 text-lg text-gray-300 leading-relaxed">
+            Support for Asian teens navigating family expectations, cultural identity, and wellbeing.
           </p>
         </motion.div>
 

@@ -19,7 +19,7 @@ export default function StorySection() {
             Share Your Story
           </h2>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Through the Story Project, teens share real experiences with cultural identity, academic pressures, and family dynamics. Read inspiring stories, find community, and connect with others who understand your journey.
+            Read real stories, find community, connect with others who understand.
           </p>
 
           {/* Stats */}

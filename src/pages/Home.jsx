@@ -31,7 +31,7 @@ export default function Home() {
               Our Vision
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
-              Real stories, real change
+              Our Vision
             </h2>
           </motion.div>
           <motion.div

@@ -17,8 +17,7 @@ export default function CommunitySurvey() {
             Share Your Voice
           </h2>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Your experiences and insights help us better serve our community. Take our brief community 
-            survey to help shape the future of mental health support for Asian American teens.
+            Help shape mental health support for Asian American teens.
           </p>
 
           {/* Stats */}
