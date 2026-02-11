@@ -61,6 +61,18 @@ Return the data as JSON.`,
 
     const story = await base44.asServiceRole.entities.Story.create(storyData);
 
+    // Generate AI metadata in the background
+    try {
+      await base44.functions.invoke('generateStoryAIMetadata', {
+        story_id: story.id,
+        title: story.title,
+        content: story.content
+      });
+    } catch (aiError) {
+      console.error('Error generating AI metadata:', aiError);
+      // Don't fail the request if AI generation fails
+    }
+
     return Response.json({ 
       success: true, 
       message: 'Physical story added successfully!',
