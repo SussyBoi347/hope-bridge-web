@@ -20,8 +20,7 @@ export default function About() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-white leading-relaxed max-w-2xl mx-auto">
-              We're building the <span className="font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">mental health support system</span> we wish existed, one that truly 
-              understands the Asian American teen experience.
+              Mental health support that understands the Asian American teen experience.
             </p>
           </motion.div>
         </div>
@@ -39,17 +38,11 @@ export default function About() {
               <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Story</h2>
               <div className="space-y-4 text-white leading-relaxed">
                 <p>
-                  Hope Bridge was born from a simple observation: too many Asian American teens are 
-                  suffering in silence, caught between cultural expectations and personal struggles 
-                  with no one to turn to.
+                  Too many Asian American teens suffer in silence, caught between cultural expectations and personal struggles.
                 </p>
                 <p>
-                  We saw young people excelling academically while quietly drowning emotionally. We 
-                  watched families struggle to talk about mental health in communities where it's still 
-                  stigmatized. We recognized that existing support systems, while well-meaning, often 
-                  miss the cultural nuances that make all the difference.
+                  We created Hope Bridge — a space where teens find support that gets it.
                 </p>
-                <p>So we created Hope Bridge a space where Asian American teens can find support that actually gets it. Where they can talk about the pressure to be perfect, the struggle of navigating two cultures, and the loneliness of feeling like no one understands.</p>
               </div>
             </div>
             <motion.div
@@ -82,8 +75,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-3 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Mission</h3>
               <p className="text-white leading-relaxed">
-                To provide culturally informed mental health support for Asian American teens, 
-                creating safe spaces where they can be heard, understood, and empowered.
+                Culturally informed mental health support for Asian American teens.
               </p>
             </motion.div>
 
@@ -99,8 +91,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-3 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Vision</h3>
               <p className="text-white leading-relaxed">
-                A community where Asian American teens thrive emotionally, where mental health 
-                conversations are normalized, and where cultural identity is celebrated, not silenced.
+                Asian American teens thriving emotionally with normalized mental health conversations.
               </p>
             </motion.div>
 
@@ -116,8 +107,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-3 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">Our Values</h3>
               <p className="text-white leading-relaxed">
-                Cultural sensitivity, peer support, accessibility, breaking stigma, and empowering 
-                the next generation to prioritize their mental wellness.
+                Cultural sensitivity, peer support, accessibility, breaking stigma.
               </p>
             </motion.div>
           </div>
@@ -142,11 +132,8 @@ export default function About() {
             <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">
               Our Team
             </h2>
-            <p className="text-white text-lg leading-relaxed">Hope Bridge is an up-and-coming organization founded by six Asian teens, Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav. We aim to address the common struggles many Asian teens face in embracing cultural identity, navigating academics pressures, and healing family disconnect.
-
-
-
-
+            <p className="text-white text-lg leading-relaxed">
+              Founded by six Asian teens: Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav.
             </p>
           </motion.div>
         </div>
