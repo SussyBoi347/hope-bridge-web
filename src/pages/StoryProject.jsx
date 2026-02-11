@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { Button } from '@/components/ui/button';
 import { base44 } from '@/api/base44Client';
+import { Camera, Loader2, CheckCircle2, AlertCircle, Upload, Pen } from 'lucide-react';
 import StoryFilters from '@/components/story/StoryFilters';
 import StoryCard from '@/components/story/StoryCard';
 import FeaturedStories from '@/components/story/FeaturedStories';
@@ -16,6 +17,12 @@ export default function StoryProject() {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [likedStories, setLikedStories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [uploadMode, setUploadMode] = useState(null); // 'photo' or null
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [uploadError, setUploadError] = useState('');
 
   // Load stories
   useEffect(() => {
@@ -32,6 +39,61 @@ export default function StoryProject() {
     };
     loadStories();
   }, []);
+
+  // Handle file selection
+  const handleFileSelect = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      setUploadError('');
+      
+      const reader = new FileReader();
+      reader.onload = (e) => setPreview(e.target?.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Handle photo upload
+  const handlePhotoSubmit = async () => {
+    if (!selectedFile) {
+      setUploadError('Please select an image');
+      return;
+    }
+
+    setIsAnalyzing(true);
+    setUploadError('');
+    try {
+      const uploadResponse = await base44.integrations.Core.UploadFile({
+        file: selectedFile
+      });
+
+      const response = await base44.functions.invoke('analyzePhysicalStory', {
+        image_url: uploadResponse.file_url
+      });
+
+      if (response.data.success) {
+        setUploadSuccess(true);
+        setTimeout(() => {
+          setUploadMode(null);
+          setUploadSuccess(false);
+          setSelectedFile(null);
+          setPreview(null);
+          // Reload stories
+          base44.entities.Story.filter({ status: 'approved' }, '-created_date').then(allStories => {
+            setStories(allStories);
+            setFilteredStories(allStories);
+          });
+        }, 2000);
+      } else {
+        setUploadError(response.data.error || 'Failed to analyze image');
+      }
+    } catch (err) {
+      setUploadError(err.message || 'Failed to process image');
+      console.error(err);
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
 
   // Handle like
   const handleLike = useCallback(async (storyId) => {
@@ -147,61 +209,148 @@ export default function StoryProject() {
       {/* Share Your Experience Section */}
       <section className="relative py-24 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl">
-            
-            {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 opacity-90" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
-            
-            {/* Content */}
-            <div className="relative z-10 p-10 lg:p-16 text-center">
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="mb-6">
-                <span className="text-6xl">✍️</span>
-              </motion.div>
+          {uploadMode === 'photo' ? (
+            /* Photo Upload Form */
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-gradient-to-br from-slate-900/50 to-blue-900/30 backdrop-blur-xl rounded-2xl p-8 border border-cyan-500/20">
               
-              <motion.h2
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                Your Story Matters
-              </motion.h2>
-              
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto">
-                Be heard. Be seen. Be part of something bigger. Share your experience and help others feel less alone.
-              </motion.p>
-              
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}>
-                <Link to={createPageUrl('StorySharing')}>
-                  <Button className="bg-white text-blue-600 hover:bg-gray-100 font-bold rounded-full px-12 py-6 text-lg shadow-2xl shadow-black/40 hover:shadow-white/20 transition-all">
-                     Share Your Story Now
+              {uploadSuccess ? (
+                <div className="text-center py-8">
+                  <CheckCircle2 className="w-16 h-16 text-green-400 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-white mb-2">Story Added!</h3>
+                  <p className="text-gray-300">Your story has been captured and shared with the community.</p>
+                </div>
+              ) : (
+                <>
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold text-white">Upload Story Photo</h2>
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        setUploadMode(null);
+                        setSelectedFile(null);
+                        setPreview(null);
+                        setUploadError('');
+                      }}
+                      className="text-white">
+                      Cancel
+                    </Button>
+                  </div>
+
+                  {uploadError && (
+                    <div className="flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-xl mb-6">
+                      <AlertCircle className="w-5 h-5 text-red-400 mt-0.5" />
+                      <p className="text-red-300 text-sm">{uploadError}</p>
+                    </div>
+                  )}
+
+                  {preview && (
+                    <div className="mb-6">
+                      <img src={preview} alt="Preview" className="w-full rounded-lg max-h-64 object-cover border border-cyan-500/30" />
+                    </div>
+                  )}
+
+                  <label className="block mb-6">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileSelect}
+                      className="hidden"
+                      disabled={isAnalyzing}
+                    />
+                    <div className="border-2 border-dashed border-cyan-500/30 rounded-xl p-8 text-center cursor-pointer hover:border-cyan-400/60 hover:bg-cyan-500/5 transition-all">
+                      <Camera className="w-12 h-12 text-cyan-400 mx-auto mb-3" />
+                      <p className="text-white font-medium">
+                        {selectedFile ? selectedFile.name : 'Take a photo or upload'}
+                      </p>
+                      <p className="text-sm text-gray-400 mt-1">Tap to capture or choose from gallery</p>
+                    </div>
+                  </label>
+
+                  <Button
+                    onClick={handlePhotoSubmit}
+                    disabled={!selectedFile || isAnalyzing}
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 text-black rounded-full py-3 font-semibold">
+                    {isAnalyzing ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Analyzing Image...
+                      </>
+                    ) : (
+                      'Add Story'
+                    )}
                   </Button>
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
+
+                  <p className="text-xs text-gray-400 mt-4 text-center">
+                    The AI will automatically extract the story text from your photo.
+                  </p>
+                </>
+              )}
+            </motion.div>
+          ) : (
+            /* Share Options */
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative overflow-hidden rounded-3xl">
+              
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 opacity-90" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+              
+              <div className="relative z-10 p-10 lg:p-16 text-center">
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="mb-6">
+                  <span className="text-6xl">✍️</span>
+                </motion.div>
+                
+                <motion.h2
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  Your Story Matters
+                </motion.h2>
+                
+                <motion.p
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto">
+                  Be heard. Be seen. Be part of something bigger. Share your experience and help others feel less alone.
+                </motion.p>
+                
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    onClick={() => setUploadMode('photo')}
+                    className="bg-white text-blue-600 hover:bg-gray-100 font-bold rounded-full px-8 py-6 text-lg shadow-2xl">
+                    <Camera className="w-5 h-5 mr-2" />
+                    Upload Photo Story
+                  </Button>
+                  <Link to={createPageUrl('StorySharing')}>
+                    <Button className="bg-white/10 hover:bg-white/20 text-white border-2 border-white font-bold rounded-full px-8 py-6 text-lg">
+                      <Pen className="w-5 h-5 mr-2" />
+                      Write Story Online
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
