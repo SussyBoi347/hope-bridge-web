@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, MessageCircle, Calendar } from 'lucide-react';
+import { Heart, MessageCircle, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import CommentsSection from './CommentsSection';
 import StoryMediaViewer from './StoryMediaViewer';
@@ -76,8 +77,32 @@ export default function StoryCard({ story, onLike, isLiked }) {
       </div>
 
       {/* Content */}
-      <div className="relative px-6 py-5">
+      <div className="relative px-6 py-5 space-y-4">
+        {/* AI Summary */}
+        {story.summary && (
+          <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-lg p-3">
+            <div className="flex items-start gap-2">
+              <Sparkles className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-xs text-cyan-400 font-medium mb-1">AI Summary</p>
+                <p className="text-sm text-gray-300 leading-relaxed">{story.summary}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <p className="text-gray-200 leading-relaxed line-clamp-4">{story.content}</p>
+
+        {/* AI Tags */}
+        {story.tags && story.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {story.tags.map((tag, idx) => (
+              <Badge key={idx} variant="outline" className="bg-blue-500/10 border-blue-500/30 text-blue-300 text-xs">
+                #{tag.replace(/_/g, ' ')}
+              </Badge>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Media */}
