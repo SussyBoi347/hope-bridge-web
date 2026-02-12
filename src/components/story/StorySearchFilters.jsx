@@ -10,20 +10,20 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  const uniqueAuthors = [...new Set(stories.map(s => s.author_name))].sort();
+  const uniqueAuthors = [...new Set(stories.map((s) => s.author_name))].sort();
 
   const applyFilters = () => {
-    const filtered = stories.filter(story => {
-      const matchesKeyword = keyword === '' || 
-        story.title.toLowerCase().includes(keyword.toLowerCase()) ||
-        story.content.toLowerCase().includes(keyword.toLowerCase());
-      
+    const filtered = stories.filter((story) => {
+      const matchesKeyword = keyword === '' ||
+      story.title.toLowerCase().includes(keyword.toLowerCase()) ||
+      story.content.toLowerCase().includes(keyword.toLowerCase());
+
       const matchesAuthor = selectedAuthor === '' || story.author_name === selectedAuthor;
-      
+
       const storyDate = new Date(story.created_date);
       const matchesStartDate = startDate === '' || storyDate >= new Date(startDate);
       const matchesEndDate = endDate === '' || storyDate <= new Date(endDate);
-      
+
       return matchesKeyword && matchesAuthor && matchesStartDate && matchesEndDate;
     });
 
@@ -65,9 +65,9 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
               value={keyword}
               onChange={(e) => handleKeywordChange(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              placeholder="Search stories by title or content..."
-              className="pl-12 rounded-full bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-            />
+              placeholder="Search stories by title or content..." className="bg-gray-200 text-gray-950 pl-12 px-3 py-1 text-base rounded-full flex h-9 w-full border shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-white/20 placeholder:text-gray-400" />
+
+
           </div>
           <Button
             onClick={handleSearch}
@@ -81,62 +81,62 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Author Filter */}
         <div>
-          <label className="text-xs font-semibold text-gray-300 block mb-2">Author</label>
+          <label className="text-slate-950 mb-2 text-xs font-semibold block">Author</label>
           <select
             value={selectedAuthor}
-            onChange={(e) => setSelectedAuthor(e.target.value)}
-            className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 text-sm appearance-none cursor-pointer">
+            onChange={(e) => setSelectedAuthor(e.target.value)} className="bg-white/10 text-slate-950 px-4 py-2 text-sm rounded-lg w-full border border-white/20 appearance-none cursor-pointer">
+
             <option value="">All Authors</option>
-            {uniqueAuthors.map(author => (
-              <option key={author} value={author}>{author}</option>
-            ))}
+            {uniqueAuthors.map((author) =>
+            <option key={author} value={author}>{author}</option>
+            )}
           </select>
         </div>
 
         {/* Start Date Filter */}
         <div>
-          <label className="text-xs font-semibold text-gray-300 block mb-2">From Date</label>
+          <label className="text-slate-950 mb-2 text-xs font-semibold block">From Date</label>
           <div className="relative">
-            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Calendar className="text-slate-950 lucide lucide-calendar absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
             <input
               type="date"
               value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 pl-10 text-sm"
-            />
+              onChange={(e) => setStartDate(e.target.value)} className="bg-white/10 text-slate-950 pl-10 px-4 py-2 text-sm rounded-lg w-full border border-white/20" />
+
+
           </div>
         </div>
 
         {/* End Date Filter */}
         <div>
-          <label className="text-xs font-semibold text-gray-300 block mb-2">To Date</label>
+          <label className="text-slate-950 mb-2 text-xs font-semibold block">To Date</label>
           <div className="relative">
-            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Calendar className="text-slate-950 lucide lucide-calendar absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
             <input
               type="date"
               value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 pl-10 text-sm"
-            />
+              onChange={(e) => setEndDate(e.target.value)} className="bg-white/10 text-slate-950 pl-10 px-4 py-2 text-sm rounded-lg w-full border border-white/20" />
+
+
           </div>
         </div>
       </div>
 
       {/* Reset Button */}
-      {(keyword || selectedAuthor || startDate || endDate) && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex justify-end">
+      {(keyword || selectedAuthor || startDate || endDate) &&
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex justify-end">
           <Button
-            onClick={handleReset}
-            variant="outline"
-            className="rounded-full gap-2 text-white border-white/30 hover:bg-white/10">
+          onClick={handleReset}
+          variant="outline"
+          className="rounded-full gap-2 text-white border-white/30 hover:bg-white/10">
             <X className="w-4 h-4" />
             Clear Filters
           </Button>
         </motion.div>
-      )}
-    </motion.div>
-  );
+      }
+    </motion.div>);
+
 }
