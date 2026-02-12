@@ -122,6 +122,29 @@ export default function AnimatedBackground({ variant = 'blue' }) {
           }}
         />
       ))}
+
+      {/* Bridge design at bottom */}
+      <svg className="absolute bottom-0 left-0 w-full h-96 opacity-50" viewBox="0 0 1200 280" preserveAspectRatio="none">
+        <path d="M0,160 Q300,50 600,160 T1200,160 L1200,280 L0,280 Z" fill="url(#bridgeGradient)" />
+        <defs>
+          <linearGradient id="bridgeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.15" />
+          </linearGradient>
+          <linearGradient id="pillarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#1F2937" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#111827" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+        
+        <path d="M0,170 Q300,60 600,170 T1200,170" stroke="#1F2937" strokeWidth="5" fill="none" opacity="0.5" />
+        
+        <g opacity="0.6">
+          <rect x="270" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
+          <rect x="570" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
+          <rect x="870" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
+        </g>
+      </svg>
     </div>
   );
 }
