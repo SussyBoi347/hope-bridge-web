@@ -11,31 +11,35 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-gray-50">
       
-      {/* 4 Large visible animated circles */}
+      {/* 4 Large soft circles matching the design */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top-left blue circle */}
+        {/* Top-left soft blue circle */}
         <motion.div
-          animate={{ y: [0, -60, 0], x: [0, 50, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-10 w-96 h-96 bg-blue-300/65 rounded-full blur-xl"
+          animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-24 -left-24 w-64 h-64 rounded-full"
+          style={{ backgroundColor: '#B3D9FF', filter: 'blur(60px)' }}
         />
-        {/* Top-right gray circle */}
+        {/* Top-right light gray circle */}
         <motion.div
-          animate={{ y: [0, 70, 0], x: [0, -60, 0], scale: [1, 1.3, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute top-20 right-16 w-80 h-80 bg-gray-300/55 rounded-full blur-xl"
+          animate={{ y: [0, 50, 0], x: [0, -40, 0] }}
+          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -top-32 -right-20 w-80 h-80 rounded-full"
+          style={{ backgroundColor: '#D3D3D3', filter: 'blur(70px)' }}
         />
-        {/* Bottom-left blue circle */}
+        {/* Bottom-left larger soft blue circle */}
         <motion.div
-          animate={{ y: [0, -55, 0], x: [0, 45, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-          className="absolute bottom-32 left-16 w-80 h-80 bg-blue-300/60 rounded-full blur-xl"
+          animate={{ y: [0, -35, 0], x: [0, 35, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute -bottom-40 -left-32 w-96 h-96 rounded-full"
+          style={{ backgroundColor: '#ADD8E6', filter: 'blur(80px)' }}
         />
-        {/* Bottom-right gray circle */}
+        {/* Bottom-right light gray circle */}
         <motion.div
-          animate={{ y: [0, 65, 0], x: [0, -55, 0], scale: [1, 1.25, 1] }}
-          transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 9 }}
-          className="absolute bottom-24 right-12 w-96 h-96 bg-gray-300/50 rounded-full blur-xl"
+          animate={{ y: [0, 45, 0], x: [0, -35, 0] }}
+          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", delay: 6 }}
+          className="absolute -bottom-32 -right-24 w-72 h-72 rounded-full"
+          style={{ backgroundColor: '#E0E0E0', filter: 'blur(75px)' }}
         />
       </div>
 
@@ -46,7 +50,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          
           {/* Badge */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }} 
@@ -54,7 +57,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <span className="inline-block px-6 py-3 rounded-full border-2 border-blue-500 text-blue-600 text-sm font-semibold bg-white/90 backdrop-blur-sm">
+            <span className="inline-block px-6 py-3 rounded-full border-2 border-blue-500 text-blue-600 text-sm font-semibold bg-white/80 backdrop-blur-sm">
               Supporting Asian Teen Mental Health
             </span>
           </motion.div>
