@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Heart } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -9,45 +9,45 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-orange-50 via-yellow-50 to-blue-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-orange-50 via-yellow-50 to-pink-50">
       
-      {/* 3D-style floating shapes */}
+      {/* Animated floating circles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: `${80 + i * 30}px`,
-              height: `${80 + i * 30}px`,
-              left: `${(i * 10) % 95}%`,
-              top: `${(i * 12) % 85}%`,
+              width: `${60 + i * 25}px`,
+              height: `${60 + i * 25}px`,
+              left: `${(i * 8) % 95}%`,
+              top: `${(i * 10) % 85}%`,
               background: [
                 'linear-gradient(135deg, #FFB340 0%, #FF8C42 100%)',
-                'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
+                'linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%)',
                 'linear-gradient(135deg, #F472B6 0%, #FB923C 100%)',
-                'linear-gradient(135deg, #34D399 0%, #10B981 100%)',
+                'linear-gradient(135deg, #FCA5A5 0%, #FDA4AF 100%)',
               ][i % 4],
-              opacity: 0.2,
-              filter: 'blur(30px)',
+              opacity: 0.25,
+              filter: 'blur(25px)',
             }}
             animate={{
-              y: [0, -50, 0],
-              x: [0, 40, 0],
-              scale: [1, 1.4, 1],
+              y: [0, -60, 0],
+              x: [0, 50, 0],
+              scale: [1, 1.5, 1],
               rotate: [0, 360],
             }}
             transition={{
-              duration: 12 + i * 2,
+              duration: 15 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.3,
+              delay: i * 0.4,
             }}
           />
         ))}
       </div>
 
-      {/* Bouncing decorative shapes */}
+      {/* Bouncing decorative circles */}
       <motion.div
         animate={{ y: [0, -20, 0] }}
         transition={{ duration: 3, repeat: Infinity }}
@@ -56,7 +56,7 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, -30, 0] }}
         transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-        className="absolute top-40 right-20 w-12 h-12 bg-blue-400 rounded-lg opacity-40 rotate-45"
+        className="absolute top-40 right-20 w-12 h-12 bg-yellow-400 rounded-full opacity-40"
       />
       <motion.div
         animate={{ y: [0, -25, 0] }}
@@ -64,10 +64,19 @@ export default function Hero() {
         className="absolute bottom-32 left-20 w-14 h-14 bg-pink-400 rounded-full opacity-40"
       />
       <motion.div
-        animate={{ y: [0, -35, 0], rotate: [0, 180, 360] }}
+        animate={{ y: [0, -35, 0] }}
         transition={{ duration: 5, repeat: Infinity, delay: 1.5 }}
-        className="absolute bottom-40 right-32 w-10 h-10 bg-green-400 opacity-40"
-        style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
+        className="absolute bottom-40 right-32 w-10 h-10 bg-orange-300 rounded-full opacity-40"
+      />
+      <motion.div
+        animate={{ y: [0, -28, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}
+        className="absolute top-1/2 left-1/4 w-20 h-20 bg-yellow-300 rounded-full opacity-35"
+      />
+      <motion.div
+        animate={{ y: [0, -22, 0] }}
+        transition={{ duration: 3.8, repeat: Infinity, delay: 2.5 }}
+        className="absolute top-1/3 right-1/3 w-18 h-18 bg-pink-300 rounded-full opacity-35"
       />
 
       {/* Hero content */}
@@ -114,7 +123,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-600 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-orange-600 mb-4"
           >
             Building Bridges to Brighter Futures
           </motion.p>
@@ -156,7 +165,6 @@ export default function Hero() {
                 size="lg" 
                 className="group bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-black rounded-full px-14 py-9 text-2xl shadow-[0_10px_40px_rgba(255,179,64,0.4)] hover:shadow-[0_15px_50px_rgba(255,179,64,0.6)] transition-all duration-300 border-4 border-orange-300"
               >
-                <Heart className="w-7 h-7 mr-3 group-hover:scale-110 transition-transform" />
                 Get Support
                 <ArrowRight className="w-7 h-7 ml-3 group-hover:translate-x-2 transition-transform" />
               </Button>
@@ -172,32 +180,12 @@ export default function Hero() {
                 onClick={() => scrollToSection('mission')} 
                 size="lg" 
                 variant="outline" 
-                className="border-4 border-blue-500 hover:border-blue-600 bg-white hover:bg-blue-50 text-blue-600 font-black rounded-full px-14 py-9 text-2xl shadow-[0_10px_40px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_50px_rgba(59,130,246,0.5)] transition-all duration-300"
+                className="border-4 border-yellow-500 hover:border-yellow-600 bg-white hover:bg-yellow-50 text-yellow-700 font-black rounded-full px-14 py-9 text-2xl shadow-[0_10px_40px_rgba(251,191,36,0.3)] hover:shadow-[0_15px_50px_rgba(251,191,36,0.5)] transition-all duration-300"
               >
                 Learn More
               </Button>
             </motion.div>
           </motion.div>
-
-          {/* Decorative hearts */}
-          <div className="mt-16 flex justify-center gap-4">
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{ 
-                  y: [0, -15, 0],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  delay: i * 0.2 
-                }}
-              >
-                <Heart className="w-8 h-8 text-orange-400 fill-orange-400 opacity-60" />
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>
