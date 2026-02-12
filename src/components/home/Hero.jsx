@@ -11,35 +11,35 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-gray-50">
       
-      {/* 4 Medium animated circles - 2 light blue, 2 grey */}
+      {/* 4 Small animated circles - 100% opacity, 2 light blue, 2 grey */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Top-left light blue circle */}
         <motion.div
           animate={{ y: [0, -35, 0], x: [0, 25, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-20 w-40 h-40 rounded-full"
-          style={{ backgroundColor: '#B3D9FF', filter: 'blur(50px)' }}
+          className="absolute top-32 left-16 w-32 h-32 rounded-full"
+          style={{ backgroundColor: '#B3D9FF', opacity: 1, filter: 'blur(40px)' }}
         />
         {/* Top-right grey circle */}
         <motion.div
           animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
           transition={{ duration: 24, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-32 right-24 w-48 h-48 rounded-full"
-          style={{ backgroundColor: '#D3D3D3', filter: 'blur(55px)' }}
+          className="absolute top-40 right-20 w-36 h-36 rounded-full"
+          style={{ backgroundColor: '#D3D3D3', opacity: 1, filter: 'blur(40px)' }}
         />
         {/* Bottom-left light blue circle */}
         <motion.div
           animate={{ y: [0, -30, 0], x: [0, 30, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute bottom-32 left-32 w-44 h-44 rounded-full"
-          style={{ backgroundColor: '#ADD8E6', filter: 'blur(50px)' }}
+          className="absolute bottom-24 left-24 w-28 h-28 rounded-full"
+          style={{ backgroundColor: '#ADD8E6', opacity: 1, filter: 'blur(35px)' }}
         />
         {/* Bottom-right grey circle */}
         <motion.div
           animate={{ y: [0, 35, 0], x: [0, -28, 0] }}
           transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-          className="absolute bottom-40 right-32 w-52 h-52 rounded-full"
-          style={{ backgroundColor: '#E0E0E0', filter: 'blur(55px)' }}
+          className="absolute bottom-28 right-28 w-40 h-40 rounded-full"
+          style={{ backgroundColor: '#E0E0E0', opacity: 1, filter: 'blur(40px)' }}
         />
       </div>
 
