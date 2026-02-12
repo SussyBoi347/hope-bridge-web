@@ -384,7 +384,7 @@ export default function StoryProject() {
 
             {isLoading ?
             <div className="text-center py-12">
-                <p className="text-gray-600">Loading stories...</p>
+                <p className="text-black font-semibold">Loading stories...</p>
               </div> :
             allOtherStories.length > 0 ?
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -399,7 +399,7 @@ export default function StoryProject() {
               </div> :
 
             <div className="text-center py-12">
-                <p className="text-gray-600">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
+                <p className="text-black font-semibold">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
               </div>
             }
           </div>
