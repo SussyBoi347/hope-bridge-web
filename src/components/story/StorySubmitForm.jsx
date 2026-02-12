@@ -79,21 +79,26 @@ export default function StorySubmitForm() {
 
     setIsSubmitting(true);
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('title', formData.title);
-      formDataToSend.append('author_name', formData.author_name);
-      formDataToSend.append('content', formData.content);
-      formDataToSend.append('topic', formData.topic);
-
-      mediaFiles.forEach(file => {
-        formDataToSend.append('media', file);
-      });
-
-      if (audioFile) {
-        formDataToSend.append('audio', audioFile);
+      // Upload media files first
+      const mediaUrls = [];
+      for (const file of mediaFiles) {
+        const uploadRes = await base44.integrations.Core.UploadFile({ file });
+        mediaUrls.push(uploadRes.file_url);
       }
 
-      const response = await base44.functions.invoke('submitStoryWithMedia', formDataToSend);
+      let audioUrl = null;
+      if (audioFile) {
+        const audioRes = await base44.integrations.Core.UploadFile({ file: audioFile });
+        audioUrl = audioRes.file_url;
+      }
+
+      // Submit story
+      await base44.functions.invoke('submitStory', {
+        ...formData,
+        media_urls: mediaUrls,
+        audio_url: audioUrl
+      });
+
       setIsSuccess(true);
     } catch (err) {
       setError('Failed to submit story. Please try again.');
@@ -105,7 +110,7 @@ export default function StorySubmitForm() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -114,8 +119,8 @@ export default function StorySubmitForm() {
           <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-3xl font-semibold text-white mb-4">Thank you for sharing!</h2>
-          <p className="text-white mb-8">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Thank you for sharing!</h2>
+          <p className="text-gray-600 mb-8">
             Your story has been submitted for review. It will appear on the Story Wall once approved.
           </p>
           <Button
@@ -124,7 +129,7 @@ export default function StorySubmitForm() {
               setFormData({ title: '', author_name: '', content: '', topic: '' });
               setSelectedTopic(null);
             }}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black rounded-full"
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full"
           >
             Submit Another Story
           </Button>
@@ -134,19 +139,18 @@ export default function StorySubmitForm() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="text-6xl">✍️</span>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 tracking-tight mt-4">
+            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 tracking-tight mt-4">
               Share Your{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                 Story
               </span>
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Choose a topic that resonates with you and share your experience with our community.
             </p>
           </motion.div>
@@ -168,21 +172,21 @@ export default function StorySubmitForm() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   whileHover={{ scale: 1.02, x: 10 }}
-                  className="w-full text-left p-8 lg:p-10 rounded-2xl backdrop-blur-md bg-gradient-to-br from-cyan-900/30 to-blue-900/30 border border-cyan-400/30 hover:border-cyan-400/50 transition-all shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 group"
+                  className="w-full text-left p-8 lg:p-10 rounded-2xl bg-white border border-blue-200 hover:border-blue-400 transition-all shadow-lg hover:shadow-xl group"
                 >
                   <div className="flex items-start gap-6">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/30"
+                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-md"
                     >
                       <Icon className="w-8 h-8 text-white" />
                     </motion.div>
-                    <div>
-                      <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                    <div className="min-w-0">
+                      <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors break-words">
                         {topic.label}
                       </h3>
-                      <p className="text-gray-300 text-base lg:text-lg leading-relaxed">{topic.description}</p>
+                      <p className="text-gray-600 text-base lg:text-lg leading-relaxed break-words">{topic.description}</p>
                     </div>
                   </div>
                 </motion.button>
@@ -198,12 +202,12 @@ export default function StorySubmitForm() {
           >
             <button
               onClick={() => setSelectedTopic(null)}
-              className="text-cyan-400 hover:text-cyan-300 text-sm mb-6 transition-colors"
+              className="text-blue-600 hover:text-blue-700 text-sm mb-6 transition-colors"
             >
               ← Back to topics
             </button>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-blue-200">
               {error && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -215,37 +219,37 @@ export default function StorySubmitForm() {
                 </motion.div>
               )}
 
-              <h2 className="text-2xl font-bold text-black mb-6">{selectedTopic.label}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 break-words">{selectedTopic.label}</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-black mb-2">Your Name *</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Your Name *</label>
                   <Input
                     value={formData.author_name}
                     onChange={(e) => setFormData({ ...formData, author_name: e.target.value })}
                     placeholder="Enter your name"
-                    className="rounded-xl border-gray-200 text-black"
+                    className="rounded-xl border-blue-200 text-gray-900"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-black mb-2">Story Title *</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Story Title *</label>
                   <Input
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="Give your story a title"
-                    className="rounded-xl border-gray-200 text-black"
+                    className="rounded-xl border-blue-200 text-gray-900"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-black mb-2">Your Story *</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Your Story *</label>
                   <Textarea
                     value={formData.content}
                     onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                     placeholder="Share your experience... (minimum 50 characters)"
                     rows={8}
-                    className="rounded-xl border-gray-200 resize-none text-black"
+                    className="rounded-xl border-blue-200 resize-none text-gray-900"
                   />
                   <p className="text-xs text-gray-500 mt-2">{formData.content.length} characters</p>
                 </div>
@@ -253,7 +257,7 @@ export default function StorySubmitForm() {
                 {/* Media Uploads */}
                 <div className="space-y-4 border-t pt-6">
                   <div>
-                    <label className="block text-sm font-medium text-black mb-3">Add Images (Optional)</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-3">Add Images (Optional)</label>
                     <label className="block">
                       <input
                         type="file"
@@ -262,8 +266,8 @@ export default function StorySubmitForm() {
                         onChange={handleMediaSelect}
                         className="hidden"
                       />
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition">
-                        <Image className="w-6 h-6 text-gray-400 mx-auto mb-2" />
+                      <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition">
+                        <Image className="w-6 h-6 text-blue-600 mx-auto mb-2" />
                         <p className="text-sm text-gray-600">Click to add images</p>
                       </div>
                     </label>
@@ -274,12 +278,12 @@ export default function StorySubmitForm() {
                             key={idx}
                             initial={{ scale: 0.8 }}
                             animate={{ scale: 1 }}
-                            className="relative bg-gray-100 rounded px-3 py-1 text-xs text-gray-600 flex items-center gap-2">
+                            className="relative bg-blue-50 rounded px-3 py-1 text-xs text-gray-700 flex items-center gap-2">
                             {file.name}
                             <button
                               type="button"
                               onClick={() => removeMedia(idx)}
-                              className="text-gray-400 hover:text-red-500">
+                              className="text-gray-500 hover:text-red-500">
                               <X className="w-3 h-3" />
                             </button>
                           </motion.div>
@@ -289,7 +293,7 @@ export default function StorySubmitForm() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-black mb-3">Add Audio (Optional)</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-3">Add Audio (Optional)</label>
                     <label className="block">
                       <input
                         type="file"
@@ -297,18 +301,18 @@ export default function StorySubmitForm() {
                         onChange={handleAudioSelect}
                         className="hidden"
                       />
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition">
-                        <Volume2 className="w-6 h-6 text-gray-400 mx-auto mb-2" />
+                      <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition">
+                        <Volume2 className="w-6 h-6 text-blue-600 mx-auto mb-2" />
                         <p className="text-sm text-gray-600">Click to add audio</p>
                       </div>
                     </label>
                     {audioFile && (
-                      <div className="bg-gray-100 rounded px-3 py-2 text-sm text-gray-600 mt-2 flex items-center justify-between">
+                      <div className="bg-blue-50 rounded px-3 py-2 text-sm text-gray-700 mt-2 flex items-center justify-between">
                         {audioFile.name}
                         <button
                           type="button"
                           onClick={() => setAudioFile(null)}
-                          className="text-gray-400 hover:text-red-500">
+                          className="text-gray-500 hover:text-red-500">
                           <X className="w-4 h-4" />
                         </button>
                       </div>
@@ -328,7 +332,7 @@ export default function StorySubmitForm() {
                   <Button
                     type="submit"
                     disabled={isSubmitting || !formData.title.trim() || !formData.author_name.trim() || !formData.content.trim()}
-                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50 text-white rounded-full flex-1"
+                    className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-full flex-1"
                   >
                     {isSubmitting ? (
                       <>
@@ -348,10 +352,10 @@ export default function StorySubmitForm() {
 
       {/* Bottom Info */}
       {!selectedTopic && (
-        <section className="relative py-20 px-6 lg:px-8 text-center bg-gradient-to-b from-transparent to-black/50">
+        <section className="relative py-20 px-6 lg:px-8 text-center bg-gray-50">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-2xl text-white font-semibold mb-2">Your story matters</p>
-            <p className="text-gray-400 text-lg">Thank you for contributing to our community</p>
+            <p className="text-2xl text-gray-900 font-semibold mb-2">Your story matters</p>
+            <p className="text-gray-600 text-lg">Thank you for contributing to our community</p>
           </motion.div>
         </section>
       )}
