@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Heart, Users, Megaphone, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
+import BackgroundElements from '@/components/BackgroundElements';
 
 const ways = [
   {
@@ -39,7 +40,8 @@ const ways = [
 
 export default function GetInvolved() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <BackgroundElements />
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">

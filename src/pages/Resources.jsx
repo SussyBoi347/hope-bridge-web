@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import SearchBar from '../components/resources/SearchBar';
 import ResourceCard from '../components/resources/ResourceCard';
 import MatchingForm from '../components/matching/MatchingForm';
+import BackgroundElements from '@/components/BackgroundElements';
 
 export default function Resources() {
   const [activeTab, setActiveTab] = useState('browse');
@@ -84,8 +85,9 @@ export default function Resources() {
   const featuredResources = allResources.filter(r => r.featured);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white pt-24 pb-16 relative overflow-hidden">
+      <BackgroundElements />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
