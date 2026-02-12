@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import FloatingShapes from '@/components/3d/FloatingShapes';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -11,7 +10,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-      <FloatingShapes />
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
