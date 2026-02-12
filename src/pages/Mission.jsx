@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Users, BookOpen, Sparkles, Target, Compass, Home as HomeIcon } from 'lucide-react';
 import MentalHealthChart from '@/components/mission/MentalHealthChart';
-import BackgroundElements from '@/components/BackgroundElements';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Mission() {
   const coreGoals = [
@@ -60,8 +60,8 @@ export default function Mission() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
-      <BackgroundElements />
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-slate-50 to-gray-50 relative overflow-hidden">
+      <AnimatedBackground variant="purple" />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800">
         <div className="max-w-5xl mx-auto text-center relative z-10">

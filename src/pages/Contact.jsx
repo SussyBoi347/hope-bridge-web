@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, MapPin, Phone, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_NAME_LENGTH = 100;
@@ -141,93 +142,8 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
-      {/* Background Elements - Large Animated Clouds */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large animated clouds - very visible */}
-        <motion.div
-          animate={{ x: [0, 120, 0], y: [0, 20, 0] }}
-          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-24 left-0 w-[500px] h-64 bg-gradient-to-r from-blue-300/70 to-blue-200/60 rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{ x: [0, -100, 0], y: [0, -15, 0] }}
-          transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-0 w-[600px] h-72 bg-gradient-to-l from-blue-400/60 to-blue-300/50 rounded-full blur-[130px]"
-        />
-        <motion.div
-          animate={{ x: [0, 90, 0], y: [0, 30, 0] }}
-          transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/4 w-[450px] h-56 bg-blue-200/80 rounded-full blur-[110px]"
-        />
-        <motion.div
-          animate={{ x: [0, -80, 0], y: [0, 25, 0] }}
-          transition={{ duration: 38, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-1/4 w-[520px] h-64 bg-gradient-to-r from-blue-300/70 to-blue-400/50 rounded-full blur-[125px]"
-        />
-        
-        {/* Smaller accent clouds */}
-        <motion.div
-          animate={{ x: [0, 70, 0], y: [0, 15, 0] }}
-          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-2/3 left-10 w-72 h-36 bg-blue-200/65 rounded-full blur-[90px]"
-        />
-        
-        {/* Floating circles with opacity animation */}
-        <motion.div
-          animate={{ y: [0, -50, 0], scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/3 w-52 h-52 bg-blue-500/35 rounded-full blur-[70px]"
-        />
-        <motion.div
-          animate={{ y: [0, 60, 0], scale: [1, 1.4, 1], opacity: [0.25, 0.5, 0.25] }}
-          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-blue-400/40 rounded-full blur-[80px]"
-        />
-        
-        {/* Prominent bridge design at bottom */}
-        <svg className="absolute bottom-0 left-0 w-full h-80 opacity-50" viewBox="0 0 1200 280" preserveAspectRatio="none">
-          <path d="M0,160 Q300,50 600,160 T1200,160 L1200,280 L0,280 Z" fill="url(#bridgeGradient)" />
-          <defs>
-            <linearGradient id="bridgeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="pillarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#1F2937" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#111827" stopOpacity="0.6" />
-            </linearGradient>
-          </defs>
-          
-          <path d="M0,170 Q300,60 600,170 T1200,170" stroke="#1F2937" strokeWidth="6" fill="none" opacity="0.7" />
-          <path d="M0,180 Q300,70 600,180 T1200,180" stroke="#374151" strokeWidth="5" fill="none" opacity="0.6" />
-          
-          <g opacity="0.8">
-            <rect x="270" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
-            <rect x="275" y="155" width="50" height="12" fill="#374151" rx="3" opacity="0.9" />
-            
-            <rect x="570" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
-            <rect x="575" y="155" width="50" height="12" fill="#374151" rx="3" opacity="0.9" />
-            
-            <rect x="870" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
-            <rect x="875" y="155" width="50" height="12" fill="#374151" rx="3" opacity="0.9" />
-          </g>
-        </svg>
-        
-        {/* Decorative dots patterns */}
-        <div className="absolute top-48 right-20 opacity-40">
-          <div className="grid grid-cols-5 gap-3">
-            {[...Array(15)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{ opacity: [0.3, 0.8, 0.3], scale: [1, 1.3, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: i * 0.15 }}
-                className="w-2 h-2 bg-blue-600 rounded-full"
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-slate-50 to-gray-50 relative overflow-hidden">
+      <AnimatedBackground variant="cool" />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8 relative">
