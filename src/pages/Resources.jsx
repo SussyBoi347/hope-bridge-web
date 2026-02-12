@@ -12,7 +12,6 @@ import MatchingForm from '../components/matching/MatchingForm';
 import MentorCard from '../components/matching/MentorCard';
 import SupportGroupCard from '../components/matching/SupportGroupCard';
 import BackgroundElements from '@/components/BackgroundElements';
-import FloatingShapes from '@/components/3d/FloatingShapes';
 
 export default function FindSupportPage() {
   const [activeTab, setActiveTab] = useState('resources');
@@ -116,7 +115,6 @@ export default function FindSupportPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white pt-24 pb-16 relative overflow-hidden">
       <BackgroundElements />
-      <FloatingShapes />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Hero Section */}
         <motion.div

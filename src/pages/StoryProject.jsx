@@ -137,7 +137,6 @@ export default function StoryProject() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
       <BackgroundElements />
-      <FloatingShapes />
       {/* Hero Section - ENHANCED */}
       <section className="relative pt-32 pb-28 px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center relative z-10">
