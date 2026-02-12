@@ -114,7 +114,7 @@ export default function Contact() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -123,16 +123,15 @@ export default function Contact() {
           <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-3xl font-semibold text-white mb-4">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-4">
             Thank you for reaching out!
           </h2>
-          <p className="text-white mb-8">
+          <p className="text-gray-600 mb-8">
             We'll get back to you within 24-48 hours.
           </p>
           <Button
             onClick={() => setIsSuccess(false)}
-            variant="outline"
-            className="rounded-full"
+            className="rounded-full bg-blue-600 hover:bg-blue-700 text-white"
           >
             Send Another Message
           </Button>
@@ -142,25 +141,57 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      {/* Background Elements - Clouds */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Animated clouds */}
+        <motion.div
+          animate={{ x: [0, 100, 0] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute top-20 left-10 w-32 h-16 bg-white/40 rounded-full blur-xl"
+        />
+        <motion.div
+          animate={{ x: [0, -80, 0] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute top-40 right-20 w-40 h-20 bg-blue-100/40 rounded-full blur-xl"
+        />
+        <motion.div
+          animate={{ x: [0, 60, 0] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+          className="absolute top-60 left-1/3 w-36 h-18 bg-white/30 rounded-full blur-xl"
+        />
+        <motion.div
+          animate={{ x: [0, -100, 0] }}
+          transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-40 right-10 w-48 h-24 bg-blue-50/40 rounded-full blur-xl"
+        />
+        
+        {/* Subtle bridge design using SVG curves */}
+        <svg className="absolute bottom-0 left-0 w-full h-64 opacity-10" viewBox="0 0 1200 200" preserveAspectRatio="none">
+          <path d="M0,100 Q300,20 600,100 T1200,100 L1200,200 L0,200 Z" fill="#3B82F6" />
+          <path d="M0,120 Q300,40 600,120 T1200,120" stroke="#1F2937" strokeWidth="3" fill="none" />
+          {/* Bridge pillars */}
+          <rect x="290" y="100" width="20" height="100" fill="#1F2937" opacity="0.6" />
+          <rect x="590" y="100" width="20" height="100" fill="#1F2937" opacity="0.6" />
+          <rect x="890" y="100" width="20" height="100" fill="#1F2937" opacity="0.6" />
+        </svg>
+      </div>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1528761312568-033e18a60d19?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
+      <section className="pt-32 pb-16 px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
               Let's{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                 connect
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Whether you're seeking support, want to partner with us, or have questions about 
               our programs, we'd love to hear from you.
             </p>
@@ -169,7 +200,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800">
+      <section className="py-16 px-6 lg:px-8 relative">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -326,7 +357,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting || Object.keys(errors).length > 0}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl py-6 text-lg shadow-md transition-all"
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl py-6 text-lg shadow-md transition-all hover:scale-105 duration-300"
               >
                 {isSubmitting ? (
                   <>
@@ -343,35 +374,52 @@ export default function Contact() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-black">
+      <section className="py-16 px-6 lg:px-8 bg-white relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 text-center">
-            <div className="text-center px-4">
-              <Mail className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="text-center px-4 py-6 rounded-2xl bg-blue-50 border border-blue-200 transition-all duration-300">
+              <Mail className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h3>
               <a
                 href="mailto:hopebridgecommunityservices@gmail.com"
-                className="text-white hover:text-cyan-400 underline transition-colors"
+                className="text-blue-600 hover:text-blue-700 underline transition-colors text-sm break-words"
               >
                 hopebridgecommunityservices@gmail.com
               </a>
-            </div>
-            <div className="text-center px-4">
-              <Phone className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="text-center px-4 py-6 rounded-2xl bg-blue-50 border border-blue-200 transition-all duration-300">
+              <Phone className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h3>
               <a
                 href="tel:425-610-7760"
-                className="text-white hover:text-cyan-400 underline transition-colors"
+                className="text-blue-600 hover:text-blue-700 underline transition-colors"
               >
                 425-610-7760
               </a>
-            </div>
-            <div className="text-center px-4">
-              <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
-              <p className="text-white">Sammamish, WA</p>
-              <p className="text-white">Serving King County</p>
-            </div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="text-center px-4 py-6 rounded-2xl bg-blue-50 border border-blue-200 transition-all duration-300">
+              <MapPin className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Location</h3>
+              <p className="text-gray-700">Sammamish, WA</p>
+              <p className="text-gray-600 text-sm">Serving King County</p>
+            </motion.div>
           </div>
         </div>
       </section>
