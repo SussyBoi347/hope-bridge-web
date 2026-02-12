@@ -137,9 +137,9 @@ export default function StoryProject() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
       <BackgroundElements />
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
+      {/* Hero Section - ENHANCED */}
+      <section className="relative pt-32 pb-28 px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -149,8 +149,8 @@ export default function StoryProject() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6">
-              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-100 border border-blue-200 text-blue-600 text-sm font-medium">
+              className="mb-8">
+              <span className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-white text-base font-bold shadow-2xl border-2 border-blue-400">
                 Community Story Wall
               </span>
             </motion.div>
@@ -159,9 +159,9 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-8 tracking-tight">
+              className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 leading-[1.05] mb-10 tracking-tight">
               Your Voice,{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 Your Story
               </span>
             </motion.h1>
@@ -170,7 +170,7 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-6 text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              className="mt-8 text-2xl text-gray-800 leading-relaxed max-w-4xl mx-auto font-semibold">
               A vibrant space where Asian teens share authentic experiences with cultural identity, academic pressures, and family dynamics. Every story matters. Every voice counts.
             </motion.p>
 
@@ -178,19 +178,20 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-10 flex flex-wrap gap-8 justify-center text-center">
+              className="mt-12 flex flex-wrap gap-10 justify-center text-center">
               {[
-                { num: '200+', label: 'Stories Shared' },
-                { num: '100%', label: 'Anonymous & Safe' }
+                { num: '200+', label: 'Stories Shared', color: 'from-blue-600 to-blue-500' },
+                { num: '100%', label: 'Anonymous & Safe', color: 'from-blue-700 to-blue-600' }
               ].map((stat, i) => (
                 <motion.div
                   key={i}
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                  className="px-6 py-4 rounded-2xl bg-white border border-blue-200 shadow-lg">
-                  <div className="text-3xl font-bold text-blue-600">{stat.num}</div>
-                  <div className="text-sm text-gray-700 mt-1">{stat.label}</div>
+                  whileHover={{ scale: 1.1, rotate: 2 }}
+                  className={`px-10 py-6 rounded-3xl bg-gradient-to-br ${stat.color} border-2 border-blue-400 shadow-2xl`}>
+                  <div className="text-5xl font-black text-white">{stat.num}</div>
+                  <div className="text-base text-white/90 mt-2 font-bold">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -198,9 +199,9 @@ export default function StoryProject() {
         </div>
       </section>
 
-      {/* Share Your Experience Section */}
-      <section className="relative py-24 px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      {/* Share Your Experience Section - ENHANCED */}
+      <section className="relative py-28 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto relative z-10">
           {uploadMode === 'photo' ? (
             /* Photo Upload Form */
             <motion.div
@@ -282,23 +283,32 @@ export default function StoryProject() {
               )}
             </motion.div>
           ) : (
-            /* Share Options */
+            /* Share Options - DRAMATICALLY ENHANCED */
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative overflow-hidden rounded-3xl">
+              className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-blue-400">
               
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-gray-900" />
               
-              <div className="relative z-10 p-10 lg:p-16 text-center">
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-10 left-10 w-40 h-40 bg-blue-400 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-10 right-10 w-52 h-52 bg-blue-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+              </div>
+              
+              <div className="relative z-10 p-12 lg:p-20 text-center">
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="mb-6">
+                  className="mb-8">
+                  <span className="inline-block px-6 py-3 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/40 text-white font-bold text-sm">
+                    ✨ Share Your Experience
+                  </span>
                 </motion.div>
                 
                 <motion.h2
@@ -306,7 +316,7 @@ export default function StoryProject() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight">
                   Your Story Matters
                 </motion.h2>
                 
@@ -315,7 +325,7 @@ export default function StoryProject() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
-                  className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto">
+                  className="text-2xl text-white font-semibold leading-relaxed mb-12 max-w-3xl mx-auto">
                   Be heard. Be seen. Be part of something bigger. Share your experience and help others feel less alone.
                 </motion.p>
                 
@@ -324,16 +334,16 @@ export default function StoryProject() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center">
+                  className="flex flex-col sm:flex-row gap-6 justify-center">
                   <Button
                     onClick={() => setUploadMode('photo')}
-                    className="bg-white text-blue-600 hover:bg-gray-100 font-bold rounded-full px-8 py-6 text-lg shadow-2xl">
-                    <Camera className="w-5 h-5 mr-2" />
+                    className="bg-white text-blue-600 hover:bg-blue-50 font-black rounded-full px-12 py-8 text-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:shadow-[0_25px_70px_rgba(0,0,0,0.5)] hover:scale-105 transition-all duration-300">
+                    <Camera className="w-6 h-6 mr-3" />
                     Upload Photo Story
                   </Button>
                   <Link to={createPageUrl('StorySharing')}>
-                    <Button className="bg-white/10 hover:bg-white/20 text-white border-2 border-white font-bold rounded-full px-8 py-6 text-lg">
-                      <Pen className="w-5 h-5 mr-2" />
+                    <Button className="bg-white/10 hover:bg-white/20 text-white border-4 border-white font-black rounded-full px-12 py-8 text-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:shadow-[0_25px_70px_rgba(0,0,0,0.5)] hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+                      <Pen className="w-6 h-6 mr-3" />
                       Write Story Online
                     </Button>
                   </Link>
@@ -344,9 +354,9 @@ export default function StoryProject() {
         </div>
       </section>
 
-      {/* Community Story Wall Section */}
-      <section className="relative py-24 px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      {/* Community Story Wall Section - ENHANCED */}
+      <section className="relative py-28 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Insights */}
           <StoryInsights stats={stats} />
 
@@ -365,8 +375,8 @@ export default function StoryProject() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-bold text-gray-900 mb-10">
-              Explore Stories
+              className="text-5xl lg:text-6xl font-black text-gray-900 mb-12">
+              Explore <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Stories</span>
             </motion.h2>
             
             <StorySearchFilters stories={stories} onFiltersChange={setFilteredStories} />
@@ -398,38 +408,40 @@ export default function StoryProject() {
           </div>
           </section>
 
-          {/* Digital Brick Wall */}
-          <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-          <div className="max-w-6xl mx-auto">
+          {/* Digital Brick Wall - ENHANCED */}
+          <section className="relative py-32 px-6 lg:px-8 bg-gradient-to-b from-blue-50 via-gray-50 to-white">
+          <div className="max-w-7xl mx-auto">
           <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           className="text-center mb-16">
-           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-             Your Story Builds Our Wall
+           className="text-center mb-20">
+           <h2 className="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
+             Your Story Builds Our{' '}
+             <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Wall</span>
            </h2>
-           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+           <p className="text-gray-700 text-2xl max-w-3xl mx-auto font-semibold">
              Every story shared is a brick in our community wall of resilience
            </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 lg:gap-4">
-           {[...Array(32)].map((_, i) => (
+          <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-4 lg:gap-5">
+           {[...Array(50)].map((_, i) => (
              <motion.div
                key={i}
                initial={{ opacity: 0, scale: 0.8, rotateZ: (Math.random() - 0.5) * 10 }}
                whileInView={{ opacity: 1, scale: 1, rotateZ: 0 }}
                viewport={{ once: true }}
-               transition={{ duration: 0.4, delay: i * 0.03 }}
-               whileHover={{ scale: 1.05, rotateZ: (Math.random() - 0.5) * 5 }}
-               className={`aspect-square rounded-lg border-2 shadow-lg cursor-pointer transition-all ${
+               transition={{ duration: 0.4, delay: i * 0.02 }}
+               whileHover={{ scale: 1.15, rotateZ: (Math.random() - 0.5) * 8, zIndex: 10 }}
+               className={`aspect-square rounded-xl border-4 shadow-2xl cursor-pointer transition-all ${
                  [
                    'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400',
                    'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-300',
-                   'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-500',
-                   'bg-gradient-to-br from-blue-700 to-gray-700 border-blue-500'
-                 ][i % 4]
+                   'bg-gradient-to-br from-gray-800 to-gray-900 border-gray-600',
+                   'bg-gradient-to-br from-blue-700 to-gray-800 border-blue-500',
+                   'bg-gradient-to-br from-blue-800 to-blue-900 border-blue-600'
+                 ][i % 5]
                }`}>
              </motion.div>
            ))}
@@ -440,7 +452,7 @@ export default function StoryProject() {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5 }}
-           className="text-center text-gray-600 text-sm mt-12">
+           className="text-center text-gray-800 text-xl font-bold mt-16 max-w-3xl mx-auto">
            Each brick represents the courage it takes to share your story. Together, we're building a wall of hope.
           </motion.p>
           </div>

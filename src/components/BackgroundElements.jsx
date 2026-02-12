@@ -4,45 +4,45 @@ import { motion } from 'framer-motion';
 export default function BackgroundElements() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Large decorative clouds - MUCH more visible */}
+      {/* Large decorative clouds - HIGHLY VISIBLE with strong blues */}
       <motion.div
         animate={{ x: [0, 100, 0], y: [0, 15, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 left-10 w-[450px] h-56 bg-gradient-to-r from-blue-300/70 to-blue-200/60 rounded-full blur-[100px]"
+        className="absolute top-20 left-10 w-[450px] h-56 bg-gradient-to-r from-blue-400/80 to-blue-500/70 rounded-full blur-[100px]"
       />
       <motion.div
         animate={{ x: [0, -120, 0], y: [0, -20, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-10 w-[550px] h-72 bg-gradient-to-l from-blue-400/60 to-blue-300/50 rounded-full blur-[120px]"
+        className="absolute top-1/4 right-10 w-[550px] h-72 bg-gradient-to-l from-blue-500/70 to-blue-400/60 rounded-full blur-[120px]"
       />
       <motion.div
         animate={{ x: [0, 80, 0], y: [0, 25, 0] }}
         transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/4 w-[400px] h-52 bg-blue-200/80 rounded-full blur-[110px]"
+        className="absolute top-1/2 left-1/4 w-[400px] h-52 bg-blue-400/85 rounded-full blur-[110px]"
       />
       <motion.div
         animate={{ x: [0, -90, 0], y: [0, 30, 0] }}
         transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 right-1/5 w-[500px] h-64 bg-gradient-to-r from-blue-300/70 to-blue-400/50 rounded-full blur-[130px]"
+        className="absolute bottom-1/3 right-1/5 w-[500px] h-64 bg-gradient-to-r from-blue-500/75 to-blue-600/60 rounded-full blur-[130px]"
       />
       
       {/* Smaller accent clouds */}
       <motion.div
         animate={{ x: [0, 60, 0], y: [0, 20, 0] }}
         transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        className="absolute top-1/3 right-1/3 w-64 h-32 bg-blue-200/60 rounded-full blur-[80px]"
+        className="absolute top-1/3 right-1/3 w-64 h-32 bg-blue-400/70 rounded-full blur-[80px]"
       />
       
       {/* Floating decorative circles - more prominent */}
       <motion.div
-        animate={{ y: [0, -40, 0], scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+        animate={{ y: [0, -40, 0], scale: [1, 1.2, 1], opacity: [0.4, 0.65, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/4 w-48 h-48 bg-blue-500/30 rounded-full blur-[60px]"
+        className="absolute top-1/4 right-1/4 w-48 h-48 bg-blue-600/40 rounded-full blur-[60px]"
       />
       <motion.div
-        animate={{ y: [0, 50, 0], scale: [1, 1.3, 1], opacity: [0.25, 0.45, 0.25] }}
+        animate={{ y: [0, 50, 0], scale: [1, 1.3, 1], opacity: [0.35, 0.55, 0.35] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-1/4 left-1/4 w-56 h-56 bg-blue-400/35 rounded-full blur-[70px]"
+        className="absolute bottom-1/4 left-1/4 w-56 h-56 bg-blue-500/45 rounded-full blur-[70px]"
       />
       
       {/* Prominent bridge design at bottom */}
