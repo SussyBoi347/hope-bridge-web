@@ -46,11 +46,9 @@ export default function Layout({ children, currentPageName }) {
           @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
 
           :root {
-            --color-primary: #FFB340;
-            --color-secondary: #FF6B9D;
-            --color-accent: #4ECDC4;
-            --color-purple: #9D4EDD;
-            --color-bg: #FFF8F0;
+            --color-primary: #3B82F6;
+            --color-dark: #1F2937;
+            --color-bg: #FFFFFF;
           }
 
           html {
@@ -59,13 +57,13 @@ export default function Layout({ children, currentPageName }) {
 
           body {
             background-color: var(--color-bg);
-            color: #2D3748;
+            color: #1F2937;
             font-family: 'Fredoka', sans-serif;
           }
 
           ::selection {
-            background-color: #FFB340;
-            color: #2D3748;
+            background-color: #3B82F6;
+            color: #FFFFFF;
           }
 
           @keyframes bounce {
@@ -113,8 +111,8 @@ export default function Layout({ children, currentPageName }) {
                   to={createPageUrl(link.page)}
                   className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
                     currentPageName === link.page
-                      ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg transform scale-105'
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-yellow-50'
+                      ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
                   }`}
                 >
                   {link.label}
@@ -126,7 +124,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-3">
               <Link to={createPageUrl('Donate')}>
                 <Button
-                  className="bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-300 hover:to-pink-400 text-white font-bold rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:rotate-2"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:rotate-2"
                 >
                   ❤️ Donate
                 </Button>
@@ -136,7 +134,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-700 hover:text-orange-500 transition-colors"
+              className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -161,8 +159,8 @@ export default function Layout({ children, currentPageName }) {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block w-full text-left px-5 py-3 rounded-2xl font-semibold transition-all duration-300 ${
                       currentPageName === link.page
-                        ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg'
-                        : 'text-gray-700 hover:bg-yellow-50'
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'text-gray-700 hover:bg-gray-100'
                     }`}
                   >
                     {link.label}
@@ -170,7 +168,7 @@ export default function Layout({ children, currentPageName }) {
                 ))}
                 <div className="pt-4">
                   <Link to={createPageUrl('Donate')} className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-300 hover:to-pink-400 text-white font-bold rounded-full shadow-lg">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow-lg">
                       ❤️ Donate
                     </Button>
                   </Link>
