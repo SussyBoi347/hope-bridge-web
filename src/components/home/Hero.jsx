@@ -9,36 +9,36 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
       
-      {/* 3D-style floating shapes using CSS */}
+      {/* 3D-style floating shapes */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: `${80 + i * 40}px`,
-              height: `${80 + i * 40}px`,
+              width: `${100 + i * 50}px`,
+              height: `${100 + i * 50}px`,
               left: `${(i * 12) % 90}%`,
               top: `${(i * 15) % 80}%`,
               background: [
-                'linear-gradient(135deg, #00D9FF 0%, #3B82F6 100%)',
-                'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
+                'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
+                'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
                 'linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%)',
-                'linear-gradient(135deg, #2563EB 0%, #1E40AF 100%)',
+                'linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%)',
               ][i % 4],
               opacity: 0.15,
-              filter: 'blur(3px)',
+              filter: 'blur(40px)',
             }}
             animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              scale: [1, 1.2, 1],
+              y: [0, -40, 0],
+              x: [0, 30, 0],
+              scale: [1, 1.3, 1],
               rotate: [0, 180, 360],
             }}
             transition={{
-              duration: 8 + i * 2,
+              duration: 10 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: i * 0.5,
@@ -47,80 +47,58 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 opacity-40">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px]"
-        />
+      {/* Large animated gradient orbs */}
+      <div className="absolute inset-0 opacity-30">
         <motion.div 
           animate={{ 
             scale: [1, 1.3, 1],
-            x: [0, -40, 0],
-            y: [0, 50, 0]
+            x: [0, 60, 0],
+            y: [0, 40, 0]
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px]"
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-400 rounded-full filter blur-[150px]"
         />
         <motion.div 
           animate={{ 
-            scale: [1, 1.1, 1],
-            x: [0, 30, 0],
-            y: [0, -40, 0]
+            scale: [1, 1.4, 1],
+            x: [0, -50, 0],
+            y: [0, 60, 0]
           }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 left-1/2 w-[450px] h-[450px] bg-purple-600 rounded-full mix-blend-screen filter blur-[110px]"
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500 rounded-full filter blur-[130px]"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            x: [0, 40, 0],
+            y: [0, -50, 0]
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-1/4 left-1/2 w-[550px] h-[550px] bg-blue-300 rounded-full filter blur-[140px]"
         />
       </div>
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
-
-      {/* Glowing lines */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          animate={{ opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent"
-        />
-        <motion.div 
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-          className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"
-        />
-        <motion.div 
-          animate={{ opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-          className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-purple-500/20 to-transparent"
-        />
-      </div>
-      
-      {/* Floating particles and stars */}
+      {/* Floating particles */}
       {[...Array(30)].map((_, i) => (
         <motion.div
           key={i}
-          className={`absolute rounded-full ${i % 3 === 0 ? 'bg-cyan-400' : i % 3 === 1 ? 'bg-blue-400' : 'bg-purple-400'}`}
+          className={`absolute rounded-full ${i % 3 === 0 ? 'bg-blue-500' : i % 3 === 1 ? 'bg-blue-400' : 'bg-blue-600'}`}
           style={{
-            width: i % 5 === 0 ? '3px' : '1px',
-            height: i % 5 === 0 ? '3px' : '1px',
+            width: i % 5 === 0 ? '4px' : '2px',
+            height: i % 5 === 0 ? '4px' : '2px',
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            boxShadow: i % 5 === 0 ? '0 0 8px currentColor' : '0 0 4px currentColor',
+            boxShadow: i % 5 === 0 ? '0 0 10px currentColor' : '0 0 6px currentColor',
           }}
           animate={{
-            y: [0, -40, 0],
-            opacity: [0, 1, 0],
-            scale: [0, i % 5 === 0 ? 1.5 : 1, 0]
+            y: [0, -50, 0],
+            opacity: [0.3, 1, 0.3],
+            scale: [0.8, i % 5 === 0 ? 2 : 1.2, 0.8]
           }}
           transition={{
-            duration: 3 + Math.random() * 3,
+            duration: 4 + Math.random() * 3,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: Math.random() * 3,
             ease: "easeInOut"
           }}
         />
@@ -138,15 +116,15 @@ export default function Hero() {
             <motion.span 
               animate={{ 
                 boxShadow: [
-                  '0 0 20px rgba(0,217,255,0.2)',
-                  '0 0 40px rgba(0,217,255,0.4)',
-                  '0 0 20px rgba(0,217,255,0.2)'
+                  '0 0 20px rgba(59,130,246,0.3)',
+                  '0 0 40px rgba(59,130,246,0.5)',
+                  '0 0 20px rgba(59,130,246,0.3)'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/30 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-100 text-blue-700 text-base font-bold border-2 border-blue-300 shadow-xl"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-5 h-5" />
               Supporting Asian Teen Mental Health
             </motion.span>
           </motion.div>
@@ -155,18 +133,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.1] mb-8 tracking-tight"
+            className="text-6xl sm:text-7xl lg:text-9xl font-black leading-[1.05] mb-8 tracking-tight"
           >
             <motion.span
               animate={{ 
                 textShadow: [
-                  '0 0 20px rgba(0,217,255,0.5)',
-                  '0 0 40px rgba(0,217,255,0.8)',
-                  '0 0 20px rgba(0,217,255,0.5)'
+                  '0 0 30px rgba(59,130,246,0.3)',
+                  '0 0 50px rgba(59,130,246,0.5)',
+                  '0 0 30px rgba(59,130,246,0.3)'
                 ]
               }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="text-white"
+              className="text-gray-900"
             >
               Your story
             </motion.span>
@@ -175,7 +153,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-cyan-400 text-xl sm:text-xl lg:text-xl"
+              className="text-blue-600 text-2xl sm:text-2xl lg:text-3xl font-bold"
             >
               Building Bridges to Brighter Futures.
             </motion.span>
@@ -184,29 +162,34 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
-              className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-4xl sm:text-5xl lg:text-6xl"
+              className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent text-5xl sm:text-6xl lg:text-7xl"
             >
               You are not alone
             </motion.span>
           </motion.h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="text-xl sm:text-2xl text-gray-700 max-w-4xl mx-auto mb-14 leading-relaxed font-semibold"
+          >
             A safe space for Asian teens to share experiences, find support, and connect 
             with others who understand the unique challenges of navigating identity, 
             family expectations, and mental health.
-          </p>
+          </motion.p>
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 1 }} 
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+            transition={{ duration: 0.6, delay: 1.2 }} 
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.08, rotate: 1 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 onClick={() => scrollToSection('contact')} 
                 size="lg" 
-                className="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-full px-10 py-7 text-lg shadow-[0_0_40px_rgba(0,217,255,0.5)] hover:shadow-[0_0_60px_rgba(0,217,255,0.8)] transition-all duration-300 border border-cyan-400/50"
+                className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-black rounded-full px-12 py-8 text-xl shadow-2xl hover:shadow-[0_20px_60px_rgba(59,130,246,0.5)] transition-all duration-300"
               >
                 <motion.span
                   className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
@@ -215,17 +198,17 @@ export default function Hero() {
                 />
                 <span className="relative z-10 flex items-center">
                   Get Support
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
                 </span>
               </Button>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.08, rotate: -1 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 onClick={() => scrollToSection('mission')} 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-cyan-500/30 hover:border-cyan-400 bg-transparent text-white hover:bg-cyan-500/10 rounded-full px-10 py-7 text-lg transition-all duration-300 backdrop-blur-sm"
+                className="border-4 border-blue-600 hover:border-blue-500 bg-white hover:bg-blue-50 text-blue-600 font-black rounded-full px-12 py-8 text-xl shadow-2xl transition-all duration-300"
               >
                 Learn More
               </Button>
