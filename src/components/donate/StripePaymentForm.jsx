@@ -147,7 +147,7 @@ export default function StripePaymentForm() {
       </Button>
 
       <p className="text-xs text-center text-slate-500">
-        Secure payment powered by Stripe • Tax-deductible donation
+        Secure payment powered by Stripe
       </p>
     </div>
   );
