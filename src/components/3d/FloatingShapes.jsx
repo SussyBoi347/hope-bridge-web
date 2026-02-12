@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { MeshDistortMaterial, Sphere, Box, Torus } from '@react-three/drei';
 
 function AnimatedSphere({ position, color, speed = 1 }) {
   const meshRef = useRef();
@@ -14,16 +13,10 @@ function AnimatedSphere({ position, color, speed = 1 }) {
   });
 
   return (
-    <Sphere ref={meshRef} args={[1, 32, 32]} position={position}>
-      <MeshDistortMaterial
-        color={color}
-        attach="material"
-        distort={0.4}
-        speed={2}
-        roughness={0.2}
-        metalness={0.8}
-      />
-    </Sphere>
+    <mesh ref={meshRef} position={position}>
+      <sphereGeometry args={[1, 32, 32]} />
+      <meshStandardMaterial color={color} roughness={0.2} metalness={0.8} />
+    </mesh>
   );
 }
 
@@ -39,16 +32,10 @@ function AnimatedBox({ position, color, speed = 1 }) {
   });
 
   return (
-    <Box ref={meshRef} args={[1.2, 1.2, 1.2]} position={position}>
-      <MeshDistortMaterial
-        color={color}
-        attach="material"
-        distort={0.3}
-        speed={1.5}
-        roughness={0.1}
-        metalness={0.9}
-      />
-    </Box>
+    <mesh ref={meshRef} position={position}>
+      <boxGeometry args={[1.2, 1.2, 1.2]} />
+      <meshStandardMaterial color={color} roughness={0.1} metalness={0.9} />
+    </mesh>
   );
 }
 
@@ -64,16 +51,10 @@ function AnimatedTorus({ position, color, speed = 1 }) {
   });
 
   return (
-    <Torus ref={meshRef} args={[0.8, 0.3, 16, 100]} position={position}>
-      <MeshDistortMaterial
-        color={color}
-        attach="material"
-        distort={0.2}
-        speed={2}
-        roughness={0.3}
-        metalness={0.7}
-      />
-    </Torus>
+    <mesh ref={meshRef} position={position}>
+      <torusGeometry args={[0.8, 0.3, 16, 100]} />
+      <meshStandardMaterial color={color} roughness={0.3} metalness={0.7} />
+    </mesh>
   );
 }
 
