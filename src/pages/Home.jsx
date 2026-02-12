@@ -8,10 +8,12 @@ import Impact from '@/components/home/Impact';
 import Contact from '@/components/home/Contact';
 import StorySection from '@/components/home/StorySection.jsx';
 import BackgroundElements from '@/components/BackgroundElements';
+import ThreeDScene from '@/components/ThreeDScene';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <ThreeDScene />
       <BackgroundElements />
       <Hero />
       <Mission />

@@ -200,7 +200,7 @@ export default function StoryProject() {
       </section>
 
       {/* Share Your Experience Section - ENHANCED */}
-      <section className="relative py-28 px-6 lg:px-8">
+      <section className="relative py-28 px-6 lg:px-8 bg-gradient-to-b from-gray-900/30 to-transparent">
         <div className="max-w-5xl mx-auto relative z-10">
           {uploadMode === 'photo' ? (
             /* Photo Upload Form */
@@ -355,7 +355,7 @@ export default function StoryProject() {
       </section>
 
       {/* Community Story Wall Section - ENHANCED */}
-      <section className="relative py-28 px-6 lg:px-8">
+      <section className="relative py-28 px-6 lg:px-8 bg-gradient-to-b from-transparent via-gray-900/20 to-transparent">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Insights */}
           <StoryInsights stats={stats} />

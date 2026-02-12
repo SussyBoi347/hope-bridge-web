@@ -57,7 +57,6 @@ import Home from './pages/Home';
 import Mission from './pages/Mission';
 import PhysicalStory from './pages/PhysicalStory';
 import Programs from './pages/Programs';
-import Resources from './pages/Resources';
 import Schools from './pages/Schools';
 import StoryProject from './pages/StoryProject';
 import StorySharing from './pages/StorySharing';
@@ -75,7 +74,6 @@ export const PAGES = {
     "Mission": Mission,
     "PhysicalStory": PhysicalStory,
     "Programs": Programs,
-    "Resources": Resources,
     "Schools": Schools,
     "StoryProject": StoryProject,
     "StorySharing": StorySharing,
