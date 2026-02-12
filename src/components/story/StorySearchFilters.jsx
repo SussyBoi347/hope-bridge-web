@@ -10,20 +10,20 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  const uniqueAuthors = [...new Set(stories.map((s) => s.author_name))].sort();
+  const uniqueAuthors = [...new Set(stories.map(s => s.author_name))].sort();
 
   const applyFilters = () => {
-    const filtered = stories.filter((story) => {
-      const matchesKeyword = keyword === '' ||
-      story.title.toLowerCase().includes(keyword.toLowerCase()) ||
-      story.content.toLowerCase().includes(keyword.toLowerCase());
-
+    const filtered = stories.filter(story => {
+      const matchesKeyword = keyword === '' || 
+        story.title.toLowerCase().includes(keyword.toLowerCase()) ||
+        story.content.toLowerCase().includes(keyword.toLowerCase());
+      
       const matchesAuthor = selectedAuthor === '' || story.author_name === selectedAuthor;
-
+      
       const storyDate = new Date(story.created_date);
       const matchesStartDate = startDate === '' || storyDate >= new Date(startDate);
       const matchesEndDate = endDate === '' || storyDate <= new Date(endDate);
-
+      
       return matchesKeyword && matchesAuthor && matchesStartDate && matchesEndDate;
     });
 
@@ -81,45 +81,43 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Author Filter */}
         <div>
-          <label className="text-slate-950 mb-2 text-xs font-semibold block">Author</label>
+          <label className="text-xs font-semibold text-gray-300 block mb-2">Author</label>
           <select
-             value={selectedAuthor}
-             onChange={(e) => setSelectedAuthor(e.target.value)}
-             className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 text-sm appearance-none cursor-pointer">
-             <option value="">All Authors</option>
-             {uniqueAuthors.map(author => (
-               <option key={author} value={author}>{author}</option>
-             ))}
+            value={selectedAuthor}
+            onChange={(e) => setSelectedAuthor(e.target.value)}
+            className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 text-sm appearance-none cursor-pointer">
+            <option value="">All Authors</option>
+            {uniqueAuthors.map(author => (
+              <option key={author} value={author}>{author}</option>
+            ))}
           </select>
         </div>
 
         {/* Start Date Filter */}
         <div>
-          <label className="text-slate-950 mb-2 text-xs font-semibold block">From Date</label>
+          <label className="text-xs font-semibold text-gray-300 block mb-2">From Date</label>
           <div className="relative">
             <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-             <input
-               type="date"
-               value={startDate}
-               onChange={(e) => setStartDate(e.target.value)}
-               className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 pl-10 text-sm"
-             />
-
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 pl-10 text-sm"
+            />
           </div>
         </div>
 
         {/* End Date Filter */}
         <div>
-          <label className="text-slate-950 mb-2 text-xs font-semibold block">To Date</label>
+          <label className="text-xs font-semibold text-gray-300 block mb-2">To Date</label>
           <div className="relative">
             <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-             <input
-               type="date"
-               value={endDate}
-               onChange={(e) => setEndDate(e.target.value)}
-               className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 pl-10 text-sm"
-             />
-
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full rounded-lg bg-white/10 border border-white/20 text-white px-4 py-2 pl-10 text-sm"
+            />
           </div>
         </div>
       </div>
@@ -139,6 +137,6 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
           </Button>
         </motion.div>
       )}
-      </motion.div>
-      );
-      }
+    </motion.div>
+  );
+}
