@@ -107,7 +107,7 @@ export default function Resources() {
             </span>
           </h1>
           
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed mb-8 font-semibold">
             Search naturally, discover personalized content, and access expert guides 
             tailored to your unique journey.
           </p>

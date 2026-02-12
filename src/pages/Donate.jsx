@@ -57,7 +57,7 @@ export default function DonatePage() {
                 mental wellness
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-800 leading-relaxed max-w-2xl mx-auto font-semibold">
               Your donation helps us create safe spaces where Asian teens can be heard, 
               understood, and supported. Every contribution directly impacts a young person's journey.
             </p>

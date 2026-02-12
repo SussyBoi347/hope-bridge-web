@@ -243,7 +243,7 @@ export default function Contact() {
                 connect
               </span>
             </h1>
-            <p className="mt-6 text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto font-medium">
+            <p className="mt-6 text-xl text-gray-900 leading-relaxed max-w-2xl mx-auto font-bold">
               Whether you're seeking support, want to partner with us, or have questions about 
               our programs, we'd love to hear from you.
             </p>

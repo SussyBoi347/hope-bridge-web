@@ -161,7 +161,7 @@ export default function Mission() {
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
               Three Interconnected Goals
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-800 max-w-2xl mx-auto font-semibold">
               Our work focuses on these essential pillars of Asian teen mental wellness
             </p>
           </motion.div>

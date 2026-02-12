@@ -57,7 +57,7 @@ export default function FindSupport() {
             </span>
           </h1>
           
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed font-semibold">
             Connect with peer mentors and support groups who understand your journey. 
             Our AI considers your unique challenges, interests, and needs to find the best matches for you.
           </p>

@@ -59,7 +59,7 @@ export default function GetInvolved() {
                 lasting change
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-800 leading-relaxed max-w-2xl mx-auto font-semibold">
               Whether you have time, resources, or a platform to share, there are many ways 
               to support Asian teen mental health in our community.
             </p>
