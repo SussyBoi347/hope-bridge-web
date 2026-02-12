@@ -9,29 +9,33 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-slate-50 to-gray-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-gray-50">
       
-      {/* 4 Large animated circles */}
+      {/* 4 Large visible animated circles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top-left blue circle */}
         <motion.div
-          animate={{ y: [0, -50, 0], x: [0, 40, 0], scale: [1, 1.2, 1] }}
+          animate={{ y: [0, -60, 0], x: [0, 50, 0], scale: [1, 1.2, 1] }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-10 w-80 h-80 bg-blue-200/35 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-96 h-96 bg-blue-300/65 rounded-full blur-xl"
         />
+        {/* Top-right gray circle */}
         <motion.div
-          animate={{ y: [0, 60, 0], x: [0, -50, 0], scale: [1, 1.3, 1] }}
+          animate={{ y: [0, 70, 0], x: [0, -60, 0], scale: [1, 1.3, 1] }}
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute top-20 right-20 w-96 h-96 bg-slate-300/30 rounded-full blur-3xl"
+          className="absolute top-20 right-16 w-80 h-80 bg-gray-300/55 rounded-full blur-xl"
         />
+        {/* Bottom-left blue circle */}
         <motion.div
-          animate={{ y: [0, -45, 0], x: [0, 35, 0], scale: [1, 1.15, 1] }}
+          animate={{ y: [0, -55, 0], x: [0, 45, 0], scale: [1, 1.15, 1] }}
           transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-          className="absolute bottom-20 left-1/3 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl"
+          className="absolute bottom-32 left-16 w-80 h-80 bg-blue-300/60 rounded-full blur-xl"
         />
+        {/* Bottom-right gray circle */}
         <motion.div
-          animate={{ y: [0, 55, 0], x: [0, -45, 0], scale: [1, 1.25, 1] }}
+          animate={{ y: [0, 65, 0], x: [0, -55, 0], scale: [1, 1.25, 1] }}
           transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 9 }}
-          className="absolute bottom-32 right-10 w-96 h-96 bg-gray-200/35 rounded-full blur-3xl"
+          className="absolute bottom-24 right-12 w-96 h-96 bg-gray-300/50 rounded-full blur-xl"
         />
       </div>
 
@@ -50,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <span className="inline-block px-6 py-3 rounded-full border-2 border-blue-500 text-blue-600 text-sm font-semibold bg-white/80 backdrop-blur-sm">
+            <span className="inline-block px-6 py-3 rounded-full border-2 border-blue-500 text-blue-600 text-sm font-semibold bg-white/90 backdrop-blur-sm">
               Supporting Asian Teen Mental Health
             </span>
           </motion.div>
