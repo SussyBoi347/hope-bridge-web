@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import FloatingShapes from '@/components/3d/FloatingShapes';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -11,8 +10,43 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-      <FloatingShapes />
       
+      {/* 3D-style floating shapes using CSS */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: `${80 + i * 40}px`,
+              height: `${80 + i * 40}px`,
+              left: `${(i * 12) % 90}%`,
+              top: `${(i * 15) % 80}%`,
+              background: [
+                'linear-gradient(135deg, #00D9FF 0%, #3B82F6 100%)',
+                'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
+                'linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%)',
+                'linear-gradient(135deg, #2563EB 0%, #1E40AF 100%)',
+              ][i % 4],
+              opacity: 0.15,
+              filter: 'blur(3px)',
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 opacity-40">
         <motion.div 
@@ -66,24 +100,28 @@ export default function Hero() {
         />
       </div>
       
-      {/* Floating particles */}
-      {[...Array(20)].map((_, i) => (
+      {/* Floating particles and stars */}
+      {[...Array(30)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+          className={`absolute rounded-full ${i % 3 === 0 ? 'bg-cyan-400' : i % 3 === 1 ? 'bg-blue-400' : 'bg-purple-400'}`}
           style={{
+            width: i % 5 === 0 ? '3px' : '1px',
+            height: i % 5 === 0 ? '3px' : '1px',
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
+            boxShadow: i % 5 === 0 ? '0 0 8px currentColor' : '0 0 4px currentColor',
           }}
           animate={{
-            y: [0, -30, 0],
+            y: [0, -40, 0],
             opacity: [0, 1, 0],
-            scale: [0, 1, 0]
+            scale: [0, i % 5 === 0 ? 1.5 : 1, 0]
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: 3 + Math.random() * 3,
             repeat: Infinity,
             delay: Math.random() * 2,
+            ease: "easeInOut"
           }}
         />
       ))}
