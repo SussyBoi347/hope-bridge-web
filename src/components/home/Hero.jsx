@@ -40,15 +40,18 @@ export default function Hero() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, type: "spring" }}
-              className="block text-5xl sm:text-6xl lg:text-7xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_80px_rgba(0,217,255,0.8)]"
+              className="block text-7xl sm:text-8xl lg:text-9xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_80px_rgba(0,217,255,0.8)]"
               style={{
                 backgroundSize: '200% 200%',
-                animation: 'gradient-shift 4s ease infinite'
+                animation: 'gradient-shift 4s ease infinite',
+                fontFamily: "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif",
+                fontWeight: 900,
+                letterSpacing: '-0.03em'
               }}
             >
               Hopebridge
             </motion.span>
-            <span className="block text-gray-300 text-2xl sm:text-3xl lg:text-4xl font-light mt-4">Building Bridges to Brighter Futures.</span>
+            <span className="block text-gray-200 text-3xl sm:text-4xl lg:text-5xl font-bold mt-6" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif" }}>Building Bridges to Brighter Futures.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
@@ -69,6 +72,3 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-}
