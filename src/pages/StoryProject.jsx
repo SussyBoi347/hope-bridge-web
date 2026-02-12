@@ -137,6 +137,7 @@ export default function StoryProject() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
       <BackgroundElements />
+      <FloatingShapes />
       {/* Hero Section - ENHANCED */}
       <section className="relative pt-32 pb-28 px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -200,7 +201,7 @@ export default function StoryProject() {
       </section>
 
       {/* Share Your Experience Section - ENHANCED */}
-      <section className="relative py-28 px-6 lg:px-8 bg-gradient-to-b from-gray-900/30 to-transparent">
+      <section className="relative py-28 px-6 lg:px-8">
         <div className="max-w-5xl mx-auto relative z-10">
           {uploadMode === 'photo' ? (
             /* Photo Upload Form */
@@ -355,7 +356,7 @@ export default function StoryProject() {
       </section>
 
       {/* Community Story Wall Section - ENHANCED */}
-      <section className="relative py-28 px-6 lg:px-8 bg-gradient-to-b from-transparent via-gray-900/20 to-transparent">
+      <section className="relative py-28 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Insights */}
           <StoryInsights stats={stats} />
