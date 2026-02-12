@@ -45,7 +45,7 @@ export default function Hero() {
             <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
             A safe space for Asian teens to share experiences, find support, and connect 
             with others who understand the unique challenges of navigating identity, 
             family expectations, and mental health.
@@ -63,3 +63,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
+    </section>
+  );
+}
