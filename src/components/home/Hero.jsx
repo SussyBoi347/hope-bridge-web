@@ -11,79 +11,28 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-slate-50 to-gray-50">
       
-      {/* Animated floating circles - lots of them */}
+      {/* 4 Large animated circles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Large background circles */}
         <motion.div
-          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-10 w-64 h-64 bg-blue-200/40 rounded-full blur-3xl"
+          animate={{ y: [0, -50, 0], x: [0, 40, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 left-10 w-80 h-80 bg-blue-200/35 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ y: [0, 40, 0], x: [0, -25, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-20 right-32 w-48 h-48 bg-slate-300/30 rounded-full blur-3xl"
+          animate={{ y: [0, 60, 0], x: [0, -50, 0], scale: [1, 1.3, 1] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          className="absolute top-20 right-20 w-96 h-96 bg-slate-300/30 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ y: [0, -35, 0], x: [0, 30, 0] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute bottom-20 left-1/4 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, 45, 0], x: [0, -20, 0] }}
+          animate={{ y: [0, -45, 0], x: [0, 35, 0], scale: [1, 1.15, 1] }}
           transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-          className="absolute bottom-32 right-20 w-72 h-72 bg-gray-200/40 rounded-full blur-3xl"
+          className="absolute bottom-20 left-1/3 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl"
         />
-
-        {/* Medium floating circles */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`medium-${i}`}
-            animate={{ 
-              y: [0, -50 - i * 5, 0],
-              x: [0, 30 + i * 10, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ 
-              duration: 15 + i * 2, 
-              repeat: Infinity, 
-              ease: "easeInOut",
-              delay: i * 1.5
-            }}
-            className="absolute rounded-full bg-blue-200/25 blur-2xl"
-            style={{
-              width: `${120 + i * 20}px`,
-              height: `${120 + i * 20}px`,
-              left: `${10 + i * 12}%`,
-              top: `${15 + i * 8}%`,
-            }}
-          />
-        ))}
-
-        {/* Small bouncing circles */}
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={`small-${i}`}
-            animate={{ 
-              y: [0, -40 - i * 3, 0],
-              opacity: [0.3, 0.6, 0.3]
-            }}
-            transition={{ 
-              duration: 4 + i * 0.5, 
-              repeat: Infinity, 
-              ease: "easeInOut",
-              delay: i * 0.3
-            }}
-            className="absolute rounded-full"
-            style={{
-              width: `${40 + i * 8}px`,
-              height: `${40 + i * 8}px`,
-              background: i % 2 === 0 ? '#BFDBFE' : '#D1D5DB',
-              left: `${5 + i * 8}%`,
-              top: `${20 + i * 6}%`,
-            }}
-          />
-        ))}
+        <motion.div
+          animate={{ y: [0, 55, 0], x: [0, -45, 0], scale: [1, 1.25, 1] }}
+          transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 9 }}
+          className="absolute bottom-32 right-10 w-96 h-96 bg-gray-200/35 rounded-full blur-3xl"
+        />
       </div>
 
       {/* Hero content */}
