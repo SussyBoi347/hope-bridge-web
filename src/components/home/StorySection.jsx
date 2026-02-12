@@ -6,7 +6,7 @@ import { BookOpen, Users, Lightbulb } from 'lucide-react';
 
 export default function StorySection() {
   return (
-    <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-sky-600 to-cyan-500 text-white">
+    <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-blue-600 to-blue-500 text-white">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,7 +14,7 @@ export default function StorySection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <BookOpen className="w-16 h-16 mx-auto mb-6 text-cyan-100" />
+          <BookOpen className="w-16 h-16 mx-auto mb-6 text-blue-100" />
           <h2 className="text-3xl sm:text-4xl font-semibold mb-4">
             Share Your Story
           </h2>
@@ -25,17 +25,17 @@ export default function StorySection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-              <BookOpen className="w-6 h-6 mx-auto mb-2 text-cyan-200" />
+              <BookOpen className="w-6 h-6 mx-auto mb-2 text-blue-200" />
               <div className="text-2xl font-bold">200+</div>
               <div className="text-xs text-blue-100">Stories shared</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-              <Users className="w-6 h-6 mx-auto mb-2 text-cyan-200" />
+              <Users className="w-6 h-6 mx-auto mb-2 text-blue-200" />
               <div className="text-2xl font-bold">100+</div>
               <div className="text-xs text-blue-100">Teens connected</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-              <Lightbulb className="w-6 h-6 mx-auto mb-2 text-cyan-200" />
+              <Lightbulb className="w-6 h-6 mx-auto mb-2 text-blue-200" />
               <div className="text-2xl font-bold">100%</div>
               <div className="text-xs text-blue-100">Safe & secure</div>
             </div>
