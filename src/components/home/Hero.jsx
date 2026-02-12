@@ -35,20 +35,12 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="leading-[1.1] mb-8 tracking-tight">
-            <motion.span 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              className="block text-5xl sm:text-6xl lg:text-7xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_80px_rgba(0,217,255,0.8)]"
-              style={{
-                backgroundSize: '200% 200%',
-                animation: 'gradient-shift 4s ease infinite'
-              }}
-            >
-              Hopebridge
-            </motion.span>
-            <span className="block text-gray-300 text-2xl sm:text-3xl lg:text-4xl font-light mt-4">Building Bridges to Brighter Futures.</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+            Your story
+            <br />
+            <span className="text-gray-400 text-xl sm:text-xl lg:text-xl">Building Bridges to Brighter Futures.</span>
+            <br />
+            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
@@ -69,6 +61,3 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-}
