@@ -59,5 +59,8 @@ export default function Hero() {
               Learn More
             </Button>
           </motion.div>
-        </motion.div>
-      </div>
+          </motion.div>
+          </div>
+          </section>
+          );
+          }
