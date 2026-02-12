@@ -34,6 +34,7 @@ export default function Layout({ children, currentPageName }) {
     { label: 'About', page: 'About' },
     { label: 'Mission', page: 'Mission' },
     { label: 'Story Project', page: 'StoryProject' },
+    { label: 'Resources', page: 'Resources' },
     { label: 'Find Support', page: 'FindSupport' },
     { label: 'Get Involved', page: 'GetInvolved' },
     { label: 'Contact', page: 'Contact' }

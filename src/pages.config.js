@@ -60,6 +60,7 @@ import Schools from './pages/Schools';
 import StoryProject from './pages/StoryProject';
 import StorySharing from './pages/StorySharing';
 import FindSupport from './pages/FindSupport';
+import Resources from './pages/Resources';
 import __Layout from './Layout.jsx';
 
 
@@ -77,6 +78,7 @@ export const PAGES = {
     "StoryProject": StoryProject,
     "StorySharing": StorySharing,
     "FindSupport": FindSupport,
+    "Resources": Resources,
 }
 
 export const pagesConfig = {
