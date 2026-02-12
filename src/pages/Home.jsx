@@ -29,10 +29,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <span className="text-blue-200 font-medium text-sm tracking-wide uppercase">
+            <span className="text-white font-bold text-base tracking-wide uppercase bg-blue-500/30 px-4 py-2 rounded-full">
               Our Vision
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
+            <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
               Our Vision
             </h2>
           </motion.div>
@@ -45,10 +45,10 @@ export default function Home() {
           >
             <div className="bg-white rounded-3xl p-10 lg:p-14 shadow-2xl border border-blue-200">
               <div className="text-center mb-10">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-3xl font-bold text-gray-900 mb-3">
                   Where we're headed
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-800 font-semibold text-lg">
                   Our commitment to the community
                 </p>
               </div>
@@ -66,10 +66,10 @@ export default function Home() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2">
+                    <div className="text-5xl lg:text-6xl font-black text-blue-600 mb-3">
                       {goal.target}
                     </div>
-                    <p className="text-gray-700 text-sm">
+                    <p className="text-gray-900 font-bold text-base">
                       {goal.label}
                     </p>
                   </motion.div>

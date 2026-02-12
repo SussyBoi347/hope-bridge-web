@@ -21,7 +21,7 @@ export default function About() {
                 Hope Bridge
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-xl text-gray-900 leading-relaxed max-w-2xl mx-auto font-bold">
               Mental health support that understands the Asian American teen experience.
             </p>
           </motion.div>
@@ -38,11 +38,11 @@ export default function About() {
             className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="bg-white backdrop-blur-sm rounded-2xl p-10 shadow-lg border border-blue-200">
               <h2 className="text-3xl font-bold text-blue-600 mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
+              <div className="space-y-4 text-gray-900 leading-relaxed">
+                <p className="font-semibold text-lg">
                   Too many Asian American teens suffer in silence, caught between cultural expectations and personal struggles.
                 </p>
-                <p>
+                <p className="font-semibold text-lg">
                   We created Hope Bridge — a space where teens find support that gets it.
                 </p>
               </div>
@@ -75,8 +75,8 @@ export default function About() {
               <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
                 <Target className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-blue-600 mb-3">Our Mission</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-black text-blue-600 mb-4">Our Mission</h3>
+              <p className="text-gray-900 leading-relaxed font-semibold text-base">
                 Culturally informed mental health support for Asian American teens.
               </p>
             </motion.div>
@@ -91,8 +91,8 @@ export default function About() {
               <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-blue-600 mb-3">Our Vision</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-black text-blue-600 mb-4">Our Vision</h3>
+              <p className="text-gray-900 leading-relaxed font-semibold text-base">
                 Asian American teens thriving emotionally with normalized mental health conversations.
               </p>
             </motion.div>
@@ -107,8 +107,8 @@ export default function About() {
               <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
                 <Heart className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-blue-600 mb-3">Our Values</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-black text-blue-600 mb-4">Our Values</h3>
+              <p className="text-gray-900 leading-relaxed font-semibold text-base">
                 Cultural sensitivity, peer support, accessibility, breaking stigma.
               </p>
             </motion.div>
@@ -128,10 +128,10 @@ export default function About() {
             viewport={{ once: true }}>
 
             <Users className="w-12 h-12 text-white mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-black text-white mb-6">
               Our Team
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-white text-xl leading-relaxed font-bold">
               Founded by six Asian teens: Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav.
             </p>
           </motion.div>
