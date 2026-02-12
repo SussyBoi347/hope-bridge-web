@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Target, Eye, Users } from 'lucide-react';
+import BackgroundElements from '@/components/BackgroundElements';
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <BackgroundElements />
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">

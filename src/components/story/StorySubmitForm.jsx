@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { base44 } from '@/api/base44Client';
+import BackgroundElements from '@/components/BackgroundElements';
 
 const topics = [
   {
@@ -110,7 +111,8 @@ export default function StorySubmitForm() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white flex items-center justify-center px-6 relative overflow-hidden">
+        <BackgroundElements />
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -139,9 +141,10 @@ export default function StorySubmitForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <BackgroundElements />
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-6 lg:px-8">
+      <section className="relative pt-32 pb-16 px-6 lg:px-8 z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 tracking-tight mt-4">

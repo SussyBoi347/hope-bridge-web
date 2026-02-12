@@ -11,11 +11,24 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Generate AI metadata
-    const aiResponse = await base44.asServiceRole.functions.invoke('generateStoryAIMetadata', {
-      title,
-      content,
-      topic
+    // Generate AI metadata using InvokeLLM
+    const aiMetadata = await base44.asServiceRole.integrations.Core.InvokeLLM({
+      prompt: `Analyze this story and provide a summary and relevant tags.
+
+Title: ${title}
+Content: ${content}
+Topic: ${topic}
+
+Generate:
+1. A concise 2-3 sentence summary
+2. 3-5 relevant tags (single words or short phrases)`,
+      response_json_schema: {
+        type: "object",
+        properties: {
+          summary: { type: "string" },
+          tags: { type: "array", items: { type: "string" } }
+        }
+      }
     });
 
     const story = await base44.asServiceRole.entities.Story.create({
@@ -25,8 +38,8 @@ Deno.serve(async (req) => {
       topic,
       media_urls: media_urls || [],
       audio_url: audio_url || null,
-      summary: aiResponse.data.summary || '',
-      tags: aiResponse.data.tags || [],
+      summary: aiMetadata.summary || '',
+      tags: aiMetadata.tags || [],
       status: 'pending'
     });
 

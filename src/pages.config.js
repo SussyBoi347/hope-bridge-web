@@ -50,17 +50,17 @@
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
+import FindSupport from './pages/FindSupport';
 import GetInvolved from './pages/GetInvolved';
 import GetSupport from './pages/GetSupport';
 import Home from './pages/Home';
 import Mission from './pages/Mission';
 import PhysicalStory from './pages/PhysicalStory';
 import Programs from './pages/Programs';
+import Resources from './pages/Resources';
 import Schools from './pages/Schools';
 import StoryProject from './pages/StoryProject';
 import StorySharing from './pages/StorySharing';
-import FindSupport from './pages/FindSupport';
-import Resources from './pages/Resources';
 import __Layout from './Layout.jsx';
 
 
@@ -68,17 +68,17 @@ export const PAGES = {
     "About": About,
     "Contact": Contact,
     "Donate": Donate,
+    "FindSupport": FindSupport,
     "GetInvolved": GetInvolved,
     "GetSupport": GetSupport,
     "Home": Home,
     "Mission": Mission,
     "PhysicalStory": PhysicalStory,
     "Programs": Programs,
+    "Resources": Resources,
     "Schools": Schools,
     "StoryProject": StoryProject,
     "StorySharing": StorySharing,
-    "FindSupport": FindSupport,
-    "Resources": Resources,
 }
 
 export const pagesConfig = {
