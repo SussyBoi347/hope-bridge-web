@@ -28,7 +28,8 @@ const commonInterests = [
   'Nature & Outdoors'
 ];
 
-export default function MatchingForm({ onMatch, isLoading }) {
+export default function MatchingForm({ onMatch, isLoading, variant = 'default' }) {
+  const isDark = variant === 'default';
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -56,19 +57,19 @@ export default function MatchingForm({ onMatch, isLoading }) {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
-          <Label htmlFor="name" className="text-white">Preferred Name *</Label>
+          <Label htmlFor="name" className={isDark ? "text-white" : "text-gray-900"}>Preferred Name *</Label>
           <Input
             id="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             required
-            className="mt-2 bg-white/10 border-cyan-500/30 text-white"
+            className={isDark ? "mt-2 bg-white/10 border-blue-300 text-white" : "mt-2 bg-white border-blue-200 text-gray-900"}
             placeholder="How should we call you?"
           />
         </div>
 
         <div>
-          <Label htmlFor="age" className="text-white">Age *</Label>
+          <Label htmlFor="age" className={isDark ? "text-white" : "text-gray-900"}>Age *</Label>
           <Input
             id="age"
             type="number"
@@ -77,14 +78,14 @@ export default function MatchingForm({ onMatch, isLoading }) {
             value={formData.age}
             onChange={(e) => setFormData({ ...formData, age: e.target.value })}
             required
-            className="mt-2 bg-white/10 border-cyan-500/30 text-white"
+            className={isDark ? "mt-2 bg-white/10 border-blue-300 text-white" : "mt-2 bg-white border-blue-200 text-gray-900"}
             placeholder="Your age"
           />
         </div>
       </div>
 
       <div>
-        <Label className="text-white mb-3 block">What challenges are you facing? *</Label>
+        <Label className={isDark ? "text-white mb-3 block" : "text-gray-900 mb-3 block"}>What challenges are you facing? *</Label>
         <div className="grid sm:grid-cols-2 gap-3">
           {commonChallenges.map(challenge => (
             <div key={challenge} className="flex items-center gap-2">
@@ -92,9 +93,9 @@ export default function MatchingForm({ onMatch, isLoading }) {
                 id={challenge}
                 checked={formData.challenges.includes(challenge)}
                 onCheckedChange={() => handleCheckboxChange('challenges', challenge)}
-                className="border-cyan-500/50"
+                className={isDark ? "border-blue-300" : "border-blue-600"}
               />
-              <label htmlFor={challenge} className="text-gray-300 text-sm cursor-pointer">
+              <label htmlFor={challenge} className={isDark ? "text-gray-300 text-sm cursor-pointer" : "text-gray-700 text-sm cursor-pointer"}>
                 {challenge}
               </label>
             </div>
@@ -103,7 +104,7 @@ export default function MatchingForm({ onMatch, isLoading }) {
       </div>
 
       <div>
-        <Label className="text-white mb-3 block">Your interests</Label>
+        <Label className={isDark ? "text-white mb-3 block" : "text-gray-900 mb-3 block"}>Your interests</Label>
         <div className="grid sm:grid-cols-2 gap-3">
           {commonInterests.map(interest => (
             <div key={interest} className="flex items-center gap-2">
@@ -111,9 +112,9 @@ export default function MatchingForm({ onMatch, isLoading }) {
                 id={interest}
                 checked={formData.interests.includes(interest)}
                 onCheckedChange={() => handleCheckboxChange('interests', interest)}
-                className="border-cyan-500/50"
+                className={isDark ? "border-blue-300" : "border-blue-600"}
               />
-              <label htmlFor={interest} className="text-gray-300 text-sm cursor-pointer">
+              <label htmlFor={interest} className={isDark ? "text-gray-300 text-sm cursor-pointer" : "text-gray-700 text-sm cursor-pointer"}>
                 {interest}
               </label>
             </div>
@@ -122,23 +123,23 @@ export default function MatchingForm({ onMatch, isLoading }) {
       </div>
 
       <div>
-        <Label htmlFor="preferences" className="text-white">What kind of support are you looking for?</Label>
+        <Label htmlFor="preferences" className={isDark ? "text-white" : "text-gray-900"}>What kind of support are you looking for?</Label>
         <Textarea
           id="preferences"
           value={formData.preferences}
           onChange={(e) => setFormData({ ...formData, preferences: e.target.value })}
-          className="mt-2 bg-white/10 border-cyan-500/30 text-white min-h-[100px]"
+          className={isDark ? "mt-2 bg-white/10 border-blue-300 text-white min-h-[100px]" : "mt-2 bg-white border-blue-200 text-gray-900 min-h-[100px]"}
           placeholder="Tell us what would help you most right now..."
         />
       </div>
 
       <div>
-        <Label htmlFor="availability" className="text-white">When are you available?</Label>
+        <Label htmlFor="availability" className={isDark ? "text-white" : "text-gray-900"}>When are you available?</Label>
         <Input
           id="availability"
           value={formData.availability}
           onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
-          className="mt-2 bg-white/10 border-cyan-500/30 text-white"
+          className={isDark ? "mt-2 bg-white/10 border-blue-300 text-white" : "mt-2 bg-white border-blue-200 text-gray-900"}
           placeholder="e.g., Weekday evenings, Weekend afternoons"
         />
       </div>
@@ -146,7 +147,7 @@ export default function MatchingForm({ onMatch, isLoading }) {
       <Button
         type="submit"
         disabled={isLoading || formData.challenges.length === 0}
-        className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold py-6 text-lg shadow-[0_0_30px_rgba(0,217,255,0.4)]"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 text-lg shadow-lg"
       >
         {isLoading ? (
           <>
