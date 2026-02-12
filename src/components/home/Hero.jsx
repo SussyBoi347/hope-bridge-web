@@ -9,21 +9,19 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-[450px] h-[450px] bg-purple-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
-
-      {/* Glowing lines */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent"></div>
-        <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
+      {/* Playful floating shapes */}
+      <div className="absolute inset-0 overflow-hidden opacity-30">
+        <div className="absolute top-20 left-[10%] w-32 h-32 bg-yellow-400 rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
+        <div className="absolute top-40 right-[15%] w-24 h-24 bg-pink-400 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-40 left-[20%] w-40 h-40 bg-purple-400 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 right-[25%] w-28 h-28 bg-teal-400 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }}></div>
+        
+        {/* Stars and decorative elements */}
+        <div className="absolute top-[30%] left-[5%] text-6xl animate-pulse" style={{ animationDuration: '2s' }}>⭐</div>
+        <div className="absolute top-[60%] right-[10%] text-5xl animate-pulse" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}>✨</div>
+        <div className="absolute bottom-[30%] left-[15%] text-4xl animate-pulse" style={{ animationDuration: '3s', animationDelay: '1s' }}>💫</div>
+        <div className="absolute top-[20%] right-[30%] text-5xl animate-pulse" style={{ animationDuration: '2.2s', animationDelay: '0.3s' }}>🌟</div>
       </div>
 
       {/* Hero content */}
@@ -35,23 +33,12 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="leading-[1.1] mb-8 tracking-tight">
-            <motion.span 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              className="block text-7xl sm:text-8xl lg:text-9xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_80px_rgba(0,217,255,0.8)]"
-              style={{
-                backgroundSize: '200% 200%',
-                animation: 'gradient-shift 4s ease infinite',
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif",
-                fontWeight: 900,
-                letterSpacing: '-0.03em'
-              }}
-            >
-              Hopebridge
-            </motion.span>
-            <span className="block text-gray-200 text-3xl sm:text-4xl lg:text-5xl font-bold mt-6" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif" }}>Building Bridges to Brighter Futures.</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+            Your story
+            <br />
+            <span className="text-gray-400 text-xl sm:text-xl lg:text-xl">Building Bridges to Brighter Futures.</span>
+            <br />
+            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
@@ -72,6 +59,3 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-}

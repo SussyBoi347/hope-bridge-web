@@ -43,43 +43,42 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen">
       <style>{`
-        :root {
-          --color-primary: #00D9FF;
-          --color-primary-dark: #0088CC;
-          --color-accent: #00FFF0;
-          --color-dark: #0A0A0F;
-          --color-darker: #050508;
-        }
+          @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
 
-        html {
-          scroll-behavior: smooth;
-        }
+          :root {
+            --color-primary: #FFB340;
+            --color-secondary: #FF6B9D;
+            --color-accent: #4ECDC4;
+            --color-purple: #9D4EDD;
+            --color-bg: #FFF8F0;
+          }
 
-        body {
-          background-color: var(--color-dark);
-          color: #ffffff;
-        }
+          html {
+            scroll-behavior: smooth;
+          }
 
-        ::selection {
-          background-color: rgba(0, 217, 255, 0.3);
-          color: #ffffff;
-        }
+          body {
+            background-color: var(--color-bg);
+            color: #2D3748;
+            font-family: 'Fredoka', sans-serif;
+          }
 
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
+          ::selection {
+            background-color: #FFB340;
+            color: #2D3748;
+          }
 
-        @keyframes glow {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 1; }
-        }
+          @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
 
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-      `}</style>
+          @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+          }
+        `}</style>
 
       {/* Navigation */}
       <motion.header
@@ -88,8 +87,8 @@ export default function Layout({ children, currentPageName }) {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-black/80 backdrop-blur-xl border-b border-cyan-500/20' 
-            : 'bg-transparent'
+            ? 'bg-white shadow-lg' 
+            : 'bg-white/95'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -101,10 +100,9 @@ export default function Layout({ children, currentPageName }) {
               className="flex items-center gap-3 group"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
-                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="relative w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 drop-shadow-[0_0_25px_rgba(0,217,255,0.8)] brightness-110 contrast-125 saturate-150" />
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="relative w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" style={{ filter: 'drop-shadow(0 4px 12px rgba(255, 179, 64, 0.4))' }} />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent tracking-tight">Hope Bridge</span>
+              <span className="text-2xl font-bold text-gray-800 tracking-tight">Hope Bridge</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -113,10 +111,10 @@ export default function Layout({ children, currentPageName }) {
                 <Link
                   key={link.page}
                   to={createPageUrl(link.page)}
-                  className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                  className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
                     currentPageName === link.page
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black shadow-[0_0_20px_rgba(0,217,255,0.6)]'
-                      : 'text-white hover:text-white hover:bg-white/10 border border-white/30 hover:border-white/60'
+                      ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg transform scale-105'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-yellow-50'
                   }`}
                 >
                   {link.label}
@@ -128,9 +126,9 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-3">
               <Link to={createPageUrl('Donate')}>
                 <Button
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-full px-8 shadow-[0_0_30px_rgba(0,217,255,0.5)] hover:shadow-[0_0_40px_rgba(0,217,255,0.8)] transition-all duration-300 border border-cyan-400/50"
+                  className="bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-300 hover:to-pink-400 text-white font-bold rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:rotate-2"
                 >
-                  Donate
+                  ❤️ Donate
                 </Button>
               </Link>
             </div>
@@ -138,7 +136,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-white hover:text-cyan-300 transition-colors"
+              className="lg:hidden p-2 text-gray-700 hover:text-orange-500 transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -153,7 +151,7 @@ export default function Layout({ children, currentPageName }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-cyan-500/20 overflow-hidden"
+              className="lg:hidden bg-white shadow-xl overflow-hidden"
             >
               <div className="max-w-7xl mx-auto px-6 py-6 space-y-2">
                 {navLinks.map((link) => (
@@ -161,10 +159,10 @@ export default function Layout({ children, currentPageName }) {
                     key={link.page}
                     to={createPageUrl(link.page)}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block w-full text-left px-5 py-3 rounded-xl transition-all duration-300 ${
+                    className={`block w-full text-left px-5 py-3 rounded-2xl font-semibold transition-all duration-300 ${
                       currentPageName === link.page
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-medium shadow-[0_0_20px_rgba(0,217,255,0.5)]'
-                        : 'text-white hover:text-white hover:bg-white/10 border border-white/40'
+                        ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg'
+                        : 'text-gray-700 hover:bg-yellow-50'
                     }`}
                   >
                     {link.label}
@@ -172,8 +170,8 @@ export default function Layout({ children, currentPageName }) {
                 ))}
                 <div className="pt-4">
                   <Link to={createPageUrl('Donate')} className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-full shadow-[0_0_30px_rgba(0,217,255,0.5)]">
-                      Donate
+                    <Button className="w-full bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-300 hover:to-pink-400 text-white font-bold rounded-full shadow-lg">
+                      ❤️ Donate
                     </Button>
                   </Link>
                 </div>
