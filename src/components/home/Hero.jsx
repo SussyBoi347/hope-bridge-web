@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -9,170 +9,130 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-orange-50 via-yellow-50 to-blue-50">
       
       {/* 3D-style floating shapes */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: `${100 + i * 50}px`,
-              height: `${100 + i * 50}px`,
-              left: `${(i * 12) % 90}%`,
-              top: `${(i * 15) % 80}%`,
+              width: `${80 + i * 30}px`,
+              height: `${80 + i * 30}px`,
+              left: `${(i * 10) % 95}%`,
+              top: `${(i * 12) % 85}%`,
               background: [
+                'linear-gradient(135deg, #FFB340 0%, #FF8C42 100%)',
                 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
-                'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
-                'linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%)',
-                'linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%)',
+                'linear-gradient(135deg, #F472B6 0%, #FB923C 100%)',
+                'linear-gradient(135deg, #34D399 0%, #10B981 100%)',
               ][i % 4],
-              opacity: 0.15,
-              filter: 'blur(40px)',
+              opacity: 0.2,
+              filter: 'blur(30px)',
             }}
             animate={{
-              y: [0, -40, 0],
-              x: [0, 30, 0],
-              scale: [1, 1.3, 1],
-              rotate: [0, 180, 360],
+              y: [0, -50, 0],
+              x: [0, 40, 0],
+              scale: [1, 1.4, 1],
+              rotate: [0, 360],
             }}
             transition={{
-              duration: 10 + i * 2,
+              duration: 12 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.5,
+              delay: i * 0.3,
             }}
           />
         ))}
       </div>
 
-      {/* Large animated gradient orbs */}
-      <div className="absolute inset-0 opacity-30">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1],
-            x: [0, 60, 0],
-            y: [0, 40, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-400 rounded-full filter blur-[150px]"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.4, 1],
-            x: [0, -50, 0],
-            y: [0, 60, 0]
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500 rounded-full filter blur-[130px]"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            x: [0, 40, 0],
-            y: [0, -50, 0]
-          }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 left-1/2 w-[550px] h-[550px] bg-blue-300 rounded-full filter blur-[140px]"
-        />
-      </div>
-
-      {/* Floating particles */}
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={i}
-          className={`absolute rounded-full ${i % 3 === 0 ? 'bg-blue-500' : i % 3 === 1 ? 'bg-blue-400' : 'bg-blue-600'}`}
-          style={{
-            width: i % 5 === 0 ? '4px' : '2px',
-            height: i % 5 === 0 ? '4px' : '2px',
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            boxShadow: i % 5 === 0 ? '0 0 10px currentColor' : '0 0 6px currentColor',
-          }}
-          animate={{
-            y: [0, -50, 0],
-            opacity: [0.3, 1, 0.3],
-            scale: [0.8, i % 5 === 0 ? 2 : 1.2, 0.8]
-          }}
-          transition={{
-            duration: 4 + Math.random() * 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
+      {/* Bouncing decorative shapes */}
+      <motion.div
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 3, repeat: Infinity }}
+        className="absolute top-20 left-10 w-16 h-16 bg-orange-400 rounded-full opacity-40"
+      />
+      <motion.div
+        animate={{ y: [0, -30, 0] }}
+        transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+        className="absolute top-40 right-20 w-12 h-12 bg-blue-400 rounded-lg opacity-40 rotate-45"
+      />
+      <motion.div
+        animate={{ y: [0, -25, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}
+        className="absolute bottom-32 left-20 w-14 h-14 bg-pink-400 rounded-full opacity-40"
+      />
+      <motion.div
+        animate={{ y: [0, -35, 0], rotate: [0, 180, 360] }}
+        transition={{ duration: 5, repeat: Infinity, delay: 1.5 }}
+        className="absolute bottom-40 right-32 w-10 h-10 bg-green-400 opacity-40"
+        style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
+      />
 
       {/* Hero content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-          <motion.div 
-            initial={{ scale: 0.9, opacity: 0 }} 
-            animate={{ scale: 1, opacity: 1 }} 
-            transition={{ duration: 0.6, delay: 0.2 }} 
+          
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
             className="mb-8"
           >
-            <motion.span 
-              animate={{ 
-                boxShadow: [
-                  '0 0 20px rgba(59,130,246,0.3)',
-                  '0 0 40px rgba(59,130,246,0.5)',
-                  '0 0 20px rgba(59,130,246,0.3)'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-100 text-blue-700 text-base font-bold border-2 border-blue-300 shadow-xl"
-            >
-              <Sparkles className="w-5 h-5" />
-              Supporting Asian Teen Mental Health
-            </motion.span>
+            <img 
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" 
+              alt="Hope Bridge" 
+              className="w-32 h-32 mx-auto"
+              style={{ filter: 'drop-shadow(0 10px 30px rgba(255, 179, 64, 0.5))' }}
+            />
           </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-6xl sm:text-7xl lg:text-9xl font-black leading-[1.05] mb-8 tracking-tight"
+            className="text-6xl sm:text-7xl lg:text-9xl font-black leading-[1.05] mb-6 tracking-tight"
           >
             <motion.span
               animate={{ 
                 textShadow: [
-                  '0 0 30px rgba(59,130,246,0.3)',
-                  '0 0 50px rgba(59,130,246,0.5)',
-                  '0 0 30px rgba(59,130,246,0.3)'
+                  '0 0 20px rgba(255,179,64,0.3)',
+                  '0 0 40px rgba(255,179,64,0.5)',
+                  '0 0 20px rgba(255,179,64,0.3)'
                 ]
               }}
               transition={{ duration: 3, repeat: Infinity }}
               className="text-gray-900"
             >
-              Your story
-            </motion.span>
-            <br />
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-blue-600 text-2xl sm:text-2xl lg:text-3xl font-bold"
-            >
-              Building Bridges to Brighter Futures.
-            </motion.span>
-            <br />
-            <motion.span 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-              className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent text-5xl sm:text-6xl lg:text-7xl"
-            >
-              You are not alone
+              Hope Bridge
             </motion.span>
           </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-600 mb-4"
+          >
+            Building Bridges to Brighter Futures
+          </motion.p>
+
+          <motion.p 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 }}
+            className="text-2xl sm:text-3xl text-gray-800 font-semibold mb-8"
+          >
+            Supporting Asian Teen Mental Health
+          </motion.p>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="text-xl sm:text-2xl text-gray-700 max-w-4xl mx-auto mb-14 leading-relaxed font-semibold"
+            className="text-xl sm:text-2xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed font-medium"
           >
             A safe space for Asian teens to share experiences, find support, and connect 
             with others who understand the unique challenges of navigating identity, 
@@ -185,35 +145,59 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 1.2 }} 
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.div whileHover={{ scale: 1.08, rotate: 1 }} whileTap={{ scale: 0.95 }}>
+            <motion.div 
+              whileHover={{ scale: 1.1, rotate: 3 }} 
+              whileTap={{ scale: 0.95 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ y: { duration: 2, repeat: Infinity } }}
+            >
               <Button 
                 onClick={() => scrollToSection('contact')} 
                 size="lg" 
-                className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-black rounded-full px-12 py-8 text-xl shadow-2xl hover:shadow-[0_20px_60px_rgba(59,130,246,0.5)] transition-all duration-300"
+                className="group bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-black rounded-full px-14 py-9 text-2xl shadow-[0_10px_40px_rgba(255,179,64,0.4)] hover:shadow-[0_15px_50px_rgba(255,179,64,0.6)] transition-all duration-300 border-4 border-orange-300"
               >
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                  animate={{ x: [-100, 200] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-                />
-                <span className="relative z-10 flex items-center">
-                  Get Support
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-                </span>
+                <Heart className="w-7 h-7 mr-3 group-hover:scale-110 transition-transform" />
+                Get Support
+                <ArrowRight className="w-7 h-7 ml-3 group-hover:translate-x-2 transition-transform" />
               </Button>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.08, rotate: -1 }} whileTap={{ scale: 0.95 }}>
+            <motion.div 
+              whileHover={{ scale: 1.1, rotate: -3 }} 
+              whileTap={{ scale: 0.95 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ y: { duration: 2, repeat: Infinity, delay: 0.3 } }}
+            >
               <Button 
                 onClick={() => scrollToSection('mission')} 
                 size="lg" 
                 variant="outline" 
-                className="border-4 border-blue-600 hover:border-blue-500 bg-white hover:bg-blue-50 text-blue-600 font-black rounded-full px-12 py-8 text-xl shadow-2xl transition-all duration-300"
+                className="border-4 border-blue-500 hover:border-blue-600 bg-white hover:bg-blue-50 text-blue-600 font-black rounded-full px-14 py-9 text-2xl shadow-[0_10px_40px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_50px_rgba(59,130,246,0.5)] transition-all duration-300"
               >
                 Learn More
               </Button>
             </motion.div>
           </motion.div>
+
+          {/* Decorative hearts */}
+          <div className="mt-16 flex justify-center gap-4">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{ 
+                  y: [0, -15, 0],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity, 
+                  delay: i * 0.2 
+                }}
+              >
+                <Heart className="w-8 h-8 text-orange-400 fill-orange-400 opacity-60" />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
