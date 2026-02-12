@@ -96,10 +96,13 @@ export default function Layout({ children, currentPageName }) {
             <Link 
               to={createPageUrl('Home')} 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-3 group"
             >
-              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(0,217,255,0.5)]" />
-              <span className="text-xl font-bold text-white tracking-tight">Hope Bridge</span>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696d852fbbda0ee653ff4e65/2ef794ee6_ChatGPTImageJan16202611_46_44PM.png" alt="Hope Bridge" className="relative w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 drop-shadow-[0_0_25px_rgba(0,217,255,0.8)] brightness-110 contrast-125 saturate-150" />
+              </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent tracking-tight">Hope Bridge</span>
             </Link>
 
             {/* Desktop Navigation */}
