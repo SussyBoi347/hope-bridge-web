@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -9,58 +9,58 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-[450px] h-[450px] bg-purple-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
-
-      {/* Glowing lines */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent"></div>
-        <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-white">
+      {/* Playful floating shapes */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-20 left-[10%] w-32 h-32 bg-blue-400 rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
+        <div className="absolute top-40 right-[15%] w-24 h-24 bg-gray-400 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-40 left-[20%] w-40 h-40 bg-blue-600 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 right-[25%] w-28 h-28 bg-gray-600 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }}></div>
       </div>
 
       {/* Hero content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-8">
-            <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/30 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.2)]">
+            <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-blue-600 text-sm font-bold border-4 border-blue-400 shadow-lg">
               Supporting Asian Teen Mental Health
             </span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
-            Your story
-            <br />
-            <span className="text-gray-400 text-xl sm:text-xl lg:text-xl">Building Bridges to Brighter Futures.</span>
-            <br />
-            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
+          <h1 className="leading-[1.1] mb-8">
+            <motion.span 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
+              className="block text-7xl sm:text-8xl lg:text-9xl font-black mb-6"
+              style={{
+                fontFamily: "'Fredoka', sans-serif",
+                fontWeight: 700,
+                color: '#3B82F6',
+                textShadow: '4px 4px 0px #1F2937, 8px 8px 0px #9CA3AF',
+                transform: 'rotate(-2deg)'
+              }}
+            >
+              Hopebridge
+            </motion.span>
+            <span className="block text-gray-700 text-3xl sm:text-4xl lg:text-5xl font-bold mt-6" style={{ fontFamily: "'Fredoka', sans-serif" }}>Building Bridges to Brighter Futures!</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
             A safe space for Asian teens to share experiences, find support, and connect 
             with others who understand the unique challenges of navigating identity, 
             family expectations, and mental health.
           </p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <Button onClick={() => scrollToSection('contact')} size="lg" className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-full px-10 py-7 text-lg shadow-[0_0_40px_rgba(0,217,255,0.5)] hover:shadow-[0_0_60px_rgba(0,217,255,0.8)] transition-all duration-300 hover:scale-105 border border-cyan-400/50">
+            <Button onClick={() => scrollToSection('contact')} size="lg" className="group bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-10 py-7 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-2 border-4 border-white">
               Get Support
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
             </Button>
 
-            <Button onClick={() => scrollToSection('mission')} size="lg" variant="outline" className="border-2 border-cyan-500/30 hover:border-cyan-400 bg-transparent text-white hover:bg-cyan-500/10 rounded-full px-10 py-7 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+            <Button onClick={() => scrollToSection('mission')} size="lg" variant="outline" className="border-4 border-gray-800 hover:border-black bg-white text-gray-800 hover:bg-gray-50 rounded-full px-10 py-7 text-lg font-bold transition-all duration-300 hover:scale-110 hover:-rotate-2 shadow-lg">
               Learn More
             </Button>
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-}
