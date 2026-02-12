@@ -10,12 +10,12 @@ import StorySection from '@/components/home/StorySection.jsx';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Hero />
       <Mission />
       <Problem />
       <StorySection />
-      <section id="vision" className="py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white relative overflow-hidden">
+      <section id="vision" className="py-24 lg:py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
         </div>
@@ -27,7 +27,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-200 font-medium text-sm tracking-wide uppercase">
               Our Vision
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
@@ -41,12 +41,12 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-10 lg:p-14 shadow-2xl shadow-blue-300/30">
+            <div className="bg-white rounded-3xl p-10 lg:p-14 shadow-2xl border border-blue-200">
               <div className="text-center mb-10">
-                <h3 className="text-2xl font-semibold text-white mb-2">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                   Where we're headed
                 </h3>
-                <p className="text-white/80">
+                <p className="text-gray-600">
                   Our commitment to the community
                 </p>
               </div>
@@ -64,10 +64,10 @@ export default function Home() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
+                    <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2">
                       {goal.target}
                     </div>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-gray-700 text-sm">
                       {goal.label}
                     </p>
                   </motion.div>

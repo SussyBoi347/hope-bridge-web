@@ -11,7 +11,7 @@ const ways = [
     title: "Volunteer",
     description: "Become a peer mentor, workshop facilitator, or help with community events. Your time and passion can make a real difference.",
     cta: "Learn More",
-    gradient: "from-blue-600 to-cyan-500"
+    gradient: "from-blue-600 to-blue-500"
   },
   {
     icon: DollarSign,
@@ -19,27 +19,27 @@ const ways = [
     description: "Your financial support keeps all our programs free and accessible for teens who need them most.",
     cta: "Make a Donation",
     link: "Donate",
-    gradient: "from-sky-600 to-blue-500"
+    gradient: "from-blue-600 to-blue-500"
   },
   {
     icon: Megaphone,
     title: "Spread the Word",
     description: "Share our mission with families, schools, and communities who could benefit from our services.",
     cta: "Share Our Mission",
-    gradient: "from-blue-700 to-sky-600"
+    gradient: "from-blue-700 to-blue-600"
   },
   {
     icon: Users,
     title: "Partner With Us",
     description: "Schools, organizations, and mental health professionals—let's collaborate to expand our reach and impact.",
     cta: "Explore Partnerships",
-    gradient: "from-cyan-600 to-blue-500"
+    gradient: "from-blue-600 to-blue-500"
   }
 ];
 
 export default function GetInvolved() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -51,13 +51,13 @@ export default function GetInvolved() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
               Join us in creating{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                 lasting change
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Whether you have time, resources, or a platform to share, there are many ways 
               to support Asian teen mental health in our community.
             </p>
@@ -66,10 +66,7 @@ export default function GetInvolved() {
       </section>
 
       {/* Ways to Help */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1552635592-83ad039cb311?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
+      <section className="py-16 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-8">
             {ways.map((way, index) => (
@@ -79,15 +76,15 @@ export default function GetInvolved() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-all"
+                className="bg-white rounded-2xl p-8 shadow-lg border border-blue-200 hover:shadow-xl transition-all"
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${way.gradient} flex items-center justify-center mb-6 shadow-sm`}>
                   <way.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-900 mb-3">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3">
                   {way.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6">
                   {way.description}
                 </p>
                 <Link to={createPageUrl(way.link || 'Contact')}>
@@ -105,7 +102,7 @@ export default function GetInvolved() {
       </section>
 
       {/* Impact Statement */}
-      <section className="py-16 px-6 lg:px-8 bg-black relative overflow-hidden">
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
         </div>
@@ -124,7 +121,7 @@ export default function GetInvolved() {
               mental health conversations are welcomed, not feared.
             </p>
             <Link to={createPageUrl('Contact')}>
-              <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-full px-8 py-6 text-lg shadow-md">
+              <Button className="bg-white hover:bg-gray-100 text-blue-600 font-bold rounded-full px-8 py-6 text-lg shadow-md">
                 Get in Touch
               </Button>
             </Link>
