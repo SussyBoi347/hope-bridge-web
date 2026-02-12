@@ -28,33 +28,44 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-8">
-            <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/30 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.2)]">
-              Supporting Asian Teen Mental Health
+            <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-orange-600 text-sm font-bold border-4 border-orange-400 shadow-lg">
+              💙 Supporting Asian Teen Mental Health
             </span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
-            Your story
-            <br />
-            <span className="text-gray-400 text-xl sm:text-xl lg:text-xl">Building Bridges to Brighter Futures.</span>
-            <br />
-            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
+          <h1 className="leading-[1.1] mb-8">
+            <motion.span 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
+              className="block text-7xl sm:text-8xl lg:text-9xl font-black mb-6"
+              style={{
+                fontFamily: "'Fredoka', sans-serif",
+                fontWeight: 700,
+                color: '#FF6B9D',
+                textShadow: '4px 4px 0px #FFB340, 8px 8px 0px #4ECDC4',
+                transform: 'rotate(-2deg)'
+              }}
+            >
+              Hopebridge
+            </motion.span>
+            <span className="block text-gray-700 text-3xl sm:text-4xl lg:text-5xl font-bold mt-6" style={{ fontFamily: "'Fredoka', sans-serif" }}>Building Bridges to Brighter Futures! 🌈</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
             A safe space for Asian teens to share experiences, find support, and connect 
             with others who understand the unique challenges of navigating identity, 
             family expectations, and mental health.
           </p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <Button onClick={() => scrollToSection('contact')} size="lg" className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-full px-10 py-7 text-lg shadow-[0_0_40px_rgba(0,217,255,0.5)] hover:shadow-[0_0_60px_rgba(0,217,255,0.8)] transition-all duration-300 hover:scale-105 border border-cyan-400/50">
-              Get Support
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button onClick={() => scrollToSection('contact')} size="lg" className="group bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-300 hover:to-pink-400 text-white font-bold rounded-full px-10 py-7 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-2 border-4 border-white">
+              Get Support 🚀
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
             </Button>
 
-            <Button onClick={() => scrollToSection('mission')} size="lg" variant="outline" className="border-2 border-cyan-500/30 hover:border-cyan-400 bg-transparent text-white hover:bg-cyan-500/10 rounded-full px-10 py-7 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-              Learn More
+            <Button onClick={() => scrollToSection('mission')} size="lg" variant="outline" className="border-4 border-purple-400 hover:border-purple-500 bg-white text-purple-600 hover:bg-purple-50 rounded-full px-10 py-7 text-lg font-bold transition-all duration-300 hover:scale-110 hover:-rotate-2 shadow-lg">
+              Learn More ✨
             </Button>
           </motion.div>
         </motion.div>
