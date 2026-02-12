@@ -365,7 +365,7 @@ export default function StoryProject() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-bold text-white mb-10">
+              className="text-4xl font-bold text-gray-900 mb-10">
               Explore Stories
             </motion.h2>
             
