@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import MatchingForm from '../components/matching/MatchingForm';
 import MentorCard from '../components/matching/MentorCard';
 import SupportGroupCard from '../components/matching/SupportGroupCard';
+import BackgroundElements from '@/components/BackgroundElements';
 
 export default function FindSupport() {
   const [matches, setMatches] = useState(null);
@@ -34,8 +35,9 @@ export default function FindSupport() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white pt-24 pb-16 relative overflow-hidden">
+      <BackgroundElements />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

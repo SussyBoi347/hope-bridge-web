@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Heart, Users, GraduationCap, Building, ArrowRight } from 'lucide-react';
 import StripePaymentForm from '@/components/donate/StripePaymentForm';
+import BackgroundElements from '@/components/BackgroundElements';
 
 const impacts = [
   {
@@ -33,7 +34,8 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <BackgroundElements />
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">

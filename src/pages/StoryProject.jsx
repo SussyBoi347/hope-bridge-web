@@ -10,6 +10,7 @@ import StoryCard from '@/components/story/StoryCard';
 import FeaturedStories from '@/components/story/FeaturedStories';
 import StoryInsights from '@/components/story/StoryInsights';
 import StorySearchFilters from '@/components/story/StorySearchFilters';
+import BackgroundElements from '@/components/BackgroundElements';
 
 export default function StoryProject() {
   const [stories, setStories] = useState([]);
@@ -134,9 +135,8 @@ export default function StoryProject() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-
-
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <BackgroundElements />
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
