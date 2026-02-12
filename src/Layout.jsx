@@ -126,7 +126,7 @@ export default function Layout({ children, currentPageName }) {
                 <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:rotate-2"
                 >
-                  ❤️ Donate
+                  Donate
                 </Button>
               </Link>
             </div>
@@ -169,7 +169,7 @@ export default function Layout({ children, currentPageName }) {
                 <div className="pt-4">
                   <Link to={createPageUrl('Donate')} className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
                     <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow-lg">
-                      ❤️ Donate
+                      Donate
                     </Button>
                   </Link>
                 </div>
