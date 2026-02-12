@@ -142,39 +142,91 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
-      {/* Background Elements - Clouds */}
+      {/* Background Elements - Large Animated Clouds */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated clouds */}
+        {/* Large animated clouds - very visible */}
         <motion.div
-          animate={{ x: [0, 100, 0] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 left-10 w-32 h-16 bg-white/40 rounded-full blur-xl"
+          animate={{ x: [0, 120, 0], y: [0, 20, 0] }}
+          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-24 left-0 w-[500px] h-64 bg-gradient-to-r from-blue-300/70 to-blue-200/60 rounded-full blur-[120px]"
         />
         <motion.div
-          animate={{ x: [0, -80, 0] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-40 right-20 w-40 h-20 bg-blue-100/40 rounded-full blur-xl"
+          animate={{ x: [0, -100, 0], y: [0, -15, 0] }}
+          transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 right-0 w-[600px] h-72 bg-gradient-to-l from-blue-400/60 to-blue-300/50 rounded-full blur-[130px]"
         />
         <motion.div
-          animate={{ x: [0, 60, 0] }}
-          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          className="absolute top-60 left-1/3 w-36 h-18 bg-white/30 rounded-full blur-xl"
+          animate={{ x: [0, 90, 0], y: [0, 30, 0] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/4 w-[450px] h-56 bg-blue-200/80 rounded-full blur-[110px]"
         />
         <motion.div
-          animate={{ x: [0, -100, 0] }}
-          transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-40 right-10 w-48 h-24 bg-blue-50/40 rounded-full blur-xl"
+          animate={{ x: [0, -80, 0], y: [0, 25, 0] }}
+          transition={{ duration: 38, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 right-1/4 w-[520px] h-64 bg-gradient-to-r from-blue-300/70 to-blue-400/50 rounded-full blur-[125px]"
         />
         
-        {/* Subtle bridge design using SVG curves */}
-        <svg className="absolute bottom-0 left-0 w-full h-64 opacity-10" viewBox="0 0 1200 200" preserveAspectRatio="none">
-          <path d="M0,100 Q300,20 600,100 T1200,100 L1200,200 L0,200 Z" fill="#3B82F6" />
-          <path d="M0,120 Q300,40 600,120 T1200,120" stroke="#1F2937" strokeWidth="3" fill="none" />
-          {/* Bridge pillars */}
-          <rect x="290" y="100" width="20" height="100" fill="#1F2937" opacity="0.6" />
-          <rect x="590" y="100" width="20" height="100" fill="#1F2937" opacity="0.6" />
-          <rect x="890" y="100" width="20" height="100" fill="#1F2937" opacity="0.6" />
+        {/* Smaller accent clouds */}
+        <motion.div
+          animate={{ x: [0, 70, 0], y: [0, 15, 0] }}
+          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-2/3 left-10 w-72 h-36 bg-blue-200/65 rounded-full blur-[90px]"
+        />
+        
+        {/* Floating circles with opacity animation */}
+        <motion.div
+          animate={{ y: [0, -50, 0], scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 right-1/3 w-52 h-52 bg-blue-500/35 rounded-full blur-[70px]"
+        />
+        <motion.div
+          animate={{ y: [0, 60, 0], scale: [1, 1.4, 1], opacity: [0.25, 0.5, 0.25] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-blue-400/40 rounded-full blur-[80px]"
+        />
+        
+        {/* Prominent bridge design at bottom */}
+        <svg className="absolute bottom-0 left-0 w-full h-80 opacity-50" viewBox="0 0 1200 280" preserveAspectRatio="none">
+          <path d="M0,160 Q300,50 600,160 T1200,160 L1200,280 L0,280 Z" fill="url(#bridgeGradient)" />
+          <defs>
+            <linearGradient id="bridgeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.2" />
+            </linearGradient>
+            <linearGradient id="pillarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#1F2937" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#111827" stopOpacity="0.6" />
+            </linearGradient>
+          </defs>
+          
+          <path d="M0,170 Q300,60 600,170 T1200,170" stroke="#1F2937" strokeWidth="6" fill="none" opacity="0.7" />
+          <path d="M0,180 Q300,70 600,180 T1200,180" stroke="#374151" strokeWidth="5" fill="none" opacity="0.6" />
+          
+          <g opacity="0.8">
+            <rect x="270" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
+            <rect x="275" y="155" width="50" height="12" fill="#374151" rx="3" opacity="0.9" />
+            
+            <rect x="570" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
+            <rect x="575" y="155" width="50" height="12" fill="#374151" rx="3" opacity="0.9" />
+            
+            <rect x="870" y="160" width="60" height="120" fill="url(#pillarGradient)" rx="6" />
+            <rect x="875" y="155" width="50" height="12" fill="#374151" rx="3" opacity="0.9" />
+          </g>
         </svg>
+        
+        {/* Decorative dots patterns */}
+        <div className="absolute top-48 right-20 opacity-40">
+          <div className="grid grid-cols-5 gap-3">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{ opacity: [0.3, 0.8, 0.3], scale: [1, 1.3, 1] }}
+                transition={{ duration: 3, repeat: Infinity, delay: i * 0.15 }}
+                className="w-2 h-2 bg-blue-600 rounded-full"
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Hero Section */}
@@ -185,13 +237,13 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
               Let's{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
                 connect
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto font-medium">
               Whether you're seeking support, want to partner with us, or have questions about 
               our programs, we'd love to hear from you.
             </p>
@@ -206,7 +258,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
+            className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border-2 border-blue-200"
           >
             {submitError && (
               <motion.div
@@ -374,17 +426,27 @@ export default function Contact() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16 px-6 lg:px-8 bg-white relative">
+      <section className="py-20 px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-gray-900 text-center mb-12"
+          >
+            Get in <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Touch</span>
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="text-center px-4 py-6 rounded-2xl bg-blue-50 border border-blue-200 transition-all duration-300">
-              <Mail className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h3>
+              className="text-center px-6 py-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-blue-400">
+              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Email Us</h3>
               <a
                 href="mailto:hopebridgecommunityservices@gmail.com"
                 className="text-blue-600 hover:text-blue-700 underline transition-colors text-sm break-words"
@@ -398,9 +460,11 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="text-center px-4 py-6 rounded-2xl bg-blue-50 border border-blue-200 transition-all duration-300">
-              <Phone className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h3>
+              className="text-center px-6 py-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-blue-400">
+              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Call Us</h3>
               <a
                 href="tel:425-610-7760"
                 className="text-blue-600 hover:text-blue-700 underline transition-colors"
@@ -414,9 +478,11 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               whileHover={{ scale: 1.05 }}
-              className="text-center px-4 py-6 rounded-2xl bg-blue-50 border border-blue-200 transition-all duration-300">
-              <MapPin className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Location</h3>
+              className="text-center px-6 py-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-blue-400">
+              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Location</h3>
               <p className="text-gray-700">Sammamish, WA</p>
               <p className="text-gray-600 text-sm">Serving King County</p>
             </motion.div>
