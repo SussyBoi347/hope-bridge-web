@@ -119,31 +119,23 @@ export default function StoryProject() {
   const featuredStories = stories.filter((s) => s.featured).slice(0, 2);
   const allOtherStories = topicFilteredStories.filter((s) => !s.featured);
 
+  const topicCounts = stories.reduce((acc, s) => {
+    acc[s.topic] = (acc[s.topic] || 0) + 1;
+    return acc;
+  }, {});
+  
+  const topTopicEntry = Object.entries(topicCounts).sort(([, a], [, b]) => b - a)[0];
+  
   const stats = {
     total: stories.length,
-    topTopic: stories.reduce((acc, s) => {
-      acc[s.topic] = (acc[s.topic] || 0) + 1;
-      return acc;
-    }, {}) | Object.entries({ ...Object.entries(stories.reduce((acc, s) => {
-        acc[s.topic] = (acc[s.topic] || 0) + 1;
-        return acc;
-      }, {})).sort(([, a], [, b]) => b - a) }).length > 0 ? Object.entries(stories.reduce((acc, s) => {
-      acc[s.topic] = (acc[s.topic] || 0) + 1;
-      return acc;
-    }, {})).sort(([, a], [, b]) => b - a)[0][0] : 'N/A',
+    topTopic: topTopicEntry ? topTopicEntry[0] : 'N/A',
     totalLikes: stories.reduce((sum, s) => sum + s.likes, 0),
     totalComments: stories.reduce((sum, s) => sum + s.comments_count, 0)
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 opacity-30">
-        <div className="absolute top-20 left-[10%] w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" />
-        <div className="absolute top-40 right-[15%] w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-32 left-[30%] w-72 h-72 bg-blue-400 rounded-full mix-blend-screen filter blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-20 right-[25%] w-64 h-64 bg-cyan-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '0.5s' }} />
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 lg:px-8">
@@ -158,7 +150,7 @@ export default function StoryProject() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6">
-              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-cyan-400/30 text-cyan-200 text-sm font-medium shadow-[0_0_30px_rgba(0,217,255,0.3)]">
+              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-100 border border-blue-200 text-blue-600 text-sm font-medium">
                 Community Story Wall
               </span>
             </motion.div>
@@ -167,9 +159,9 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-8 tracking-tight">
               Your Voice,{' '}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent animate-pulse">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                 Your Story
               </span>
             </motion.h1>
@@ -178,7 +170,7 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-6 text-xl text-white leading-relaxed max-w-3xl mx-auto">
+              className="mt-6 text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               A vibrant space where Asian teens share authentic experiences with cultural identity, academic pressures, and family dynamics. Every story matters. Every voice counts.
             </motion.p>
 
@@ -196,9 +188,9 @@ export default function StoryProject() {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                  className="px-6 py-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 via-blue-900/40 to-cyan-900/40 backdrop-blur-md border border-white/30">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">{stat.num}</div>
-                  <div className="text-sm text-white mt-1">{stat.label}</div>
+                  className="px-6 py-4 rounded-2xl bg-white border border-blue-200 shadow-lg">
+                  <div className="text-3xl font-bold text-blue-600">{stat.num}</div>
+                  <div className="text-sm text-gray-700 mt-1">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -214,7 +206,7 @@ export default function StoryProject() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-gradient-to-br from-slate-900/50 to-blue-900/30 backdrop-blur-xl rounded-2xl p-8 border border-cyan-500/20">
+              className="bg-white border border-blue-200 rounded-2xl p-8 shadow-lg">
               
               {uploadSuccess ? (
                 <div className="text-center py-8">
@@ -225,7 +217,7 @@ export default function StoryProject() {
               ) : (
                 <>
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-white">Upload Story Photo</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Upload Story Photo</h2>
                     <Button
                       variant="ghost"
                       onClick={() => {
@@ -234,7 +226,7 @@ export default function StoryProject() {
                         setPreview(null);
                         setUploadError('');
                       }}
-                      className="text-white">
+                      className="text-gray-900">
                       Cancel
                     </Button>
                   </div>
@@ -260,19 +252,19 @@ export default function StoryProject() {
                       className="hidden"
                       disabled={isAnalyzing}
                     />
-                    <div className="border-2 border-dashed border-cyan-500/30 rounded-xl p-8 text-center cursor-pointer hover:border-cyan-400/60 hover:bg-cyan-500/5 transition-all">
-                      <Camera className="w-12 h-12 text-cyan-400 mx-auto mb-3" />
-                      <p className="text-white font-medium">
+                    <div className="border-2 border-dashed border-blue-300 rounded-xl p-8 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all">
+                      <Camera className="w-12 h-12 text-blue-600 mx-auto mb-3" />
+                      <p className="text-gray-900 font-medium">
                         {selectedFile ? selectedFile.name : 'Take a photo or upload'}
                       </p>
-                      <p className="text-sm text-gray-400 mt-1">Tap to capture or choose from gallery</p>
+                      <p className="text-sm text-gray-600 mt-1">Tap to capture or choose from gallery</p>
                     </div>
                   </label>
 
                   <Button
                     onClick={handlePhotoSubmit}
                     disabled={!selectedFile || isAnalyzing}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 text-black rounded-full py-3 font-semibold">
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-full py-3 font-semibold">
                     {isAnalyzing ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -283,7 +275,7 @@ export default function StoryProject() {
                     )}
                   </Button>
 
-                  <p className="text-xs text-gray-400 mt-4 text-center">
+                  <p className="text-xs text-gray-600 mt-4 text-center">
                     The AI will automatically extract the story text from your photo.
                   </p>
                 </>
@@ -298,8 +290,7 @@ export default function StoryProject() {
               transition={{ duration: 0.6 }}
               className="relative overflow-hidden rounded-3xl">
               
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 opacity-90" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800" />
               
               <div className="relative z-10 p-10 lg:p-16 text-center">
                 <motion.div
@@ -308,7 +299,6 @@ export default function StoryProject() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                   className="mb-6">
-                  <span className="text-6xl">✍️</span>
                 </motion.div>
                 
                 <motion.h2
@@ -384,7 +374,7 @@ export default function StoryProject() {
 
             {isLoading ?
             <div className="text-center py-12">
-                <p className="text-white">Loading stories...</p>
+                <p className="text-gray-600">Loading stories...</p>
               </div> :
             allOtherStories.length > 0 ?
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -399,7 +389,7 @@ export default function StoryProject() {
               </div> :
 
             <div className="text-center py-12">
-                <p className="text-white">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
+                <p className="text-gray-600">Your story project submissions will be showcased here in our story wall! Story Project launching January 20th!</p>
               </div>
             }
           </div>
@@ -409,17 +399,17 @@ export default function StoryProject() {
           </section>
 
           {/* Digital Brick Wall */}
-          <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-black to-slate-900">
+          <section className="relative py-24 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-6xl mx-auto">
           <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            className="text-center mb-16">
-           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
              Your Story Builds Our Wall
            </h2>
-           <p className="text-white/80 text-lg max-w-2xl mx-auto">
+           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
              Every story shared is a brick in our community wall of resilience
            </p>
           </motion.div>
@@ -435,17 +425,12 @@ export default function StoryProject() {
                whileHover={{ scale: 1.05, rotateZ: (Math.random() - 0.5) * 5 }}
                className={`aspect-square rounded-lg border-2 shadow-lg cursor-pointer transition-all ${
                  [
-                   'bg-gradient-to-br from-cyan-600 to-cyan-700 border-cyan-400',
                    'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400',
-                   'bg-gradient-to-br from-slate-700 to-slate-800 border-slate-500',
-                   'bg-gradient-to-br from-indigo-600 to-indigo-700 border-indigo-400'
+                   'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-300',
+                   'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-500',
+                   'bg-gradient-to-br from-blue-700 to-gray-700 border-blue-500'
                  ][i % 4]
                }`}>
-               <div className="w-full h-full flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                 <span className="text-2xl">
-                   {['❤️', '💭', '✨', '🎯'][i % 4]}
-                 </span>
-               </div>
              </motion.div>
            ))}
           </div>
@@ -455,7 +440,7 @@ export default function StoryProject() {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5 }}
-           className="text-center text-white/60 text-sm mt-12">
+           className="text-center text-gray-600 text-sm mt-12">
            Each brick represents the courage it takes to share your story. Together, we're building a wall of hope.
           </motion.p>
           </div>
