@@ -72,7 +72,7 @@ export default function StoryProject() {
         image_url: uploadResponse.file_url
       });
 
-      if (response.data.success) {
+      if (response?.data?.success) {
         setUploadSuccess(true);
         setTimeout(() => {
           setUploadMode(null);
@@ -86,11 +86,11 @@ export default function StoryProject() {
           });
         }, 2000);
       } else {
-        setUploadError(response.data.error || 'Failed to analyze image');
+        setUploadError(response?.data?.error || 'Failed to analyze image. Please ensure the image contains clear text.');
       }
     } catch (err) {
-      setUploadError(err.message || 'Failed to process image');
-      console.error(err);
+      console.error('Photo upload error:', err);
+      setUploadError('Failed to process image. Please try again with a clear photo of your story.');
     } finally {
       setIsAnalyzing(false);
     }
@@ -270,7 +270,8 @@ export default function StoryProject() {
                   <label className="block mb-6">
                     <input
                       type="file"
-                      accept="image/*"
+                      accept="image/jpeg,image/jpg,image/png,image/heic,image/heif,image/webp"
+                      capture="environment"
                       onChange={handleFileSelect}
                       className="hidden"
                       disabled={isAnalyzing}
