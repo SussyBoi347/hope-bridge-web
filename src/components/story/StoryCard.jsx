@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Heart, MessageCircle, Calendar, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Heart, MessageCircle, Calendar, Sparkles, X, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
@@ -22,6 +22,7 @@ const topicLabels = {
 export default function StoryCard({ story, onLike, isLiked }) {
   const [showComments, setShowComments] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [showFullText, setShowFullText] = useState(false);
 
   const topicGradients = {
     cultural_identity: 'from-blue-600 to-blue-500',
@@ -85,7 +86,15 @@ export default function StoryCard({ story, onLike, isLiked }) {
           </div>
         )}
 
-        <p className="text-gray-700 leading-relaxed line-clamp-4 break-words">{story.content}</p>
+        <div className="relative group">
+          <p className="text-gray-700 leading-relaxed line-clamp-4 break-words">{story.content}</p>
+          <button
+            onClick={() => setShowFullText(true)}
+            className="absolute bottom-0 right-0 bg-white/90 hover:bg-blue-50 px-3 py-1 rounded-lg text-xs text-blue-600 font-semibold opacity-0 group-hover:opacity-100 transition-all flex items-center gap-1 shadow-md">
+            <Maximize2 className="w-3 h-3" />
+            Read Full Story
+          </button>
+        </div>
 
         {/* AI Tags */}
         {story.tags && story.tags.length > 0 && (
@@ -135,6 +144,92 @@ export default function StoryCard({ story, onLike, isLiked }) {
       {showComments && (
         <CommentsSection storyId={story.id} commentsCount={story.comments_count} />
       )}
+
+      {/* Full Text Modal */}
+      <AnimatePresence>
+        {showFullText && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowFullText(false)}
+            className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4 cursor-pointer">
+            
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto cursor-auto shadow-2xl">
+              
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-blue-100 p-6 flex items-start justify-between">
+                <div className="flex-1 min-w-0 pr-4">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 break-words">{story.title}</h3>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-white font-bold">
+                      {story.author_name.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{story.author_name}</p>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <Calendar className="w-3 h-3" />
+                        {format(new Date(story.created_date), 'MMM d, yyyy')}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowFullText(false)}
+                  className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-full transition-all">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* AI Summary */}
+                {story.summary && (
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div className="flex items-start gap-2">
+                      <Sparkles className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <p className="text-sm text-blue-600 font-medium mb-2">AI Summary</p>
+                        <p className="text-sm text-gray-700 leading-relaxed break-words">{story.summary}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Full Story Text */}
+                <div className="prose prose-blue max-w-none">
+                  <p className="text-gray-700 leading-relaxed whitespace-pre-wrap break-words text-base">
+                    {story.content}
+                  </p>
+                </div>
+
+                {/* AI Tags */}
+                {story.tags && story.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200">
+                    {story.tags.map((tag, idx) => (
+                      <Badge key={idx} variant="outline" className="bg-blue-50 border-blue-200 text-blue-600 text-xs">
+                        #{tag.replace(/_/g, ' ')}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+
+                {/* Topic Badge */}
+                <div className="flex justify-center pt-4">
+                  <span className={`px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r ${topicGradients[story.topic]} text-white shadow-md`}>
+                    {topicLabels[story.topic]}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
