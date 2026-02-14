@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -9,134 +9,79 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-gray-50">
-      
-      {/* 4 Small animated circles - 100% opacity, 2 light blue, 2 grey */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top-left light blue circle */}
-        <motion.div
-          animate={{ y: [0, -35, 0], x: [0, 25, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-32 left-16 w-32 h-32 rounded-full"
-          style={{ backgroundColor: '#B3D9FF', opacity: 1, filter: 'blur(40px)' }}
-        />
-        {/* Top-right grey circle */}
-        <motion.div
-          animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
-          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-40 right-20 w-36 h-36 rounded-full"
-          style={{ backgroundColor: '#D3D3D3', opacity: 1, filter: 'blur(40px)' }}
-        />
-        {/* Bottom-left light blue circle */}
-        <motion.div
-          animate={{ y: [0, -30, 0], x: [0, 30, 0] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute bottom-24 left-24 w-28 h-28 rounded-full"
-          style={{ backgroundColor: '#ADD8E6', opacity: 1, filter: 'blur(35px)' }}
-        />
-        {/* Bottom-right grey circle */}
-        <motion.div
-          animate={{ y: [0, 35, 0], x: [0, -28, 0] }}
-          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-          className="absolute bottom-28 right-28 w-40 h-40 rounded-full"
-          style={{ backgroundColor: '#E0E0E0', opacity: 1, filter: 'blur(40px)' }}
-        />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 opacity-50">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-[550px] h-[550px] bg-purple-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-indigo-500 rounded-full mix-blend-screen filter blur-[130px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+
+      {/* Glowing lines */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-cyan-500/60 to-transparent animate-pulse"></div>
+        <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/40 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-purple-500/30 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: '100vh', x: `${Math.random() * 100}vw`, opacity: 0 }}
+            animate={{ 
+              y: '-20vh', 
+              x: `${Math.random() * 100}vw`,
+              opacity: [0, 0.3, 0]
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: 'linear'
+            }}
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+          />
+        ))}
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Badge */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <span className="inline-block px-6 py-3 rounded-full border-2 border-blue-500 text-blue-600 text-sm font-semibold bg-white/80 backdrop-blur-sm">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+          <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-8">
+            <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/30 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.2)]">
               Supporting Asian Teen Mental Health
             </span>
           </motion.div>
 
-          {/* Main title with 3D effect */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-7xl sm:text-8xl lg:text-9xl font-black leading-[1.1] mb-4 tracking-tight"
-            style={{
-              color: '#3B82F6',
-              textShadow: '4px 4px 0px #60A5FA, 8px 8px 0px #93C5FD',
-              WebkitTextStroke: '2px #2563EB',
-              paintOrder: 'stroke fill',
-            }}
-          >
-            Hopebridge
-          </motion.h1>
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+            Your story
+            <br />
+            <span className="text-gray-400 text-xl sm:text-xl lg:text-xl">Building Bridges to Brighter Futures.</span>
+            <br />
+            <span className="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">You are not alone</span>
+          </h1>
 
-          {/* Subtitle */}
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6"
-          >
-            Building Bridges to Brighter Futures!
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed"
-          >
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
             A safe space for Asian teens to share experiences, find support, and connect 
             with others who understand the unique challenges of navigating identity, 
             family expectations, and mental health.
-          </motion.p>
+          </p>
 
-          {/* Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 1 }} 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                onClick={() => scrollToSection('contact')} 
-                size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-10 py-6 text-lg shadow-lg transition-all duration-300"
-              >
-                Get Support
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <Button onClick={() => scrollToSection('contact')} size="lg" className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-bold rounded-full px-10 py-7 text-lg shadow-[0_0_40px_rgba(0,217,255,0.5)] hover:shadow-[0_0_60px_rgba(0,217,255,0.8)] transition-all duration-300 hover:scale-105 border border-cyan-400/50">
+              Get Support
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
 
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                onClick={() => scrollToSection('mission')} 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-gray-900 bg-white hover:bg-gray-50 text-gray-900 font-bold rounded-full px-10 py-6 text-lg transition-all duration-300"
-              >
-                Learn More
-              </Button>
-            </motion.div>
+            <Button onClick={() => scrollToSection('mission')} size="lg" variant="outline" className="border-2 border-cyan-500/30 hover:border-cyan-400 bg-transparent text-white hover:bg-cyan-500/10 rounded-full px-10 py-7 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              Learn More
+            </Button>
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-}
