@@ -5,7 +5,7 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
     
     // Parse JSON payload
-    const payload = await req.json();
+    const payload = await req.json().catch(() => ({}));
     const imageUrl = payload.image_url;
 
     if (!imageUrl) {

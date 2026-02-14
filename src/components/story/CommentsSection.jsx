@@ -35,11 +35,26 @@ export default function CommentsSection({ storyId, commentsCount }) {
         story_id: storyId,
         author_name: authorName.trim(),
         content: newComment.trim(),
-        status: 'pending'
+        status: 'approved'
       });
+      
+      // Update comment count
+      try {
+        await base44.functions.invoke('updateCommentCount', {
+          storyId: storyId,
+          increment: 1
+        });
+      } catch (error) {
+        console.error('Failed to update comment count:', error);
+      }
+      
+      // Reload comments
+      const result = await base44.entities.StoryComment.filter({ story_id: storyId, status: 'approved' }, '-created_date');
+      setComments(result);
+      
       setNewComment('');
       setAuthorName('');
-      alert('Comment submitted for review!');
+      alert('Comment posted successfully!');
     } catch (error) {
       console.error('Error submitting comment:', error);
       alert('Failed to submit comment. Please try again.');

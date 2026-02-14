@@ -56,10 +56,10 @@ import Home from './pages/Home';
 import Mission from './pages/Mission';
 import PhysicalStory from './pages/PhysicalStory';
 import Programs from './pages/Programs';
+import Resources from './pages/Resources';
 import Schools from './pages/Schools';
 import StoryProject from './pages/StoryProject';
 import StorySharing from './pages/StorySharing';
-import Resources from './pages/Resources';
 import __Layout from './Layout.jsx';
 
 
@@ -73,10 +73,10 @@ export const PAGES = {
     "Mission": Mission,
     "PhysicalStory": PhysicalStory,
     "Programs": Programs,
+    "Resources": Resources,
     "Schools": Schools,
     "StoryProject": StoryProject,
     "StorySharing": StorySharing,
-    "Resources": Resources,
 }
 
 export const pagesConfig = {

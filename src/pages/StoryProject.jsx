@@ -103,13 +103,35 @@ export default function StoryProject() {
       localStorage.setItem('userSessionId', sessionId);
     }
 
-    if (likedStories.includes(storyId)) {
-      setLikedStories((prev) => prev.filter((id) => id !== storyId));
-      await base44.entities.Story.update(storyId, { likes: Math.max(0, stories.find((s) => s.id === storyId).likes - 1) });
-    } else {
-      setLikedStories((prev) => [...prev, storyId]);
+    try {
       const story = stories.find((s) => s.id === storyId);
-      await base44.entities.Story.update(storyId, { likes: story.likes + 1 });
+      if (!story) return;
+
+      if (likedStories.includes(storyId)) {
+        // Unlike
+        const newLikes = Math.max(0, story.likes - 1);
+        setLikedStories((prev) => prev.filter((id) => id !== storyId));
+        
+        // Update local state immediately
+        setStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
+        setFilteredStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
+        
+        // Update backend
+        await base44.entities.Story.update(storyId, { likes: newLikes });
+      } else {
+        // Like
+        const newLikes = story.likes + 1;
+        setLikedStories((prev) => [...prev, storyId]);
+        
+        // Update local state immediately
+        setStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
+        setFilteredStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
+        
+        // Update backend
+        await base44.entities.Story.update(storyId, { likes: newLikes });
+      }
+    } catch (error) {
+      console.error('Failed to update like:', error);
     }
   }, [likedStories, stories]);
 
