@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Mail, MapPin, Phone, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import BackgroundElements from '@/components/BackgroundElements';
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_NAME_LENGTH = 100;
@@ -101,13 +102,20 @@ export default function Contact() {
 
     try {
       await base44.entities.ContactSubmission.create(formData);
-      await base44.functions.invoke('sendContactEmail', formData);
+      
+      try {
+        await base44.functions.invoke('forwardContactSubmission', { data: formData });
+      } catch (emailError) {
+        console.error('Email forwarding failed:', emailError);
+        // Continue - submission was saved
+      }
+      
       setIsSuccess(true);
       setFormData({ name: '', email: '', type: '', organization: '', message: '' });
       setTouched({});
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitError('Failed to send message. Please try again or email us directly.');
+      setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -143,6 +151,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-slate-50 to-gray-50 relative overflow-hidden">
+      <BackgroundElements />
       <AnimatedBackground variant="cool" />
 
       {/* Hero Section */}
