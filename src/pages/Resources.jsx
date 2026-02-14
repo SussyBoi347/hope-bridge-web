@@ -135,8 +135,8 @@ export default function FindSupportPage() {
             </span>
           </h1>
           
-          <p className="text-xl text-gray-900 max-w-4xl mx-auto leading-relaxed mb-10 font-bold">
-            Connect with mentors, join support groups, discover resources, and get personalized guidance—all powered by AI to match your unique journey.
+          <p className="text-xl text-gray-900 max-w-4xl mx-auto leading-relaxed mb-10 font-bold">Connect with mentors, join support groups, discover resources, and get personalized guidance
+
           </p>
 
           <SearchBar onSearch={handleSearch} isLoading={isSearching} />
