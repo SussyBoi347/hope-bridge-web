@@ -11,43 +11,19 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
       {/* Animated gradient orbs */}
-      <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-[550px] h-[550px] bg-purple-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-indigo-500 rounded-full mix-blend-screen filter blur-[130px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-[450px] h-[450px] bg-purple-600 rounded-full mix-blend-screen filter blur-[110px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,217,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,217,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
 
       {/* Glowing lines */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-cyan-500/60 to-transparent animate-pulse"></div>
-        <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/40 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-purple-500/30 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ y: '100vh', x: `${Math.random() * 100}vw`, opacity: 0 }}
-            animate={{ 
-              y: '-20vh', 
-              x: `${Math.random() * 100}vw`,
-              opacity: [0, 0.3, 0]
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: 'linear'
-            }}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-          />
-        ))}
+        <div className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent"></div>
+        <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
       </div>
 
       {/* Hero content */}
