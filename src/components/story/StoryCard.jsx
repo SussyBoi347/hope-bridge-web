@@ -162,9 +162,16 @@ export default function StoryCard({ story, onLike, isLiked }) {
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto cursor-auto shadow-2xl">
               
+              {/* Close Button - Top Right Fixed */}
+              <button
+                onClick={() => setShowFullText(false)}
+                className="absolute top-4 right-4 z-50 bg-gray-900 hover:bg-black text-white p-3 rounded-full transition-all shadow-xl">
+                <X className="w-6 h-6" />
+              </button>
+
               {/* Header */}
-              <div className="sticky top-0 bg-white border-b border-blue-100 p-6 flex items-start justify-between">
-                <div className="flex-1 min-w-0 pr-4">
+              <div className="sticky top-0 bg-white border-b border-blue-100 p-6">
+                <div className="flex-1 min-w-0 pr-12">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3 break-words">{story.title}</h3>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-white font-bold">
@@ -179,11 +186,6 @@ export default function StoryCard({ story, onLike, isLiked }) {
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => setShowFullText(false)}
-                  className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-full transition-all">
-                  <X className="w-5 h-5" />
-                </button>
               </div>
 
               {/* Content */}
