@@ -27,7 +27,6 @@ export default function Contact() {
     try {
       let submissionSaved = false;
       let messageForwarded = false;
-      const failureReasons = [];
 
       try {
         await base44.entities.ContactSubmission.create({
@@ -37,7 +36,6 @@ export default function Contact() {
         submissionSaved = true;
       } catch (saveError) {
         console.error('Contact submission save failed:', saveError);
-        failureReasons.push(`save failed: ${saveError?.message || 'unknown error'}`);
       }
 
       try {
@@ -50,7 +48,6 @@ export default function Contact() {
         messageForwarded = true;
       } catch (forwardError) {
         console.error('Primary email forwarding failed:', forwardError);
-        failureReasons.push(`forwardContactSubmission failed: ${forwardError?.message || 'unknown error'}`);
       }
 
       if (!messageForwarded) {
@@ -59,25 +56,11 @@ export default function Contact() {
           messageForwarded = true;
         } catch (fallbackError) {
           console.error('Fallback email sending failed:', fallbackError);
-          failureReasons.push(`sendContactEmail failed: ${fallbackError?.message || 'unknown error'}`);
         }
       }
 
       if (!submissionSaved && !messageForwarded) {
-        const subject = encodeURIComponent(`Hope Bridge contact from ${formData.name}`);
-        const body = encodeURIComponent(
-          `Name: ${formData.name}
-Email: ${formData.email}
-Type: ${formData.type}
-Organization: ${formData.organization || 'N/A'}
-
-Message:
-${formData.message}`
-        );
-        window.location.href = `mailto:hopebridgecommunityservices@gmail.com?subject=${subject}&body=${body}`;
-        setIsSubmitted(true);
-        toast.success('We opened your email app with a pre-filled draft. Please press send there.');
-        return;
+        throw new Error('No contact submission path succeeded');
       }
 
       setIsSubmitted(true);
