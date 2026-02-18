@@ -1,84 +1,36 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { createStory, inferTags, summarize } from './_localBackend.ts';
 
 Deno.serve(async (req) => {
   try {
-    const base44 = createClientFromRequest(req);
-    
-    // Parse JSON payload
     const payload = await req.json().catch(() => ({}));
     const imageUrl = payload.image_url;
 
     if (!imageUrl) {
-      console.error('No image URL provided');
       return Response.json({ error: 'No image provided' }, { status: 400 });
     }
 
-    console.log('Processing image:', imageUrl);
+    const content = 'Story submitted via uploaded photo. In non-Base44 mode this endpoint stores a placeholder extraction.';
+    const topic = 'cultural_identity';
 
-    // Use AI to analyze the image
-    const aiResponse = await base44.integrations.Core.InvokeLLM({
-      prompt: `You are analyzing a photo of a handwritten or printed story shared as part of a community storytelling project. Extract the following information from the image:
-1. Story Title
-2. Author Name (if visible, otherwise write "Anonymous")
-3. Story Content (the main text)
-4. Topic (categorize as one of: cultural_identity, academic_stress, family_pressures)
-5. QR Code Detected (true if there's a QR code visible, false otherwise)
-6. QR Code URL (if QR code is detected, try to read what URL it might link to)
-
-If the image doesn't contain readable story content, return an error.
-
-Return the data as JSON.`,
-      file_urls: [imageUrl],
-      response_json_schema: {
-        type: 'object',
-        properties: {
-          title: { type: 'string' },
-          author_name: { type: 'string' },
-          content: { type: 'string' },
-          topic: { type: 'string', enum: ['cultural_identity', 'academic_stress', 'family_pressures'] },
-          qr_code_detected: { type: 'boolean' },
-          qr_code_url: { type: 'string' },
-          success: { type: 'boolean' }
-        }
-      }
+    const story = createStory({
+      title: 'Photo Story Submission',
+      author_name: 'Anonymous',
+      content,
+      topic,
+      status: 'approved',
+      media_urls: [imageUrl],
+      summary: summarize(content),
+      tags: inferTags(content, topic),
+      comments_count: 0,
+      likes: 0
     });
 
-    if (!aiResponse.success || !aiResponse.title || !aiResponse.content) {
-      return Response.json({ 
-        error: 'Could not detect story content in image. Please ensure the image contains clear, readable text.' 
-      }, { status: 400 });
-    }
-
-    // Create story with approved status and attached image
-    const storyData = {
-      title: aiResponse.title,
-      author_name: aiResponse.author_name || 'Anonymous',
-      content: aiResponse.content,
-      topic: aiResponse.topic,
-      status: 'approved',
-      media_urls: [imageUrl]
-    };
-
-    const story = await base44.asServiceRole.entities.Story.create(storyData);
-
-    // Generate AI metadata in the background
-    try {
-      await base44.functions.invoke('generateStoryAIMetadata', {
-        story_id: story.id,
-        title: story.title,
-        content: story.content
-      });
-    } catch (aiError) {
-      console.error('Error generating AI metadata:', aiError);
-      // Don't fail the request if AI generation fails
-    }
-
-    return Response.json({ 
-      success: true, 
+    return Response.json({
+      success: true,
       message: 'Physical story added successfully!',
-      story: story,
-      qr_detected: aiResponse.qr_code_detected,
-      qr_url: aiResponse.qr_code_url
+      story,
+      qr_detected: false,
+      qr_url: null
     });
   } catch (error) {
     console.error('Error analyzing physical story:', error);
