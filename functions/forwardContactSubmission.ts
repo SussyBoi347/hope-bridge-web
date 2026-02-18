@@ -1,37 +1,27 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
-
 Deno.serve(async (req) => {
-    try {
-        const base44 = createClientFromRequest(req);
-        const { data } = await req.json();
+  try {
+    const { data } = await req.json();
 
-        // Prepare email body
-        const emailBody = [
-            `New contact form submission:`,
-            ``,
-            `Name: ${data.name}`,
-            `Email: ${data.email}`,
-            `Type: ${data.type}`,
-            data.organization ? `Organization: ${data.organization}` : '',
-            ``,
-            `Message:`,
-            `${data.message}`,
-            ``,
-            `---`,
-            `Submitted: ${new Date().toLocaleString()}`
-        ].filter(Boolean).join('\n');
-
-        // Send email using Base44's Core integration
-        await base44.asServiceRole.integrations.Core.SendEmail({
-            from_name: 'Hope Bridge',
-            to: 'hopebridgecommunityservices@gmail.com',
-            subject: `New Contact Form Submission from ${data.name}`,
-            body: emailBody
-        });
-
-        return Response.json({ success: true });
-    } catch (error) {
-        console.error('Error forwarding contact submission:', error);
-        return Response.json({ error: error.message }, { status: 500 });
+    if (!data?.name || !data?.email || !data?.message) {
+      return Response.json({ error: 'Missing required contact fields' }, { status: 400 });
     }
+
+    const webhook = Deno.env.get('CONTACT_FORWARD_WEBHOOK_URL');
+    if (webhook) {
+      await fetch(webhook, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          source: 'hope-bridge-web',
+          submitted_at: new Date().toISOString(),
+          ...data
+        })
+      });
+    }
+
+    return Response.json({ success: true, forwarded: Boolean(webhook) });
+  } catch (error) {
+    console.error('Error forwarding contact submission:', error);
+    return Response.json({ error: error.message }, { status: 500 });
+  }
 });
