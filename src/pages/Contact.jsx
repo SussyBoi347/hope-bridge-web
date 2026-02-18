@@ -6,13 +6,41 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, MapPin, Phone, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import BackgroundElements from '@/components/BackgroundElements';
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_NAME_LENGTH = 100;
 const MAX_ORG_LENGTH = 150;
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzbqoay';
+
+
+const submitViaNativeForm = (data) => {
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = FORMSPREE_ENDPOINT;
+  form.style.display = 'none';
+
+  const entries = {
+    name: data.name,
+    email: data.email,
+    type: data.type,
+    organization: data.organization || '',
+    message: data.message,
+    _subject: `Hope Bridge contact from ${data.name}`,
+  };
+
+  Object.entries(entries).forEach(([key, value]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = String(value ?? '');
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -85,6 +113,30 @@ export default function Contact() {
     validateField(field, formData[field]);
   };
 
+  const submitToFormspree = async (data) => {
+    const payload = new FormData();
+    payload.append('name', data.name);
+    payload.append('email', data.email);
+    payload.append('type', data.type);
+    payload.append('organization', data.organization || '');
+    payload.append('message', data.message);
+    payload.append('_subject', `Hope Bridge contact from ${data.name}`);
+
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json'
+      },
+      body: payload
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => null);
+      const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
+      throw new Error(details);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitError('');
@@ -101,21 +153,72 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await base44.entities.ContactSubmission.create(formData);
-      
+      await submitToFormspree(formData);
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('type', formData.type);
+      payload.append('organization', formData.organization || '');
+      payload.append('message', formData.message);
+      payload.append('_subject', `Hope Bridge contact from ${formData.name}`);
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json'
+        },
+        body: payload
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null);
+        const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
+        throw new Error(details);
+      let submissionSaved = false;
+      let messageForwarded = false;
+
+      try {
+        await base44.entities.ContactSubmission.create(formData);
+        submissionSaved = true;
+      } catch (saveError) {
+        console.error('Contact submission save failed:', saveError);
+      }
+
       try {
         await base44.functions.invoke('forwardContactSubmission', { data: formData });
-      } catch (emailError) {
-        console.error('Email forwarding failed:', emailError);
-        // Continue - submission was saved
+        messageForwarded = true;
+      } catch (forwardError) {
+        console.error('Primary email forwarding failed:', forwardError);
+      }
+
+      if (!messageForwarded) {
+        try {
+          await base44.functions.invoke('sendContactEmail', formData);
+          messageForwarded = true;
+        } catch (fallbackError) {
+          console.error('Fallback email sending failed:', fallbackError);
+        }
+      }
+
+      if (!submissionSaved && !messageForwarded) {
+        throw new Error('No contact submission path succeeded');
       }
       
       setIsSuccess(true);
       setFormData({ name: '', email: '', type: '', organization: '', message: '' });
       setTouched({});
     } catch (error) {
+      console.error('Error submitting form to Formspree fetch, trying native submit fallback:', error);
+      try {
+        submitViaNativeForm(formData);
+        return;
+      } catch (fallbackError) {
+        console.error('Native Formspree submit fallback failed:', fallbackError);
+        setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com.');
+      }
       console.error('Error submitting form:', error);
-      setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com');
+      const details = error?.message ? ` Details: ${error.message}` : '';
+      setSubmitError(`Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com.${details}`);
     } finally {
       setIsSubmitting(false);
     }
