@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,6 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Label } from '@/components/ui/label';
 import { Mail, MapPin, Phone, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzbqoay';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
