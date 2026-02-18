@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { base44 } from '@/api/base44Client';
+import { base44 } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Library, Sparkles, User, TrendingUp, Filter, SortAsc, Users, Heart, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';

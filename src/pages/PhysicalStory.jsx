@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Camera, Loader2, CheckCircle2, AlertCircle, Sparkles, Heart, Users, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { base44 } from '@/api/base44Client';
+import { base44 } from '@/api/client';
 
 export default function PhysicalStory() {
   const [selectedFile, setSelectedFile] = useState(null);

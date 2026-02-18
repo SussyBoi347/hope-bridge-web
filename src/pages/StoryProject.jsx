@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { Button } from '@/components/ui/button';
-import { base44 } from '@/api/base44Client';
+import { base44 } from '@/api/client';
 import { Camera, Loader2, CheckCircle2, AlertCircle, Upload, Pen } from 'lucide-react';
 import StoryFilters from '@/components/story/StoryFilters';
 import StoryCard from '@/components/story/StoryCard';
