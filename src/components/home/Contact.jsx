@@ -26,32 +26,48 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const payload = new FormData();
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('type', formData.type);
-      payload.append('organization', formData.organization || '');
-      payload.append('message', formData.message);
-      payload.append('_subject', `Hope Bridge contact from ${formData.name}`);
+      let submissionSaved = false;
+      let messageForwarded = false;
 
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json'
-        },
-        body: payload
-      });
+      try {
+        await base44.entities.ContactSubmission.create({
+          ...formData,
+          status: 'new'
+        });
+        submissionSaved = true;
+      } catch (saveError) {
+        console.error('Contact submission save failed:', saveError);
+      }
 
-      if (!response.ok) {
-        const errorBody = await response.json().catch(() => null);
-        const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
-        throw new Error(details);
+      try {
+        await base44.functions.invoke('forwardContactSubmission', {
+          data: {
+            ...formData,
+            status: 'new'
+          }
+        });
+        messageForwarded = true;
+      } catch (forwardError) {
+        console.error('Primary email forwarding failed:', forwardError);
+      }
+
+      if (!messageForwarded) {
+        try {
+          await base44.functions.invoke('sendContactEmail', formData);
+          messageForwarded = true;
+        } catch (fallbackError) {
+          console.error('Fallback email sending failed:', fallbackError);
+        }
+      }
+
+      if (!submissionSaved && !messageForwarded) {
+        throw new Error('No contact submission path succeeded');
       }
 
       setIsSubmitted(true);
       toast.success('Message sent successfully!');
     } catch (error) {
-      console.error('Failed to send message to Formspree:', error);
+      console.error('Failed to send message:', error);
       toast.error('Failed to send message. Please try again or email us directly.');
     } finally {
       setIsSubmitting(false);
