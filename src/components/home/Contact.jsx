@@ -49,11 +49,36 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const submitToFormspree = async (data) => {
+    const payload = new FormData();
+    payload.append('name', data.name);
+    payload.append('email', data.email);
+    payload.append('type', data.type);
+    payload.append('organization', data.organization || '');
+    payload.append('message', data.message);
+    payload.append('_subject', `Hope Bridge contact from ${data.name}`);
+
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json'
+      },
+      body: payload
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => null);
+      const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
+      throw new Error(details);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      await submitToFormspree(formData);
       const payload = new FormData();
       payload.append('name', formData.name);
       payload.append('email', formData.email);
