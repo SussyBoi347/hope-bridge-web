@@ -1,4 +1,5 @@
 import { createStory, inferTags, summarize } from './_localBackend.ts';
+import { moderateStoryText } from './_contentModeration.ts';
 
 const toDataUrl = async (file: File) => {
   const bytes = new Uint8Array(await file.arrayBuffer());
@@ -26,6 +27,14 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
+    const moderation = await moderateStoryText(`${title}\n\n${content}`);
+    if (!moderation.isClean) {
+      return Response.json({
+        error: 'Your story could not be posted because it contains inappropriate language.',
+        moderation: { reason: moderation.reason, source: moderation.source }
+      }, { status: 400 });
+    }
+
     const media_urls: string[] = [];
 
     for (const file of mediaFiles) {
@@ -44,7 +53,7 @@ Deno.serve(async (req) => {
       author_name,
       content,
       topic,
-      status: 'pending',
+      status: 'approved',
       media_urls,
       audio_url,
       summary: summarize(content),
