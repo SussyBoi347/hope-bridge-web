@@ -1,46 +1,26 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { createStory, inferTags, summarize } from './_localBackend.ts';
 
 Deno.serve(async (req) => {
   try {
-    const base44 = createClientFromRequest(req);
     const body = await req.json();
-
     const { title, author_name, content, topic, media_urls, audio_url } = body;
 
     if (!title || !author_name || !content || !topic) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Generate AI metadata using InvokeLLM
-    const aiMetadata = await base44.asServiceRole.integrations.Core.InvokeLLM({
-      prompt: `Analyze this story and provide a summary and relevant tags.
-
-Title: ${title}
-Content: ${content}
-Topic: ${topic}
-
-Generate:
-1. A concise 2-3 sentence summary
-2. 3-5 relevant tags (single words or short phrases)`,
-      response_json_schema: {
-        type: "object",
-        properties: {
-          summary: { type: "string" },
-          tags: { type: "array", items: { type: "string" } }
-        }
-      }
-    });
-
-    const story = await base44.asServiceRole.entities.Story.create({
+    const story = createStory({
       title,
       author_name,
       content,
       topic,
       media_urls: media_urls || [],
       audio_url: audio_url || null,
-      summary: aiMetadata.summary || '',
-      tags: aiMetadata.tags || [],
-      status: 'pending'
+      summary: summarize(content),
+      tags: inferTags(content, topic),
+      status: 'pending',
+      comments_count: 0,
+      likes: 0
     });
 
     return Response.json({ success: true, story });

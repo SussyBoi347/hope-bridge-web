@@ -1,74 +1,57 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { createStory, inferTags, summarize } from './_localBackend.ts';
+
+const toDataUrl = async (file: File) => {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let binary = '';
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+  }
+  const base64 = btoa(binary);
+  return `data:${file.type || 'application/octet-stream'};base64,${base64}`;
+};
 
 Deno.serve(async (req) => {
   try {
-    const base44 = createClientFromRequest(req);
     const formData = await req.formData();
 
-    const title = formData.get('title');
-    const author_name = formData.get('author_name');
-    const content = formData.get('content');
-    const topic = formData.get('topic');
+    const title = String(formData.get('title') || '').trim();
+    const author_name = String(formData.get('author_name') || '').trim();
+    const content = String(formData.get('content') || '').trim();
+    const topic = String(formData.get('topic') || '').trim();
     const mediaFiles = formData.getAll('media');
     const audioFile = formData.get('audio');
 
-    if (!title?.trim() || !author_name?.trim() || !content?.trim() || !topic) {
+    if (!title || !author_name || !content || !topic) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const media_urls = [];
+    const media_urls: string[] = [];
 
-    // Upload media files
-    if (mediaFiles && mediaFiles.length > 0) {
-      for (const file of mediaFiles) {
-        if (file instanceof File) {
-          const uploadResponse = await base44.integrations.Core.UploadFile({
-            file: file
-          });
-          media_urls.push(uploadResponse.file_url);
-        }
+    for (const file of mediaFiles) {
+      if (file instanceof File) {
+        media_urls.push(await toDataUrl(file));
       }
     }
 
-    let audio_url = null;
-
-    // Upload audio file
+    let audio_url: string | null = null;
     if (audioFile instanceof File) {
-      const uploadResponse = await base44.integrations.Core.UploadFile({
-        file: audioFile
-      });
-      audio_url = uploadResponse.file_url;
+      audio_url = await toDataUrl(audioFile);
     }
 
-    const storyData = {
-      title: title.trim(),
-      author_name: author_name.trim(),
-      content: content.trim(),
-      topic: topic,
-      status: 'pending'
-    };
-
-    if (media_urls.length > 0) {
-      storyData.media_urls = media_urls;
-    }
-
-    if (audio_url) {
-      storyData.audio_url = audio_url;
-    }
-
-    const story = await base44.asServiceRole.entities.Story.create(storyData);
-
-    // Generate AI metadata in the background
-    try {
-      await base44.functions.invoke('generateStoryAIMetadata', {
-        story_id: story.id,
-        title: story.title,
-        content: story.content
-      });
-    } catch (aiError) {
-      console.error('Error generating AI metadata:', aiError);
-      // Don't fail the request if AI generation fails
-    }
+    const story = createStory({
+      title,
+      author_name,
+      content,
+      topic,
+      status: 'pending',
+      media_urls,
+      audio_url,
+      summary: summarize(content),
+      tags: inferTags(content, topic),
+      comments_count: 0,
+      likes: 0
+    });
 
     return Response.json({ success: true, story });
   } catch (error) {
