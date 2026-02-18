@@ -1,4 +1,13 @@
-import { createStory, inferTags, summarize } from './_localBackend.ts';
+import { inferTags, summarize } from './_localBackend.ts';
+
+type Base44StoryEntity = {
+  create: (payload: Record<string, unknown>) => Promise<Record<string, unknown>>;
+};
+
+const getStoryEntity = (): Base44StoryEntity | null => {
+  const base44 = (globalThis as { base44?: { entities?: { Story?: Base44StoryEntity } } }).base44;
+  return base44?.entities?.Story ?? null;
+};
 
 Deno.serve(async (req) => {
   try {
@@ -9,7 +18,12 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const story = createStory({
+    const storyEntity = getStoryEntity();
+    if (!storyEntity) {
+      return Response.json({ error: 'Story persistence backend is unavailable' }, { status: 500 });
+    }
+
+    const story = await storyEntity.create({
       title,
       author_name,
       content,

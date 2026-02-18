@@ -16,10 +16,7 @@ Deno.serve(async (req) => {
     const origin = req.headers.get('origin') || 'http://localhost:5173';
 
     if (!stripe) {
-      return Response.json({
-        url: `${origin}/donate?success=true&mock_checkout=true&amount=${amount}`,
-        mock: true
-      });
+      return Response.json({ error: 'STRIPE_SECRET_KEY is not configured' }, { status: 500 });
     }
 
     const session = await stripe.checkout.sessions.create({
