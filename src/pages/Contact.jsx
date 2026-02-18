@@ -6,13 +6,13 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, MapPin, Phone, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import BackgroundElements from '@/components/BackgroundElements';
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_NAME_LENGTH = 100;
 const MAX_ORG_LENGTH = 150;
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzbqoay';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -101,21 +101,34 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await base44.entities.ContactSubmission.create(formData);
-      
-      try {
-        await base44.functions.invoke('forwardContactSubmission', { data: formData });
-      } catch (emailError) {
-        console.error('Email forwarding failed:', emailError);
-        // Continue - submission was saved
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('type', formData.type);
+      payload.append('organization', formData.organization || '');
+      payload.append('message', formData.message);
+      payload.append('_subject', `Hope Bridge contact from ${formData.name}`);
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json'
+        },
+        body: payload
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null);
+        const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
+        throw new Error(details);
       }
       
       setIsSuccess(true);
       setFormData({ name: '', email: '', type: '', organization: '', message: '' });
       setTouched({});
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com');
+      console.error('Error submitting form to Formspree:', error);
+      setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com.');
     } finally {
       setIsSubmitting(false);
     }

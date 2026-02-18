@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,6 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Label } from '@/components/ui/label';
 import { Mail, MapPin, Phone, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzbqoay';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,14 +25,37 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await base44.entities.ContactSubmission.create({
-      ...formData,
-      status: 'new'
-    });
+    try {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('type', formData.type);
+      payload.append('organization', formData.organization || '');
+      payload.append('message', formData.message);
+      payload.append('_subject', `Hope Bridge contact from ${formData.name}`);
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success('Message sent successfully!');
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json'
+        },
+        body: payload
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null);
+        const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
+        throw new Error(details);
+      }
+
+      setIsSubmitted(true);
+      toast.success('Message sent successfully!');
+    } catch (error) {
+      console.error('Failed to send message to Formspree:', error);
+      toast.error('Failed to send message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
