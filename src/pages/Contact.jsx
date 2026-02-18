@@ -149,6 +149,34 @@ export default function Contact() {
         const errorBody = await response.json().catch(() => null);
         const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
         throw new Error(details);
+      let submissionSaved = false;
+      let messageForwarded = false;
+
+      try {
+        await base44.entities.ContactSubmission.create(formData);
+        submissionSaved = true;
+      } catch (saveError) {
+        console.error('Contact submission save failed:', saveError);
+      }
+
+      try {
+        await base44.functions.invoke('forwardContactSubmission', { data: formData });
+        messageForwarded = true;
+      } catch (forwardError) {
+        console.error('Primary email forwarding failed:', forwardError);
+      }
+
+      if (!messageForwarded) {
+        try {
+          await base44.functions.invoke('sendContactEmail', formData);
+          messageForwarded = true;
+        } catch (fallbackError) {
+          console.error('Fallback email sending failed:', fallbackError);
+        }
+      }
+
+      if (!submissionSaved && !messageForwarded) {
+        throw new Error('No contact submission path succeeded');
       }
       
       setIsSuccess(true);
@@ -163,6 +191,9 @@ export default function Contact() {
         console.error('Native Formspree submit fallback failed:', fallbackError);
         setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com.');
       }
+      console.error('Error submitting form:', error);
+      const details = error?.message ? ` Details: ${error.message}` : '';
+      setSubmitError(`Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com.${details}`);
     } finally {
       setIsSubmitting(false);
     }
