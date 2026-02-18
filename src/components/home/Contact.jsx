@@ -99,6 +99,8 @@ export default function Contact() {
         const errorBody = await response.json().catch(() => null);
         const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
         throw new Error(details);
+      }
+
       let submissionSaved = false;
       let messageForwarded = false;
 
