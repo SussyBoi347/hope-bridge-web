@@ -1,4 +1,17 @@
-import { updateStory } from './_localBackend.ts';
+type StoryRecord = {
+  id: string;
+  comments_count?: number;
+};
+
+type Base44StoryEntity = {
+  filter: (query: Record<string, unknown>) => Promise<StoryRecord[]>;
+  update: (id: string, payload: Record<string, unknown>) => Promise<Record<string, unknown>>;
+};
+
+const getStoryEntity = (): Base44StoryEntity | null => {
+  const base44 = (globalThis as { base44?: { entities?: { Story?: Base44StoryEntity } } }).base44;
+  return base44?.entities?.Story ?? null;
+};
 
 Deno.serve(async (req) => {
   try {
@@ -8,13 +21,24 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing storyId or increment' }, { status: 400 });
     }
 
-    const current = updateStory(storyId, {});
-    if (!current) {
-      return Response.json({ success: true, newCount: 0, note: 'Story not found in local function store' });
+    if (typeof increment !== 'number' || !Number.isFinite(increment)) {
+      return Response.json({ error: 'Increment must be a finite number' }, { status: 400 });
     }
 
-    const newCount = Math.max(0, (current.comments_count || 0) + increment);
-    updateStory(storyId, { comments_count: newCount });
+    const storyEntity = getStoryEntity();
+    if (!storyEntity) {
+      return Response.json({ error: 'Story persistence backend is unavailable' }, { status: 500 });
+    }
+
+    const stories = await storyEntity.filter({ id: storyId });
+    const story = stories?.[0];
+
+    if (!story) {
+      return Response.json({ error: 'Story not found' }, { status: 404 });
+    }
+
+    const newCount = Math.max(0, (story.comments_count || 0) + increment);
+    await storyEntity.update(story.id, { comments_count: newCount });
 
     return Response.json({ success: true, newCount });
   } catch (error) {
