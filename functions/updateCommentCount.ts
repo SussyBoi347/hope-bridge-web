@@ -1,20 +1,20 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { updateStory } from './_localBackend.ts';
 
 Deno.serve(async (req) => {
   try {
-    const base44 = createClientFromRequest(req);
     const { storyId, increment } = await req.json();
 
     if (!storyId || increment === undefined) {
       return Response.json({ error: 'Missing storyId or increment' }, { status: 400 });
     }
 
-    const story = await base44.asServiceRole.entities.Story.get(storyId);
-    const newCount = Math.max(0, (story.comments_count || 0) + increment);
+    const current = updateStory(storyId, {});
+    if (!current) {
+      return Response.json({ success: true, newCount: 0, note: 'Story not found in local function store' });
+    }
 
-    await base44.asServiceRole.entities.Story.update(storyId, {
-      comments_count: newCount
-    });
+    const newCount = Math.max(0, (current.comments_count || 0) + increment);
+    updateStory(storyId, { comments_count: newCount });
 
     return Response.json({ success: true, newCount });
   } catch (error) {
