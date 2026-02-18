@@ -49,6 +49,9 @@ Deno.serve(async (req) => {
     }
 
     return Response.json({ success: true, delivered: true, provider: 'resend', id: result.data?.id || null });
+    }
+
+    return Response.json({ success: true, delivered: true, provider: 'resend', id: result.data?.id || null });
     const payload = {
       source: 'hope-bridge-web',
       submitted_at: new Date().toISOString(),
