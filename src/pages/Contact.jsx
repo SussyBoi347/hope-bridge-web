@@ -136,7 +136,8 @@ export default function Contact() {
       setTouched({});
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitError('Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com');
+      const details = error?.message ? ` Details: ${error.message}` : '';
+      setSubmitError(`Failed to send message. Please try again or email us directly at hopebridgecommunityservices@gmail.com.${details}`);
     } finally {
       setIsSubmitting(false);
     }
