@@ -15,6 +15,17 @@ const MAX_ORG_LENGTH = 150;
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzbqoay';
 
 
+const buildFormspreePayload = (data) => {
+  const payload = new FormData();
+  payload.append('name', data.name);
+  payload.append('email', data.email);
+  payload.append('type', data.type);
+  payload.append('organization', data.organization || '');
+  payload.append('message', data.message);
+  payload.append('_subject', `Hope Bridge contact from ${data.name}`);
+  return payload;
+};
+
 const submitViaNativeForm = (data) => {
   const form = document.createElement('form');
   form.method = 'POST';
@@ -114,13 +125,7 @@ export default function Contact() {
   };
 
   const submitToFormspree = async (data) => {
-    const payload = new FormData();
-    payload.append('name', data.name);
-    payload.append('email', data.email);
-    payload.append('type', data.type);
-    payload.append('organization', data.organization || '');
-    payload.append('message', data.message);
-    payload.append('_subject', `Hope Bridge contact from ${data.name}`);
+    const payload = buildFormspreePayload(data);
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
