@@ -10,6 +10,34 @@ import { toast } from 'sonner';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzbqoay';
 
+
+const submitViaNativeForm = (data) => {
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = FORMSPREE_ENDPOINT;
+  form.style.display = 'none';
+
+  const entries = {
+    name: data.name,
+    email: data.email,
+    type: data.type,
+    organization: data.organization || '',
+    message: data.message,
+    _subject: `Hope Bridge contact from ${data.name}`,
+  };
+
+  Object.entries(entries).forEach(([key, value]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = String(value ?? '');
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+};
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -26,6 +54,26 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('type', formData.type);
+      payload.append('organization', formData.organization || '');
+      payload.append('message', formData.message);
+      payload.append('_subject', `Hope Bridge contact from ${formData.name}`);
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json'
+        },
+        body: payload
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null);
+        const details = errorBody?.errors?.map((e) => e.message).join(', ') || 'Unable to submit form.';
+        throw new Error(details);
       let submissionSaved = false;
       let messageForwarded = false;
 
@@ -67,6 +115,14 @@ export default function Contact() {
       setIsSubmitted(true);
       toast.success('Message sent successfully!');
     } catch (error) {
+      console.error('Failed to send message to Formspree fetch, trying native submit fallback:', error);
+      try {
+        submitViaNativeForm(formData);
+        return;
+      } catch (fallbackError) {
+        console.error('Native Formspree submit fallback failed:', fallbackError);
+        toast.error('Failed to send message. Please try again or email us directly.');
+      }
       console.error('Failed to send message:', error);
       toast.error('Failed to send message. Please try again or email us directly.');
     } finally {
