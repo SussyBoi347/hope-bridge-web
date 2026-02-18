@@ -24,14 +24,70 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await base44.entities.ContactSubmission.create({
-      ...formData,
-      status: 'new'
-    });
+    try {
+      let submissionSaved = false;
+      let messageForwarded = false;
+      const failureReasons = [];
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success('Message sent successfully!');
+      try {
+        await base44.entities.ContactSubmission.create({
+          ...formData,
+          status: 'new'
+        });
+        submissionSaved = true;
+      } catch (saveError) {
+        console.error('Contact submission save failed:', saveError);
+        failureReasons.push(`save failed: ${saveError?.message || 'unknown error'}`);
+      }
+
+      try {
+        await base44.functions.invoke('forwardContactSubmission', {
+          data: {
+            ...formData,
+            status: 'new'
+          }
+        });
+        messageForwarded = true;
+      } catch (forwardError) {
+        console.error('Primary email forwarding failed:', forwardError);
+        failureReasons.push(`forwardContactSubmission failed: ${forwardError?.message || 'unknown error'}`);
+      }
+
+      if (!messageForwarded) {
+        try {
+          await base44.functions.invoke('sendContactEmail', formData);
+          messageForwarded = true;
+        } catch (fallbackError) {
+          console.error('Fallback email sending failed:', fallbackError);
+          failureReasons.push(`sendContactEmail failed: ${fallbackError?.message || 'unknown error'}`);
+        }
+      }
+
+      if (!submissionSaved && !messageForwarded) {
+        const subject = encodeURIComponent(`Hope Bridge contact from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}
+Email: ${formData.email}
+Type: ${formData.type}
+Organization: ${formData.organization || 'N/A'}
+
+Message:
+${formData.message}`
+        );
+        window.location.href = `mailto:hopebridgecommunityservices@gmail.com?subject=${subject}&body=${body}`;
+        setIsSubmitted(true);
+        toast.success('We opened your email app with a pre-filled draft. Please press send there.');
+        return;
+      }
+
+      setIsSubmitted(true);
+      toast.success('Message sent successfully!');
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      toast.error('Failed to send message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
