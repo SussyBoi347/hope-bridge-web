@@ -101,13 +101,34 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await base44.entities.ContactSubmission.create(formData);
-      
+      let submissionSaved = false;
+      let messageForwarded = false;
+
+      try {
+        await base44.entities.ContactSubmission.create(formData);
+        submissionSaved = true;
+      } catch (saveError) {
+        console.error('Contact submission save failed:', saveError);
+      }
+
       try {
         await base44.functions.invoke('forwardContactSubmission', { data: formData });
-      } catch (emailError) {
-        console.error('Email forwarding failed:', emailError);
-        // Continue - submission was saved
+        messageForwarded = true;
+      } catch (forwardError) {
+        console.error('Primary email forwarding failed:', forwardError);
+      }
+
+      if (!messageForwarded) {
+        try {
+          await base44.functions.invoke('sendContactEmail', formData);
+          messageForwarded = true;
+        } catch (fallbackError) {
+          console.error('Fallback email sending failed:', fallbackError);
+        }
+      }
+
+      if (!submissionSaved && !messageForwarded) {
+        throw new Error('No contact submission path succeeded');
       }
       
       setIsSuccess(true);

@@ -24,14 +24,53 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await base44.entities.ContactSubmission.create({
-      ...formData,
-      status: 'new'
-    });
+    try {
+      let submissionSaved = false;
+      let messageForwarded = false;
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success('Message sent successfully!');
+      try {
+        await base44.entities.ContactSubmission.create({
+          ...formData,
+          status: 'new'
+        });
+        submissionSaved = true;
+      } catch (saveError) {
+        console.error('Contact submission save failed:', saveError);
+      }
+
+      try {
+        await base44.functions.invoke('forwardContactSubmission', {
+          data: {
+            ...formData,
+            status: 'new'
+          }
+        });
+        messageForwarded = true;
+      } catch (forwardError) {
+        console.error('Primary email forwarding failed:', forwardError);
+      }
+
+      if (!messageForwarded) {
+        try {
+          await base44.functions.invoke('sendContactEmail', formData);
+          messageForwarded = true;
+        } catch (fallbackError) {
+          console.error('Fallback email sending failed:', fallbackError);
+        }
+      }
+
+      if (!submissionSaved && !messageForwarded) {
+        throw new Error('No contact submission path succeeded');
+      }
+
+      setIsSubmitted(true);
+      toast.success('Message sent successfully!');
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      toast.error('Failed to send message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
