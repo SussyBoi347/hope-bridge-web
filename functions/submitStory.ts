@@ -1,4 +1,5 @@
 import { createStory, inferTags, summarize } from './_localBackend.ts';
+import { moderateStoryText } from './_contentModeration.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -7,6 +8,14 @@ Deno.serve(async (req) => {
 
     if (!title || !author_name || !content || !topic) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    const moderation = await moderateStoryText(`${title}\n\n${content}`);
+    if (!moderation.isClean) {
+      return Response.json({
+        error: 'Your story could not be posted because it contains inappropriate language.',
+        moderation: { reason: moderation.reason, source: moderation.source }
+      }, { status: 400 });
     }
 
     const story = createStory({
@@ -18,7 +27,7 @@ Deno.serve(async (req) => {
       audio_url: audio_url || null,
       summary: summarize(content),
       tags: inferTags(content, topic),
-      status: 'pending',
+      status: 'approved',
       comments_count: 0,
       likes: 0
     });
