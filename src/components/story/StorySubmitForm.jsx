@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Lightbulb, Heart, Loader2, CheckCircle2, AlertCircle, Image, Volume2, X } from 'lucide-react';
+import { BookOpen, Lightbulb, Heart, Loader2, CheckCircle2, AlertCircle, Image, Volume2, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { base44 } from '@/api/client';
 import BackgroundElements from '@/components/BackgroundElements';
 
@@ -80,29 +79,50 @@ export default function StorySubmitForm() {
 
     setIsSubmitting(true);
     try {
-      // Upload media files first
-      const mediaUrls = [];
-      for (const file of mediaFiles) {
-        const uploadRes = await base44.integrations.Core.UploadFile({ file });
-        mediaUrls.push(uploadRes.file_url);
+      const hasMedia = mediaFiles.length > 0 || Boolean(audioFile);
+
+      let response;
+      if (hasMedia) {
+        const multipartFormData = new FormData();
+        multipartFormData.append('title', formData.title.trim());
+        multipartFormData.append('author_name', formData.author_name.trim());
+        multipartFormData.append('content', formData.content.trim());
+        multipartFormData.append('topic', formData.topic);
+
+        mediaFiles.forEach((file) => {
+          multipartFormData.append('media', file);
+        });
+
+        if (audioFile) {
+          multipartFormData.append('audio', audioFile);
+        }
+
+        response = await base44.request('/stories/submit-with-media', {
+          method: 'POST',
+          body: multipartFormData
+        });
+      } else {
+        response = await base44.request('/stories/submit', {
+          method: 'POST',
+          body: {
+            ...formData,
+            title: formData.title.trim(),
+            author_name: formData.author_name.trim(),
+            content: formData.content.trim(),
+            media_urls: [],
+            audio_url: null
+          }
+        });
       }
 
-      let audioUrl = null;
-      if (audioFile) {
-        const audioRes = await base44.integrations.Core.UploadFile({ file: audioFile });
-        audioUrl = audioRes.file_url;
+      if (!response?.story && response?.success !== true) {
+        throw new Error('Unexpected response from story submission endpoint.');
       }
-
-      // Submit story
-      await base44.functions.invoke('submitStory', {
-        ...formData,
-        media_urls: mediaUrls,
-        audio_url: audioUrl
-      });
 
       setIsSuccess(true);
     } catch (err) {
-      setError('Failed to submit story. Please try again.');
+      const backendError = err?.data?.error || err?.data?.message || err?.message;
+      setError(backendError || 'Failed to submit story. Please try again.');
       console.error(err);
     } finally {
       setIsSubmitting(false);
