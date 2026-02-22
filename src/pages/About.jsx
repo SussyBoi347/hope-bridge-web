@@ -132,7 +132,7 @@ export default function About() {
               Our Team
             </h2>
             <p className="text-white text-xl leading-relaxed font-bold">
-              Founded by six Asian teens: Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav.
+              Founded by six asian teens: Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav.
             </p>
           </motion.div>
         </div>
