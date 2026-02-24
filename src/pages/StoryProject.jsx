@@ -12,6 +12,7 @@ import StoryInsights from '@/components/story/StoryInsights';
 import StorySearchFilters from '@/components/story/StorySearchFilters';
 import BackgroundElements from '@/components/BackgroundElements';
 import { createLocalStory, listLocalStories, listSupabaseStories, mergeStories, updateLocalStoryLikes, updateSupabaseStoryLikes } from '@/lib/localStories';
+import { moderateStoryText } from '@/lib/contentModeration';
 
 export default function StoryProject() {
   const [stories, setStories] = useState([]);
@@ -87,6 +88,17 @@ export default function StoryProject() {
 
     setIsAnalyzing(true);
     setUploadError('');
+
+    const moderation = moderateStoryText({
+      title: `Photo Story - ${new Date().toLocaleDateString()}`,
+      content: ''
+    });
+
+    if (!moderation.isClean) {
+      setUploadError(moderation.reason);
+      setIsAnalyzing(false);
+      return;
+    }
 
     try {
       await createLocalStory({

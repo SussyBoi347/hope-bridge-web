@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { base44 } from '@/api/client';
 import BackgroundElements from '@/components/BackgroundElements';
 import { createLocalStory } from '@/lib/localStories';
+import { moderateStoryText } from '@/lib/contentModeration';
 
 const topics = [
 {
@@ -74,6 +75,16 @@ export default function StorySubmitForm() {
 
     if (formData.content.length < 50) {
       setError('Story must be at least 50 characters');
+      return;
+    }
+
+    const moderation = moderateStoryText({
+      title: formData.title,
+      content: formData.content
+    });
+
+    if (!moderation.isClean) {
+      setError(moderation.reason);
       return;
     }
 
