@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { base44 } from '@/api/client';
 import BackgroundElements from '@/components/BackgroundElements';
+import { createLocalStory } from '@/lib/localStories';
+import { moderateStoryText } from '@/lib/contentModeration';
 
 const topics = [
 {
@@ -32,7 +34,6 @@ export default function StorySubmitForm() {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
-    author_name: '',
     content: '',
     topic: ''
   });
@@ -67,7 +68,7 @@ export default function StorySubmitForm() {
     e.preventDefault();
     setError('');
 
-    if (!formData.title.trim() || !formData.author_name.trim() || !formData.content.trim() || !formData.topic) {
+    if (!formData.title.trim() || !formData.content.trim() || !formData.topic) {
       setError('Please fill in all fields');
       return;
     }
@@ -77,17 +78,36 @@ export default function StorySubmitForm() {
       return;
     }
 
+    const moderation = moderateStoryText({
+      title: formData.title,
+      content: formData.content
+    });
+
+    if (!moderation.isClean) {
+      setError(moderation.reason);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const hasMedia = mediaFiles.length > 0 || Boolean(audioFile);
 
+      const payload = {
+        ...formData,
+        title: formData.title.trim(),
+        author_name: 'Anonymous',
+        content: formData.content.trim(),
+        media_urls: [],
+        audio_url: null
+      };
+
       let response;
       if (hasMedia) {
         const multipartFormData = new FormData();
-        multipartFormData.append('title', formData.title.trim());
-        multipartFormData.append('author_name', formData.author_name.trim());
-        multipartFormData.append('content', formData.content.trim());
-        multipartFormData.append('topic', formData.topic);
+        multipartFormData.append('title', payload.title);
+        multipartFormData.append('author_name', payload.author_name);
+        multipartFormData.append('content', payload.content);
+        multipartFormData.append('topic', payload.topic);
 
         mediaFiles.forEach((file) => {
           multipartFormData.append('media', file);
@@ -97,22 +117,48 @@ export default function StorySubmitForm() {
           multipartFormData.append('audio', audioFile);
         }
 
-        response = await base44.request('/stories/submit-with-media', {
-          method: 'POST',
-          body: multipartFormData
-        });
-      } else {
-        response = await base44.request('/stories/submit', {
-          method: 'POST',
-          body: {
-            ...formData,
-            title: formData.title.trim(),
-            author_name: formData.author_name.trim(),
-            content: formData.content.trim(),
-            media_urls: [],
-            audio_url: null
+        try {
+          response = await base44.request('/functions/submitStoryWithMedia', {
+            method: 'POST',
+            body: multipartFormData
+          });
+        } catch {
+          try {
+            response = await base44.request('/stories/submit-with-media', {
+              method: 'POST',
+              body: multipartFormData
+            });
+          } catch {
+            const story = await createLocalStory({
+              title: payload.title,
+              author_name: payload.author_name,
+              content: payload.content,
+              topic: payload.topic,
+              mediaFiles,
+              audioFile
+            });
+            response = { success: true, story };
           }
-        });
+        }
+      } else {
+        try {
+          response = await base44.functions.invoke('submitStory', payload);
+        } catch {
+          try {
+            response = await base44.request('/stories/submit', {
+              method: 'POST',
+              body: payload
+            });
+          } catch {
+            const story = await createLocalStory({
+              title: payload.title,
+              author_name: payload.author_name,
+              content: payload.content,
+              topic: payload.topic
+            });
+            response = { success: true, story };
+          }
+        }
       }
 
       if (!response?.story && response?.success !== true) {
@@ -148,7 +194,7 @@ export default function StorySubmitForm() {
           <Button
             onClick={() => {
               setIsSuccess(false);
-              setFormData({ title: '', author_name: '', content: '', topic: '' });
+              setFormData({ title: '', content: '', topic: '' });
               setSelectedTopic(null);
             }}
             className="bg-blue-600 hover:bg-blue-700 text-white rounded-full">
@@ -354,7 +400,7 @@ export default function StorySubmitForm() {
                   </Button>
                   <Button
                   type="submit"
-                  disabled={isSubmitting || !formData.title.trim() || !formData.author_name.trim() || !formData.content.trim()}
+                  disabled={isSubmitting || !formData.title.trim() || !formData.content.trim()}
                   className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-full flex-1">
 
                     {isSubmitting ?
