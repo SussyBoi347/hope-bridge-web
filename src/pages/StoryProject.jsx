@@ -11,6 +11,7 @@ import FeaturedStories from '@/components/story/FeaturedStories';
 import StoryInsights from '@/components/story/StoryInsights';
 import StorySearchFilters from '@/components/story/StorySearchFilters';
 import BackgroundElements from '@/components/BackgroundElements';
+import { listLocalStories, listSupabaseStories, mergeStories, updateLocalStoryLikes, updateSupabaseStoryLikes } from '@/lib/localStories';
 
 export default function StoryProject() {
   const [stories, setStories] = useState([]);
@@ -28,15 +29,21 @@ export default function StoryProject() {
   // Load stories
   useEffect(() => {
     const loadStories = async () => {
-      try {
-        const allStories = await base44.entities.Story.filter({ status: 'approved' }, '-created_date');
-        setStories(allStories);
-        setFilteredStories(allStories);
-      } catch (error) {
-        console.error('Failed to load stories:', error);
-      } finally {
-        setIsLoading(false);
-      }
+      const localStories = listLocalStories();
+
+      const [supabaseStories, base44Stories] = await Promise.all([
+        listSupabaseStories(),
+        base44.entities.Story.filter({ status: 'approved' }, '-created_date').catch((error) => {
+          console.error('Failed to load Base44 stories:', error);
+          return [];
+        })
+      ]);
+
+      const remoteStories = [...supabaseStories, ...base44Stories];
+      const allStories = mergeStories(remoteStories, localStories);
+      setStories(allStories);
+      setFilteredStories(allStories);
+      setIsLoading(false);
     };
     loadStories();
   }, []);
@@ -80,9 +87,17 @@ export default function StoryProject() {
           setSelectedFile(null);
           setPreview(null);
           // Reload stories
-          base44.entities.Story.filter({ status: 'approved' }, '-created_date').then(allStories => {
+          const localStories = listLocalStories();
+          Promise.all([
+            listSupabaseStories(),
+            base44.entities.Story.filter({ status: 'approved' }, '-created_date').catch(() => [])
+          ]).then(([supabaseStories, base44Stories]) => {
+            const allStories = mergeStories([...supabaseStories, ...base44Stories], localStories);
             setStories(allStories);
             setFilteredStories(allStories);
+          }).catch(() => {
+            setStories(localStories);
+            setFilteredStories(localStories);
           });
         }, 2000);
       } else {
@@ -116,8 +131,14 @@ export default function StoryProject() {
         setStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
         setFilteredStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
         
-        // Update backend
-        await base44.entities.Story.update(storyId, { likes: newLikes });
+        // Persist like update
+        updateLocalStoryLikes(storyId, newLikes);
+        await updateSupabaseStoryLikes(storyId, newLikes);
+        try {
+          await base44.entities.Story.update(storyId, { likes: newLikes });
+        } catch (error) {
+          console.error('Failed to update backend like:', error);
+        }
       } else {
         // Like
         const newLikes = story.likes + 1;
@@ -127,8 +148,14 @@ export default function StoryProject() {
         setStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
         setFilteredStories((prev) => prev.map((s) => s.id === storyId ? { ...s, likes: newLikes } : s));
         
-        // Update backend
-        await base44.entities.Story.update(storyId, { likes: newLikes });
+        // Persist like update
+        updateLocalStoryLikes(storyId, newLikes);
+        await updateSupabaseStoryLikes(storyId, newLikes);
+        try {
+          await base44.entities.Story.update(storyId, { likes: newLikes });
+        } catch (error) {
+          console.error('Failed to update backend like:', error);
+        }
       }
     } catch (error) {
       console.error('Failed to update like:', error);
@@ -142,8 +169,9 @@ export default function StoryProject() {
   const featuredStories = stories.filter((s) => s.featured).slice(0, 2);
   const allOtherStories = topicFilteredStories.filter((s) => !s.featured);
 
-  const topicCounts = stories.reduce((acc, s) => {
-    acc[s.topic] = (acc[s.topic] || 0) + 1;
+  const topicCounts = stories.reduce((acc, story) => {
+    const topic = story.topic || 'N/A';
+    acc[topic] = (acc[topic] || 0) + 1;
     return acc;
   }, {});
   
@@ -152,23 +180,20 @@ export default function StoryProject() {
   const stats = {
     total: stories.length,
     topTopic: topTopicEntry ? topTopicEntry[0] : 'N/A',
-    totalLikes: stories.reduce((sum, s) => sum + s.likes, 0),
-    totalComments: stories.reduce((sum, s) => sum + s.comments_count, 0)
+    totalLikes: stories.reduce((sum, story) => sum + Number(story.likes || 0), 0),
+    totalComments: stories.reduce((sum, story) => sum + Number(story.comments_count || 0), 0)
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none z-0 opacity-60"
+        className="absolute inset-0 pointer-events-none z-0 opacity-70"
         style={{
-          backgroundImage: `
-            linear-gradient(to bottom, rgba(96, 165, 250, 0.22) 1px, transparent 1px),
-            linear-gradient(to right, rgba(96, 165, 250, 0.22) 1px, transparent 1px),
-            linear-gradient(to right, rgba(96, 165, 250, 0.22) 1px, transparent 1px)
-          `,
-          backgroundSize: '100% 56px, 120px 112px, 120px 112px',
-          backgroundPosition: '0 0, 0 0, 60px 56px'
+          backgroundColor: '#b7d7ef',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120'%3E%3Crect width='240' height='120' fill='%23b7d7ef'/%3E%3Crect x='4' y='4' width='112' height='52' rx='2' fill='%23f5f5f7'/%3E%3Crect x='124' y='4' width='112' height='52' rx='2' fill='%23f5f5f7'/%3E%3Crect x='-56' y='64' width='112' height='52' rx='2' fill='%23f5f5f7'/%3E%3Crect x='64' y='64' width='112' height='52' rx='2' fill='%23f5f5f7'/%3E%3Crect x='184' y='64' width='112' height='52' rx='2' fill='%23f5f5f7'/%3E%3C/svg%3E")`,
+          backgroundSize: '240px 120px',
+          backgroundRepeat: 'repeat'
         }}
       />
       <BackgroundElements />
