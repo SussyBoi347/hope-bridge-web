@@ -11,11 +11,33 @@ export default function StripePaymentForm() {
   const [isCreatingIntent, setIsCreatingIntent] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
+  const parseValidAmount = (value) => {
+    if (value === null || value === undefined || value === '') {
+      return null;
+    }
+
+    const parsedAmount = Number(value);
+    if (!Number.isFinite(parsedAmount) || parsedAmount <= 0) {
+      return null;
+    }
+
+    return Math.round(parsedAmount * 100) / 100;
+  };
+
   // Check for success in URL on mount
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
+    const isSuccess = urlParams.get('success') === 'true';
+    const amountFromUrl =
+      parseValidAmount(urlParams.get('amount')) ??
+      parseValidAmount(urlParams.get('amt')) ??
+      parseValidAmount(urlParams.get('donationAmount'));
+
+    if (isSuccess) {
       setPaymentSuccess(true);
+      if (amountFromUrl !== null) {
+        setSelectedAmount(amountFromUrl);
+      }
       // Clean up URL
       window.history.replaceState({}, '', '/donate');
     }
@@ -50,9 +72,12 @@ export default function StripePaymentForm() {
       const { data } = await base44.functions.invoke('createCheckout', {
         amount: selectedAmount
       });
+
+      const checkoutUrl = new URL(data.url);
+      checkoutUrl.searchParams.set('amount', selectedAmount.toString());
       
       // Redirect to Stripe checkout
-      window.location.href = data.url;
+      window.location.href = checkoutUrl.toString();
     } catch (error) {
       console.error('Error creating checkout:', error);
       alert('Unable to initialize payment. Please try again or contact us directly.');
