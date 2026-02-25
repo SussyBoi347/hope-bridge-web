@@ -8,6 +8,7 @@ import { base44 } from '@/api/client';
 export default function StripePaymentForm() {
   const [selectedAmount, setSelectedAmount] = useState(25);
   const [customAmount, setCustomAmount] = useState('');
+  const [customAmountError, setCustomAmountError] = useState('');
   const [isCreatingIntent, setIsCreatingIntent] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
@@ -26,16 +27,31 @@ export default function StripePaymentForm() {
   const handleAmountSelect = (amount) => {
     setSelectedAmount(amount);
     setCustomAmount('');
+    setCustomAmountError('');
   };
 
   const handleCustomAmount = (value) => {
-    const num = parseInt(value);
-    if (!isNaN(num) && num > 0) {
-      setSelectedAmount(num);
-      setCustomAmount(value);
-    } else {
-      setCustomAmount(value);
+    setCustomAmount(value);
+
+    if (value === '') {
+      setCustomAmountError('');
+      return;
     }
+
+    const num = Number(value);
+
+    if (!Number.isFinite(num) || num <= 0) {
+      setCustomAmountError('Please enter an amount greater than $0.');
+      return;
+    }
+
+    if (!Number.isInteger(num)) {
+      setCustomAmountError('Please enter a whole dollar amount (no cents).');
+      return;
+    }
+
+    setCustomAmountError('');
+    setSelectedAmount(num);
   };
 
   const createPaymentIntent = async () => {
@@ -119,18 +135,23 @@ export default function StripePaymentForm() {
                id="custom-amount"
                type="number"
                min="1"
+               step="1"
+               inputMode="numeric"
                placeholder="Enter amount"
                value={customAmount}
                onChange={(e) => handleCustomAmount(e.target.value)}
                className="pl-8 py-6 text-lg text-black"
              />
           </div>
+          {customAmountError && (
+            <p className="mt-2 text-sm text-amber-700">{customAmountError}</p>
+          )}
         </div>
       </div>
 
       <Button
         onClick={createPaymentIntent}
-        disabled={!selectedAmount || selectedAmount < 1 || isCreatingIntent}
+        disabled={!selectedAmount || selectedAmount < 1 || isCreatingIntent || !!customAmountError}
         className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 text-lg rounded-xl shadow-lg"
       >
         {isCreatingIntent ? (
