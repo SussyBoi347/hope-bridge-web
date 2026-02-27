@@ -116,28 +116,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}>
-
-            <Users className="w-12 h-12 text-white mx-auto mb-6" />
-            <h2 className="text-4xl font-black text-white mb-6">
-              Our Team
-            </h2>
-            <p className="text-white text-xl leading-relaxed font-bold">
-              Founded by six asian teens: Samvid, Ishaan, Rishi, Arjun, Anish, and Arnav.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Meet the Team */}
       <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -157,12 +135,12 @@ export default function About() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-            { name: 'Anish Pentyala', role: 'Web Development Lead' },
+            { name: 'Anish Pentyala', role: 'Web Development Lead', email: 'Anish.n.pentyala@gmail.com' },
             { name: 'Rishi Ravikumar', role: 'Planning Department Lead' },
-            { name: 'Arjun Kuchi', role: 'Field Work Lead' },
+            { name: 'Arjun Kuchi', role: 'Field Work Lead', email: 'stingingnettle1024@gmail.com' },
             { name: 'Samvid Prabhu', role: 'Research Department Lead' },
-            { name: 'Arnav Malhotra', role: 'Socials Department Lead' },
-            { name: 'Ishaan Kejriwal', role: 'Event Organization Lead' }].map((member, index) =>
+            { name: 'Arnav Malhotra', role: 'Socials Department Lead', email: 'reacharnavmalhotra@gmail.com' },
+            { name: 'Ishaan Kejriwal', role: 'Event Organization Lead', email: 'ishaankej@outlook.com' }].map((member, index) =>
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
@@ -176,6 +154,14 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
                 <p className="text-blue-700 font-semibold mt-1">{member.role}</p>
+                {member.email && (
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                  >
+                    {member.email}
+                  </a>
+                )}
               </motion.div>
             )}
           </div>
