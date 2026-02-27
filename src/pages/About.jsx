@@ -157,12 +157,12 @@ export default function About() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-            { name: 'Samvid', role: 'Co-Founder' },
-            { name: 'Ishaan', role: 'Co-Founder' },
-            { name: 'Rishi', role: 'Co-Founder' },
-            { name: 'Arjun', role: 'Co-Founder' },
-            { name: 'Anish', role: 'Co-Founder' },
-            { name: 'Arnav', role: 'Co-Founder' }].map((member, index) =>
+            { name: 'Anish Pentyala', role: 'Web Development Lead' },
+            { name: 'Rishi Ravikumar', role: 'Planning Department Lead' },
+            { name: 'Arjun Kuchi', role: 'Field Work Lead' },
+            { name: 'Samvid Prabhu', role: 'Research Department Lead' },
+            { name: 'Arnav Malhotra', role: 'Socials Department Lead' },
+            { name: 'Ishaan Kejriwal', role: 'Event Organization Lead' }].map((member, index) =>
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
