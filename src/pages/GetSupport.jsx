@@ -138,7 +138,7 @@ const onlineResources = [
   },
 ];
 
-const audienceTabs = ['I'm a Teen', 'I'm a Parent', 'I'm an Educator'];
+const audienceTabs = ["I'm a Teen", "I'm a Parent", "I'm an Educator"];
 
 const audienceContent = {
   "I'm a Teen": {

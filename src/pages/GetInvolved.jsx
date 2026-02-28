@@ -68,7 +68,7 @@ const donationTiers = [
   {
     amount: '$100',
     label: 'Champion',
-    impact: 'Sponsors a teen's participation for a full month',
+    impact: "Sponsors a teen's participation for a full month",
     color: 'border-violet-200 bg-violet-50',
     badge: 'bg-violet-100 text-violet-700',
   },
@@ -87,7 +87,7 @@ const shareMessages = [
   },
   {
     platform: 'Text a friend',
-    text: '"There's this nonprofit called HopeBridge doing really important work for Asian teen mental health — thought you'd want to know."',
+    text: "\"There's this nonprofit called HopeBridge doing really important work for Asian teen mental health — thought you'd want to know.\"",
     gradient: 'from-emerald-500 to-teal-500',
   },
 ];
