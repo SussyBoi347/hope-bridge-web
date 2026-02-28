@@ -86,7 +86,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="text-shimmer text-7xl sm:text-8xl lg:text-9xl font-black leading-none pb-3 mb-2 tracking-tight">
+          <h1 className="text-shimmer text-8xl sm:text-9xl lg:text-[11rem] font-black leading-none pb-4 mb-2 tracking-tight">
             HopeBridge
           </h1>
         </motion.div>

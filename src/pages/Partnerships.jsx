@@ -1,0 +1,592 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import {
+  GraduationCap, Building2, HeartHandshake, Stethoscope,
+  CheckCircle, Send, ArrowRight, Users, Sparkles, HandHeart
+} from 'lucide-react';
+
+const partnerTypes = [
+  {
+    icon: GraduationCap,
+    title: "Schools",
+    description: "Bring culturally informed mental health workshops, student programming, and counselor support directly to your campus.",
+    gradient: "from-blue-600 to-blue-500",
+    bg: "bg-blue-50",
+    border: "border-blue-200",
+    tag: "King County",
+    tagColor: "bg-blue-100 text-blue-700"
+  },
+  {
+    icon: Building2,
+    title: "Nonprofits & Community Orgs",
+    description: "Co-create programming, share resources, and multiply our collective impact for Asian American youth across the Eastside.",
+    gradient: "from-indigo-600 to-blue-500",
+    bg: "bg-indigo-50",
+    border: "border-indigo-200",
+    tag: "Coalition",
+    tagColor: "bg-indigo-100 text-indigo-700"
+  },
+  {
+    icon: Stethoscope,
+    title: "Therapists & Mental Health Pros",
+    description: "Join our referral network to serve teens who need professional support beyond peer programming.",
+    gradient: "from-sky-600 to-blue-500",
+    bg: "bg-sky-50",
+    border: "border-sky-200",
+    tag: "Referral Network",
+    tagColor: "bg-sky-100 text-sky-700"
+  },
+  {
+    icon: HeartHandshake,
+    title: "Faith & Cultural Organizations",
+    description: "Work together to reach teens within trusted community spaces — temples, churches, cultural centers, and beyond.",
+    gradient: "from-blue-500 to-cyan-500",
+    bg: "bg-cyan-50",
+    border: "border-cyan-200",
+    tag: "Community",
+    tagColor: "bg-cyan-100 text-cyan-700"
+  }
+];
+
+const benefits = [
+  "Culturally responsive mental health workshops for students",
+  "Professional development for staff and counselors",
+  "Student wellness programming and drop-in support",
+  "Parent education sessions available in multiple languages",
+  "Crisis response planning and staff consultation",
+  "Ongoing resources, check-ins, and program evaluation"
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Reach Out",
+    desc: "Submit the inquiry form below. We respond within 2 business days."
+  },
+  {
+    step: "02",
+    title: "Discovery Call",
+    desc: "A 30-minute conversation to understand your community's needs."
+  },
+  {
+    step: "03",
+    title: "Program Design",
+    desc: "We tailor programming to your schedule, culture, and demographics."
+  },
+  {
+    step: "04",
+    title: "Launch",
+    desc: "Programs roll out with ongoing check-ins to ensure real impact."
+  }
+];
+
+const initialForm = {
+  contactName: '',
+  role: '',
+  orgName: '',
+  orgType: '',
+  district: '',
+  email: '',
+  phone: '',
+  asianStudentCount: '',
+  goals: '',
+  preferredContact: 'email'
+};
+
+export default function Partnerships() {
+  const [formData, setFormData] = useState(initialForm);
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const validate = () => {
+    const e = {};
+    if (!formData.contactName.trim()) e.contactName = 'Your name is required';
+    if (!formData.orgName.trim()) e.orgName = 'Organization name is required';
+    if (!formData.orgType) e.orgType = 'Please select an organization type';
+    if (!formData.email.trim()) e.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) e.email = 'Enter a valid email';
+    if (!formData.goals.trim()) e.goals = 'Please share what you hope to achieve';
+    return e;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('https://formspree.io/f/mldgebll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `Partnership Inquiry — ${formData.orgName}`,
+          ...formData
+        })
+      });
+      if (res.ok) {
+        setIsSuccess(true);
+        setFormData(initialForm);
+        setErrors({});
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      setErrors({ submit: 'Something went wrong. Please try again or email us directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const inputClass = (field) =>
+    `w-full px-4 py-3 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+      errors[field]
+        ? 'border-red-300 bg-red-50'
+        : 'border-slate-200 bg-white hover:border-blue-300'
+    }`;
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-slate-50">
+
+      {/* Hero */}
+      <section className="pt-16 pb-20 px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-10 left-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 -right-10 w-72 h-72 bg-indigo-100/30 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-semibold mb-6">
+              <HandHeart className="w-4 h-4" />
+              Community Partnerships
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
+              Partner with{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                HopeBridge
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+              Whether you are a school, nonprofit, mental health provider, or community organization —
+              we want to work alongside you to support Asian American teens across King County.
+            </p>
+            <a
+              href="#partnership-form"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold text-base transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/30"
+            >
+              Start a Partnership
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Partner Types */}
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+              Who We Partner With
+            </h2>
+            <p className="text-gray-600 text-lg max-w-xl mx-auto">
+              We work across sectors to reach teens wherever they are.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {partnerTypes.map((type, index) => (
+              <motion.div
+                key={type.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`group relative ${type.bg} rounded-2xl p-6 border ${type.border} hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+              >
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${type.gradient}`} />
+                <div className="flex items-start justify-between mb-5">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${type.gradient} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                    <type.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <span className={`text-xs font-bold px-3 py-1 rounded-full ${type.tagColor}`}>
+                    {type.tag}
+                  </span>
+                </div>
+                <h3 className="text-lg font-black text-gray-900 mb-2">{type.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{type.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits + Free */}
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-black text-gray-900 mb-6">
+                What Your Partnership Includes
+              </h2>
+              <div className="space-y-3">
+                {benefits.map((b) => (
+                  <div key={b} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600">{b}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-md mb-5">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                Always Free for Communities
+              </h3>
+              <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
+                <p>
+                  HopeBridge brings culturally informed mental health programming directly
+                  to partner organizations — at no cost. We believe financial barriers
+                  should never stand between a teen and support.
+                </p>
+                <p>
+                  Our programs address the unique pressures Asian American teens face,
+                  from academic expectations to identity and cultural disconnection,
+                  in ways traditional counseling often cannot.
+                </p>
+                <p>
+                  Serving Sammamish and the greater King County Eastside area,
+                  with a focus on communities in the Lake Washington and Issaquah
+                  school districts.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" aria-hidden="true">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-blue-200 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-black text-white mb-3">
+              How Partnership Works
+            </h2>
+            <p className="text-blue-100 text-lg max-w-xl mx-auto">
+              We make the process simple for busy administrators and coordinators.
+            </p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map((s, i) => (
+              <motion.div
+                key={s.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center text-white font-black text-sm mx-auto mb-4">
+                  {s.step}
+                </div>
+                <h3 className="font-black text-white mb-2">{s.title}</h3>
+                <p className="text-blue-100 text-sm leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Inquiry Form */}
+      <section id="partnership-form" className="py-20 px-6 lg:px-8 bg-white scroll-mt-20">
+        <div className="max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-10">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg mx-auto mb-5">
+                <Users className="w-7 h-7 text-white" />
+              </div>
+              <h2 className="text-3xl font-black text-gray-900 mb-3">
+                Start a Partnership
+              </h2>
+              <p className="text-gray-600">
+                Fill out the form and we will reach out within 2 business days to set up a discovery call.
+              </p>
+            </div>
+
+            {isSuccess ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-16 px-8 bg-blue-50 rounded-2xl border border-blue-100"
+              >
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
+                  <CheckCircle className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-3">Inquiry Received!</h3>
+                <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+                  Thank you for reaching out. We will review your inquiry and be in touch within
+                  2 business days to schedule a discovery call.
+                </p>
+              </motion.div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 space-y-6"
+              >
+                {/* Contact Info */}
+                <div>
+                  <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Your Information</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Your Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        name="contactName"
+                        type="text"
+                        value={formData.contactName}
+                        onChange={handleChange}
+                        placeholder="Dr. Jane Kim"
+                        className={inputClass('contactName')}
+                      />
+                      {errors.contactName && <p className="mt-1 text-xs text-red-600">{errors.contactName}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Your Role
+                      </label>
+                      <input
+                        name="role"
+                        type="text"
+                        value={formData.role}
+                        onChange={handleChange}
+                        placeholder="School Counselor, Director, etc."
+                        className={inputClass('role')}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Organization Info */}
+                <div>
+                  <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Organization</h3>
+                  <div className="space-y-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                          Organization Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          name="orgName"
+                          type="text"
+                          value={formData.orgName}
+                          onChange={handleChange}
+                          placeholder="Eastlake High School"
+                          className={inputClass('orgName')}
+                        />
+                        {errors.orgName && <p className="mt-1 text-xs text-red-600">{errors.orgName}</p>}
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                          Organization Type <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="orgType"
+                          value={formData.orgType}
+                          onChange={handleChange}
+                          className={inputClass('orgType')}
+                        >
+                          <option value="">Select type</option>
+                          <option value="school">School / School District</option>
+                          <option value="nonprofit">Nonprofit Organization</option>
+                          <option value="mental_health">Mental Health Practice</option>
+                          <option value="faith">Faith / Cultural Organization</option>
+                          <option value="community">Community Center</option>
+                          <option value="other">Other</option>
+                        </select>
+                        {errors.orgType && <p className="mt-1 text-xs text-red-600">{errors.orgType}</p>}
+                      </div>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                          City / District
+                        </label>
+                        <input
+                          name="district"
+                          type="text"
+                          value={formData.district}
+                          onChange={handleChange}
+                          placeholder="Sammamish / Lake Washington SD"
+                          className={inputClass('district')}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                          Approx. Asian American youth served
+                        </label>
+                        <select
+                          name="asianStudentCount"
+                          value={formData.asianStudentCount}
+                          onChange={handleChange}
+                          className={inputClass('asianStudentCount')}
+                        >
+                          <option value="">Select a range</option>
+                          <option value="under_50">Under 50</option>
+                          <option value="50_150">50–150</option>
+                          <option value="150_300">150–300</option>
+                          <option value="300_500">300–500</option>
+                          <option value="over_500">Over 500</option>
+                          <option value="unsure">Not sure</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact Details */}
+                <div>
+                  <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Contact Details</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Email Address <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="jkim@lwsd.org"
+                        className={inputClass('email')}
+                      />
+                      {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Phone <span className="text-slate-400 font-normal">(optional)</span>
+                      </label>
+                      <input
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="(425) 555-0100"
+                        className={inputClass('phone')}
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Preferred contact method</label>
+                    <div className="flex gap-4">
+                      {['email', 'phone'].map((opt) => (
+                        <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="preferredContact"
+                            value={opt}
+                            checked={formData.preferredContact === opt}
+                            onChange={handleChange}
+                            className="text-blue-600"
+                          />
+                          <span className="text-sm text-slate-700 capitalize">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Goals */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                    What are you hoping to achieve? <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="goals"
+                    value={formData.goals}
+                    onChange={handleChange}
+                    rows={4}
+                    placeholder="Tell us about the teens you serve, any existing programs, and what a successful partnership looks like for you..."
+                    className={`${inputClass('goals')} resize-none`}
+                  />
+                  {errors.goals && <p className="mt-1 text-xs text-red-600">{errors.goals}</p>}
+                </div>
+
+                {errors.submit && (
+                  <p className="text-sm text-red-600 bg-red-50 rounded-lg px-4 py-3">{errors.submit}</p>
+                )}
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 disabled:opacity-70"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Submit Partnership Inquiry
+                    </>
+                  )}
+                </Button>
+
+                <p className="text-xs text-center text-slate-400">
+                  We typically respond within 2 business days. All information is kept confidential.
+                </p>
+              </form>
+            )}
+          </motion.div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

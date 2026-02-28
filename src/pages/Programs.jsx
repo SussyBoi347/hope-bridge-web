@@ -1,22 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Users, BookOpen, MessageCircle, Sparkles, ArrowRight, Check } from 'lucide-react';
+import { BookOpen, MessageCircle, Sparkles, ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 
 const programs = [
-  {
-    icon: Users,
-    title: 'Support Sessions',
-    description: 'Safe, facilitated sessions where Asian teens share experiences and find support from others who understand the cultural context.',
-    gradient: 'from-blue-600 to-blue-500',
-    bg: 'bg-blue-50',
-    border: 'border-blue-200',
-    tag: 'Weekly',
-    tagColor: 'bg-blue-100 text-blue-700',
-    highlights: ['Trained peer mentors', 'Confidential & safe', 'Culturally informed'],
-  },
   {
     icon: BookOpen,
     title: 'Workshops & Discussions',
@@ -38,6 +27,7 @@ const programs = [
     tag: 'Always Open',
     tagColor: 'bg-sky-100 text-sky-700',
     highlights: ['24/7 resource access', 'Professional referrals', 'Self-care toolkit'],
+    link: 'Resources',
   },
   {
     icon: Sparkles,
@@ -120,7 +110,7 @@ export default function Programs() {
                 <p className="text-gray-600 leading-relaxed mb-6">{program.description}</p>
 
                 {/* Highlights */}
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-4">
                   {program.highlights.map((h) => (
                     <li key={h} className="flex items-center gap-2 text-sm text-gray-700">
                       <span className={`w-4 h-4 rounded-full bg-gradient-to-br ${program.gradient} flex items-center justify-center flex-shrink-0`}>
@@ -130,6 +120,12 @@ export default function Programs() {
                     </li>
                   ))}
                 </ul>
+
+                {program.link && (
+                  <Link to={createPageUrl(program.link)} className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 mt-2">
+                    View Resources <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
@@ -145,7 +141,7 @@ export default function Programs() {
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
             {[
-              { stat: '4', label: 'Programs' },
+              { stat: '3', label: 'Programs' },
               { stat: '100%', label: 'Free' },
               { stat: 'K-12', label: 'All Ages' },
               { stat: 'King Co.', label: 'Serving' },
@@ -173,9 +169,9 @@ export default function Programs() {
             <p className="text-gray-600 text-lg mb-8 max-w-xl mx-auto">
               Join one of our programs or reach out to learn more about how we can support you.
             </p>
-            <Link to={createPageUrl('Contact')}>
+            <Link to={createPageUrl('GetSupport')}>
               <Button className="glow-hover bg-blue-600 hover:bg-blue-700 text-white rounded-full px-10 py-6 text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                Get Started
+                Get Support
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>

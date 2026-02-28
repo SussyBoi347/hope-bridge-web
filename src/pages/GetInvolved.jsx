@@ -203,7 +203,7 @@ export default function GetInvolved() {
           </div>
 
           <div className="text-center">
-            <Link to={createPageUrl('Contact')}>
+            <Link to={createPageUrl('Volunteer')}>
               <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all duration-300">
                 Apply to Volunteer <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -348,9 +348,9 @@ export default function GetInvolved() {
                   </li>
                 ))}
               </ul>
-              <Link to={createPageUrl('Schools')}>
+              <Link to={createPageUrl('Partnerships')}>
                 <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all duration-300">
-                  Explore School Partnerships <ArrowRight className="w-4 h-4 ml-2" />
+                  Explore Partnerships <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
             </motion.div>
@@ -404,9 +404,9 @@ export default function GetInvolved() {
               That's how movements start — and that's how teens find hope.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={createPageUrl('Contact')}>
+              <Link to={createPageUrl('Volunteer')}>
                 <Button className="bg-white hover:bg-gray-50 text-blue-700 font-bold rounded-full px-8 py-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300">
-                  Get in Touch <ArrowRight className="w-5 h-5 ml-2" />
+                  Volunteer With Us <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
               <Link to={createPageUrl('Donate')}>

@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { GraduationCap, Heart, Building2, HandHeart, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '../../utils';
 
 const pathways = [
   {
@@ -9,35 +11,36 @@ const pathways = [
     title: "Students",
     description: "Explore our programs, attend a workshop, or simply reach out when you need someone who understands.",
     cta: "Find Support",
-    color: "bg-gradient-to-br from-blue-600 to-blue-500"
+    color: "bg-gradient-to-br from-blue-600 to-blue-500",
+    page: "GetSupport"
   },
   {
     icon: Heart,
     title: "Parents & Families",
     description: "Access resources designed to help you understand and support your teen's mental health journey.",
     cta: "Learn More",
-    color: "bg-gradient-to-br from-sky-600 to-blue-500"
+    color: "bg-gradient-to-br from-sky-600 to-blue-500",
+    page: "GetSupport"
   },
   {
     icon: Building2,
     title: "Schools & Organizations",
     description: "Partner with us to bring mental health awareness and support programs to your students.",
     cta: "Partner With Us",
-    color: "bg-gradient-to-br from-blue-700 to-blue-600"
+    color: "bg-gradient-to-br from-blue-700 to-blue-600",
+    page: "Partnerships"
   },
   {
     icon: HandHeart,
     title: "Supporters & Donors",
     description: "Your contribution helps us keep all programs free and accessible to every teen who needs them.",
     cta: "Support Our Work",
-    color: "bg-gradient-to-br from-sky-500 to-cyan-400"
+    color: "bg-gradient-to-br from-sky-500 to-cyan-400",
+    page: "Donate"
   }
 ];
 
 export default function GetInvolved() {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="get-involved" className="py-24 lg:py-32 bg-gradient-to-b from-white via-sky-100 to-teal-50">
@@ -83,14 +86,15 @@ export default function GetInvolved() {
                   {pathway.description}
                 </p>
 
-                <Button
-                  variant="ghost"
-                  onClick={scrollToContact}
-                  className="w-full justify-between text-slate-700 hover:text-blue-600 hover:bg-blue-50 group-hover:translate-x-1 transition-all"
-                >
-                  {pathway.cta}
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
+                <Link to={createPageUrl(pathway.page)} className="block">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-between text-slate-700 hover:text-blue-600 hover:bg-blue-50 group-hover:translate-x-1 transition-all"
+                  >
+                    {pathway.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           ))}

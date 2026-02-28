@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Heart, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '../../utils';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -99,9 +101,9 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('partnerships')} className="hover:text-blue-400 transition-colors">
+                <Link to={createPageUrl('Partnerships')} className="hover:text-blue-400 transition-colors">
                   School Partnerships
-                </button>
+                </Link>
               </li>
               <li>
                 <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
@@ -153,9 +155,9 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('partnerships')} className="hover:text-blue-400 transition-colors">
+                <Link to={createPageUrl('Partnerships')} className="hover:text-blue-400 transition-colors">
                   For Schools
-                </button>
+                </Link>
               </li>
               <li>
                 <button onClick={() => scrollToSection('donate')} className="hover:text-blue-400 transition-colors">

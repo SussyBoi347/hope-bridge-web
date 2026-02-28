@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '../../utils';
 
 const benefits = [
 "Culturally responsive mental health workshops for students",
@@ -13,9 +15,6 @@ const benefits = [
 
 
 export default function Partnerships() {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="partnerships" className="py-24 lg:py-32 bg-gradient-to-br from-blue-900 via-slate-800 to-cyan-900 text-white">
@@ -47,13 +46,12 @@ export default function Partnerships() {
             </p>
 
             <div className="mt-8">
-              <Button
-                onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-500/25">
-
-                Discuss Partnership
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <Link to={createPageUrl('Partnerships')}>
+                <Button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-500/25">
+                  Discuss Partnership
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
             </div>
           </motion.div>
 
