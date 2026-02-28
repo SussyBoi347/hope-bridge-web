@@ -294,7 +294,7 @@ export default function Mission() {
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
               How We Make It <span className="text-blue-300">Happen</span>
             </h2>
-            <p className="text-lg text-gray-400 max-w-xl mx-auto">
+            <p className="text-lg text-blue-200 max-w-xl mx-auto">
               Three pillars that drive everything we do
             </p>
           </motion.div>
@@ -315,11 +315,11 @@ export default function Mission() {
                     </div>
                     <div className="text-right">
                       <div className="text-2xl font-bold text-white counter-glow">{item.stat}</div>
-                      <div className="text-xs text-gray-400">{item.statLabel}</div>
+                      <div className="text-xs text-blue-200">{item.statLabel}</div>
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">{item.description}</p>
+                  <p className="text-white/70 leading-relaxed text-sm">{item.description}</p>
                 </div>
               </motion.div>
             ))}

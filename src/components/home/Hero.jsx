@@ -80,26 +80,13 @@ export default function Hero() {
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
 
-        {/* Badge */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0, y: -10 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="mb-8 flex justify-center"
-        >
-          <span className="badge-pulse glass-card inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-blue-700 text-sm font-semibold border border-blue-200/60 shadow-md">
-            <span className="inline-block w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-            Supporting Asian Teen Mental Health
-          </span>
-        </motion.div>
-
         {/* Main heading — shimmer on HopeBridge */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="text-shimmer text-7xl sm:text-8xl lg:text-[10rem] font-black leading-[0.95] mb-5 tracking-tight">
+          <h1 className="text-shimmer text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.95] mb-5 tracking-tight">
             HopeBridge
           </h1>
         </motion.div>
@@ -108,7 +95,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
           className="mb-8"
         >
           <h2 className="inline-block text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight hero-underline">
@@ -121,7 +108,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
           className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           A safe space for Asian teens to share experiences, find support, and connect
@@ -133,7 +120,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.65, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <Button
@@ -161,7 +148,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.95, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.82, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
         >
           {[
