@@ -183,6 +183,54 @@ export default function Layout({ children, currentPageName }) {
           font-family: 'Fredoka', 'Inter', sans-serif;
         }
 
+        .text-shimmer {
+          background: linear-gradient(90deg, #2563EB, #60A5FA, #2563EB);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+          0% { background-position: 0% center; }
+          50% { background-position: 200% center; }
+          100% { background-position: 0% center; }
+        }
+
+        .glass-card {
+          background: rgba(255, 255, 255, 0.65);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glow-hover { transition: box-shadow 0.3s ease; }
+        .glow-hover:hover {
+          box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.15);
+        }
+
+        .gradient-border {
+          position: relative;
+          background: white;
+          border-radius: 1.5rem;
+        }
+        .gradient-border::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          border-radius: calc(1.5rem + 2px);
+          background: linear-gradient(135deg, #3B82F6, #60A5FA, #93C5FD, #3B82F6);
+          background-size: 300% 300%;
+          animation: grad-rot 6s ease infinite;
+          z-index: -1;
+        }
+        @keyframes grad-rot {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .counter-glow { text-shadow: 0 0 40px rgba(59, 130, 246, 0.3); }
+
         ::selection {
           background-color: #3B82F6;
           color: #FFFFFF;

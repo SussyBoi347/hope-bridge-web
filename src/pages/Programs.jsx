@@ -34,7 +34,7 @@ const programs = [
 
 export default function Programs() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-50 via-cyan-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-slate-50 to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -43,13 +43,13 @@ export default function Programs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
               Programs designed with{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 cultural understanding
               </span>
             </h1>
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               All our programs are free, culturally informed, and created specifically for Asian American teens 
               navigating the unique challenges of identity, expectations, and mental wellness.
             </p>
@@ -68,15 +68,15 @@ export default function Programs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-all"
+                className="bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-all"
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${program.gradient} flex items-center justify-center mb-6 shadow-sm`}>
                   <program.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-900 mb-3">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3">
                   {program.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {program.description}
                 </p>
               </motion.div>
@@ -93,10 +93,10 @@ export default function Programs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-semibold text-slate-900 mb-4">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-4">
               Ready to Get Involved?
             </h2>
-            <p className="text-slate-600 text-lg mb-8">
+            <p className="text-gray-600 text-lg mb-8">
               Join one of our programs or reach out to learn more about how we can support you.
             </p>
             <Link to={createPageUrl('Contact')}>

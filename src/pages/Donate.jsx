@@ -57,7 +57,7 @@ export default function DonatePage() {
                 mental wellness
               </span>
             </h1>
-            <p className="mt-6 text-lg text-gray-800 leading-relaxed max-w-2xl mx-auto font-semibold">
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Your donation helps us create safe spaces where Asian teens can be heard, 
               understood, and supported. Every contribution directly impacts a young person's journey.
             </p>
@@ -122,7 +122,7 @@ export default function DonatePage() {
           >
             <div>
               <h2 className="text-3xl font-semibold text-gray-900 mb-6">
-                Why Donate to Hope Bridge?
+                Why Donate to HopeBridge?
               </h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -251,7 +251,7 @@ export default function DonatePage() {
           </motion.div>
 
           <p className="text-center text-sm text-gray-500 mt-8">
-            Hope Bridge is not 501(c)(3) nonprofit organization. All donations are not tax-deductible.
+            HopeBridge is not yet a 501(c)(3) nonprofit. Donations are not tax-deductible at this time.
           </p>
         </div>
       </section>

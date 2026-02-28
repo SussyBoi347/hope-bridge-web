@@ -6,7 +6,6 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, MapPin, Phone, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import AnimatedBackground from '@/components/AnimatedBackground';
 import BackgroundElements from '@/components/BackgroundElements';
 
 const MAX_MESSAGE_LENGTH = 1000;
@@ -209,7 +208,6 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-slate-50 to-gray-50 relative overflow-hidden">
       <BackgroundElements />
-      <AnimatedBackground variant="cool" />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-8 relative">
@@ -225,8 +223,8 @@ export default function Contact() {
                 connect
               </span>
             </h1>
-            <p className="mt-6 text-xl text-gray-900 leading-relaxed max-w-2xl mx-auto font-bold">
-              Whether you're seeking support, want to partner with us, or have questions about 
+            <p className="mt-6 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Whether you're seeking support, want to partner with us, or have questions about
               our programs, we'd love to hear from you.
             </p>
           </motion.div>
