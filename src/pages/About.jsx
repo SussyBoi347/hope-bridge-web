@@ -182,7 +182,7 @@ export default function About() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-16 h-16 rounded-full object-cover mx-auto mb-4 shadow-lg border border-blue-200" /> :
+                  className="w-full max-w-[260px] aspect-[4/5] object-cover rounded-xl mx-auto mb-5 shadow-lg border border-blue-100" /> :
 
                 /* Avatar with initials */
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${member.color} mx-auto mb-4 flex items-center justify-center shadow-lg`}>
