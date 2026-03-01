@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Target, Eye, Users, Mail } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
@@ -170,42 +170,51 @@ export default function About() {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.07 }}
-                className="group glass-card glow-hover rounded-2xl p-6 text-center border border-blue-100/60 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                {member.image ?
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full max-w-[260px] aspect-[4/5] object-cover rounded-xl mx-auto mb-5 shadow-lg border border-blue-100" /> :
-
-                /* Avatar with initials */
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${member.color} mx-auto mb-4 flex items-center justify-center shadow-lg`}>
-                    <span className="text-white font-black text-xl">{member.initials}</span>
-                  </div>
-
-                }
-                <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
-                <p className="text-blue-600 font-semibold text-sm mt-1">{member.role}</p>
-                {member.email && (
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="mt-3 inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
-                  >
-                    <Mail className="w-3 h-3" />
-                    {member.email}
-                  </a>
-                )}
-              </motion.div>
+              <TeamMemberCard key={member.name} member={member} index={index} />
             ))}
           </div>
         </div>
       </section>
     </div>
+  );
+}
+
+function TeamMemberCard({ member, index }) {
+  const [showImage, setShowImage] = useState(Boolean(member.image));
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.07 }}
+      className="group glass-card glow-hover rounded-2xl p-6 text-center border border-blue-100/60 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
+      {showImage ? (
+        <img
+          src={member.image}
+          alt={member.name}
+          loading="lazy"
+          onError={() => setShowImage(false)}
+          className="w-full max-w-[260px] aspect-[4/5] object-cover rounded-xl mx-auto mb-5 shadow-lg border border-blue-100"
+        />
+      ) : (
+        <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${member.color} mx-auto mb-4 flex items-center justify-center shadow-lg`}>
+          <span className="text-white font-black text-xl">{member.initials}</span>
+        </div>
+      )}
+
+      <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
+      <p className="text-blue-600 font-semibold text-sm mt-1">{member.role}</p>
+      {member.email && (
+        <a
+          href={`mailto:${member.email}`}
+          className="mt-3 inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-blue-600 transition-colors"
+        >
+          <Mail className="w-3 h-3" />
+          {member.email}
+        </a>
+      )}
+    </motion.div>
   );
 }
