@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
+import PageBackground from '../components/PageBackground';
 
 const crisisResources = [
   {
@@ -123,7 +124,8 @@ export default function Resources() {
   const [activeTab, setActiveTab] = useState("Crisis Help");
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
 
       {/* Hero */}
       <section className="pt-16 pb-16 px-6 lg:px-8 relative overflow-hidden">
@@ -336,7 +338,7 @@ export default function Resources() {
                 You do not have to navigate this alone.
               </p>
               <Link to={createPageUrl('GetSupport')}>
-                <Button className="bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-full text-base shadow-xl transition-all duration-300 hover:scale-105">
+                <Button className="bg-white !text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-full text-base shadow-xl transition-all duration-300 hover:scale-105">
                   Get Support
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>

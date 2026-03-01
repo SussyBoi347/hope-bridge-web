@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Target, Eye, Users, Mail } from 'lucide-react';
+import PageBackground from '../components/PageBackground';
 
-// Lightweight static background — no animation blobs
+// kept for backward compat — replaced by PageBackground
 function PageBg() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -33,7 +34,8 @@ const values = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
       <PageBg />
 
       {/* ── HERO ── */}

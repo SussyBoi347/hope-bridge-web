@@ -27,7 +27,7 @@ const pillars = [
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+    <section id="mission" className="py-24 lg:py-32 bg-gradient-to-b from-blue-50/40 via-white to-white relative overflow-hidden">
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       

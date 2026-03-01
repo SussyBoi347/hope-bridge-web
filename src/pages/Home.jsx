@@ -15,6 +15,8 @@ export default function Home() {
       <BackgroundElements />
       <Hero />
       <Mission />
+      {/* Gradient bridge: white → dark blue */}
+      <div className="h-20 bg-gradient-to-b from-white to-blue-700 -mb-px" aria-hidden="true" />
       <Problem />
       <StorySection />
       <section id="vision" className="py-24 lg:py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">

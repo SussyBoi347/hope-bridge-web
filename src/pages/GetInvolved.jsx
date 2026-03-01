@@ -6,6 +6,7 @@ import {
   Clock, Star, ArrowRight, Check, ChevronRight,
   Share2, School, HandHeart
 } from 'lucide-react';
+import PageBackground from '../components/PageBackground';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 
@@ -104,7 +105,8 @@ export default function GetInvolved() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
 
       {/* ── HERO ── */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 relative overflow-hidden">
@@ -410,7 +412,7 @@ export default function GetInvolved() {
                 </Button>
               </Link>
               <Link to={createPageUrl('Donate')}>
-                <Button variant="outline" className="border-2 border-white/40 text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold transition-all duration-300">
+                <Button variant="outline" className="border-2 border-white/40 !text-white hover:!text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold transition-all duration-300">
                   Donate Now
                 </Button>
               </Link>
