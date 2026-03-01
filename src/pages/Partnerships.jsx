@@ -127,23 +127,27 @@ export default function Partnerships() {
     }
     setIsSubmitting(true);
     try {
-      const res = await fetch('https://formspree.io/f/mldgebll', {
+      const payload = new FormData();
+      payload.append('_subject', `Partnership Inquiry — ${formData.orgName}`);
+      Object.entries(formData).forEach(([key, value]) => payload.append(key, value ?? ''));
+
+      const res = await fetch('https://formspree.io/f/mojnzdry', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `Partnership Inquiry — ${formData.orgName}`,
-          ...formData
-        })
+        headers: { Accept: 'application/json' },
+        body: payload
       });
+
       if (res.ok) {
         setIsSuccess(true);
         setFormData(initialForm);
         setErrors({});
       } else {
-        throw new Error('Server error');
+        const errorBody = await res.json().catch(() => null);
+        const details = errorBody?.errors?.map((error) => error.message).join(', ') || 'Unable to submit form.';
+        throw new Error(details);
       }
-    } catch {
-      setErrors({ submit: 'Something went wrong. Please try again or email us directly.' });
+    } catch (error) {
+      setErrors({ submit: error?.message || 'Something went wrong. Please try again or email us directly.' });
     } finally {
       setIsSubmitting(false);
     }
