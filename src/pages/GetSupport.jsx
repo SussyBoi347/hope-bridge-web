@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
+import PageBackground from '../components/PageBackground';
 
 // ── Data ────────────────────────────────────────────────────────────
 const crisisLines = [
@@ -195,7 +196,8 @@ export default function GetSupport() {
   const c = colorMap[content.color];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
 
       {/* ── HERO ── */}
       <section className="py-16 px-6 lg:px-8 bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 relative overflow-hidden">
@@ -439,12 +441,12 @@ export default function GetSupport() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to={createPageUrl('Contact')}>
-                <Button className="bg-white hover:bg-gray-50 text-blue-700 font-bold rounded-full px-8 py-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300">
+                <Button className="bg-white hover:bg-gray-50 !text-blue-700 font-bold rounded-full px-8 py-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300">
                   Join a Support Group <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
               <Link to={createPageUrl('Programs')}>
-                <Button variant="outline" className="border-2 border-white/40 text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold transition-all duration-300">
+                <Button variant="outline" className="border-2 border-white/40 !text-white hover:!text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold transition-all duration-300">
                   See All Programs
                 </Button>
               </Link>

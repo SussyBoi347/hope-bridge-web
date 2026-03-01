@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Heart, Users, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -144,29 +144,6 @@ export default function Hero() {
           </Button>
         </motion.div>
 
-        {/* Trust indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.82, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
-        >
-          {[
-            { icon: Heart, label: 'Peer-Led Support', color: 'text-rose-500', bg: 'bg-rose-50' },
-            { icon: Users, label: 'Community-Driven', color: 'text-blue-500', bg: 'bg-blue-50' },
-            { icon: Shield, label: 'Safe & Confidential', color: 'text-emerald-500', bg: 'bg-emerald-50' },
-          ].map(({ icon: Icon, label, color, bg }, i) => (
-            <div
-              key={label}
-              className={`trust-float glass-card flex items-center gap-2.5 px-5 py-2.5 rounded-full shadow-sm border border-white/60`}
-            >
-              <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full ${bg}`}>
-                <Icon className={`w-4 h-4 ${color}`} />
-              </span>
-              <span className="text-sm font-semibold text-gray-700">{label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Bottom fade */}

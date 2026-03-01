@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Heart, Users, BookOpen, Sparkles, Target, Compass, Home as HomeIcon, ArrowRight, Shield, Globe, MessageCircle } from 'lucide-react';
 import MentalHealthChart from '@/components/mission/MentalHealthChart';
+import PageBackground from '../components/PageBackground';
 // AnimatedBackground removed — page already has rich visual sections; the blobs were causing GPU lag
 
 // Animated counter component
@@ -105,7 +106,8 @@ export default function Mission() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
 
       {/* ── HERO ── */}
       <section className="relative pt-16 pb-24 px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 wave-divider">

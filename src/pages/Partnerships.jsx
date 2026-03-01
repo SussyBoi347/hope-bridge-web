@@ -5,6 +5,7 @@ import {
   GraduationCap, Building2, HeartHandshake, Stethoscope,
   CheckCircle, Send, ArrowRight, Users, Sparkles, HandHeart
 } from 'lucide-react';
+import PageBackground from '../components/PageBackground';
 
 const partnerTypes = [
   {
@@ -156,7 +157,8 @@ export default function Partnerships() {
     }`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
 
       {/* Hero */}
       <section className="pt-16 pb-20 px-6 lg:px-8 relative overflow-hidden">

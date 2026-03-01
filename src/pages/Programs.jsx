@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { BookOpen, MessageCircle, Sparkles, ArrowRight, Check } from 'lucide-react';
+import PageBackground from '../components/PageBackground';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 
@@ -44,7 +45,8 @@ const programs = [
 
 export default function Programs() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
       {/* Static bg accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute -top-20 left-1/4 w-80 h-80 bg-blue-100/40 rounded-full blur-2xl" />

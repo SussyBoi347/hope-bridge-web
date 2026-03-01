@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Heart, Users, GraduationCap, Building, ArrowRight, Check } from 'lucide-react';
 import StripePaymentForm from '@/components/donate/StripePaymentForm';
+import PageBackground from '../components/PageBackground';
 // NOTE: BackgroundElements removed — it was causing severe lag (animated blobs with blur-[80-90px])
 
 const impacts = [
@@ -38,7 +39,8 @@ const allocation = [
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+      <PageBackground />
       {/* Lightweight static background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute -top-16 right-10 w-72 h-72 bg-blue-100/40 rounded-full blur-2xl" />
