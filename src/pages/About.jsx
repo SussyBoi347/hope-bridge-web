@@ -188,7 +188,7 @@ function TeamMemberCard({ member, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
-      className="group glass-card glow-hover rounded-2xl p-6 text-center border border-blue-100/60 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group glass-card glow-hover rounded-2xl p-6 text-center border border-blue-100/60 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col items-center"
     >
       {showImage ? (
         <img
