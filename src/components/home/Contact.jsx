@@ -155,7 +155,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Email</h4>
-                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-200 hover:text-cyan-300 transition-colors">
+                  <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-200 hover:text-cyan-300 transition-colors whitespace-nowrap">
                     hopebridgecommunityservices@gmail.com
                   </a>
                 </div>
