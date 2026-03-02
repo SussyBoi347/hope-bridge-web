@@ -331,7 +331,7 @@ export default function Contact() {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
                 {href ? (
-                  <a href={href} className="text-blue-600 hover:text-blue-700 text-sm break-words hover:underline transition-colors">{content}</a>
+                  <a href={href} className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap hover:underline transition-colors">{content}</a>
                 ) : (
                   <>
                     <p className="text-gray-700 font-medium">{content}</p>
