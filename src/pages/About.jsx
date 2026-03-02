@@ -19,15 +19,6 @@ function PageBg() {
 
 const teamMembers = [
   {
-    name: 'Anish Pentyala',
-    role: 'Web Development Lead',
-    email: 'Anish.n.pentyala@gmail.com',
-    initials: 'AP',
-    color: 'from-blue-500 to-blue-700',
-    image: '/images/team/anish-photo.svg',
-    bio: 'Anish is 14 years old and attends Eastlake High School. He enjoys playing video games and hopes to make an impact on this overlooked problem!',
-  },
-  {
     name: 'Rishi Ravikumar',
     role: 'Planning Department Lead',
     email: 'rishirkumar@outlook.com',
@@ -46,13 +37,22 @@ const teamMembers = [
     bio: 'Arjun is a 14-year-old at Eastlake High School. An avid track runner and committed trombonist, he hopes to drive positive change within his community.',
   },
   {
-    name: 'Samvid Prabhu',
-    role: 'Research Department Lead',
-    email: 'samvid.s.prabhu@gmail.com',
-    initials: 'SP',
-    color: 'from-sky-500 to-blue-600',
-    image: '/images/team/samvid-photo.svg',
-    bio: 'Samvid is a freshman at Kamiak HS who enjoys business, marketing, and playing guitar. With Indian-Konkani roots and experience living in both Finland and the US, he understands the struggles of dual identity. As the Social Media Marketing Lead, he advocates for Asian teens by spreading awareness of the unique challenges they face.',
+    name: 'Anish Pentyala',
+    role: 'Web Development Lead',
+    email: 'Anish.n.pentyala@gmail.com',
+    initials: 'AP',
+    color: 'from-blue-500 to-blue-700',
+    image: '/images/team/anish-photo.svg',
+    bio: 'Anish is 14 years old and attends Eastlake High School. He enjoys playing video games and hopes to make an impact on this overlooked problem!',
+  },
+  {
+    name: 'Ishaan Kejriwal',
+    role: 'Event Organization Lead',
+    email: 'ishaankej@outlook.com',
+    initials: 'IK',
+    color: 'from-indigo-600 to-blue-500',
+    image: '/images/team/ishaan-photo.svg',
+    bio: 'Ishaan is a freshman at Eastlake High School who loves helping his community in any way possible. As a passionate coder and track runner, he aims to support Asian American teens in navigating the unique challenges addressed by Hope Bridge.',
   },
   {
     name: 'Arnav Malhotra',
@@ -64,13 +64,13 @@ const teamMembers = [
     bio: 'Arnav is a 14-year-old student at Eastlake High School. He has a deep passion for soccer and aims to support other Asian American teens facing struggles similar to his own.',
   },
   {
-    name: 'Ishaan Kejriwal',
-    role: 'Event Organization Lead',
-    email: 'ishaankej@outlook.com',
-    initials: 'IK',
-    color: 'from-indigo-600 to-blue-500',
-    image: '/images/team/ishaan-photo.svg',
-    bio: 'Ishaan is a freshman at Eastlake High School who loves helping his community in any way possible. As a passionate coder and track runner, he aims to support Asian American teens in navigating the unique challenges addressed by Hope Bridge.',
+    name: 'Samvid Prabhu',
+    role: 'Research Department Lead',
+    email: 'samvid.s.prabhu@gmail.com',
+    initials: 'SP',
+    color: 'from-sky-500 to-blue-600',
+    image: '/images/team/samvid-photo.svg',
+    bio: 'Samvid is a freshman at Kamiak HS who enjoys business, marketing, and playing guitar. With Indian-Konkani roots and experience living in both Finland and the US, he understands the struggles of dual identity. As the Social Media Marketing Lead, he advocates for Asian teens by spreading awareness of the unique challenges they face.',
   },
 ];
 
