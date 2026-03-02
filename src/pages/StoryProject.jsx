@@ -482,31 +482,10 @@ export default function StoryProject() {
 
               )}
               </div> :
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                {/* Seed stories so the wall is never empty */}
-                {[
-                  {
-                    
-                  },
-                  {
-                    
-                  },
-                  {
-                    
-                  },
-                  {
-                    
-                  }
-                ].map((story) => (
-                  <StoryCard
-                    key={story.id}
-                    story={story}
-                    onLike={handleLike}
-                    isLiked={likedStories.includes(story.id)}
-                  />
-                ))}
-              </div>
+            <div className="text-center py-12 bg-white/80 rounded-2xl border border-blue-100">
+              <p className="text-gray-700 font-medium">No stories have been posted yet.</p>
+              <p className="text-gray-500 text-sm mt-2">Be the first to share your story with the community.</p>
+            </div>
             }
           </div>
 
