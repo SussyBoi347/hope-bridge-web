@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import BackgroundElements from '@/components/BackgroundElements';
-import { createLocalStory } from '@/lib/localStories';
 import { moderateStoryText } from '@/lib/contentModeration';
 
 const topics = [
@@ -101,15 +100,27 @@ export default function StorySubmitForm() {
           topic: payload.topic,
           mediaFiles
         });
-        response = { success: true, story };
+
+        try {
+          response = await base44.request('/functions/submitStoryWithMedia', {
+            method: 'POST',
+            body: multipartFormData
+          });
+        } catch {
+          response = await base44.request('/stories/submit-with-media', {
+            method: 'POST',
+            body: multipartFormData
+          });
+        }
       } else {
-        const story = await createLocalStory({
-          title: payload.title,
-          author_name: payload.author_name,
-          content: payload.content,
-          topic: payload.topic
-        });
-        response = { success: true, story };
+        try {
+          response = await base44.functions.invoke('submitStory', payload);
+        } catch {
+          response = await base44.request('/stories/submit', {
+            method: 'POST',
+            body: payload
+          });
+        }
       }
 
       if (!response?.story && response?.success !== true) {
