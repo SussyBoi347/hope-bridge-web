@@ -119,16 +119,18 @@ export default function About() {
               <h2 className="text-3xl font-bold text-blue-600 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p className="text-lg">
-                  Too many Asian American teens suffer in silence — caught between cultural expectations,
-                  academic pressure, and personal struggles no one seems to understand.
+                  Too many Asian American teens are struggling — and most of them aren&apos;t talking about it.
+                  Not because they don&apos;t want to. Because no one around them really gets it.
                 </p>
                 <p className="text-lg">
-                  Six teens from Sammamish, WA decided that needed to change. We created HopeBridge —
-                  a space where teens find support that <em>actually gets it.</em>
+                  The pressure to perform, the weight of family expectations, and the feeling that your stress
+                  isn&apos;t valid enough to mention can make it even harder to speak up.
                 </p>
                 <p className="text-base text-gray-500">
-                  Founded at Eastlake High School, our programs are free, culturally informed, and
-                  built on the understanding that mental wellness is a right, not a privilege.
+                  Six teens from Sammamish decided to do something about it. We started HopeBridge out of
+                  Eastlake High School because we&apos;ve lived this. Our programs are free, culturally aware,
+                  and built by people who actually understand what you&apos;re going through. Mental wellness
+                  shouldn&apos;t be a privilege — we&apos;re here to make sure it isn&apos;t.
                 </p>
               </div>
             </div>
