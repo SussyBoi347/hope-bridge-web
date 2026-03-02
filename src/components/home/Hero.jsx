@@ -86,8 +86,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="text-shimmer text-8xl sm:text-9xl lg:text-[11rem] font-black leading-none pb-4 mb-2 tracking-tight">
-            HopeBridge
+          <h1 className="text-shimmer text-7xl sm:text-9xl lg:text-[11rem] font-black leading-none pb-4 mb-2 tracking-tight">
+            Hope<br className="sm:hidden" />Bridge
           </h1>
         </motion.div>
 
@@ -104,12 +104,12 @@ export default function Hero() {
           </h2>
         </motion.div>
 
-        {/* Description */}
+        {/* Description — hidden on mobile to keep hero to 2 lines */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-          className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="hidden sm:block text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           A safe space for Asian teens to share experiences, find support, and connect
           with others who understand the unique challenges of navigating identity,

@@ -377,9 +377,8 @@ export default function Layout({ children, currentPageName }) {
                   alt="HopeBridge"
                   className="w-11 h-11 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-                <span className="font-bold text-gray-900 tracking-tight leading-none flex flex-col">
-                  <span className="text-lg">Hope</span>
-                  <span className="text-lg text-blue-600">Bridge</span>
+                <span className="text-xl font-bold text-gray-900 tracking-tight">
+                  Hope<span className="text-blue-600">Bridge</span>
                 </span>
               </Link>
 
