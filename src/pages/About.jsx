@@ -20,7 +20,7 @@ function PageBg() {
 const teamMembers = [
   {
     name: 'Rishi Ravikumar',
-    role: 'Planning Department Lead',
+    role: 'Operations Lead',
     email: 'rishirkumar@outlook.com',
     initials: 'RR',
     color: 'from-indigo-500 to-blue-600',
@@ -29,7 +29,7 @@ const teamMembers = [
   },
   {
     name: 'Arjun Kuchi',
-    role: 'Field Work Lead',
+    role: 'Administrative Lead',
     email: 'stingingnettle1024@gmail.com',
     initials: 'AK',
     color: 'from-blue-600 to-cyan-500',
@@ -38,7 +38,7 @@ const teamMembers = [
   },
   {
     name: 'Anish Pentyala',
-    role: 'Web Development Lead',
+    role: 'Field Work Lead',
     email: 'Anish.n.pentyala@gmail.com',
     initials: 'AP',
     color: 'from-blue-500 to-blue-700',
@@ -47,7 +47,7 @@ const teamMembers = [
   },
   {
     name: 'Ishaan Kejriwal',
-    role: 'Event Organization Lead',
+    role: 'Software Development Lead',
     email: 'ishaankej@outlook.com',
     initials: 'IK',
     color: 'from-indigo-600 to-blue-500',
@@ -56,7 +56,7 @@ const teamMembers = [
   },
   {
     name: 'Arnav Malhotra',
-    role: 'Socials Department Lead',
+    role: 'Social Media Lead',
     email: 'reacharnavmalhotra@gmail.com',
     initials: 'AM',
     color: 'from-blue-500 to-indigo-600',
@@ -65,7 +65,7 @@ const teamMembers = [
   },
   {
     name: 'Samvid Prabhu',
-    role: 'Research Department Lead',
+    role: 'Research Lead',
     email: 'samvid.s.prabhu@gmail.com',
     initials: 'SP',
     color: 'from-sky-500 to-blue-600',
@@ -113,7 +113,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid lg:grid-cols-2 gap-10 items-center"
+            className="max-w-3xl mx-auto"
           >
             <div className="gradient-border p-10 shadow-xl">
               <h2 className="text-3xl font-bold text-blue-600 mb-6">Our Story</h2>
@@ -135,26 +135,6 @@ export default function About() {
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=600&fit=crop"
-                  alt="HopeBridge Community"
-                  className="rounded-2xl shadow-2xl border border-blue-100 w-full"
-                  loading="lazy"
-                />
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 glass-card px-5 py-3 rounded-xl shadow-lg border border-white/60">
-                  <div className="text-2xl font-black text-blue-600">2024</div>
-                  <div className="text-xs text-gray-600 font-medium">Founded in Sammamish, WA</div>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
