@@ -143,7 +143,7 @@ export default function Resources() {
               <Sparkles className="w-4 h-4" />
               Mental Health Resources
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
               Support is{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 always here
@@ -196,7 +196,7 @@ export default function Resources() {
                   If you are in immediate danger, call 911. These resources are here when you need to talk.
                 </p>
               </div>
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
                 {crisisResources.map((r, i) => (
                   <motion.div
                     key={r.name}
@@ -239,7 +239,7 @@ export default function Resources() {
               <p className="text-gray-600 mb-8 text-lg">
                 Organizations and resources created specifically for the Asian American and Pacific Islander community.
               </p>
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
                 {aapiResources.map((r, i) => (
                   <motion.div
                     key={r.name}
@@ -280,7 +280,7 @@ export default function Resources() {
               <p className="text-gray-600 mb-8 text-lg">
                 Free online tools, apps, and platforms for mental health support — available whenever you need them.
               </p>
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
                 {onlineResources.map((r, i) => (
                   <motion.div
                     key={r.name}

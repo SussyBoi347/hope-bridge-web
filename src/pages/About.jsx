@@ -50,7 +50,7 @@ export default function About() {
               <Heart className="w-4 h-4" />
               Our Story
             </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight">
               About{' '}
               <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                 HopeBridge
@@ -168,7 +168,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {teamMembers.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}

@@ -121,7 +121,7 @@ export default function GetInvolved() {
               <HandHeart className="w-4 h-4 text-blue-200" />
               Make a Difference
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-5">
               Join us in building<br />
               <span className="text-blue-200">lasting change</span>
             </h1>
@@ -135,7 +135,7 @@ export default function GetInvolved() {
 
       {/* ── IMPACT STATS ── */}
       <section className="py-10 px-6 lg:px-8 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6">
           {impactStats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -172,7 +172,7 @@ export default function GetInvolved() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-10">
             {volunteerRoles.map((role, i) => (
               <motion.div
                 key={role.title}
@@ -232,7 +232,7 @@ export default function GetInvolved() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-3 gap-5 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 mb-10">
             {donationTiers.map((tier, i) => (
               <motion.div
                 key={tier.amount}
@@ -412,7 +412,7 @@ export default function GetInvolved() {
                 </Button>
               </Link>
               <Link to={createPageUrl('Donate')}>
-                <Button variant="outline" className="border-2 border-white/40 !text-white hover:!text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold transition-all duration-300">
+                <Button className="bg-white hover:bg-gray-50 !text-blue-700 font-bold rounded-full px-8 py-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300">
                   Donate Now
                 </Button>
               </Link>

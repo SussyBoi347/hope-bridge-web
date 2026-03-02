@@ -231,7 +231,7 @@ export default function GetSupport() {
             <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
             <h2 className="text-lg font-bold text-red-900">If you're in crisis right now — reach out immediately</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {crisisLines.map((line, i) => (
               <motion.div
                 key={line.name}
@@ -339,7 +339,7 @@ export default function GetSupport() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {asianSpecificResources.map((res, i) => (
               <motion.a
                 key={res.name}
@@ -388,7 +388,7 @@ export default function GetSupport() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {onlineResources.map((res, i) => (
               <motion.a
                 key={res.name}
@@ -446,7 +446,7 @@ export default function GetSupport() {
                 </Button>
               </Link>
               <Link to={createPageUrl('Programs')}>
-                <Button variant="outline" className="border-2 border-white/40 !text-white hover:!text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold transition-all duration-300">
+                <Button className="bg-white hover:bg-gray-50 !text-blue-700 font-bold rounded-full px-8 py-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300">
                   See All Programs
                 </Button>
               </Link>

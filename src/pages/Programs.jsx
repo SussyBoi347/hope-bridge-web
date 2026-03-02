@@ -69,7 +69,7 @@ export default function Programs() {
               <Sparkles className="w-4 h-4" />
               All Programs Are Free
             </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
               Programs designed with{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 cultural understanding
@@ -86,7 +86,7 @@ export default function Programs() {
       {/* ── PROGRAMS GRID ── */}
       <section className="py-16 px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {programs.map((program, index) => (
               <motion.div
                 key={program.title}
@@ -141,7 +141,7 @@ export default function Programs() {
           <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-blue-200 rounded-full blur-3xl" />
         </div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-center text-white">
             {[
               { stat: '3', label: 'Programs' },
               { stat: '100%', label: 'Free' },

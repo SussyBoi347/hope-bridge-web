@@ -229,11 +229,11 @@ export default function StoryProject() {
               </span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 leading-[1.05] mb-10 tracking-tight">
+              className="text-4xl sm:text-5xl lg:text-8xl font-black text-gray-900 leading-[1.05] mb-10 tracking-tight">
               Your Voice,{' '}
               <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 Your Story
@@ -252,7 +252,7 @@ export default function StoryProject() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-12 flex flex-wrap gap-10 justify-center text-center">
+              className="mt-12 flex flex-wrap gap-4 sm:gap-10 justify-center text-center">
               {[
                 { num: '200+', label: 'Stories Shared', color: 'from-blue-600 to-blue-500' },
                 { num: '100%', label: 'Anonymous & Safe', color: 'from-blue-700 to-blue-600' }
@@ -427,13 +427,13 @@ export default function StoryProject() {
                   className="flex flex-col sm:flex-row gap-6 justify-center">
                   <Button
                     onClick={() => setUploadMode('photo')}
-                    className="bg-white text-blue-600 hover:bg-blue-50 font-black rounded-full px-12 py-8 text-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:shadow-[0_25px_70px_rgba(0,0,0,0.5)] hover:scale-105 transition-all duration-300">
-                    <Camera className="w-6 h-6 mr-3" />
+                    className="bg-white text-blue-600 hover:bg-blue-50 font-black rounded-full px-6 sm:px-12 py-6 sm:py-8 text-sm sm:text-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:shadow-[0_25px_70px_rgba(0,0,0,0.5)] hover:scale-105 transition-all duration-300">
+                    <Camera className="w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3" />
                     Upload Photo Story
                   </Button>
                   <Link to={createPageUrl('StorySharing')}>
-                    <Button className="bg-white/10 hover:bg-white/20 text-white border-4 border-white font-black rounded-full px-12 py-8 text-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:shadow-[0_25px_70px_rgba(0,0,0,0.5)] hover:scale-105 transition-all duration-300 backdrop-blur-sm">
-                      <Pen className="w-6 h-6 mr-3" />
+                    <Button className="bg-white/10 hover:bg-white/20 text-white border-2 sm:border-4 border-white font-black rounded-full px-6 sm:px-12 py-6 sm:py-8 text-sm sm:text-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:shadow-[0_25px_70px_rgba(0,0,0,0.5)] hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+                      <Pen className="w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3" />
                       Write Story Online
                     </Button>
                   </Link>
@@ -477,7 +477,7 @@ export default function StoryProject() {
                 <p className="text-black font-semibold">Loading stories...</p>
               </div> :
             allOtherStories.length > 0 ?
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {allOtherStories.map((story) =>
               <StoryCard
                 key={story.id}
@@ -488,7 +488,7 @@ export default function StoryProject() {
               )}
               </div> :
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {/* Seed stories so the wall is never empty */}
                 {[
                   {

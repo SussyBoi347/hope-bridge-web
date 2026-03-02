@@ -34,7 +34,7 @@ export default function Home() {
             <span className="text-white font-bold text-base tracking-wide uppercase bg-blue-500/30 px-4 py-2 rounded-full">
               Looking Ahead
             </span>
-            <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight">
               Our Vision
             </h2>
           </motion.div>
@@ -54,7 +54,7 @@ export default function Home() {
                   Our commitment to the community
                 </p>
               </div>
-              <div className="grid sm:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 {[
                   { target: "5,000+", label: "Teens supported by 2027" },
                   { target: "25", label: "School partnerships" },

@@ -86,7 +86,7 @@ export default function Volunteer() {
               <Sparkles className="w-4 h-4" />
               Volunteer with us
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 leading-tight mb-4">
               Make a real{' '}
               <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">difference</span>
             </h1>
@@ -102,7 +102,7 @@ export default function Volunteer() {
       <section className="pb-10 px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-gray-500 text-sm font-medium mb-6 uppercase tracking-wider">Choose a role</p>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {roles.map((r, i) => {
               const selected = formData.role === r.label;
               return (

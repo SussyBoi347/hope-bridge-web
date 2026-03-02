@@ -200,7 +200,8 @@ export default function Layout({ children, currentPageName }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     setIsMobileMenuOpen(false);
-  }, [currentPageName]);
+    setOpenMobileDropdown(null);
+  }, [location.pathname, currentPageName]);
 
   const navLinks = [
     { label: 'Home', page: 'Home' },
@@ -214,7 +215,6 @@ export default function Layout({ children, currentPageName }) {
         { label: 'Resources', page: 'Resources' },
       ]
     },
-    { label: 'Get Support', page: 'GetSupport' },
     {
       label: 'Get Involved', page: 'GetInvolved',
       dropdown: [
@@ -244,6 +244,16 @@ export default function Layout({ children, currentPageName }) {
           background-color: var(--color-surface);
           color: var(--color-text);
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          overflow-x: hidden;
+        }
+
+        * {
+          min-width: 0;
+        }
+
+        p, h1, h2, h3, h4, h5, h6, span, a, li {
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         h1, h2, h3 {
@@ -463,11 +473,11 @@ export default function Layout({ children, currentPageName }) {
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.25 }}
-                className="lg:hidden bg-blue-50 border-t border-blue-100 overflow-hidden"
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className="lg:hidden bg-blue-50 border-t border-blue-100"
               >
                 <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
                   {navLinks.map((link) => {

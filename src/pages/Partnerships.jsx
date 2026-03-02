@@ -192,7 +192,7 @@ export default function Partnerships() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {partnerTypes.map((type, index) => (
               <motion.div
                 key={type.title}
@@ -295,7 +295,7 @@ export default function Partnerships() {
               We make the process simple for busy administrators and coordinators.
             </p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {processSteps.map((s, i) => (
               <motion.div
                 key={s.step}

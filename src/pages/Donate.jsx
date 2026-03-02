@@ -59,7 +59,7 @@ export default function DonatePage() {
               <Heart className="w-4 h-4" />
               Make a Difference
             </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
               Support the next generation's{' '}
               <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                 mental wellness

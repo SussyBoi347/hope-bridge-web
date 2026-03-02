@@ -106,7 +106,7 @@ export default function Mission() {
               <Target className="w-4 h-4" />
               Our Mission
             </motion.span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
               Supporting Asian teen{' '}
               <span className="relative">
                 <span className="relative z-10 text-blue-200">mental health</span>
@@ -126,7 +126,7 @@ export default function Mission() {
 
         {/* Animated stat counters */}
         <div className="relative z-10 max-w-4xl mx-auto mt-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
             {[
               { number: '1', suffix: ' in 3', label: 'Asian teens struggle' },
               { number: '50', suffix: '%', label: 'Less likely to seek help' },
