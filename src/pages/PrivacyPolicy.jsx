@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   return (
@@ -12,14 +12,9 @@ export default function PrivacyPolicy() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900">Privacy Policy</h1>
-                <p className="text-sm text-gray-500">Last updated: February 2026</p>
-              </div>
+            <div className="mb-6">
+              <h1 className="text-3xl font-bold text-gray-900">Privacy Policy</h1>
+              <p className="text-sm text-gray-500 mt-1">Last updated: February 2026</p>
             </div>
 
             <div className="prose prose-gray max-w-none space-y-8 text-gray-700 leading-relaxed">

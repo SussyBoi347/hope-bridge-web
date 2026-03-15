@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import CountUp from '../components/CountUp';
-import {
-  Heart, Users, Megaphone, DollarSign,
-  Clock, Star, ArrowRight, Check, ChevronRight,
-  Share2, School, HandHeart
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
@@ -14,10 +10,9 @@ import { createPageUrl } from '../utils';
 // ── Data ────────────────────────────────────────────────────────────────────
 
 const impactStats = [
-  { value: '100%', label: 'Free for teens', icon: Heart },
-  { value: '2 hrs', label: 'Typical volunteer/week', icon: Clock },
-  { value: '$25', label: 'Funds one session', icon: DollarSign },
-  { value: '5K+', label: 'Teens we aim to reach', icon: Star },
+  { value: '2 hrs', label: 'Typical volunteer/week' },
+  { value: '$25', label: 'Funds one session' },
+  { value: '5K+', label: 'Teens we aim to reach' },
 ];
 
 const volunteerRoles = [
@@ -184,8 +179,7 @@ export default function GetInvolved() {
                   <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">{role.description}</p>
                   <ul className="space-y-1.5 mt-auto">
                     {role.skills.map((s) => (
-                      <li key={s} className="flex items-center gap-2 text-xs text-gray-600">
-                        <Check className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
+                      <li key={s} className="text-xs text-gray-600">
                         {s}
                       </li>
                     ))}
@@ -323,10 +317,7 @@ export default function GetInvolved() {
                   'Staff professional development on AAPI mental health',
                   'Co-branded mental health awareness campaigns',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <ChevronRight className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{item}</span>
-                  </li>
+                  <li key={item} className="text-sm text-gray-700">{item}</li>
                 ))}
               </ul>
               <Link to={createPageUrl('Partnerships')}>
@@ -344,15 +335,12 @@ export default function GetInvolved() {
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { icon: School, label: 'Schools', desc: 'Bring HopeBridge programming to your students', color: 'text-blue-600', bg: 'bg-blue-50' },
-                { icon: Users, label: 'Nonprofits', desc: 'Collaborate on joint programming and outreach', color: 'text-indigo-600', bg: 'bg-indigo-50' },
-                { icon: Heart, label: 'Therapists', desc: 'Refer clients and co-create mental health resources', color: 'text-rose-600', bg: 'bg-rose-50' },
-                { icon: Megaphone, label: 'Community Orgs', desc: 'Partner on events, campaigns, and awareness drives', color: 'text-emerald-600', bg: 'bg-emerald-50' },
+                { label: 'Schools', desc: 'Bring HopeBridge programming to your students' },
+                { label: 'Nonprofits', desc: 'Collaborate on joint programming and outreach' },
+                { label: 'Therapists', desc: 'Refer clients and co-create mental health resources' },
+                { label: 'Community Orgs', desc: 'Partner on events, campaigns, and awareness drives' },
               ].map((item) => (
                 <div key={item.label} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-300">
-                  <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center mb-3`}>
-                    <item.icon className={`w-5 h-5 ${item.color}`} />
-                  </div>
                   <h4 className="font-bold text-gray-900 text-sm mb-1">{item.label}</h4>
                   <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
@@ -374,9 +362,6 @@ export default function GetInvolved() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="w-16 h-16 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center mx-auto mb-6">
-              <HandHeart className="w-8 h-8 text-white" />
-            </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Every action creates ripples
             </h2>

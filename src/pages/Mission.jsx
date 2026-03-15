@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Heart, BookOpen, Compass, Home as HomeIcon, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
 // AnimatedBackground removed, page already has rich visual sections; the blobs were causing GPU lag
 
@@ -40,7 +40,6 @@ function AnimatedCounter({ target, suffix = '', prefix = '' }) {
 export default function Mission() {
   const coreGoals = [
     {
-      icon: Compass,
       title: 'Embracing Cultural Identity',
       description: 'Helping Asian teens navigate the beautiful complexity of their bicultural identity.',
       details: [
@@ -50,10 +49,8 @@ export default function Mission() {
         'Celebrating the strength in multicultural experiences'
       ],
       color: 'from-blue-500 to-blue-600',
-      iconBg: 'bg-blue-500'
     },
     {
-      icon: BookOpen,
       title: 'Navigating Academic Pressures',
       description: "Addressing the intense academic expectations many Asian teens face while maintaining mental wellness.",
       details: [
@@ -63,10 +60,8 @@ export default function Mission() {
         'Building resilience without burning out'
       ],
       color: 'from-indigo-500 to-blue-600',
-      iconBg: 'bg-indigo-500'
     },
     {
-      icon: HomeIcon,
       title: 'Healing Family Disconnect',
       description: "Bridging generational and cultural gaps between Asian teens and their families.",
       details: [
@@ -76,7 +71,6 @@ export default function Mission() {
         'Resources in multiple languages for families'
       ],
       color: 'from-blue-600 to-blue-700',
-      iconBg: 'bg-blue-600'
     }
   ];
 
@@ -199,9 +193,8 @@ export default function Mission() {
                   </p>
                   <ul className="space-y-2.5">
                     {goal.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-gray-500">
-                        <ArrowRight className="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0" />
-                        <span>{detail}</span>
+                      <li key={i} className="text-sm text-gray-500">
+                        {detail}
                       </li>
                     ))}
                   </ul>
@@ -234,7 +227,7 @@ export default function Mission() {
                 Get Support <ArrowRight className="w-5 h-5" />
               </a>
               <a href="/Donate" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white border-2 border-white/30 rounded-full font-bold text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 backdrop-blur-sm">
-                <Heart className="w-5 h-5" /> Donate
+                Donate
               </a>
             </div>
           </motion.div>

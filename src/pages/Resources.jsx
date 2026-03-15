@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import {
-  Phone, MessageSquare, Heart, Shield,
   ArrowRight, ExternalLink, AlertCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -16,8 +15,7 @@ const crisisResources = [
     action: "Call or Text 988",
     href: "tel:988",
     color: "bg-red-50 border-red-200",
-    iconColor: "text-red-600",
-    icon: Phone,
+    actionColor: "text-red-600",
     tag: "24/7"
   },
   {
@@ -26,8 +24,7 @@ const crisisResources = [
     action: "Text HOME to 741741",
     href: "sms:741741&body=HOME",
     color: "bg-orange-50 border-orange-200",
-    iconColor: "text-orange-600",
-    icon: MessageSquare,
+    actionColor: "text-orange-600",
     tag: "Text"
   },
   {
@@ -36,8 +33,7 @@ const crisisResources = [
     action: "Call 1-866-488-7386",
     href: "tel:18664887386",
     color: "bg-purple-50 border-purple-200",
-    iconColor: "text-purple-600",
-    icon: Heart,
+    actionColor: "text-purple-600",
     tag: "LGBTQ+"
   },
   {
@@ -46,8 +42,7 @@ const crisisResources = [
     action: "Call 1-800-662-4357",
     href: "tel:18006624357",
     color: "bg-blue-50 border-blue-200",
-    iconColor: "text-blue-600",
-    icon: Shield,
+    actionColor: "text-blue-600",
     tag: "Referrals"
   }
 ];
@@ -202,9 +197,6 @@ export default function Resources() {
                     className={`relative rounded-2xl p-6 border ${r.color} hover:shadow-lg transition-all duration-300`}
                   >
                     <div className="flex items-start justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                        <r.icon className={`w-5 h-5 ${r.iconColor}`} />
-                      </div>
                       <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-white/70 text-gray-600">
                         {r.tag}
                       </span>
@@ -213,7 +205,7 @@ export default function Resources() {
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">{r.description}</p>
                     <a
                       href={r.href}
-                      className={`inline-flex items-center gap-2 text-sm font-bold ${r.iconColor} hover:underline`}
+                      className={`inline-flex items-center gap-2 text-sm font-bold ${r.actionColor} hover:underline`}
                     >
                       {r.action}
                       <ArrowRight className="w-4 h-4" />
@@ -225,6 +217,7 @@ export default function Resources() {
           )}
 
           {/* AAPI Resources */}
+
           {activeTab === "AAPI Resources" && (
             <motion.div
               key="aapi"
@@ -323,9 +316,6 @@ export default function Resources() {
               <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-blue-200 rounded-full blur-3xl" />
             </div>
             <div className="relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5">
-                <Heart className="w-7 h-7 text-white" />
-              </div>
               <h2 className="text-3xl font-black mb-4">
                 Want support from HopeBridge directly?
               </h2>

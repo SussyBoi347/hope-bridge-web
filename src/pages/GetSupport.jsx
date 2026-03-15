@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import {
-  Phone, MessageCircle, Globe, Heart, Users, Shield,
-  ExternalLink, ChevronRight, AlertCircle, BookOpen,
-  Headphones, Video, ArrowRight
+  ExternalLink, AlertCircle, ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
@@ -20,9 +18,7 @@ const crisisLines = [
     description: 'Free, confidential support 24/7. Talk to a trained counselor.',
     tag: '24/7 • Free • Confidential',
     color: 'border-red-200 bg-red-50',
-    iconColor: 'text-red-500',
     badgeColor: 'bg-red-100 text-red-700',
-    icon: Phone,
   },
   {
     name: 'Crisis Text Line',
@@ -31,9 +27,7 @@ const crisisLines = [
     description: 'Text with a trained counselor, no phone call needed. Great for teens.',
     tag: '24/7 • Text-based • Free',
     color: 'border-blue-200 bg-blue-50',
-    iconColor: 'text-blue-500',
     badgeColor: 'bg-blue-100 text-blue-700',
-    icon: MessageCircle,
   },
   {
     name: 'Trevor Project (LGBTQ+ Youth)',
@@ -42,9 +36,7 @@ const crisisLines = [
     description: 'Crisis intervention for LGBTQ+ young people under 25. Also text START to 678-678.',
     tag: '24/7 • LGBTQ+ focused',
     color: 'border-indigo-200 bg-indigo-50',
-    iconColor: 'text-indigo-500',
     badgeColor: 'bg-indigo-100 text-indigo-700',
-    icon: Heart,
   },
   {
     name: 'SAMHSA National Helpline',
@@ -53,9 +45,7 @@ const crisisLines = [
     description: 'Free, confidential treatment referrals for mental health and substance use.',
     tag: '24/7 • Free • Multilingual',
     color: 'border-emerald-200 bg-emerald-50',
-    iconColor: 'text-emerald-500',
     badgeColor: 'bg-emerald-100 text-emerald-700',
-    icon: Phone,
   },
 ];
 
@@ -65,32 +55,24 @@ const asianSpecificResources = [
     url: 'https://www.asianmhc.org',
     description: 'Therapist directory, community events, and resources specifically for Asian communities.',
     tags: ['Therapist Directory', 'Community', 'AAPI-specific'],
-    icon: Users,
-    color: 'from-rose-500 to-pink-500',
   },
   {
     name: 'Asian Counseling & Referral Service (Seattle)',
     url: 'https://acrs.org',
     description: 'Seattle-based organization offering mental health services to API communities in multiple languages.',
     tags: ['Seattle-Based', 'Multilingual', 'Counseling'],
-    icon: Globe,
-    color: 'from-blue-500 to-indigo-500',
   },
   {
     name: 'National Asian American Pacific Islander Mental Health Association',
     url: 'https://naapimha.org',
     description: 'Advocacy, resources, and mental health information for AAPI communities nationwide.',
     tags: ['National', 'Advocacy', 'Resources'],
-    icon: Shield,
-    color: 'from-indigo-500 to-violet-500',
   },
   {
     name: 'Asian & Pacific Islander American Health Forum',
     url: 'https://www.apiahf.org',
     description: 'Leading national health advocacy organization addressing health needs of AAPI communities, including mental health.',
     tags: ['National', 'Health Advocacy', 'AAPI'],
-    icon: Heart,
-    color: 'from-emerald-500 to-teal-500',
   },
 ];
 
@@ -100,42 +82,36 @@ const onlineResources = [
     url: 'https://www.7cups.com',
     description: 'Free online chat with trained volunteer listeners 24/7. Great for teens who prefer text over calling.',
     format: 'Online Chat',
-    icon: MessageCircle,
   },
   {
     name: 'Headspace for Teens',
     url: 'https://www.headspace.com',
     description: 'Guided meditation and mindfulness for managing stress and anxiety.',
     format: 'App',
-    icon: Headphones,
   },
   {
     name: 'Teen Line',
     url: 'https://www.teenline.org',
     description: 'Teen-to-teen support. Talk to a fellow teen who understands.',
     format: 'Hotline + Chat',
-    icon: Phone,
   },
   {
     name: 'ReachOut Youth Mental Health',
     url: 'https://au.reachout.com',
     description: 'Evidence-based guides, stories, and tools for teens managing mental health, stress, and identity challenges.',
     format: 'Online Guide',
-    icon: BookOpen,
   },
   {
     name: 'NAMI Teen & Young Adult Resources',
     url: 'https://www.nami.org/Your-Journey/Kids-Teens-and-Young-Adults/Teens',
     description: 'National Alliance on Mental Illness resources specifically for teens, guides, stories, and how to find help.',
     format: 'Resource Hub',
-    icon: Users,
   },
   {
     name: 'Mental Health America Screening',
     url: 'https://screening.mhanational.org',
     description: 'Free, confidential mental health screenings to understand what you might be feeling.',
     format: 'Self-Screening',
-    icon: Shield,
   },
 ];
 
@@ -209,7 +185,6 @@ export default function GetSupport() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 text-white text-sm font-medium mb-6">
-              <Heart className="w-4 h-4 text-red-300" />
               You're Not Alone
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -240,9 +215,6 @@ export default function GetSupport() {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className={`rounded-2xl border p-5 ${line.color}`}
               >
-                <div className={`w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-3 shadow-sm`}>
-                  <line.icon className={`w-5 h-5 ${line.iconColor}`} />
-                </div>
                 <h3 className="font-bold text-gray-900 text-sm leading-snug mb-1">{line.name}</h3>
                 <p className="text-xs text-gray-600 mb-3 leading-relaxed">{line.description}</p>
                 <span className={`inline-block text-xs font-medium px-2.5 py-1 rounded-full mb-3 ${line.badgeColor}`}>
@@ -304,10 +276,7 @@ export default function GetSupport() {
             <p className="text-gray-600 leading-relaxed mb-7">{content.body}</p>
             <ul className="space-y-3 mb-8">
               {content.resources.map((r, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <ChevronRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ${c.check}`} />
-                  <span className="text-gray-700 text-sm">{r}</span>
-                </li>
+                <li key={i} className="text-gray-700 text-sm">{r}</li>
               ))}
             </ul>
             <Link to={createPageUrl(content.ctaLink)}>
@@ -352,9 +321,6 @@ export default function GetSupport() {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 flex flex-col"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${res.color} flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
-                  <res.icon className="w-6 h-6 text-white" />
-                </div>
                 <h3 className="font-bold text-gray-900 text-sm leading-snug mb-2 group-hover:text-blue-700 transition-colors">{res.name}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed mb-4 flex-1">{res.description}</p>
                 <div className="flex flex-wrap gap-1">
@@ -399,11 +365,8 @@ export default function GetSupport() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group flex items-start gap-4 bg-white rounded-2xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-300"
+                className="group bg-white rounded-2xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
-                  <res.icon className="w-5 h-5 text-blue-600" />
-                </div>
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="font-bold text-gray-900 text-sm">{res.name}</h3>
@@ -429,9 +392,6 @@ export default function GetSupport() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="w-16 h-16 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center mx-auto mb-6">
-              <Heart className="w-8 h-8 text-white" />
-            </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Connect with HopeBridge
             </h2>

@@ -59,13 +59,12 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
               value={keyword}
               onChange={(e) => handleKeywordChange(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              placeholder="Search stories by title or content..." className="bg-slate-200 text-slate-950 pl-12 px-3 py-1 text-base rounded-full flex h-9 w-full border shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-white/20 placeholder:text-gray-400" />
-
-
+              placeholder="Search stories by title or content..."
+              className="bg-white text-gray-900 pl-12 pr-4 h-11 w-full rounded-full border border-gray-200 shadow-sm text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 focus-visible:border-blue-300 transition-colors" />
           </div>
           <Button
             onClick={handleSearch}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-8 hover:from-cyan-400 hover:to-blue-400">
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 h-11 font-semibold">
             Search
           </Button>
         </div>
@@ -75,27 +74,27 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Start Date Filter */}
         <div>
-          <label className="text-slate-950 mb-2 text-xs font-semibold block">From Date</label>
+          <label className="text-gray-700 mb-2 text-xs font-semibold block">From Date</label>
           <div className="relative">
-            <Calendar className="text-slate-950 lucide lucide-calendar absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
+            <Calendar className="text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
             <input
               type="date"
               value={startDate}
-              onChange={(e) => setStartDate(e.target.value)} className="bg-white/10 text-slate-950 pl-10 px-4 py-2 text-sm rounded-lg w-full border border-white/20" />
-
-
+              onChange={(e) => setStartDate(e.target.value)}
+              className="bg-white text-gray-900 pl-10 px-4 py-2 text-sm rounded-lg w-full border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-300 transition-colors" />
           </div>
         </div>
 
         {/* End Date Filter */}
         <div>
-          <label className="text-slate-950 mb-2 text-xs font-semibold block">To Date</label>
+          <label className="text-gray-700 mb-2 text-xs font-semibold block">To Date</label>
           <div className="relative">
-            <Calendar className="text-slate-950 lucide lucide-calendar absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
+            <Calendar className="text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
             <input
               type="date"
               value={endDate}
-              onChange={(e) => setEndDate(e.target.value)} className="bg-white/10 text-slate-950 pl-10 px-4 py-2 text-sm rounded-lg w-full border border-white/20" />
+              onChange={(e) => setEndDate(e.target.value)}
+              className="bg-white text-gray-900 pl-10 px-4 py-2 text-sm rounded-lg w-full border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-300 transition-colors" />
 
 
           </div>
@@ -111,7 +110,7 @@ export default function StorySearchFilters({ stories, onFiltersChange }) {
           <Button
           onClick={handleReset}
           variant="outline"
-          className="rounded-full gap-2 text-white border-white/30 hover:bg-white/10">
+          className="rounded-full gap-2 text-gray-600 border-gray-200 hover:bg-gray-50 hover:border-gray-300">
             <X className="w-4 h-4" />
             Clear Filters
           </Button>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Camera, Loader2, CheckCircle2, AlertCircle, Sparkles, Heart, Users, Zap } from 'lucide-react';
+import { Camera, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 export default function PhysicalStory() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -61,11 +61,6 @@ export default function PhysicalStory() {
     );
     }
 
-  const stats = [
-    { icon: Users, label: 'Stories Shared', value: '200+', color: 'from-blue-500 to-cyan-400' },
-    { icon: Heart, label: 'Community Likes', value: '1000+', color: 'from-pink-500 to-blue-400' },
-    { icon: Sparkles, label: 'Voices Heard', value: '500', color: 'from-purple-500 to-blue-400' },
-  ];
 
   return (
     <div className="min-h-screen bg-black">
@@ -98,26 +93,6 @@ export default function PhysicalStory() {
               Capture your handwritten or printed story in a photo. Our AI instantly reads it and shares it with thousands of voices in our community.
             </p>
             
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-10 max-w-2xl mx-auto px-4">
-              {stats.map((stat, idx) => {
-                const Icon = stat.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                    className={`bg-gradient-to-br ${stat.color} p-0.5 rounded-lg`}>
-                    <div className="bg-black/80 rounded-md p-2 sm:p-4">
-                      <Icon className="w-4 h-4 sm:w-6 sm:h-6 mx-auto mb-1 sm:mb-2 text-blue-300" />
-                      <p className="text-lg sm:text-2xl font-bold text-white">{stat.value}</p>
-                      <p className="text-[10px] sm:text-xs text-gray-400 mt-1">{stat.label}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
           </motion.div>
         </div>
       </section>
@@ -301,7 +276,6 @@ export default function PhysicalStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl p-6 sm:p-12 text-center shadow-[0_0_50px_rgba(0,217,255,0.3)]">
-            <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-black mx-auto mb-4" />
             <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">Why Share Your Physical Story?</h3>
             <p className="text-black/90 text-base sm:text-lg leading-relaxed font-medium">
               Physical stories carry authenticity. When you write by hand, your voice becomes real. Our community values the genuine human connection in your words, the crossed-out passages, the emotional underlines, the real ink on real paper. By sharing your physical story, you're not just adding text to a wall; you're creating a bridge between hearts.

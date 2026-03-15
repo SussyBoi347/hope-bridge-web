@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import {
-  BookOpen, MessageCircle, ArrowRight, Check,
+  ArrowRight,
   Calendar, MapPin, Image as ImageIcon,
 } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
@@ -120,9 +120,6 @@ export default function Programs() {
                 <ul className="space-y-2 mb-4">
                   {program.highlights.map((h) => (
                     <li key={h} className="flex items-center gap-2 text-sm text-gray-700">
-                      <span className={`w-4 h-4 rounded-full bg-gradient-to-br ${program.gradient} flex items-center justify-center flex-shrink-0`}>
-                        <Check className="w-2.5 h-2.5 text-white" />
-                      </span>
                       {h}
                     </li>
                   ))}

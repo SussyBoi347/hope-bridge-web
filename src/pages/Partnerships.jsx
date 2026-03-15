@@ -2,63 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import {
-  GraduationCap, Building2, HeartHandshake, Stethoscope,
   Send, ArrowRight
 } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
 
-const partnerTypes = [
-  {
-    icon: GraduationCap,
-    title: "Schools",
-    description: "Bring culturally informed mental health workshops, student programming, and counselor support directly to your campus.",
-    gradient: "from-blue-600 to-blue-500",
-    bg: "bg-white",
-    border: "border-blue-100",
-    tag: "King County",
-    tagColor: "bg-blue-100 text-blue-700"
-  },
-  {
-    icon: Building2,
-    title: "Local Businesses",
-    description: "Partner with us to sponsor events, provide venues, or fund programming that directly supports Asian American teens in your community.",
-    gradient: "from-blue-600 to-blue-500",
-    bg: "bg-white",
-    border: "border-blue-100",
-    tag: "Sponsor",
-    tagColor: "bg-blue-100 text-blue-700"
-  },
-  {
-    icon: Building2,
-    title: "Nonprofits & Community Orgs",
-    description: "Co-create programming, share resources, and multiply our collective impact for Asian American youth across the Eastside.",
-    gradient: "from-blue-600 to-blue-500",
-    bg: "bg-white",
-    border: "border-blue-100",
-    tag: "Coalition",
-    tagColor: "bg-blue-100 text-blue-700"
-  },
-  {
-    icon: Stethoscope,
-    title: "Therapists & Mental Health Pros",
-    description: "Join our referral network to serve teens who need professional support beyond peer programming.",
-    gradient: "from-blue-600 to-blue-500",
-    bg: "bg-white",
-    border: "border-blue-100",
-    tag: "Referral Network",
-    tagColor: "bg-blue-100 text-blue-700"
-  },
-  {
-    icon: HeartHandshake,
-    title: "Faith & Cultural Organizations",
-    description: "Work together to reach teens within trusted community spaces like temples, churches, cultural centers, and beyond.",
-    gradient: "from-blue-600 to-blue-500",
-    bg: "bg-white",
-    border: "border-blue-100",
-    tag: "Community",
-    tagColor: "bg-blue-100 text-blue-700"
-  }
-];
 
 const processSteps = [
   {
@@ -169,44 +116,6 @@ export default function Partnerships() {
               <ArrowRight className="w-5 h-5" />
             </a>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Partner Types */}
-      <section className="py-16 px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-              Who We Partner With
-            </h2>
-            <p className="text-gray-600 text-lg max-w-xl mx-auto">
-              We work across sectors to reach teens wherever they are.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {partnerTypes.map((type, index) => (
-              <motion.div
-                key={type.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group relative ${type.bg} rounded-2xl p-6 border ${type.border} hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
-              >
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${type.gradient}`} />
-                <div className="mb-4">
-                  <h3 className="text-lg font-black text-gray-900">{type.title}</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{type.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

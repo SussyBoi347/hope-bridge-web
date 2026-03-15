@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Users, BookOpen, Heart, CheckCircle, Send, ArrowRight } from 'lucide-react';
+import { CheckCircle, Send, ArrowRight } from 'lucide-react';
 
 const benefits = [
   "Culturally responsive mental health programming",
@@ -156,7 +156,6 @@ export default function Schools() {
               <div className="space-y-3">
                 {benefits.map((benefit) => (
                   <div key={benefit} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                     <span className="text-slate-600">{benefit}</span>
                   </div>
                 ))}
@@ -256,7 +255,6 @@ export default function Schools() {
             viewport={{ once: true }}
           >
             <div className="text-center mb-10">
-              <Heart className="w-10 h-10 text-blue-600 mx-auto mb-4" />
               <h2 className="text-3xl font-semibold text-slate-900 mb-3">
                 Start a Partnership
               </h2>

@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Heart, Users, GraduationCap, Building, ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import StripePaymentForm from '@/components/donate/StripePaymentForm';
 import PageBackground from '../components/PageBackground';
 // NOTE: BackgroundElements removed, it was causing severe lag (animated blobs with blur-[80-90px])
 
 const impacts = [
-  { icon: Heart,         amount: '$5',  description: 'Provides mental health resources and materials for one student',            gradient: 'from-rose-500 to-pink-500',   bg: 'bg-rose-50',   border: 'border-rose-200' },
-  { icon: Users,         amount: '$10', description: 'Supports a community support session for 10–15 teens',                     gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50',   border: 'border-blue-200' },
-  { icon: GraduationCap, amount: '$25', description: 'Funds a cultural awareness workshop at a local school',                     gradient: 'from-indigo-500 to-purple-500', bg: 'bg-indigo-50', border: 'border-indigo-200' },
-  { icon: Building,      amount: '$50', description: 'Sponsors a full month of community programming and outreach',               gradient: 'from-sky-500 to-blue-500',   bg: 'bg-sky-50',    border: 'border-sky-200' },
+  { amount: '$5',  description: 'Provides mental health resources and materials for one student',            gradient: 'from-rose-500 to-pink-500',   bg: 'bg-rose-50',   border: 'border-rose-200' },
+  { amount: '$10', description: 'Supports a community support session for 10–15 teens',                     gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50',   border: 'border-blue-200' },
+  { amount: '$25', description: 'Funds a cultural awareness workshop at a local school',                     gradient: 'from-indigo-500 to-purple-500', bg: 'bg-indigo-50', border: 'border-indigo-200' },
+  { amount: '$50', description: 'Sponsors a full month of community programming and outreach',               gradient: 'from-sky-500 to-blue-500',   bg: 'bg-sky-50',    border: 'border-sky-200' },
 ];
 
 const whyPoints = [
@@ -94,9 +94,6 @@ export default function DonatePage() {
               >
                 {/* Top accent */}
                 <div className={`h-1 -mx-6 -mt-6 mb-6 rounded-t-2xl bg-gradient-to-r ${impact.gradient}`} />
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${impact.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                  <impact.icon className="w-6 h-6 text-white" />
-                </div>
                 <div className="text-3xl font-black text-gray-900 mb-3">{impact.amount}</div>
                 <p className="text-gray-600 text-sm leading-relaxed">{impact.description}</p>
               </motion.div>
@@ -156,10 +153,7 @@ export default function DonatePage() {
                 ))}
               </div>
               <div className="mt-6 pt-5 border-t border-blue-100">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  <span><strong className="text-gray-900">100% transparent.</strong> Every dollar goes toward supporting teens.</span>
-                </div>
+                <p className="text-sm text-gray-600"><strong className="text-gray-900">100% transparent.</strong> Every dollar goes toward supporting teens.</p>
               </div>
             </div>
           </motion.div>
@@ -175,7 +169,6 @@ export default function DonatePage() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <Heart className="w-14 h-14 text-blue-600 mx-auto mb-5" />
             <h2 className="text-4xl font-black text-gray-900 mb-3">Make Your Donation</h2>
             <p className="text-gray-600">Choose an amount and complete your secure donation in just a few clicks</p>
           </motion.div>

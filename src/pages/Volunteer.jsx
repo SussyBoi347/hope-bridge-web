@@ -5,16 +5,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Heart, Users, Calendar, BookOpen, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgolbkbp';
 
 const roles = [
-  { icon: Users,    label: 'Peer Mentor',         desc: 'Support fellow teens through 1-on-1 conversations and group sessions',      accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
-  { icon: Calendar, label: 'Event Helper',         desc: 'Help plan and run workshops, community events, and outreach activities',     accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
-  { icon: BookOpen, label: 'Workshop Facilitator', desc: 'Lead or co-lead workshops on stress, identity, and wellness topics',         accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
-  { icon: Heart,    label: 'Content & Outreach',   desc: 'Help with social media, writing, design, or community outreach',             accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
+  { label: 'Peer Mentor',         desc: 'Support fellow teens through 1-on-1 conversations and group sessions',      accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
+  { label: 'Event Helper',         desc: 'Help plan and run workshops, community events, and outreach activities',     accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
+  { label: 'Workshop Facilitator', desc: 'Lead or co-lead workshops on stress, identity, and wellness topics',         accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
+  { label: 'Content & Outreach',   desc: 'Help with social media, writing, design, or community outreach',             accent: 'from-blue-600 to-blue-500', ring: 'border-blue-400', bg: 'bg-blue-50' },
 ];
 
 export default function Volunteer() {
@@ -118,9 +118,6 @@ export default function Volunteer() {
                   <div className={`h-1 bg-gradient-to-r ${r.accent}`} />
                   <div className={`p-5 ${selected ? r.bg : 'bg-white/70'} backdrop-blur-sm`}>
                     <div className="flex items-start gap-4">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-gradient-to-br ${r.accent} shadow-sm`}>
-                        <r.icon className="w-5 h-5 text-white" />
-                      </div>
                       <div>
                         <h3 className={`font-bold text-sm mb-1 ${selected ? 'text-gray-900' : 'text-gray-800'}`}>{r.label}</h3>
                         <p className="text-gray-500 text-xs leading-relaxed">{r.desc}</p>
@@ -153,9 +150,6 @@ export default function Volunteer() {
             className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-blue-100/40 border border-blue-100 space-y-5"
           >
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center shadow-sm">
-                <Users className="w-4.5 h-4.5 text-white" />
-              </div>
               <h2 className="text-xl font-bold text-gray-900">Your Information</h2>
             </div>
 
