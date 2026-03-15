@@ -11,7 +11,6 @@ import { createPageUrl } from '../utils';
 
 const programs = [
   {
-    icon: BookOpen,
     title: 'Workshops & Discussions',
     description: 'Interactive sessions on stress management, identity exploration, family communication, and building resilience, all through a culturally informed lens.',
     gradient: 'from-indigo-600 to-blue-500',
@@ -22,7 +21,6 @@ const programs = [
     highlights: ['Identity exploration', 'Stress management', 'Family communication'],
   },
   {
-    icon: MessageCircle,
     title: 'Resource Hub',
     description: 'Access culturally relevant mental health resources, self-care tools, and connections to professional support whenever you need it.',
     gradient: 'from-sky-600 to-blue-500',
