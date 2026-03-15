@@ -40,21 +40,21 @@ const pastEvents = [
     date: 'Spring 2025',
     location: 'Sammamish, WA',
     description: 'The founding launch of HopeBridge Community Services, bringing together teens, families, and community members to kick off our mission.',
-    image: '/images/activities/launch-event.jpg',
+    placeholder: true,
   },
   {
     title: 'Community Awareness Workshop',
     date: 'Spring 2025',
     location: 'Sammamish, WA',
     description: 'An interactive workshop exploring identity, family expectations, and mental wellness through a culturally informed lens.',
-    image: '/images/activities/workshop-presentation.jpg',
+    placeholder: true,
   },
   {
     title: 'Story Sharing Night',
     date: 'Spring 2025',
     location: 'Sammamish, WA',
     description: 'Teens gathered to share experiences around family pressures, cultural identity, and academic stress in a safe, supportive environment.',
-    image: '/images/activities/story-sharing-night.jpg',
+    placeholder: true,
   },
 ];
 
