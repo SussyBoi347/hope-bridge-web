@@ -57,7 +57,7 @@ export default function Resources() {
       </section>
 
       {/* Tab Navigation */}
-      <section className="px-6 lg:px-8 sticky top-16 z-30 bg-blue-900 border-b border-blue-800">
+      <section className="px-6 lg:px-8 sticky top-16 z-30 bg-white border-b border-blue-100 shadow-sm">
         <div className="max-w-4xl mx-auto">
           <div className="flex gap-1 py-3">
             {tabs.map((tab) => (
@@ -66,8 +66,8 @@ export default function Resources() {
                 onClick={() => setActiveTab(tab)}
                 className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
                   activeTab === tab
-                    ? 'bg-white text-blue-800 shadow-md'
-                    : 'text-blue-200 hover:bg-blue-800 hover:text-white'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-blue-600 hover:bg-blue-50 hover:text-blue-800'
                 }`}
               >
                 {tab}
@@ -177,7 +177,7 @@ export default function Resources() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 lg:px-8 bg-blue-950">
+      <section className="py-20 px-6 lg:px-8 bg-blue-600">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

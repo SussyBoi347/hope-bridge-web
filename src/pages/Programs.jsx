@@ -227,7 +227,7 @@ export default function Programs() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-6 lg:px-8 bg-blue-950">
+      <section className="py-20 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

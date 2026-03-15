@@ -124,7 +124,7 @@ export default function About() {
       </section>
 
       {/* MEET THE TEAM */}
-      <section className="py-20 px-6 lg:px-8 bg-blue-950">
+      <section className="py-20 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -132,10 +132,10 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-              Meet the <span className="text-blue-300">Team</span>
+            <h2 className="text-4xl sm:text-5xl font-black text-blue-900 mb-4">
+              Meet the <span className="text-blue-600">Team</span>
             </h2>
-            <p className="text-lg text-blue-200 max-w-2xl mx-auto">
+            <p className="text-lg text-blue-700 max-w-2xl mx-auto">
               Six Asian teens from Sammamish, WA who decided to build the support system they wished they had.
             </p>
           </motion.div>
@@ -160,7 +160,7 @@ function TeamMemberCard({ member, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
-      className="group pt-8 pb-6 text-center border-t border-blue-800 flex flex-col items-center transition-all duration-300"
+      className="group pt-8 pb-6 text-center border-t border-blue-200 flex flex-col items-center transition-all duration-300"
     >
       {showImage ? (
         <img

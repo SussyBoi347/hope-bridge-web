@@ -56,7 +56,7 @@ export default function DonatePage() {
       </section>
 
       {/* ── IMPACT LEVELS ── */}
-      <section className="py-16 px-6 lg:px-8 bg-blue-950">
+      <section className="py-16 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,8 +64,8 @@ export default function DonatePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-black text-white mb-3">Your <span className="text-blue-300">Impact</span></h2>
-            <p className="text-blue-200 max-w-xl mx-auto">Every gift, no matter the size, creates real change in a teen's life</p>
+            <h2 className="text-4xl font-black text-blue-900 mb-3">Your <span className="text-blue-600">Impact</span></h2>
+            <p className="text-blue-700 max-w-xl mx-auto">Every gift, no matter the size, creates real change in a teen's life</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -76,12 +76,12 @@ export default function DonatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-blue-900 border border-blue-700 rounded-lg p-6 hover:shadow-lg hover:border-blue-500 transition-all duration-300"
+                className="group bg-white border border-blue-100 rounded-lg p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300"
               >
                 {/* Top accent */}
                 <div className={`h-1 -mx-6 -mt-6 mb-6 rounded-t-2xl bg-gradient-to-r ${impact.gradient}`} />
-                <div className="text-3xl font-black text-white mb-3">{impact.amount}</div>
-                <p className="text-blue-200 text-sm leading-relaxed">{impact.description}</p>
+                <div className="text-3xl font-black text-blue-700 mb-3">{impact.amount}</div>
+                <p className="text-blue-600 text-sm leading-relaxed">{impact.description}</p>
               </motion.div>
             ))}
           </div>
@@ -175,16 +175,16 @@ export default function DonatePage() {
       </section>
 
       {/* ── FOOTER CTA ── */}
-      <section className="py-14 px-6 lg:px-8 bg-blue-950">
+      <section className="py-14 px-6 lg:px-8 bg-blue-600">
         <div className="max-w-xl mx-auto text-center">
           <h3 className="text-2xl font-bold text-white mb-3">Questions About Donating?</h3>
           <p className="text-blue-200 mb-6">We're here to help. Reach out to learn more about how your contribution will be used.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-300 hover:text-white font-medium hover:underline transition-colors text-sm">
+            <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-100 hover:text-white font-medium hover:underline transition-colors text-sm">
               hopebridgecommunityservices@gmail.com
             </a>
             <span className="hidden sm:block text-gray-300">|</span>
-            <span className="text-blue-400 text-sm">Sammamish, WA</span>
+            <span className="text-blue-200 text-sm">Sammamish, WA</span>
           </div>
         </div>
       </section>

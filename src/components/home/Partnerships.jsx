@@ -17,7 +17,7 @@ const benefits = [
 export default function Partnerships() {
 
   return (
-    <section id="partnerships" className="py-24 lg:py-32 bg-gradient-to-br from-blue-900 via-slate-800 to-cyan-900 text-white">
+    <section id="partnerships" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
@@ -26,20 +26,20 @@ export default function Partnerships() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}>
 
-            <span className="text-cyan-300 font-medium text-sm tracking-wide uppercase">
+            <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
               For Schools
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-white leading-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-blue-900 leading-tight">
               Partner with Hope Bridge
             </h2>
             
-            <p className="mt-6 text-lg text-blue-100 leading-relaxed">Schools play a critical role in supporting student mental health. Hope Bridge aims to work alongside educators to create environments where every student especially those facing cultural pressures around success feels supported.
+            <p className="mt-6 text-lg text-blue-700 leading-relaxed">Schools play a critical role in supporting student mental health. Hope Bridge aims to work alongside educators to create environments where every student especially those facing cultural pressures around success feels supported.
 
 
 
             </p>
 
-            <p className="mt-4 text-blue-100 leading-relaxed">
+            <p className="mt-4 text-blue-700 leading-relaxed">
 
 
 
@@ -47,7 +47,7 @@ export default function Partnerships() {
 
             <div className="mt-8">
               <Link to={createPageUrl('Partnerships')}>
-                <Button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 rounded-full shadow-lg shadow-blue-500/25">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-full shadow-lg transition-all duration-200">
                   Discuss Partnership
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

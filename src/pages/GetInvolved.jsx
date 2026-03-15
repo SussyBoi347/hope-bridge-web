@@ -290,7 +290,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ── PARTNER ── */}
-      <section className="py-20 px-6 lg:px-8 bg-blue-950" id="partner">
+      <section className="py-20 px-6 lg:px-8 bg-blue-50" id="partner">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <motion.div

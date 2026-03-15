@@ -179,9 +179,8 @@ export default function Layout({ children, currentPageName }) {
   const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
   const location = useLocation();
 
-  // Pages where nav should be blue-900 (matching crisis banner) when at top
-  const darkHeaderPages = ['Home', 'Mission', 'About', 'Resources', 'Volunteer', 'Donate', 'Contact', 'GetSupport', 'Programs', 'Partnerships', 'GetInvolved', 'StoryProject'];
-  const isDark = darkHeaderPages.includes(currentPageName) && !isScrolled;
+  // Navbar is always white — never dark
+  const isDark = false;
 
   useEffect(() => {
     let ticking = false;
