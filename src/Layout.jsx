@@ -329,8 +329,8 @@ export default function Layout({ children, currentPageName }) {
         <header
           className={`transition-colors duration-300 ${
             isScrolled
-              ? 'bg-blue-50/95 backdrop-blur-md shadow-sm border-b border-blue-100'
-              : 'bg-blue-50/90'
+              ? 'bg-white shadow-sm border-b border-gray-100'
+              : 'bg-white border-b border-gray-100'
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -446,7 +446,7 @@ export default function Layout({ children, currentPageName }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
-                className="lg:hidden bg-blue-50 border-t border-blue-100"
+                className="lg:hidden bg-white border-t border-gray-100"
               >
                 <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
                   {navLinks.map((link) => {

@@ -22,18 +22,18 @@ export default function StorySection() {
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
-            <div className="bg-white/10 rounded-xl p-5 border border-white/20">
-              <CountUp value="200+" className="text-2xl font-bold block" />
-              <div className="text-xs text-blue-100 mt-1">Stories shared</div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 max-w-2xl mx-auto mb-10 border-t border-white/20 border-b border-white/20 py-8">
+            <div>
+              <CountUp value="200+" className="text-3xl font-bold block" />
+              <div className="text-xs text-blue-200 mt-1 uppercase tracking-widest">Stories shared</div>
             </div>
-            <div className="bg-white/10 rounded-xl p-5 border border-white/20">
-              <CountUp value="100+" className="text-2xl font-bold block" />
-              <div className="text-xs text-blue-100 mt-1">Teens connected</div>
+            <div>
+              <CountUp value="100+" className="text-3xl font-bold block" />
+              <div className="text-xs text-blue-200 mt-1 uppercase tracking-widest">Teens connected</div>
             </div>
-            <div className="bg-white/10 rounded-xl p-5 border border-white/20">
-              <CountUp value="100%" className="text-2xl font-bold block" />
-              <div className="text-xs text-blue-100 mt-1">Safe & secure</div>
+            <div>
+              <CountUp value="100%" className="text-3xl font-bold block" />
+              <div className="text-xs text-blue-200 mt-1 uppercase tracking-widest">Safe & secure</div>
             </div>
           </div>
 

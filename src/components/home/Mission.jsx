@@ -22,7 +22,7 @@ const pillars = [
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 lg:py-32 bg-white">
+    <section id="mission" className="py-24 lg:py-32 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,27 +44,26 @@ export default function Mission() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pillars.map((pillar, index) =>
-          <motion.div
-            key={pillar.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group">
-
-              <div className="p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 h-full flex flex-col">
-                <div className="w-8 h-0.5 bg-blue-600 mb-5" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10 border-t border-blue-200 pt-12">
+          {pillars.map((pillar, index) => {
+            const accents = ['text-blue-400', 'text-blue-600', 'text-blue-700', 'text-blue-900'];
+            return (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}>
+                <span className={`text-xs font-semibold tracking-widest uppercase ${accents[index]}`}>0{index + 1}</span>
+                <h3 className="mt-3 text-lg font-semibold text-gray-900 leading-snug">
                   {pillar.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed flex-grow">
+                <p className="mt-2 text-gray-600 text-sm leading-relaxed">
                   {pillar.description}
                 </p>
-              </div>
-            </motion.div>
-          )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>);

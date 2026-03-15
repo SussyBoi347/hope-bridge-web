@@ -18,47 +18,44 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-24 lg:py-32 bg-slate-50">
+    <section id="programs" className="py-24 lg:py-32 bg-blue-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
+          className="max-w-3xl"
         >
-          <span className="text-blue-600 font-medium text-sm tracking-wide uppercase">
+          <span className="text-blue-400 font-medium text-sm tracking-wide uppercase">
             What We Do
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-            Programs designed with <span className="text-blue-700">understanding</span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
+            Programs designed with <span className="text-blue-300">understanding</span>
           </h2>
-          <p className="mt-6 text-lg text-slate-600">
-            Every initiative is built with cultural context in mind, because support 
+          <p className="mt-6 text-lg text-blue-200/70">
+            Every initiative is built with cultural context in mind, because support
             that doesn't understand your world can't truly help.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-6">
+        <div className="mt-16 divide-y divide-blue-800">
           {programs.map((program, index) => (
             <motion.div
               key={program.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative"
+              className="py-8 grid md:grid-cols-3 gap-4 items-baseline"
             >
-              <div className="relative h-full p-8 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-8 h-0.5 bg-blue-600 mb-6" />
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  {program.title}
-                </h3>
-                <p className="text-slate-500 leading-relaxed">
-                  {program.description}
-                </p>
-              </div>
+              <span className="text-xs font-semibold text-blue-400 tracking-widest uppercase">0{index + 1}</span>
+              <h3 className="text-xl font-semibold text-white">
+                {program.title}
+              </h3>
+              <p className="text-blue-200/70 leading-relaxed text-sm">
+                {program.description}
+              </p>
             </motion.div>
           ))}
         </div>

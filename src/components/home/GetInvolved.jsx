@@ -35,7 +35,7 @@ const pathways = [
 export default function GetInvolved() {
 
   return (
-    <section id="get-involved" className="py-24 lg:py-32 bg-white">
+    <section id="get-involved" className="py-24 lg:py-32 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,31 +56,27 @@ export default function GetInvolved() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="divide-y divide-gray-200">
           {pathways.map((pathway, index) => (
             <motion.div
               key={pathway.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
+              className="py-7 grid md:grid-cols-4 gap-4 items-center"
             >
-              <div className="h-full flex flex-col p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-200">
-                <div className="w-8 h-0.5 bg-blue-600 mb-5" />
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                  {pathway.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-                  {pathway.description}
-                </p>
-                <Link to={createPageUrl(pathway.page)} className="block">
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-between text-blue-700 hover:text-blue-800 hover:bg-blue-50 transition-all"
-                  >
-                    {pathway.cta}
-                    <ArrowRight className="w-4 h-4" />
+              <span className="text-xs font-semibold text-blue-600 tracking-widest uppercase">0{index + 1}</span>
+              <h3 className="text-lg font-semibold text-slate-900">
+                {pathway.title}
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed">
+                {pathway.description}
+              </p>
+              <div className="md:text-right">
+                <Link to={createPageUrl(pathway.page)}>
+                  <Button variant="ghost" className="text-blue-700 hover:text-blue-900 hover:bg-blue-50 transition-colors px-0 md:px-4">
+                    {pathway.cta} <ArrowRight className="w-4 h-4 ml-1.5" />
                   </Button>
                 </Link>
               </div>
