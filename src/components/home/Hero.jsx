@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { createPageUrl } from '@/utils';
 
 export default function Hero() {
+  const navigate = useNavigate();
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -124,7 +127,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <Button
-            onClick={() => scrollToSection('contact')}
+            onClick={() => navigate(createPageUrl('GetSupport'))}
             size="lg"
             className="glow-hover group relative bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-10 py-7 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
           >
