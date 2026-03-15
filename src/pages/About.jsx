@@ -115,7 +115,7 @@ export default function About() {
               <h2 className="text-3xl font-bold text-blue-600 mb-6">Our Story</h2>
               <div className="mb-8 rounded-2xl overflow-hidden shadow-md">
                 <img
-                  src="/images/activities/brochure-outreach.jpg"
+                  src="/images/team/brochure-outreach.jpeg"
                   alt="HopeBridge members sharing mental health brochures during outreach"
                   className="w-full h-64 sm:h-80 object-cover"
                   loading="lazy"

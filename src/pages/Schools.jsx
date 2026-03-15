@@ -170,7 +170,7 @@ export default function Schools() {
             >
               <div className="rounded-2xl overflow-hidden shadow-md">
                 <img
-                  src="/images/activities/classroom-activity.jpg"
+                  src="/images/team/classroom-activity.jpeg"
                   alt="Students participating in a HopeBridge classroom workshop"
                   className="w-full h-64 object-cover"
                   loading="lazy"
