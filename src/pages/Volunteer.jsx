@@ -59,7 +59,7 @@ export default function Volunteer() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-6 relative overflow-hidden">
+      <div className="min-h-screen bg-blue-50 flex items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center max-w-md relative z-10">
           <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-blue-600" />
@@ -73,25 +73,26 @@ export default function Volunteer() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-white">
 
       {/* Hero */}
-      <section className="pt-16 pb-14 px-6 lg:px-8 relative z-10">
+      <section className="pt-20 pb-20 px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 leading-tight mb-4">
-              Make a real <span className="text-blue-700">difference</span>
+            <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">Join the Team</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-4">
+              Make a real <span className="text-blue-200">difference</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
               Join a team of passionate students working to break the stigma around mental health in
-              Asian American communities. No experience needed, just empathy and commitment.
+              Asian American communities. No experience needed — just empathy and commitment.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Role selector */}
-      <section className="pb-10 px-6 lg:px-8 relative z-10">
+      <section className="py-10 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-gray-500 text-sm font-medium mb-6 uppercase tracking-wider">Choose a role</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -136,7 +137,7 @@ export default function Volunteer() {
       </section>
 
       {/* Application form */}
-      <section className="pb-20 px-6 lg:px-8 relative z-10">
+      <section className="pb-20 pt-4 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-2xl mx-auto">
           <motion.form
             initial={{ opacity: 0, y: 20 }}

@@ -82,9 +82,9 @@ export default function Partnerships() {
     }`;
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="pt-16 pb-20 px-6 lg:px-8 relative overflow-hidden">
+      <section className="pt-20 pb-20 px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -94,7 +94,7 @@ export default function Partnerships() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
               Partner with <span className="text-blue-700">HopeBridge</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto mb-10">
               Whether you are a school, nonprofit, mental health provider, or community organization,
               we want to work alongside you to support Asian American teens across King County.
             </p>

@@ -13,11 +13,11 @@ const programs = [
   {
     title: 'Workshops & Discussions',
     description: 'Interactive sessions on stress management, identity exploration, family communication, and building resilience, all through a culturally informed lens.',
-    gradient: 'from-indigo-600 to-blue-500',
-    bg: 'bg-indigo-50',
-    border: 'border-indigo-200',
+    gradient: 'from-blue-600 to-blue-500',
+    bg: 'bg-blue-50',
+    border: 'border-blue-200',
     tag: 'Monthly',
-    tagColor: 'bg-indigo-100 text-indigo-700',
+    tagColor: 'bg-blue-100 text-blue-700',
     highlights: ['Identity exploration', 'Stress management', 'Family communication'],
   },
   {
@@ -60,12 +60,12 @@ const pastEvents = [
 
 export default function Programs() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50/30 relative overflow-hidden">
+    <div className="min-h-screen bg-white">
       <PageBackground />
       {/* Static bg accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute -top-20 left-1/4 w-80 h-80 bg-blue-100/40 rounded-full blur-2xl" />
-        <div className="absolute top-1/3 -right-10 w-64 h-64 bg-indigo-100/30 rounded-full blur-2xl" />
+        <div className="absolute top-1/3 -right-10 w-64 h-64 bg-blue-100/30 rounded-full blur-2xl" />
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{ backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 1px)', backgroundSize: '40px 40px' }}

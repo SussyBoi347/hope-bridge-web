@@ -179,8 +179,8 @@ export default function Layout({ children, currentPageName }) {
   const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
   const location = useLocation();
 
-  // Pages with dark hero sections — nav text should be white when at top
-  const darkHeaderPages = ['Home', 'Mission', 'Contact', 'Programs', 'Partnerships'];
+  // Pages with dark blue hero sections — nav should be blue-900 when at top
+  const darkHeaderPages = ['Mission', 'About', 'Resources', 'Volunteer', 'Donate', 'Contact', 'GetSupport'];
   const isDark = darkHeaderPages.includes(currentPageName) && !isScrolled;
 
   useEffect(() => {
@@ -334,7 +334,9 @@ export default function Layout({ children, currentPageName }) {
           className={`transition-all duration-300 ${
             isScrolled
               ? 'bg-white shadow-sm border-b border-gray-100'
-              : 'bg-transparent'
+              : isDark
+                ? 'bg-blue-900 border-b border-blue-800'
+                : 'bg-white border-b border-gray-100'
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

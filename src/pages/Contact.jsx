@@ -144,16 +144,17 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-white">
 
       {/* ── HERO ── */}
-      <section className="pt-16 pb-16 px-6 lg:px-8 relative z-10">
+      <section className="pt-20 pb-20 px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: 'easeOut' }}>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
-              Let's <span className="text-blue-700">connect</span>
+            <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">Get in Touch</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
+              Let's <span className="text-blue-200">connect</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
               Whether you're seeking support, want to partner with us, or have questions about
               our programs, we'd love to hear from you.
             </p>
@@ -162,7 +163,7 @@ export default function Contact() {
       </section>
 
       {/* ── CONTACT FORM ── */}
-      <section className="py-16 px-6 lg:px-8 relative z-10">
+      <section className="py-16 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -287,15 +288,15 @@ export default function Contact() {
       </section>
 
       {/* ── CONTACT INFO ── */}
-      <section className="py-20 px-6 lg:px-8 relative z-10">
+      <section className="py-20 px-6 lg:px-8 bg-blue-950">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-black text-gray-900 text-center mb-12"
+            className="text-4xl font-black text-white text-center mb-12"
           >
-            Get in <span className="text-blue-700">Touch</span>
+            Get in <span className="text-blue-300">Touch</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-6">

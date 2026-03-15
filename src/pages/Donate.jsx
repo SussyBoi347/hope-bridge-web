@@ -37,16 +37,17 @@ const allocation = [
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-white">
 
       {/* ── HERO ── */}
-      <section className="pt-16 pb-20 px-6 lg:px-8 relative z-10">
+      <section className="pt-20 pb-24 px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: 'easeOut' }}>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
-              Support the next generation's <span className="text-blue-700">mental wellness</span>
+            <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">Make an Impact</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
+              Support the next generation's <span className="text-blue-200">mental wellness</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
               Your donation helps us create safe spaces where Asian teens can be heard, understood,
               and supported. Every contribution directly impacts a young person's journey.
             </p>
@@ -55,7 +56,7 @@ export default function DonatePage() {
       </section>
 
       {/* ── IMPACT LEVELS ── */}
-      <section className="py-16 px-6 lg:px-8 relative z-10">
+      <section className="py-16 px-6 lg:px-8 bg-blue-950">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,8 +64,8 @@ export default function DonatePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-black text-gray-900 mb-3">Your <span className="text-shimmer">Impact</span></h2>
-            <p className="text-gray-600 max-w-xl mx-auto">Every gift, no matter the size, creates real change in a teen's life</p>
+            <h2 className="text-4xl font-black text-white mb-3">Your <span className="text-blue-300">Impact</span></h2>
+            <p className="text-blue-200 max-w-xl mx-auto">Every gift, no matter the size, creates real change in a teen's life</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -75,12 +76,12 @@ export default function DonatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group ${impact.bg} border ${impact.border} rounded-lg p-6 hover:shadow-lg transition-all duration-300`}
+                className="group bg-blue-900 border border-blue-700 rounded-lg p-6 hover:shadow-lg hover:border-blue-500 transition-all duration-300"
               >
                 {/* Top accent */}
                 <div className={`h-1 -mx-6 -mt-6 mb-6 rounded-t-2xl bg-gradient-to-r ${impact.gradient}`} />
-                <div className="text-3xl font-black text-gray-900 mb-3">{impact.amount}</div>
-                <p className="text-gray-600 text-sm leading-relaxed">{impact.description}</p>
+                <div className="text-3xl font-black text-white mb-3">{impact.amount}</div>
+                <p className="text-blue-200 text-sm leading-relaxed">{impact.description}</p>
               </motion.div>
             ))}
           </div>
@@ -88,7 +89,7 @@ export default function DonatePage() {
       </section>
 
       {/* ── WHY DONATE ── */}
-      <section className="py-16 px-6 lg:px-8 relative z-10">
+      <section className="py-16 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -175,16 +176,16 @@ export default function DonatePage() {
       </section>
 
       {/* ── FOOTER CTA ── */}
-      <section className="py-14 px-6 lg:px-8 bg-white relative z-10">
+      <section className="py-14 px-6 lg:px-8 bg-blue-950">
         <div className="max-w-xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">Questions About Donating?</h3>
-          <p className="text-gray-600 mb-6">We're here to help. Reach out to learn more about how your contribution will be used.</p>
+          <h3 className="text-2xl font-bold text-white mb-3">Questions About Donating?</h3>
+          <p className="text-blue-200 mb-6">We're here to help. Reach out to learn more about how your contribution will be used.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-600 hover:text-blue-700 font-medium hover:underline transition-colors text-sm">
+            <a href="mailto:hopebridgecommunityservices@gmail.com" className="text-blue-300 hover:text-white font-medium hover:underline transition-colors text-sm">
               hopebridgecommunityservices@gmail.com
             </a>
             <span className="hidden sm:block text-gray-300">|</span>
-            <span className="text-gray-500 text-sm">Sammamish, WA</span>
+            <span className="text-blue-400 text-sm">Sammamish, WA</span>
           </div>
         </div>
       </section>
