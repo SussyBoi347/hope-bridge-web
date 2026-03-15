@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from './utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Heart, Menu, X, Phone, Mail, Instagram, ChevronDown } from 'lucide-react';
 
@@ -246,7 +246,7 @@ export default function Layout({ children, currentPageName }) {
           --color-text-body: #334155;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
           background-color: #f0f6ff;
@@ -469,15 +469,8 @@ export default function Layout({ children, currentPageName }) {
           </div>
 
           {/* Mobile Menu */}
-          <AnimatePresence>
             {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.15, ease: 'easeOut' }}
-                className="lg:hidden bg-white border-t border-gray-100"
-              >
+              <div className="lg:hidden bg-white border-t border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
                   {navLinks.map((link) => {
                     const isActive = currentPageName === link.page ||
@@ -560,9 +553,8 @@ export default function Layout({ children, currentPageName }) {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
         </header>
       </div>
 
