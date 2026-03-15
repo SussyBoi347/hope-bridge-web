@@ -64,29 +64,28 @@ export default function Programs() {
       <PageBackground />
       {/* Static bg accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-20 left-1/4 w-80 h-80 bg-blue-100/40 rounded-full blur-2xl" />
-        <div className="absolute top-1/3 -right-10 w-64 h-64 bg-blue-100/30 rounded-full blur-2xl" />
-        <div
+
+<div
           className="absolute inset-0 opacity-[0.05]"
           style={{ backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 1px)', backgroundSize: '40px 40px' }}
         />
       </div>
 
       {/* ── HERO ── */}
-      <section className="pt-16 pb-20 px-6 lg:px-8 relative z-10">
+      <section className="pt-20 pb-20 px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
               Programs designed with{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="text-blue-200">
                 cultural understanding
               </span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
               Created specifically for Asian American teens navigating the unique challenges
               of identity, family expectations, and mental wellness.
             </p>
@@ -95,7 +94,7 @@ export default function Programs() {
       </section>
 
       {/* ── PROGRAMS GRID ── */}
-      <section className="py-16 px-6 lg:px-8 relative z-10">
+      <section className="py-16 px-6 lg:px-8 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {programs.map((program, index) => (
@@ -228,7 +227,7 @@ export default function Programs() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-6 lg:px-8 bg-white relative z-10">
+      <section className="py-20 px-6 lg:px-8 bg-blue-950">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

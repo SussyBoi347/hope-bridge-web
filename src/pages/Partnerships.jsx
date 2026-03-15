@@ -148,7 +148,7 @@ export default function Partnerships() {
       </section>
 
       {/* Partnership Inquiry Form */}
-      <section id="partnership-form" className="py-20 px-6 lg:px-8 bg-white scroll-mt-20">
+      <section id="partnership-form" className="py-20 px-6 lg:px-8 bg-blue-50 scroll-mt-20">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

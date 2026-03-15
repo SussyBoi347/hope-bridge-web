@@ -59,14 +59,14 @@ export default function Volunteer() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-blue-50 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-blue-950 flex items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center max-w-md relative z-10">
           <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-blue-600" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Application Received!</h2>
-          <p className="text-gray-600 mb-2">Thank you for wanting to volunteer with HopeBridge.</p>
-          <p className="text-gray-500 text-sm">We will review your application and get back to you within 3-5 business days with next steps.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Application Received!</h2>
+          <p className="text-blue-200 mb-2">Thank you for wanting to volunteer with HopeBridge.</p>
+          <p className="text-blue-300 text-sm">We will review your application and get back to you within 3-5 business days with next steps.</p>
         </motion.div>
       </div>
     );

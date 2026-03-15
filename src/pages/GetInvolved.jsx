@@ -124,7 +124,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ── IMPACT STATS ── */}
-      <section className="py-10 px-6 lg:px-8 bg-white border-b border-gray-100">
+      <section className="py-10 px-6 lg:px-8 bg-blue-50 border-b border-blue-100">
         <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6">
           {impactStats.map((stat, i) => (
             <motion.div
@@ -142,7 +142,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ── VOLUNTEER ── */}
-      <section className="py-16 px-6 lg:px-8" id="volunteer">
+      <section className="py-16 px-6 lg:px-8 bg-blue-50" id="volunteer">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -245,7 +245,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ── SPREAD THE WORD ── */}
-      <section className="py-16 px-6 lg:px-8" id="spread">
+      <section className="py-16 px-6 lg:px-8 bg-blue-50" id="spread">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -291,7 +291,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ── PARTNER ── */}
-      <section className="py-16 px-6 lg:px-8 bg-white" id="partner">
+      <section className="py-20 px-6 lg:px-8 bg-blue-950" id="partner">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <motion.div
