@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const photos = [
   {
-    src: '/images/community/community-poster-1.jpg',
+    src: '/images/community/workshop-presentation.jpeg',
     alt: 'HopeBridge team members presenting their research on a tri-fold poster board filled with handwritten notes from teens',
     span: 'row-span-2',
   },
