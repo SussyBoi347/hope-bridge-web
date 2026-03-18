@@ -124,7 +124,7 @@ export default function About() {
                 className="rounded-xl overflow-hidden shadow-md"
               >
                 <img
-                  src="/images/community/community-workshop.jpg"
+                  src="/images/community/classroom-activity.jpeg"
                   alt="Teens participating in a writing workshop"
                   loading="lazy"
                   className="w-full h-48 object-cover"

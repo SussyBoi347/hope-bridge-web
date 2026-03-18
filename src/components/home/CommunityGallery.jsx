@@ -13,7 +13,7 @@ const photos = [
     span: '',
   },
   {
-    src: '/images/community/community-workshop.jpg',
+    src: '/images/community/classroom-activity.jpeg',
     alt: 'Teens participating in a Your Words Are the Work writing workshop around a table',
     span: '',
   },
