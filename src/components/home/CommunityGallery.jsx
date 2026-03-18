@@ -8,7 +8,7 @@ const photos = [
     span: 'row-span-2',
   },
   {
-    src: '/images/community/community-brochures.jpg',
+    src: '/images/community/brochure-outreach.jpeg',
     alt: 'Students holding HopeBridge brochures on Asian teen mental health awareness in the classroom',
     span: '',
   },
