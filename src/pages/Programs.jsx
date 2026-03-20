@@ -242,11 +242,11 @@ export default function Programs() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { src: '/images/events/writing-workshop-1.jpg', alt: 'Student writing during a workshop activity' },
-              { src: '/images/events/group-discussion.jpg', alt: 'Students collaborating during a group discussion' },
-              { src: '/images/events/presentation-prompts.jpg', alt: 'Workshop presentation with writing prompts on screen' },
-              { src: '/images/events/writing-workshop-2.jpg', alt: 'Student focused on a writing exercise' },
-              { src: '/images/events/story-wall.jpg', alt: 'Student pinning written stories to a shared story wall' },
+              { src: '/images/community/writing-workshop-1.jpg', alt: 'Student writing during a workshop activity' },
+              { src: '/images/community/group-discussion.jpg', alt: 'Students collaborating during a group discussion' },
+              { src: '/images/community/presentation-prompts.jpg', alt: 'Workshop presentation with writing prompts on screen' },
+              { src: '/images/community/writing-workshop-2.jpg', alt: 'Student focused on a writing exercise' },
+              { src: '/images/community/story-wall.jpg', alt: 'Student pinning written stories to a shared story wall' },
             ].map((photo, index) => (
               <motion.div
                 key={index}
