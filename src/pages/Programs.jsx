@@ -160,21 +160,18 @@ export default function Programs() {
             </div>
           </motion.div>
 
-          {/* Photo grid - 2 rows of 6 */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          {/* Photo grid - 3x3 */}
+          <div className="grid grid-cols-3 gap-3">
             {[
               '/images/community/dropin-01.jpg',
               '/images/community/dropin-02.jpg',
               '/images/community/dropin-03.jpg',
-              '/images/community/dropin-04.jpg',
-              '/images/community/dropin-05.jpg',
-              '/images/community/dropin-06.jpg',
               '/images/community/dropin-07.jpg',
+              '/images/community/dropin-04.jpg',
               '/images/community/dropin-08.jpg',
               '/images/community/dropin-09.jpg',
-              '/images/community/dropin-10.jpg',
               '/images/community/dropin-11.jpg',
-              '/images/community/dropin-12.jpg',
+              '/images/community/dropin-06.jpg',
             ].map((src, index) => (
               <motion.div
                 key={index}
