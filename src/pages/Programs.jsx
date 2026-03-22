@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import {
   ArrowRight,
-  Calendar, MapPin, Image as ImageIcon, Users,
+  Calendar, MapPin, Image as ImageIcon, Users, Heart,
 } from 'lucide-react';
 import PageBackground from '../components/PageBackground';
 import { Link } from 'react-router-dom';
@@ -184,6 +184,71 @@ export default function Programs() {
                   <img
                     src={src}
                     alt={`Club Drop-In session ${index + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ── MENTAL HEALTH AWARENESS BOOTHS ── */}
+      <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 relative z-10 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Heart className="w-8 h-8 text-blue-300" />
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30">
+                Community Events
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+              Mental Health Awareness Booths
+            </h2>
+            <div className="max-w-3xl">
+              <p className="text-white/80 text-lg leading-relaxed mb-4">
+                We set up <span className="text-blue-300 font-bold">2 Mental Health Awareness Booths</span> at Woodinville High School and at Skyline High School's Holiday Bazaar in December 2025. Each booth featured a community story wall where students could share experiences about cultural expectations, academic pressure, and social stress.
+              </p>
+              <p className="text-white/70 text-base leading-relaxed">
+                Visitors grabbed a lollipop, took our short survey on Asian teen mental health, and had the chance to donate to support future HopeBridge programs. These booths marked HopeBridge's first major in-person events and helped us collect real stories and data from the community while raising awareness about the unique mental health challenges facing Asian American teens.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Photo grid - 3x3 */}
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              '/images/community/booth-01.jpg',
+              '/images/community/booth-02.jpg',
+              '/images/community/booth-03.jpg',
+              '/images/community/booth-04.jpg',
+              '/images/community/booth-05.jpg',
+              '/images/community/booth-06.jpg',
+              '/images/community/booth-07.jpg',
+              '/images/community/booth-08.jpg',
+              '/images/community/booth-09.jpg',
+            ].map((src, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
+              >
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300">
+                  <img
+                    src={src}
+                    alt={`Mental Health Awareness Booth ${index + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
