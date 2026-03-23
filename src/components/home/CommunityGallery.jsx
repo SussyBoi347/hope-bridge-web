@@ -3,30 +3,54 @@ import { motion } from 'framer-motion';
 
 const photos = [
   {
-    src: '/images/community/community-poster-1.jpg',
-    alt: 'HopeBridge team members presenting their research on a tri-fold poster board filled with handwritten notes from teens',
+    src: '/images/community/gallery-01.jpg',
+    alt: 'Student pinning their story to the community wall at a HopeBridge booth',
     span: 'row-span-2',
   },
   {
-    src: '/images/community/community-brochures.jpg',
-    alt: 'Students holding HopeBridge brochures on Asian teen mental health awareness in the classroom',
-    span: '',
-    objectPosition: 'top',
-  },
-  {
-    src: '/images/community/community-workshop.jpg',
-    alt: 'Teens participating in a Your Words Are the Work writing workshop around a table',
+    src: '/images/community/gallery-02.jpg',
+    alt: 'Students engaging with the story board at a HopeBridge event',
     span: '',
   },
   {
-    src: '/images/community/community-classroom.jpg',
-    alt: 'A full classroom of students engaged in a HopeBridge community awareness session',
+    src: '/images/community/gallery-03.jpg',
+    alt: 'Student reading stories pinned to the HopeBridge community board',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-04.jpg',
+    alt: 'Wide view of a HopeBridge classroom presentation with students and story prompts on screen',
     span: 'col-span-2',
   },
   {
-    src: '/images/community/community-poster-2.jpg',
-    alt: 'Three HopeBridge team members standing proudly with their community project display board',
+    src: '/images/community/gallery-05.jpg',
+    alt: 'Students seated in classroom during a HopeBridge Key Club drop-in session',
     span: '',
+  },
+  {
+    src: '/images/community/gallery-06.jpg',
+    alt: 'Student writing their story at a desk during a HopeBridge workshop',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-07.jpg',
+    alt: 'HopeBridge team member helping students at a drop-in session',
+    span: 'row-span-2',
+  },
+  {
+    src: '/images/community/gallery-08.jpg',
+    alt: 'Students at a table with HopeBridge materials during a community event',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-09.jpg',
+    alt: 'Group of students participating in a HopeBridge activity',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-10.jpg',
+    alt: 'Students gathered together at a HopeBridge community event',
+    span: 'col-span-2',
   },
 ];
 
