@@ -36,7 +36,7 @@ export default function StorySection() {
             </div>
             <div className="space-y-8">
               <div className="border-l-2 border-white/40 pl-6">
-                <p className="text-3xl font-black text-white mb-1">200+</p>
+                <p className="text-3xl font-black text-white mb-1">500+</p>
                 <p className="text-blue-100">Stories shared by teens across King County</p>
               </div>
               <div className="border-l-2 border-white/30 pl-6">
