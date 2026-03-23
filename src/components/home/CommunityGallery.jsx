@@ -52,6 +52,46 @@ const photos = [
     alt: 'Students gathered together at a HopeBridge community event',
     span: 'col-span-2',
   },
+  {
+    src: '/images/community/gallery-11.jpg',
+    alt: 'Close-up of a student pinning their handwritten card to the story wall',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-12.jpg',
+    alt: 'Students gathered around the HopeBridge booth reading community stories',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-13.jpg',
+    alt: 'Student writing their personal story at the HopeBridge booth',
+    span: 'row-span-2',
+  },
+  {
+    src: '/images/community/gallery-14.jpg',
+    alt: 'Student filling out a story card at their desk during a drop-in',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-15.jpg',
+    alt: 'Group of students at a classroom drop-in listening to the presentation',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-16.jpg',
+    alt: 'Wide shot of a completed story wall filled with student submissions',
+    span: 'col-span-2',
+  },
+  {
+    src: '/images/community/gallery-17.jpg',
+    alt: 'Students collaborating at a table during a HopeBridge workshop session',
+    span: '',
+  },
+  {
+    src: '/images/community/gallery-18.jpg',
+    alt: 'Energetic signup table scene at a HopeBridge library drop-in event',
+    span: '',
+  },
 ];
 
 export default function CommunityGallery() {
@@ -83,7 +123,7 @@ export default function CommunityGallery() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              transition={{ duration: 0.5, delay: index * 0.04 }}
               className={`relative overflow-hidden rounded-2xl group ${photo.span}`}
             >
               <img
