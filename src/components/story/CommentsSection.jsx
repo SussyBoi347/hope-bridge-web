@@ -1,33 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Send, Loader2 } from 'lucide-react';
+
+const SUPABASE_URL = (import.meta.env.VITE_SUPABASE_URL || '').replace(/\/+$/, '');
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+
+const supaFetch = async (path, options = {}) => {
+  const { method = 'GET', body } = options;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1${path}`, {
+    method,
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      'Content-Type': 'application/json',
+      ...(method === 'POST' ? { Prefer: 'return=representation' } : {}),
+    },
+    ...(body ? { body: JSON.stringify(body) } : {}),
+  });
+  const text = await res.text();
+  return text ? JSON.parse(text) : null;
+};
 
 export default function CommentsSection({ storyId, commentsCount }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [authorName, setAuthorName] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load comments from Supabase on mount
+  useEffect(() => {
+    const loadComments = async () => {
+      try {
+        const data = await supaFetch(
+          `/story_comments?story_id=eq.${storyId}&order=created_date.asc`
+        );
+        if (Array.isArray(data)) {
+          setComments(data);
+        }
+      } catch (err) {
+        console.error('Failed to load comments:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    if (storyId) loadComments();
+  }, [storyId]);
 
   const handleSubmitComment = async () => {
     if (!newComment.trim() || !authorName.trim()) return;
-
     setIsSubmitting(true);
-    // Simulate a brief delay for UX
-    await new Promise((r) => setTimeout(r, 500));
-
-    setComments((prev) => [
-      ...prev,
-      {
-        id: Date.now(),
-        author_name: authorName.trim(),
-        content: newComment.trim(),
-      },
-    ]);
-    setNewComment('');
-    setAuthorName('');
-    setIsSubmitting(false);
+    try {
+      const data = await supaFetch('/story_comments', {
+        method: 'POST',
+        body: {
+          story_id: storyId,
+          author_name: authorName.trim(),
+          content: newComment.trim(),
+        },
+      });
+      if (Array.isArray(data) && data.length > 0) {
+        setComments((prev) => [...prev, data[0]]);
+      }
+      setNewComment('');
+    } catch (err) {
+      console.error('Failed to post comment:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -62,11 +104,15 @@ export default function CommentsSection({ storyId, commentsCount }) {
             {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
           </Button>
         </div>
-        <p className="text-xs text-gray-500">Comments are visible to you during this session</p>
       </div>
 
       {/* Comments */}
-      {comments.length > 0 ? (
+      {isLoading ? (
+        <div className="flex items-center gap-2 text-gray-500 text-sm">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          Loading comments...
+        </div>
+      ) : comments.length > 0 ? (
         <div className="space-y-3 mt-4">
           {comments.map((comment) => (
             <motion.div
