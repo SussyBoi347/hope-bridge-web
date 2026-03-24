@@ -78,18 +78,7 @@ export default function StoryCard({ story, onLike, isLiked }) {
 
       {/* Content */}
       <div className="relative px-6 py-5 space-y-4">
-        {/* AI Summary */}
-        {story.summary && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-            <div className="flex items-start gap-2">
-              <Sparkles className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div className="min-w-0">
-                <p className="text-xs text-blue-600 font-medium mb-1">AI Summary</p>
-                <p className="text-sm text-gray-700 leading-relaxed break-words">{story.summary}</p>
-              </div>
-            </div>
-          </div>
-        )}
+
 
         <div className="relative group">
           <p className="text-gray-700 leading-relaxed line-clamp-4 break-words">{story.content}</p>
@@ -195,18 +184,7 @@ export default function StoryCard({ story, onLike, isLiked }) {
 
               {/* Content */}
               <div className="p-6 space-y-6">
-                {/* AI Summary */}
-                {story.summary && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <div className="flex items-start gap-2">
-                      <Sparkles className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <div className="min-w-0">
-                        <p className="text-sm text-blue-600 font-medium mb-2">AI Summary</p>
-                        <p className="text-sm text-gray-700 leading-relaxed break-words">{story.summary}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
+
 
                 {/* Full Story Text */}
                 <div className="prose prose-blue max-w-none">
