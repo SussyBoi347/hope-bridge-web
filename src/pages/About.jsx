@@ -5,7 +5,7 @@ import { Mail } from 'lucide-react';
 const teamMembers = [
   {
     name: 'Rishi Ravikumar',
-    role: 'Operations Lead',
+    role: 'Cofounder',
     email: 'rishirkumar@outlook.com',
     initials: 'RR',
     color: 'from-blue-700 to-blue-600',
@@ -14,7 +14,7 @@ const teamMembers = [
   },
   {
     name: 'Arjun Kuchi',
-    role: 'Administrative Lead',
+    role: 'Cofounder',
     email: 'stingingnettle1024@gmail.com',
     initials: 'AK',
     color: 'from-blue-600 to-blue-500',
@@ -23,7 +23,7 @@ const teamMembers = [
   },
   {
     name: 'Anish Pentyala',
-    role: 'Field Work Lead',
+    role: 'Cofounder',
     email: 'Anish.n.pentyala@gmail.com',
     initials: 'AP',
     color: 'from-blue-500 to-blue-700',
@@ -32,7 +32,7 @@ const teamMembers = [
   },
   {
     name: 'Ishaan Kejriwal',
-    role: 'Software Development Lead',
+    role: 'Cofounder',
     email: 'ishaankej@outlook.com',
     initials: 'IK',
     color: 'from-blue-600 to-blue-500',
@@ -41,7 +41,7 @@ const teamMembers = [
   },
   {
     name: 'Arnav Malhotra',
-    role: 'Social Media Lead',
+    role: 'Cofounder',
     email: 'reacharnavmalhotra@gmail.com',
     initials: 'AM',
     color: 'from-blue-500 to-blue-600',
@@ -50,7 +50,7 @@ const teamMembers = [
   },
   {
     name: 'Samvid Prabhu',
-    role: 'Research Lead',
+    role: 'Cofounder',
     email: 'samvid.s.prabhu@gmail.com',
     initials: 'SP',
     color: 'from-blue-500 to-blue-600',
