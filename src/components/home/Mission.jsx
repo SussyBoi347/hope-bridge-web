@@ -18,7 +18,7 @@ export default function Mission() {
             <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">understands your world</span>
           </h2>
           <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-            Hope Bridge exists because too many Asian teens carry impossible pressure alone. We build support rooted in cultural understanding — because generic help is not enough.
+            Hope Bridge exists because too many Asian teens carry impossible pressure alone. We build support rooted in cultural understanding - because generic help is not enough.
           </p>
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

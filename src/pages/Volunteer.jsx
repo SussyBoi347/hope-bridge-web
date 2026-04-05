@@ -85,7 +85,7 @@ export default function Volunteer() {
             </h1>
             <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
               Join a team of passionate students working to break the stigma around mental health in
-              Asian American communities. No experience needed — just empathy and commitment.
+              Asian American communities. No experience needed - just empathy and commitment.
             </p>
           </motion.div>
         </div>

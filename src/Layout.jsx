@@ -179,7 +179,7 @@ export default function Layout({ children, currentPageName }) {
   const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
   const location = useLocation();
 
-  // Navbar is always white — never dark
+  // Navbar is always white - never dark
   const isDark = false;
 
   useEffect(() => {
