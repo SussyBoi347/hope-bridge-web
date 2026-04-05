@@ -23,7 +23,7 @@ const programs = [
   {
     num: "03",
     title: "Resource Hub",
-    description: "Curated resources for teens, parents, and educators - guides on mental health conversations across cultural contexts.",
+    description: "Curated resources for teens, parents, and educators, guides on mental health conversations across cultural contexts.",
     accent: "bg-blue-200",
     tag: "Always Free",
   },

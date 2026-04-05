@@ -76,7 +76,7 @@ export default function About() {
               About <span className="text-blue-200">HopeBridge</span>
             </h1>
             <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
-              Mental health support built by Asian teens, for Asian teens - because we have lived it.
+              Mental health support built by Asian teens, for Asian teens, because we have lived it.
             </p>
           </motion.div>
         </div>
@@ -137,7 +137,7 @@ export default function About() {
                 These pressures often come from good intentions. Many parents want stability and opportunity for their children, especially if they sacrificed a lot to get here. At the same time, teens are trying to figure out who they are, what success means to them, and how to handle the stress that comes with it.
               </p>
               <p className="text-lg">
-                That&apos;s why we founded Hope Bridge - to open new experiences and conversations.
+                That&apos;s why we founded Hope Bridge to open new experiences and conversations.
               </p>
               <p className="text-lg">
                 We want to create spaces where Asian American teens feel comfortable sharing their stories, reflecting on identity, and thinking about success in healthier ways. We hope to encourage more understanding between teens and families so these conversations do not have to feel so difficult.

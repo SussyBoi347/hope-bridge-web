@@ -14,10 +14,10 @@ export default function StorySection() {
               Your story matters here
             </h2>
             <p className="text-blue-100 text-lg leading-relaxed mb-4">
-              Over 200 teens have shared their stories on HopeBridge - about pressure from parents, feeling out of place, navigating identity between two cultures.
+              Over 200 teens have shared their stories on HopeBridge, about pressure from parents, feeling out of place, navigating identity between two cultures.
             </p>
             <p className="text-blue-100 leading-relaxed mb-10">
-              Reading someone else's words and seeing yourself in them - that's what community looks like. You are not alone.
+              Reading someone else's words and seeing yourself in them. That's what community looks like. You are not alone.
             </p>
             <Link to={createPageUrl('StoryProject')}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition-colors">

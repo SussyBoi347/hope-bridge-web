@@ -49,7 +49,7 @@ export default function Resources() {
               Support is <span className="text-blue-200">always here</span>
             </h1>
             <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
-              Whether you need immediate help or long-term support, these resources are here for you -
+              Whether you need immediate help or long-term support, these resources are here for you.
               many specifically for Asian American teens.
             </p>
           </motion.div>

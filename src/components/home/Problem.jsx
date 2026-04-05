@@ -21,7 +21,7 @@ export default function Problem() {
                 Cultural expectations around success and emotional restraint create environments where asking for help feels impossible.
               </p>
               <p className="text-blue-200 leading-relaxed">
-                Hope Bridge is building new pathways - support that speaks your language, understands your family, and meets you where you are.
+                Hope Bridge is building new pathways, support that speaks your language, understands your family, and meets you where you are.
               </p>
             </div>
           </motion.div>

@@ -87,7 +87,7 @@ export default function Contact() {
             <span className="bg-gradient-to-r from-blue-200 to-blue-300 bg-clip-text text-transparent">conversation</span>
           </h2>
           <p className="mt-4 text-blue-200 text-lg max-w-2xl mx-auto">
-            Whether you're a teen, parent, school, or supporter - we'd love to hear from you.
+            Whether you're a teen, parent, school, or supporter, we'd love to hear from you.
           </p>
         </motion.div>
 

@@ -29,7 +29,7 @@ export default function Partnerships() {
               <span className="text-blue-200">Hope Bridge</span>
             </h2>
             <p className="text-blue-100 text-lg leading-relaxed mb-8">
-              Schools play a critical role in supporting student mental health. Hope Bridge works alongside educators to create environments where every student - especially those facing cultural pressures - feels supported.
+              Schools play a critical role in supporting student mental health. Hope Bridge works alongside educators to create environments where every student, especially those facing cultural pressures, feels supported.
             </p>
             <Link to={createPageUrl('Partnerships')}>
               <Button className="bg-white text-blue-700 hover:bg-blue-50 font-bold rounded-xl px-7 py-3 shadow-xl shadow-blue-900/20 transition-all duration-200">
