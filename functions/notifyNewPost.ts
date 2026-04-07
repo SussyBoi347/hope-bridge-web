@@ -1,7 +1,7 @@
 import { Resend } from 'npm:resend@4.0.0';
 
 const TO_EMAIL = Deno.env.get('CONTACT_TO_EMAIL') || 'hopebridgecommunityservices@gmail.com';
-const FROM_EMAIL = Deno.env.get('RESEND_FROM_EMAIL') || 'onboarding@resend.dev';
+const FROM_EMAIL = Deno.env.get('RESEND_FROM_EMAIL') || 'noreply@hopebridgeservices.org';
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 
