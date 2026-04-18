@@ -1,51 +1,50 @@
-# HopeBridge 🌉
+# HopeBridge
 
-A web platform for HopeBridge, a youth-led nonprofit supporting teen mental 
-health in King County, WA. Built and maintained by high schoolers.
+Website for [HopeBridge](https://hopebridgeservices.vercel.app) — a youth-led nonprofit focused on teen mental health support in King County, WA.
 
-**Live site:** [hopebridgeservices.org](https://hopebridgeservices.vercel.app)
+**Live site:** [hopebridgeservices.vercel.app](https://hopebridgeservices.vercel.app)
 
----
+## About
 
-## what this is
+HopeBridge runs school outreach, community events, and peer support programs for teens in King County. I co-founded the organization and built this site from scratch to give us a real online presence and a way to collect and share community stories.
 
-HopeBridge runs mental health awareness booths, club drop-ins, and a Story 
-Project where teens share anonymous experiences. This repo is the full frontend 
-for that platform, including story submission, a community gallery, and program 
-info.
+The site includes:
+- **Community story submissions** — teens can share their mental health experiences; submissions are stored in Supabase and reviewed before publishing
+- **Photo gallery** from past events
+- **Partners section** highlighting organizations we’ve worked with
+- **Mobile-responsive design** throughout
 
-## stack
+## Tech stack
 
-React · Supabase · Vercel · Tailwind CSS
+| | |
+|---|---|
+| Frontend | React, Vite |
+| Backend/DB | Supabase (Postgres + Storage) |
+| Hosting | Vercel |
 
-## features
-
-- Story submission with media upload
-- Community gallery with 18+ photos
-- Comments section (Supabase-backed, persistent)
-- Programs page with past + current initiatives
-- Mobile responsive
-
-## running locally
+## Local setup
 
 ```bash
-git clone https://github.com/anishpentyala/hopebridge
-cd hopebridge
+git clone https://github.com/anishpentyala/hope-bridge-web
+cd hope-bridge-web
 npm install
-cp .env.example .env.local  # fill in your Supabase keys
+```
+
+Create a `.env` file in the root:
+
+```
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+You can find these in your Supabase project under **Settings → API**.
+
+```bash
 npm run dev
 ```
 
-## env variables
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+Opens at `http://localhost:5173`.
 
-## about
+## Deployment
 
-Co-founded by Anish Pentyala,  Ishaan Kejriwal, Arnav Malhotra, Rishi Ravikumar, Arjun Kuchi, and Samvid Prabhu. HopeBridge started as a school booth series 
-collecting community stories and has grown into a registered nonprofit with 
-a live platform and multi-school outreach network.
-
-[hopebridgeservices.org](https://hopebridgeservices.vercel.app) · 
-[Instagram](https://instagram.com/hopebridge) · 
-[Contact](mailto:hopebridge@email.com)
+Deployed on Vercel. Any push to `main` triggers a new deploy. Add the same env vars in **Vercel → Project Settings → Environment Variables**.
